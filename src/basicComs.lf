@@ -1,0 +1,48 @@
+target C {
+    platform: {
+      name: "rp2040",
+      board: "pololu_3pi_2040_robot"
+    },
+    threading: false,
+  }
+  
+  preamble {=
+    #include <stdio.h>
+    #include <pico/stdlib.h>
+    #include <hardware/gpio.h>
+    #include <hardware/structs/uart.h>
+    #include <hardware/regs/dreq.h>
+
+    #define BAUD_RATE 9600
+    #define UART_TX_PIN 28
+    #define UART_RX_PIN 29
+  =}
+
+main reactor {
+    timer t(0, 250 ms);
+    state led_on:bool = false;
+    // // Set up a new SoftwareSerial object
+    reaction(startup) {=
+     //Set up UART and set pins
+        uart_init(uart0, BAUD_RATE);
+        gpio_init(UART_TX_PIN);
+        gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+        gpio_init(UART_RX_PIN);
+        gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+
+        gpio_init(PICO_DEFAULT_LED_PIN);
+        gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
+
+        const char* setNameCmd = "AT+NAMEPololu";
+        for (const char* c = setNameCmd; *c != '\0'; ++c) {
+            uart_putc(uart0, *c); // Send each character of the command
+        }
+        uart_putc(uart0, '\r'); // Carriage return to execute the command
+    =}
+
+    reaction(t) {=
+        self->led_on = !self->led_on;
+        printf("LED State: %b\n", self->led_on);
+        gpio_put(PICO_DEFAULT_LED_PIN, !self->led_on);
+    =}
+}
