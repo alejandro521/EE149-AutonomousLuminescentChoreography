@@ -18,9 +18,10 @@ void _basiccoms_mainreaction_function_0(void* instance_args) {
        gpio_init(PICO_DEFAULT_LED_PIN);
        gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
     
-       const char* setNameCmd = "AT+NAMEPololu";
+       const char* setNameCmd = "AT+NAME=Pololu";
        for (const char* c = setNameCmd; *c != '\0'; ++c) {
            uart_putc(uart0, *c); // Send each character of the command
+           printf("char in send: %c", c);
        }
        uart_putc(uart0, '\r'); // Carriage return to execute the command
 }
@@ -29,10 +30,21 @@ void _basiccoms_mainreaction_function_0(void* instance_args) {
 void _basiccoms_mainreaction_function_1(void* instance_args) {
     _basiccoms_main_main_self_t* self = (_basiccoms_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     
-    #line 44 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 45 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->led_on = !self->led_on;
-    printf("LED State: %b\n", self->led_on);
+    printf("LED State: %b/n", self->led_on);
     gpio_put(PICO_DEFAULT_LED_PIN, !self->led_on);
+    char tempStr[10];
+    int i = 0;
+    while (1) {
+        char c = uart_getc(uart0); // read each character of the command
+        printf("char: %c", c);
+        if (c != '\n') {
+          tempStr[i] = c;
+        }
+        i += 1;
+    }
+    printf("Check connection and read name: %s\n", tempStr);
 }
 #include "include/api/set_undef.h"
 _basiccoms_main_main_self_t* new__basiccoms_main() {
@@ -51,19 +63,19 @@ _basiccoms_main_main_self_t* new__basiccoms_main() {
     self->_lf__reaction_0.name = "?";
     #line 25 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__reaction_0.mode = NULL;
-    #line 43 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 44 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__reaction_1.number = 1;
-    #line 43 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 44 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__reaction_1.function = _basiccoms_mainreaction_function_1;
-    #line 43 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 44 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__reaction_1.self = self;
-    #line 43 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 44 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__reaction_1.deadline_violation_handler = NULL;
-    #line 43 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 44 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__reaction_1.STP_handler = NULL;
-    #line 43 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 44 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__reaction_1.name = "?";
-    #line 43 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 44 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__reaction_1.mode = NULL;
     #line 22 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
     self->_lf__t.last = NULL;
