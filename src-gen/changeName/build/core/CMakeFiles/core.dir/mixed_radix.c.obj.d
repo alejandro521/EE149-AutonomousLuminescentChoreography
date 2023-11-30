@@ -1,5 +1,5 @@
 core/CMakeFiles/core.dir/mixed_radix.c.obj: \
- /home/foobar/finalproject/src-gen/changeName/core/mixed_radix.c \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/mixed_radix.c \
  /usr/include/newlib/assert.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -10,4 +10,4 @@ core/CMakeFiles/core.dir/mixed_radix.c.obj: \
  /usr/include/newlib/machine/_default_types.h \
  /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h \
  /usr/include/newlib/machine/stdlib.h /usr/include/newlib/alloca.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/mixed_radix.h
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/mixed_radix.h

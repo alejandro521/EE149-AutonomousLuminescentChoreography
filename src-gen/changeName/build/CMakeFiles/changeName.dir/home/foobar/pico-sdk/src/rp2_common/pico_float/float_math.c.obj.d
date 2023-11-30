@@ -17,9 +17,9 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_m
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
  /usr/include/newlib/assert.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
- /home/foobar/finalproject/src-gen/changeName/build/generated/pico_base/pico/version.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/generated/pico_base/pico/version.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/config.h \
- /home/foobar/finalproject/src-gen/changeName/build/generated/pico_base/pico/config_autogen.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/generated/pico_base/pico/config_autogen.h \
  /home/foobar/pico-sdk/src/boards/include/boards/pololu_3pi_2040_robot.h \
  /home/foobar/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \

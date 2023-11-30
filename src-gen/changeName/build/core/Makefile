@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/foobar/finalproject/src-gen/changeName
+CMAKE_SOURCE_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/foobar/finalproject/src-gen/changeName/build
+CMAKE_BINARY_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/finalproject/src-gen/changeName/build/CMakeFiles /home/foobar/finalproject/src-gen/changeName/build/core//CMakeFiles/progress.marks
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/finalproject/src-gen/changeName/build/CMakeFiles 0
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/core//CMakeFiles/progress.marks
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/clean
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/preinstall
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/preinstall
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 core/CMakeFiles/core.dir/rule:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/CMakeFiles/core.dir/rule
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/CMakeFiles/core.dir/rule
 .PHONY : core/CMakeFiles/core.dir/rule
 
 # Convenience name for target.
@@ -172,7 +172,7 @@ core: core/CMakeFiles/core.dir/rule
 
 # fast build rule for target.
 core/fast:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/build
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/build
 .PHONY : core/fast
 
 environment.obj: environment.c.obj
@@ -180,7 +180,7 @@ environment.obj: environment.c.obj
 
 # target to build an object file
 environment.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/environment.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/environment.c.obj
 .PHONY : environment.c.obj
 
 environment.i: environment.c.i
@@ -188,7 +188,7 @@ environment.i: environment.c.i
 
 # target to preprocess a source file
 environment.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/environment.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/environment.c.i
 .PHONY : environment.c.i
 
 environment.s: environment.c.s
@@ -196,7 +196,7 @@ environment.s: environment.c.s
 
 # target to generate assembly for a file
 environment.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/environment.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/environment.c.s
 .PHONY : environment.c.s
 
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.obj: home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
@@ -204,7 +204,7 @@ home/foobar/pico-sdk/src/common/pico_sync/critical_section.obj: home/foobar/pico
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
 
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.i: home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i
@@ -212,7 +212,7 @@ home/foobar/pico-sdk/src/common/pico_sync/critical_section.i: home/foobar/pico-s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i
 
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.s: home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s
@@ -220,7 +220,7 @@ home/foobar/pico-sdk/src/common/pico_sync/critical_section.s: home/foobar/pico-s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s
 
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.obj: home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
@@ -228,7 +228,7 @@ home/foobar/pico-sdk/src/common/pico_sync/lock_core.obj: home/foobar/pico-sdk/sr
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
 
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.i: home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i
@@ -236,7 +236,7 @@ home/foobar/pico-sdk/src/common/pico_sync/lock_core.i: home/foobar/pico-sdk/src/
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i
 
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.s: home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s
@@ -244,7 +244,7 @@ home/foobar/pico-sdk/src/common/pico_sync/lock_core.s: home/foobar/pico-sdk/src/
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s
 
 home/foobar/pico-sdk/src/common/pico_sync/mutex.obj: home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
@@ -252,7 +252,7 @@ home/foobar/pico-sdk/src/common/pico_sync/mutex.obj: home/foobar/pico-sdk/src/co
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
 
 home/foobar/pico-sdk/src/common/pico_sync/mutex.i: home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i
@@ -260,7 +260,7 @@ home/foobar/pico-sdk/src/common/pico_sync/mutex.i: home/foobar/pico-sdk/src/comm
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i
 
 home/foobar/pico-sdk/src/common/pico_sync/mutex.s: home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s
@@ -268,7 +268,7 @@ home/foobar/pico-sdk/src/common/pico_sync/mutex.s: home/foobar/pico-sdk/src/comm
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s
 
 home/foobar/pico-sdk/src/common/pico_sync/sem.obj: home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
@@ -276,7 +276,7 @@ home/foobar/pico-sdk/src/common/pico_sync/sem.obj: home/foobar/pico-sdk/src/comm
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
 
 home/foobar/pico-sdk/src/common/pico_sync/sem.i: home/foobar/pico-sdk/src/common/pico_sync/sem.c.i
@@ -284,7 +284,7 @@ home/foobar/pico-sdk/src/common/pico_sync/sem.i: home/foobar/pico-sdk/src/common
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_sync/sem.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/sem.c.i
 
 home/foobar/pico-sdk/src/common/pico_sync/sem.s: home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
@@ -292,7 +292,7 @@ home/foobar/pico-sdk/src/common/pico_sync/sem.s: home/foobar/pico-sdk/src/common
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_sync/sem.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
 
 home/foobar/pico-sdk/src/common/pico_time/time.obj: home/foobar/pico-sdk/src/common/pico_time/time.c.obj
@@ -300,7 +300,7 @@ home/foobar/pico-sdk/src/common/pico_time/time.obj: home/foobar/pico-sdk/src/com
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_time/time.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/time.c.obj
 
 home/foobar/pico-sdk/src/common/pico_time/time.i: home/foobar/pico-sdk/src/common/pico_time/time.c.i
@@ -308,7 +308,7 @@ home/foobar/pico-sdk/src/common/pico_time/time.i: home/foobar/pico-sdk/src/commo
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_time/time.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/time.c.i
 
 home/foobar/pico-sdk/src/common/pico_time/time.s: home/foobar/pico-sdk/src/common/pico_time/time.c.s
@@ -316,7 +316,7 @@ home/foobar/pico-sdk/src/common/pico_time/time.s: home/foobar/pico-sdk/src/commo
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_time/time.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/time.c.s
 
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.obj: home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj
@@ -324,7 +324,7 @@ home/foobar/pico-sdk/src/common/pico_time/timeout_helper.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.i: home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i
@@ -332,7 +332,7 @@ home/foobar/pico-sdk/src/common/pico_time/timeout_helper.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i
 
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.s: home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s
@@ -340,7 +340,7 @@ home/foobar/pico-sdk/src/common/pico_time/timeout_helper.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s
 
 home/foobar/pico-sdk/src/common/pico_util/datetime.obj: home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj
@@ -348,7 +348,7 @@ home/foobar/pico-sdk/src/common/pico_util/datetime.obj: home/foobar/pico-sdk/src
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj
 
 home/foobar/pico-sdk/src/common/pico_util/datetime.i: home/foobar/pico-sdk/src/common/pico_util/datetime.c.i
@@ -356,7 +356,7 @@ home/foobar/pico-sdk/src/common/pico_util/datetime.i: home/foobar/pico-sdk/src/c
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_util/datetime.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/datetime.c.i
 
 home/foobar/pico-sdk/src/common/pico_util/datetime.s: home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
@@ -364,7 +364,7 @@ home/foobar/pico-sdk/src/common/pico_util/datetime.s: home/foobar/pico-sdk/src/c
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_util/datetime.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
 
 home/foobar/pico-sdk/src/common/pico_util/pheap.obj: home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
@@ -372,7 +372,7 @@ home/foobar/pico-sdk/src/common/pico_util/pheap.obj: home/foobar/pico-sdk/src/co
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
 
 home/foobar/pico-sdk/src/common/pico_util/pheap.i: home/foobar/pico-sdk/src/common/pico_util/pheap.c.i
@@ -380,7 +380,7 @@ home/foobar/pico-sdk/src/common/pico_util/pheap.i: home/foobar/pico-sdk/src/comm
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_util/pheap.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/pheap.c.i
 
 home/foobar/pico-sdk/src/common/pico_util/pheap.s: home/foobar/pico-sdk/src/common/pico_util/pheap.c.s
@@ -388,7 +388,7 @@ home/foobar/pico-sdk/src/common/pico_util/pheap.s: home/foobar/pico-sdk/src/comm
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_util/pheap.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/pheap.c.s
 
 home/foobar/pico-sdk/src/common/pico_util/queue.obj: home/foobar/pico-sdk/src/common/pico_util/queue.c.obj
@@ -396,7 +396,7 @@ home/foobar/pico-sdk/src/common/pico_util/queue.obj: home/foobar/pico-sdk/src/co
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_util/queue.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/queue.c.obj
 
 home/foobar/pico-sdk/src/common/pico_util/queue.i: home/foobar/pico-sdk/src/common/pico_util/queue.c.i
@@ -404,7 +404,7 @@ home/foobar/pico-sdk/src/common/pico_util/queue.i: home/foobar/pico-sdk/src/comm
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_util/queue.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/queue.c.i
 
 home/foobar/pico-sdk/src/common/pico_util/queue.s: home/foobar/pico-sdk/src/common/pico_util/queue.c.s
@@ -412,7 +412,7 @@ home/foobar/pico-sdk/src/common/pico_util/queue.s: home/foobar/pico-sdk/src/comm
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_util/queue.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/queue.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.obj: home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
@@ -420,7 +420,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.i: home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
@@ -428,7 +428,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.s: home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
@@ -436,7 +436,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
@@ -444,7 +444,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: home/foobar/pico
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
@@ -452,7 +452,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: home/foobar/pico-s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
@@ -460,7 +460,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: home/foobar/pico-s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.obj: home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
@@ -468,7 +468,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.obj: home/foobar/pi
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
@@ -476,7 +476,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
@@ -484,7 +484,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
@@ -492,7 +492,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
@@ -500,7 +500,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.i: home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
@@ -508,7 +508,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.s: home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
@@ -516,7 +516,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
@@ -524,7 +524,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: home/foo
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.obj: home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
@@ -532,7 +532,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.i: home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
@@ -540,7 +540,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.s: home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
@@ -548,7 +548,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
@@ -556,7 +556,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.i: home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
@@ -564,7 +564,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.s: home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
@@ -572,7 +572,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.obj: home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
@@ -580,7 +580,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.i: home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
@@ -588,7 +588,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.s: home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
@@ -596,7 +596,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.obj: home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
@@ -604,7 +604,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.i: home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
@@ -612,7 +612,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.s: home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
@@ -620,7 +620,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
@@ -628,7 +628,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
@@ -636,7 +636,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
@@ -644,7 +644,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
@@ -652,7 +652,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: home/foobar/
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
@@ -660,7 +660,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: home/foobar/pi
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
@@ -668,7 +668,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: home/foobar/pi
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
@@ -676,7 +676,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
@@ -684,7 +684,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
@@ -692,7 +692,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
@@ -700,7 +700,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: home/foobar/
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
@@ -708,7 +708,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
@@ -716,7 +716,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
@@ -724,7 +724,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
@@ -732,7 +732,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
@@ -740,7 +740,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: home/foobar/pi
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
@@ -748,7 +748,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: home/foobar
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
@@ -756,7 +756,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: home/foobar/p
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
@@ -764,7 +764,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: home/foobar/p
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.obj: home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
@@ -772,7 +772,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.obj: home/foobar/pic
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.i: home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i
@@ -780,7 +780,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.i: home/foobar/pico-
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.s: home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s
@@ -788,7 +788,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.s: home/foobar/pico-
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
@@ -796,7 +796,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: home/foo
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
@@ -804,7 +804,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/foobar/pico
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
@@ -812,7 +812,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: home/foobar/p
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
@@ -820,7 +820,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: home/foobar/pic
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
@@ -828,7 +828,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: home/foobar/pic
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.obj: home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
@@ -836,7 +836,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.obj: home/foobar/pico-
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.i: home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i
@@ -844,7 +844,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.i: home/foobar/pico-sd
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.s: home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s
@@ -852,7 +852,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.s: home/foobar/pico-sd
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
@@ -860,7 +860,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: home/fooba
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
@@ -868,7 +868,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: hom
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
@@ -876,7 +876,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: home/foobar/pic
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
@@ -884,7 +884,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: home/foobar/pico-
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
@@ -892,7 +892,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: home/foobar/pico-
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
@@ -900,7 +900,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: home/foobar/
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.obj: home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
@@ -908,7 +908,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.obj: home/foobar/pi
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.i: home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.i
@@ -916,7 +916,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.i: home/foobar/pico
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.s: home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.s
@@ -924,7 +924,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.s: home/foobar/pico
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.obj: home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
@@ -932,7 +932,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.obj: home/foobar/pico
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.i: home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i
@@ -940,7 +940,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.i: home/foobar/pico-s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.s: home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s
@@ -948,7 +948,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.s: home/foobar/pico-s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.obj: home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
@@ -956,7 +956,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.i: home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i
@@ -964,7 +964,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.s: home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s
@@ -972,7 +972,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
@@ -980,7 +980,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.i: home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
@@ -988,7 +988,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.s: home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
@@ -996,7 +996,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
@@ -1004,7 +1004,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: home/foo
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
@@ -1012,7 +1012,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: home/fooba
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
@@ -1020,7 +1020,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: home/fooba
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
@@ -1028,7 +1028,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: home/foobar/pic
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
@@ -1036,7 +1036,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: home/foob
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
@@ -1044,7 +1044,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: home/foobar
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
@@ -1052,7 +1052,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: home/foobar
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
@@ -1060,7 +1060,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.i: home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
@@ -1068,7 +1068,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.s: home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
@@ -1076,7 +1076,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
@@ -1084,7 +1084,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: home/foobar/
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
@@ -1092,7 +1092,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: home/foobar/pi
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
@@ -1100,7 +1100,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: home/foobar/pi
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
@@ -1108,7 +1108,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
@@ -1116,7 +1116,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
@@ -1124,7 +1124,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
 lf_token.obj: lf_token.c.obj
@@ -1132,7 +1132,7 @@ lf_token.obj: lf_token.c.obj
 
 # target to build an object file
 lf_token.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/lf_token.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/lf_token.c.obj
 .PHONY : lf_token.c.obj
 
 lf_token.i: lf_token.c.i
@@ -1140,7 +1140,7 @@ lf_token.i: lf_token.c.i
 
 # target to preprocess a source file
 lf_token.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/lf_token.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/lf_token.c.i
 .PHONY : lf_token.c.i
 
 lf_token.s: lf_token.c.s
@@ -1148,7 +1148,7 @@ lf_token.s: lf_token.c.s
 
 # target to generate assembly for a file
 lf_token.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/lf_token.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/lf_token.c.s
 .PHONY : lf_token.c.s
 
 mixed_radix.obj: mixed_radix.c.obj
@@ -1156,7 +1156,7 @@ mixed_radix.obj: mixed_radix.c.obj
 
 # target to build an object file
 mixed_radix.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/mixed_radix.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/mixed_radix.c.obj
 .PHONY : mixed_radix.c.obj
 
 mixed_radix.i: mixed_radix.c.i
@@ -1164,7 +1164,7 @@ mixed_radix.i: mixed_radix.c.i
 
 # target to preprocess a source file
 mixed_radix.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/mixed_radix.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/mixed_radix.c.i
 .PHONY : mixed_radix.c.i
 
 mixed_radix.s: mixed_radix.c.s
@@ -1172,7 +1172,7 @@ mixed_radix.s: mixed_radix.c.s
 
 # target to generate assembly for a file
 mixed_radix.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/mixed_radix.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/mixed_radix.c.s
 .PHONY : mixed_radix.c.s
 
 modal_models/modes.obj: modal_models/modes.c.obj
@@ -1180,7 +1180,7 @@ modal_models/modes.obj: modal_models/modes.c.obj
 
 # target to build an object file
 modal_models/modes.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/modal_models/modes.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/modal_models/modes.c.obj
 .PHONY : modal_models/modes.c.obj
 
 modal_models/modes.i: modal_models/modes.c.i
@@ -1188,7 +1188,7 @@ modal_models/modes.i: modal_models/modes.c.i
 
 # target to preprocess a source file
 modal_models/modes.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/modal_models/modes.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/modal_models/modes.c.i
 .PHONY : modal_models/modes.c.i
 
 modal_models/modes.s: modal_models/modes.c.s
@@ -1196,7 +1196,7 @@ modal_models/modes.s: modal_models/modes.c.s
 
 # target to generate assembly for a file
 modal_models/modes.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/modal_models/modes.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/modal_models/modes.c.s
 .PHONY : modal_models/modes.c.s
 
 platform/lf_linux_support.obj: platform/lf_linux_support.c.obj
@@ -1204,7 +1204,7 @@ platform/lf_linux_support.obj: platform/lf_linux_support.c.obj
 
 # target to build an object file
 platform/lf_linux_support.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_linux_support.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_linux_support.c.obj
 .PHONY : platform/lf_linux_support.c.obj
 
 platform/lf_linux_support.i: platform/lf_linux_support.c.i
@@ -1212,7 +1212,7 @@ platform/lf_linux_support.i: platform/lf_linux_support.c.i
 
 # target to preprocess a source file
 platform/lf_linux_support.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_linux_support.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_linux_support.c.i
 .PHONY : platform/lf_linux_support.c.i
 
 platform/lf_linux_support.s: platform/lf_linux_support.c.s
@@ -1220,7 +1220,7 @@ platform/lf_linux_support.s: platform/lf_linux_support.c.s
 
 # target to generate assembly for a file
 platform/lf_linux_support.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_linux_support.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_linux_support.c.s
 .PHONY : platform/lf_linux_support.c.s
 
 platform/lf_macos_support.obj: platform/lf_macos_support.c.obj
@@ -1228,7 +1228,7 @@ platform/lf_macos_support.obj: platform/lf_macos_support.c.obj
 
 # target to build an object file
 platform/lf_macos_support.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_macos_support.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_macos_support.c.obj
 .PHONY : platform/lf_macos_support.c.obj
 
 platform/lf_macos_support.i: platform/lf_macos_support.c.i
@@ -1236,7 +1236,7 @@ platform/lf_macos_support.i: platform/lf_macos_support.c.i
 
 # target to preprocess a source file
 platform/lf_macos_support.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_macos_support.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_macos_support.c.i
 .PHONY : platform/lf_macos_support.c.i
 
 platform/lf_macos_support.s: platform/lf_macos_support.c.s
@@ -1244,7 +1244,7 @@ platform/lf_macos_support.s: platform/lf_macos_support.c.s
 
 # target to generate assembly for a file
 platform/lf_macos_support.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_macos_support.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_macos_support.c.s
 .PHONY : platform/lf_macos_support.c.s
 
 platform/lf_nrf52_support.obj: platform/lf_nrf52_support.c.obj
@@ -1252,7 +1252,7 @@ platform/lf_nrf52_support.obj: platform/lf_nrf52_support.c.obj
 
 # target to build an object file
 platform/lf_nrf52_support.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_nrf52_support.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_nrf52_support.c.obj
 .PHONY : platform/lf_nrf52_support.c.obj
 
 platform/lf_nrf52_support.i: platform/lf_nrf52_support.c.i
@@ -1260,7 +1260,7 @@ platform/lf_nrf52_support.i: platform/lf_nrf52_support.c.i
 
 # target to preprocess a source file
 platform/lf_nrf52_support.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_nrf52_support.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_nrf52_support.c.i
 .PHONY : platform/lf_nrf52_support.c.i
 
 platform/lf_nrf52_support.s: platform/lf_nrf52_support.c.s
@@ -1268,7 +1268,7 @@ platform/lf_nrf52_support.s: platform/lf_nrf52_support.c.s
 
 # target to generate assembly for a file
 platform/lf_nrf52_support.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_nrf52_support.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_nrf52_support.c.s
 .PHONY : platform/lf_nrf52_support.c.s
 
 platform/lf_rp2040_support.obj: platform/lf_rp2040_support.c.obj
@@ -1276,7 +1276,7 @@ platform/lf_rp2040_support.obj: platform/lf_rp2040_support.c.obj
 
 # target to build an object file
 platform/lf_rp2040_support.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.obj
 .PHONY : platform/lf_rp2040_support.c.obj
 
 platform/lf_rp2040_support.i: platform/lf_rp2040_support.c.i
@@ -1284,7 +1284,7 @@ platform/lf_rp2040_support.i: platform/lf_rp2040_support.c.i
 
 # target to preprocess a source file
 platform/lf_rp2040_support.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.i
 .PHONY : platform/lf_rp2040_support.c.i
 
 platform/lf_rp2040_support.s: platform/lf_rp2040_support.c.s
@@ -1292,7 +1292,7 @@ platform/lf_rp2040_support.s: platform/lf_rp2040_support.c.s
 
 # target to generate assembly for a file
 platform/lf_rp2040_support.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.s
 .PHONY : platform/lf_rp2040_support.c.s
 
 platform/lf_unix_clock_support.obj: platform/lf_unix_clock_support.c.obj
@@ -1300,7 +1300,7 @@ platform/lf_unix_clock_support.obj: platform/lf_unix_clock_support.c.obj
 
 # target to build an object file
 platform/lf_unix_clock_support.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_clock_support.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_clock_support.c.obj
 .PHONY : platform/lf_unix_clock_support.c.obj
 
 platform/lf_unix_clock_support.i: platform/lf_unix_clock_support.c.i
@@ -1308,7 +1308,7 @@ platform/lf_unix_clock_support.i: platform/lf_unix_clock_support.c.i
 
 # target to preprocess a source file
 platform/lf_unix_clock_support.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_clock_support.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_clock_support.c.i
 .PHONY : platform/lf_unix_clock_support.c.i
 
 platform/lf_unix_clock_support.s: platform/lf_unix_clock_support.c.s
@@ -1316,7 +1316,7 @@ platform/lf_unix_clock_support.s: platform/lf_unix_clock_support.c.s
 
 # target to generate assembly for a file
 platform/lf_unix_clock_support.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_clock_support.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_clock_support.c.s
 .PHONY : platform/lf_unix_clock_support.c.s
 
 platform/lf_unix_syscall_support.obj: platform/lf_unix_syscall_support.c.obj
@@ -1324,7 +1324,7 @@ platform/lf_unix_syscall_support.obj: platform/lf_unix_syscall_support.c.obj
 
 # target to build an object file
 platform/lf_unix_syscall_support.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_syscall_support.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_syscall_support.c.obj
 .PHONY : platform/lf_unix_syscall_support.c.obj
 
 platform/lf_unix_syscall_support.i: platform/lf_unix_syscall_support.c.i
@@ -1332,7 +1332,7 @@ platform/lf_unix_syscall_support.i: platform/lf_unix_syscall_support.c.i
 
 # target to preprocess a source file
 platform/lf_unix_syscall_support.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_syscall_support.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_syscall_support.c.i
 .PHONY : platform/lf_unix_syscall_support.c.i
 
 platform/lf_unix_syscall_support.s: platform/lf_unix_syscall_support.c.s
@@ -1340,7 +1340,7 @@ platform/lf_unix_syscall_support.s: platform/lf_unix_syscall_support.c.s
 
 # target to generate assembly for a file
 platform/lf_unix_syscall_support.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_syscall_support.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_unix_syscall_support.c.s
 .PHONY : platform/lf_unix_syscall_support.c.s
 
 platform/lf_windows_support.obj: platform/lf_windows_support.c.obj
@@ -1348,7 +1348,7 @@ platform/lf_windows_support.obj: platform/lf_windows_support.c.obj
 
 # target to build an object file
 platform/lf_windows_support.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_windows_support.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_windows_support.c.obj
 .PHONY : platform/lf_windows_support.c.obj
 
 platform/lf_windows_support.i: platform/lf_windows_support.c.i
@@ -1356,7 +1356,7 @@ platform/lf_windows_support.i: platform/lf_windows_support.c.i
 
 # target to preprocess a source file
 platform/lf_windows_support.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_windows_support.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_windows_support.c.i
 .PHONY : platform/lf_windows_support.c.i
 
 platform/lf_windows_support.s: platform/lf_windows_support.c.s
@@ -1364,7 +1364,7 @@ platform/lf_windows_support.s: platform/lf_windows_support.c.s
 
 # target to generate assembly for a file
 platform/lf_windows_support.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_windows_support.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_windows_support.c.s
 .PHONY : platform/lf_windows_support.c.s
 
 platform/lf_zephyr_support.obj: platform/lf_zephyr_support.c.obj
@@ -1372,7 +1372,7 @@ platform/lf_zephyr_support.obj: platform/lf_zephyr_support.c.obj
 
 # target to build an object file
 platform/lf_zephyr_support.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_zephyr_support.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_zephyr_support.c.obj
 .PHONY : platform/lf_zephyr_support.c.obj
 
 platform/lf_zephyr_support.i: platform/lf_zephyr_support.c.i
@@ -1380,7 +1380,7 @@ platform/lf_zephyr_support.i: platform/lf_zephyr_support.c.i
 
 # target to preprocess a source file
 platform/lf_zephyr_support.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_zephyr_support.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_zephyr_support.c.i
 .PHONY : platform/lf_zephyr_support.c.i
 
 platform/lf_zephyr_support.s: platform/lf_zephyr_support.c.s
@@ -1388,7 +1388,7 @@ platform/lf_zephyr_support.s: platform/lf_zephyr_support.c.s
 
 # target to generate assembly for a file
 platform/lf_zephyr_support.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_zephyr_support.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/platform/lf_zephyr_support.c.s
 .PHONY : platform/lf_zephyr_support.c.s
 
 port.obj: port.c.obj
@@ -1396,7 +1396,7 @@ port.obj: port.c.obj
 
 # target to build an object file
 port.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/port.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/port.c.obj
 .PHONY : port.c.obj
 
 port.i: port.c.i
@@ -1404,7 +1404,7 @@ port.i: port.c.i
 
 # target to preprocess a source file
 port.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/port.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/port.c.i
 .PHONY : port.c.i
 
 port.s: port.c.s
@@ -1412,7 +1412,7 @@ port.s: port.c.s
 
 # target to generate assembly for a file
 port.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/port.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/port.c.s
 .PHONY : port.c.s
 
 reactor.obj: reactor.c.obj
@@ -1420,7 +1420,7 @@ reactor.obj: reactor.c.obj
 
 # target to build an object file
 reactor.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor.c.obj
 .PHONY : reactor.c.obj
 
 reactor.i: reactor.c.i
@@ -1428,7 +1428,7 @@ reactor.i: reactor.c.i
 
 # target to preprocess a source file
 reactor.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor.c.i
 .PHONY : reactor.c.i
 
 reactor.s: reactor.c.s
@@ -1436,7 +1436,7 @@ reactor.s: reactor.c.s
 
 # target to generate assembly for a file
 reactor.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor.c.s
 .PHONY : reactor.c.s
 
 reactor_common.obj: reactor_common.c.obj
@@ -1444,7 +1444,7 @@ reactor_common.obj: reactor_common.c.obj
 
 # target to build an object file
 reactor_common.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor_common.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor_common.c.obj
 .PHONY : reactor_common.c.obj
 
 reactor_common.i: reactor_common.c.i
@@ -1452,7 +1452,7 @@ reactor_common.i: reactor_common.c.i
 
 # target to preprocess a source file
 reactor_common.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor_common.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor_common.c.i
 .PHONY : reactor_common.c.i
 
 reactor_common.s: reactor_common.c.s
@@ -1460,7 +1460,7 @@ reactor_common.s: reactor_common.c.s
 
 # target to generate assembly for a file
 reactor_common.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor_common.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/reactor_common.c.s
 .PHONY : reactor_common.c.s
 
 tag.obj: tag.c.obj
@@ -1468,7 +1468,7 @@ tag.obj: tag.c.obj
 
 # target to build an object file
 tag.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/tag.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/tag.c.obj
 .PHONY : tag.c.obj
 
 tag.i: tag.c.i
@@ -1476,7 +1476,7 @@ tag.i: tag.c.i
 
 # target to preprocess a source file
 tag.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/tag.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/tag.c.i
 .PHONY : tag.c.i
 
 tag.s: tag.c.s
@@ -1484,7 +1484,7 @@ tag.s: tag.c.s
 
 # target to generate assembly for a file
 tag.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/tag.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/tag.c.s
 .PHONY : tag.c.s
 
 utils/hashset/hashset.obj: utils/hashset/hashset.c.obj
@@ -1492,7 +1492,7 @@ utils/hashset/hashset.obj: utils/hashset/hashset.c.obj
 
 # target to build an object file
 utils/hashset/hashset.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset.c.obj
 .PHONY : utils/hashset/hashset.c.obj
 
 utils/hashset/hashset.i: utils/hashset/hashset.c.i
@@ -1500,7 +1500,7 @@ utils/hashset/hashset.i: utils/hashset/hashset.c.i
 
 # target to preprocess a source file
 utils/hashset/hashset.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset.c.i
 .PHONY : utils/hashset/hashset.c.i
 
 utils/hashset/hashset.s: utils/hashset/hashset.c.s
@@ -1508,7 +1508,7 @@ utils/hashset/hashset.s: utils/hashset/hashset.c.s
 
 # target to generate assembly for a file
 utils/hashset/hashset.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset.c.s
 .PHONY : utils/hashset/hashset.c.s
 
 utils/hashset/hashset_itr.obj: utils/hashset/hashset_itr.c.obj
@@ -1516,7 +1516,7 @@ utils/hashset/hashset_itr.obj: utils/hashset/hashset_itr.c.obj
 
 # target to build an object file
 utils/hashset/hashset_itr.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset_itr.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset_itr.c.obj
 .PHONY : utils/hashset/hashset_itr.c.obj
 
 utils/hashset/hashset_itr.i: utils/hashset/hashset_itr.c.i
@@ -1524,7 +1524,7 @@ utils/hashset/hashset_itr.i: utils/hashset/hashset_itr.c.i
 
 # target to preprocess a source file
 utils/hashset/hashset_itr.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset_itr.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset_itr.c.i
 .PHONY : utils/hashset/hashset_itr.c.i
 
 utils/hashset/hashset_itr.s: utils/hashset/hashset_itr.c.s
@@ -1532,7 +1532,7 @@ utils/hashset/hashset_itr.s: utils/hashset/hashset_itr.c.s
 
 # target to generate assembly for a file
 utils/hashset/hashset_itr.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset_itr.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/hashset/hashset_itr.c.s
 .PHONY : utils/hashset/hashset_itr.c.s
 
 utils/pqueue.obj: utils/pqueue.c.obj
@@ -1540,7 +1540,7 @@ utils/pqueue.obj: utils/pqueue.c.obj
 
 # target to build an object file
 utils/pqueue.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/pqueue.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/pqueue.c.obj
 .PHONY : utils/pqueue.c.obj
 
 utils/pqueue.i: utils/pqueue.c.i
@@ -1548,7 +1548,7 @@ utils/pqueue.i: utils/pqueue.c.i
 
 # target to preprocess a source file
 utils/pqueue.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/pqueue.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/pqueue.c.i
 .PHONY : utils/pqueue.c.i
 
 utils/pqueue.s: utils/pqueue.c.s
@@ -1556,7 +1556,7 @@ utils/pqueue.s: utils/pqueue.c.s
 
 # target to generate assembly for a file
 utils/pqueue.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/pqueue.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/pqueue.c.s
 .PHONY : utils/pqueue.c.s
 
 utils/semaphore.obj: utils/semaphore.c.obj
@@ -1564,7 +1564,7 @@ utils/semaphore.obj: utils/semaphore.c.obj
 
 # target to build an object file
 utils/semaphore.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/semaphore.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/semaphore.c.obj
 .PHONY : utils/semaphore.c.obj
 
 utils/semaphore.i: utils/semaphore.c.i
@@ -1572,7 +1572,7 @@ utils/semaphore.i: utils/semaphore.c.i
 
 # target to preprocess a source file
 utils/semaphore.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/semaphore.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/semaphore.c.i
 .PHONY : utils/semaphore.c.i
 
 utils/semaphore.s: utils/semaphore.c.s
@@ -1580,7 +1580,7 @@ utils/semaphore.s: utils/semaphore.c.s
 
 # target to generate assembly for a file
 utils/semaphore.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/semaphore.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/semaphore.c.s
 .PHONY : utils/semaphore.c.s
 
 utils/util.obj: utils/util.c.obj
@@ -1588,7 +1588,7 @@ utils/util.obj: utils/util.c.obj
 
 # target to build an object file
 utils/util.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/util.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/util.c.obj
 .PHONY : utils/util.c.obj
 
 utils/util.i: utils/util.c.i
@@ -1596,7 +1596,7 @@ utils/util.i: utils/util.c.i
 
 # target to preprocess a source file
 utils/util.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/util.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/util.c.i
 .PHONY : utils/util.c.i
 
 utils/util.s: utils/util.c.s
@@ -1604,7 +1604,7 @@ utils/util.s: utils/util.c.s
 
 # target to generate assembly for a file
 utils/util.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/util.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/util.c.s
 .PHONY : utils/util.c.s
 
 utils/vector.obj: utils/vector.c.obj
@@ -1612,7 +1612,7 @@ utils/vector.obj: utils/vector.c.obj
 
 # target to build an object file
 utils/vector.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/vector.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/vector.c.obj
 .PHONY : utils/vector.c.obj
 
 utils/vector.i: utils/vector.c.i
@@ -1620,7 +1620,7 @@ utils/vector.i: utils/vector.c.i
 
 # target to preprocess a source file
 utils/vector.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/vector.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/vector.c.i
 .PHONY : utils/vector.c.i
 
 utils/vector.s: utils/vector.c.s
@@ -1628,7 +1628,7 @@ utils/vector.s: utils/vector.c.s
 
 # target to generate assembly for a file
 utils/vector.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/vector.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/utils/vector.c.s
 .PHONY : utils/vector.c.s
 
 # Help Target
@@ -1837,6 +1837,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -15,9 +15,9 @@ core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/mult
  /home/foobar/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/types.h \
- /home/foobar/finalproject/src-gen/changeName/build/generated/pico_base/pico/version.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/generated/pico_base/pico/version.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/config.h \
- /home/foobar/finalproject/src-gen/changeName/build/generated/pico_base/pico/config_autogen.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/generated/pico_base/pico/config_autogen.h \
  /home/foobar/pico-sdk/src/boards/include/boards/pololu_3pi_2040_robot.h \
  /home/foobar/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \

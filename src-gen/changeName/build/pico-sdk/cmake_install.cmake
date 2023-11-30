@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/foobar/finalproject")
+  set(CMAKE_INSTALL_PREFIX "/home/foobar/EE149-AutonomousLuminescentChoreography")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/foobar/finalproject/src-gen/changeName/build/pico-sdk/tools/cmake_install.cmake")
-  include("/home/foobar/finalproject/src-gen/changeName/build/pico-sdk/src/cmake_install.cmake")
-  include("/home/foobar/finalproject/src-gen/changeName/build/pico-sdk/docs/cmake_install.cmake")
+  include("/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/pico-sdk/tools/cmake_install.cmake")
+  include("/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/pico-sdk/src/cmake_install.cmake")
+  include("/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/pico-sdk/docs/cmake_install.cmake")
 
 endif()
 

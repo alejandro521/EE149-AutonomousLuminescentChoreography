@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/foobar/finalproject/src-gen/changeName
+CMAKE_SOURCE_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/foobar/finalproject/src-gen/changeName/build
+CMAKE_BINARY_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build
 
 # Utility rule file for robot_quadrature_encoder_pio_h.
 
@@ -69,8 +69,8 @@ include robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/progress.make
 robot/CMakeFiles/robot_quadrature_encoder_pio_h: robot/quadrature_encoder.pio.h
 
 robot/quadrature_encoder.pio.h: ../robot-lib/quadrature_encoder.pio
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating quadrature_encoder.pio.h"
-	cd /home/foobar/finalproject/src-gen/changeName/build/robot && ../pioasm/pioasm -o c-sdk /home/foobar/finalproject/src-gen/changeName/robot-lib/quadrature_encoder.pio /home/foobar/finalproject/src-gen/changeName/build/robot/quadrature_encoder.pio.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating quadrature_encoder.pio.h"
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/robot && ../pioasm/pioasm -o c-sdk /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/robot-lib/quadrature_encoder.pio /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/robot/quadrature_encoder.pio.h
 
 robot_quadrature_encoder_pio_h: robot/CMakeFiles/robot_quadrature_encoder_pio_h
 robot_quadrature_encoder_pio_h: robot/quadrature_encoder.pio.h
@@ -82,10 +82,10 @@ robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build: robot_quadrature_enco
 .PHONY : robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build
 
 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/clean:
-	cd /home/foobar/finalproject/src-gen/changeName/build/robot && $(CMAKE_COMMAND) -P CMakeFiles/robot_quadrature_encoder_pio_h.dir/cmake_clean.cmake
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/robot && $(CMAKE_COMMAND) -P CMakeFiles/robot_quadrature_encoder_pio_h.dir/cmake_clean.cmake
 .PHONY : robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/clean
 
 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/depend:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/foobar/finalproject/src-gen/changeName /home/foobar/finalproject/src-gen/changeName/robot-lib /home/foobar/finalproject/src-gen/changeName/build /home/foobar/finalproject/src-gen/changeName/build/robot /home/foobar/finalproject/src-gen/changeName/build/robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/robot-lib /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/robot /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/depend
 

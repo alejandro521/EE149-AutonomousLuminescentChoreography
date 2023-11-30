@@ -18,6 +18,8 @@ preamble {=
   #define UART_TX_PIN 28
   #define UART_RX_PIN 29
   #define MAX_MSG_LENGTH 100
+  
+
 
   // Function to send a message. The message that was transmitted is written to transmitted_message
   static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
@@ -29,6 +31,7 @@ preamble {=
       message++;
     }
     uart_putc(uart, '\r'); // Carriage return
+    uart_putc(uart, '\n'); // newline
     transmitted_message[index] = '\0';
   }
 
@@ -68,7 +71,7 @@ main reactor {
     }
 
     // Send AT+NAMEPololu command
-    transmitMessage(uart0, "AT+NAMEPololu1", self->transmitted_message);
+    transmitMessage(uart0, "AT", self->transmitted_message);
   =}
 
   reaction(t) -> disp.line0, disp.line1, disp.line2 {=
@@ -84,7 +87,9 @@ main reactor {
 
     // Display last received message
     static char buf_received[17];
+    printf("R: %s\n", self->received_message);
     snprintf(buf_received, 17, "R:%s", self->received_message);
+    printf("B: %s\n", buf_received);
     lf_set(disp.line2, buf_received);
     
     // LED Blink

@@ -1,12 +1,12 @@
 core/CMakeFiles/core.dir/environment.c.obj: \
- /home/foobar/finalproject/src-gen/changeName/core/environment.c \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/environment.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/lf_types.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/environment.c \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/environment.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/lf_types.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/modal_models/modes.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/utils/pqueue.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/modal_models/modes.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/utils/pqueue.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/lf_token.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/lf_token.h \
  /usr/include/newlib/stdlib.h /usr/include/newlib/machine/ieeefp.h \
  /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h \
  /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h \
@@ -16,20 +16,20 @@ core/CMakeFiles/core.dir/environment.c.obj: \
  /usr/include/newlib/machine/_default_types.h \
  /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h \
  /usr/include/newlib/machine/stdlib.h /usr/include/newlib/alloca.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/tag.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/tag.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed/limits.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/utils/vector.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/platform.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/utils/vector.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/platform.h \
  /usr/include/newlib/assert.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/platform/lf_rp2040_support.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/platform/lf_rp2040_support.h \
  /home/foobar/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/types.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/assert.h \
- /home/foobar/finalproject/src-gen/changeName/build/generated/pico_base/pico/version.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/generated/pico_base/pico/version.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/config.h \
- /home/foobar/finalproject/src-gen/changeName/build/generated/pico_base/pico/config_autogen.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/generated/pico_base/pico/config_autogen.h \
  /home/foobar/pico-sdk/src/boards/include/boards/pololu_3pi_2040_robot.h \
  /home/foobar/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
@@ -65,12 +65,12 @@ core/CMakeFiles/core.dir/environment.c.obj: \
  /home/foobar/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
  /home/foobar/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
  /home/foobar/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/utils/util.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/utils/util.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/lf_types.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/lf_types.h \
  /usr/include/newlib/string.h /usr/include/newlib/sys/_locale.h \
  /usr/include/newlib/strings.h /usr/include/newlib/sys/string.h \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/trace.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/trace.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/sys/types.h \
  /usr/include/newlib/sys/_stdint.h /usr/include/newlib/machine/endian.h \
  /usr/include/newlib/machine/_endian.h /usr/include/newlib/sys/select.h \

@@ -1,10 +1,10 @@
 #ifndef _changename_main_H
 #define _changename_main_H
-#ifndef TOP_LEVEL_PREAMBLE_1956244664_H
-#define TOP_LEVEL_PREAMBLE_1956244664_H
-/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/finalproject/src/lib/Display.lf)*/#include <pico/stdlib.h>
+#ifndef TOP_LEVEL_PREAMBLE_66863151_H
+#define TOP_LEVEL_PREAMBLE_66863151_H
+/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
-/*Correspondence: Range: [(10, 2), (46, 1)) -> Range: [(0, 0), (36, 1)) (verbatim=true; src=/home/foobar/finalproject/src/changeName.lf)*/#include <stdio.h>
+/*Correspondence: Range: [(10, 2), (49, 1)) -> Range: [(0, 0), (39, 1)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/changeName.lf)*/#include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
 #include <hardware/uart.h>
@@ -14,6 +14,8 @@
 #define UART_TX_PIN 28
 #define UART_RX_PIN 29
 #define MAX_MSG_LENGTH 100
+
+
 
 // Function to send a message. The message that was transmitted is written to transmitted_message
 static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
@@ -25,6 +27,7 @@ static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_
     message++;
   }
   uart_putc(uart, '\r'); // Carriage return
+  uart_putc(uart, '\n'); // newline
   transmitted_message[index] = '\0';
 }
 

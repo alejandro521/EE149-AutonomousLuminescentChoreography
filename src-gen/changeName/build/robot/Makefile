@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/foobar/finalproject/src-gen/changeName
+CMAKE_SOURCE_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/foobar/finalproject/src-gen/changeName/build
+CMAKE_BINARY_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/finalproject/src-gen/changeName/build/CMakeFiles /home/foobar/finalproject/src-gen/changeName/build/robot//CMakeFiles/progress.marks
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/finalproject/src-gen/changeName/build/CMakeFiles 0
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/robot//CMakeFiles/progress.marks
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/clean
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/preinstall
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/preinstall
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 robot/CMakeFiles/robot.dir/rule:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot.dir/rule
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot.dir/rule
 .PHONY : robot/CMakeFiles/robot.dir/rule
 
 # Convenience name for target.
@@ -172,26 +172,12 @@ robot: robot/CMakeFiles/robot.dir/rule
 
 # fast build rule for target.
 robot/fast:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/build
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/build
 .PHONY : robot/fast
 
 # Convenience name for target.
-robot/CMakeFiles/PioasmBuild.dir/rule:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/PioasmBuild.dir/rule
-.PHONY : robot/CMakeFiles/PioasmBuild.dir/rule
-
-# Convenience name for target.
-PioasmBuild: robot/CMakeFiles/PioasmBuild.dir/rule
-.PHONY : PioasmBuild
-
-# fast build rule for target.
-PioasmBuild/fast:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/PioasmBuild.dir/build.make robot/CMakeFiles/PioasmBuild.dir/build
-.PHONY : PioasmBuild/fast
-
-# Convenience name for target.
 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
 .PHONY : robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
 
 # Convenience name for target.
@@ -200,12 +186,12 @@ robot_qtr_sensor_counter_pio_h: robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.
 
 # fast build rule for target.
 robot_qtr_sensor_counter_pio_h/fast:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build.make robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build.make robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build
 .PHONY : robot_qtr_sensor_counter_pio_h/fast
 
 # Convenience name for target.
 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule
 .PHONY : robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule
 
 # Convenience name for target.
@@ -214,7 +200,7 @@ robot_quadrature_encoder_pio_h: robot/CMakeFiles/robot_quadrature_encoder_pio_h.
 
 # fast build rule for target.
 robot_quadrature_encoder_pio_h/fast:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build.make robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build.make robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build
 .PHONY : robot_quadrature_encoder_pio_h/fast
 
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.obj: home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
@@ -222,7 +208,7 @@ home/foobar/pico-sdk/src/common/pico_sync/critical_section.obj: home/foobar/pico
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
 
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.i: home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i
@@ -230,7 +216,7 @@ home/foobar/pico-sdk/src/common/pico_sync/critical_section.i: home/foobar/pico-s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i
 
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.s: home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s
@@ -238,7 +224,7 @@ home/foobar/pico-sdk/src/common/pico_sync/critical_section.s: home/foobar/pico-s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.s
 
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.obj: home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
@@ -246,7 +232,7 @@ home/foobar/pico-sdk/src/common/pico_sync/lock_core.obj: home/foobar/pico-sdk/sr
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
 
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.i: home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i
@@ -254,7 +240,7 @@ home/foobar/pico-sdk/src/common/pico_sync/lock_core.i: home/foobar/pico-sdk/src/
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i
 
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.s: home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s
@@ -262,7 +248,7 @@ home/foobar/pico-sdk/src/common/pico_sync/lock_core.s: home/foobar/pico-sdk/src/
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.s
 
 home/foobar/pico-sdk/src/common/pico_sync/mutex.obj: home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
@@ -270,7 +256,7 @@ home/foobar/pico-sdk/src/common/pico_sync/mutex.obj: home/foobar/pico-sdk/src/co
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
 
 home/foobar/pico-sdk/src/common/pico_sync/mutex.i: home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i
@@ -278,7 +264,7 @@ home/foobar/pico-sdk/src/common/pico_sync/mutex.i: home/foobar/pico-sdk/src/comm
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i
 
 home/foobar/pico-sdk/src/common/pico_sync/mutex.s: home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s
@@ -286,7 +272,7 @@ home/foobar/pico-sdk/src/common/pico_sync/mutex.s: home/foobar/pico-sdk/src/comm
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s
 
 home/foobar/pico-sdk/src/common/pico_sync/sem.obj: home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
@@ -294,7 +280,7 @@ home/foobar/pico-sdk/src/common/pico_sync/sem.obj: home/foobar/pico-sdk/src/comm
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
 
 home/foobar/pico-sdk/src/common/pico_sync/sem.i: home/foobar/pico-sdk/src/common/pico_sync/sem.c.i
@@ -302,7 +288,7 @@ home/foobar/pico-sdk/src/common/pico_sync/sem.i: home/foobar/pico-sdk/src/common
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_sync/sem.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/sem.c.i
 
 home/foobar/pico-sdk/src/common/pico_sync/sem.s: home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
@@ -310,7 +296,7 @@ home/foobar/pico-sdk/src/common/pico_sync/sem.s: home/foobar/pico-sdk/src/common
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_sync/sem.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
 
 home/foobar/pico-sdk/src/common/pico_time/time.obj: home/foobar/pico-sdk/src/common/pico_time/time.c.obj
@@ -318,7 +304,7 @@ home/foobar/pico-sdk/src/common/pico_time/time.obj: home/foobar/pico-sdk/src/com
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_time/time.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/time.c.obj
 
 home/foobar/pico-sdk/src/common/pico_time/time.i: home/foobar/pico-sdk/src/common/pico_time/time.c.i
@@ -326,7 +312,7 @@ home/foobar/pico-sdk/src/common/pico_time/time.i: home/foobar/pico-sdk/src/commo
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_time/time.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/time.c.i
 
 home/foobar/pico-sdk/src/common/pico_time/time.s: home/foobar/pico-sdk/src/common/pico_time/time.c.s
@@ -334,7 +320,7 @@ home/foobar/pico-sdk/src/common/pico_time/time.s: home/foobar/pico-sdk/src/commo
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_time/time.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/time.c.s
 
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.obj: home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj
@@ -342,7 +328,7 @@ home/foobar/pico-sdk/src/common/pico_time/timeout_helper.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.i: home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i
@@ -350,7 +336,7 @@ home/foobar/pico-sdk/src/common/pico_time/timeout_helper.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i
 
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.s: home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s
@@ -358,7 +344,7 @@ home/foobar/pico-sdk/src/common/pico_time/timeout_helper.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.s
 
 home/foobar/pico-sdk/src/common/pico_util/datetime.obj: home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj
@@ -366,7 +352,7 @@ home/foobar/pico-sdk/src/common/pico_util/datetime.obj: home/foobar/pico-sdk/src
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj
 
 home/foobar/pico-sdk/src/common/pico_util/datetime.i: home/foobar/pico-sdk/src/common/pico_util/datetime.c.i
@@ -374,7 +360,7 @@ home/foobar/pico-sdk/src/common/pico_util/datetime.i: home/foobar/pico-sdk/src/c
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_util/datetime.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/datetime.c.i
 
 home/foobar/pico-sdk/src/common/pico_util/datetime.s: home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
@@ -382,7 +368,7 @@ home/foobar/pico-sdk/src/common/pico_util/datetime.s: home/foobar/pico-sdk/src/c
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_util/datetime.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
 
 home/foobar/pico-sdk/src/common/pico_util/pheap.obj: home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
@@ -390,7 +376,7 @@ home/foobar/pico-sdk/src/common/pico_util/pheap.obj: home/foobar/pico-sdk/src/co
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
 
 home/foobar/pico-sdk/src/common/pico_util/pheap.i: home/foobar/pico-sdk/src/common/pico_util/pheap.c.i
@@ -398,7 +384,7 @@ home/foobar/pico-sdk/src/common/pico_util/pheap.i: home/foobar/pico-sdk/src/comm
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_util/pheap.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/pheap.c.i
 
 home/foobar/pico-sdk/src/common/pico_util/pheap.s: home/foobar/pico-sdk/src/common/pico_util/pheap.c.s
@@ -406,7 +392,7 @@ home/foobar/pico-sdk/src/common/pico_util/pheap.s: home/foobar/pico-sdk/src/comm
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_util/pheap.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/pheap.c.s
 
 home/foobar/pico-sdk/src/common/pico_util/queue.obj: home/foobar/pico-sdk/src/common/pico_util/queue.c.obj
@@ -414,7 +400,7 @@ home/foobar/pico-sdk/src/common/pico_util/queue.obj: home/foobar/pico-sdk/src/co
 
 # target to build an object file
 home/foobar/pico-sdk/src/common/pico_util/queue.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/queue.c.obj
 
 home/foobar/pico-sdk/src/common/pico_util/queue.i: home/foobar/pico-sdk/src/common/pico_util/queue.c.i
@@ -422,7 +408,7 @@ home/foobar/pico-sdk/src/common/pico_util/queue.i: home/foobar/pico-sdk/src/comm
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/common/pico_util/queue.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.i
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/queue.c.i
 
 home/foobar/pico-sdk/src/common/pico_util/queue.s: home/foobar/pico-sdk/src/common/pico_util/queue.c.s
@@ -430,7 +416,7 @@ home/foobar/pico-sdk/src/common/pico_util/queue.s: home/foobar/pico-sdk/src/comm
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/common/pico_util/queue.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.s
 .PHONY : home/foobar/pico-sdk/src/common/pico_util/queue.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.obj: home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
@@ -438,7 +424,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.i: home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
@@ -446,7 +432,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.s: home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
@@ -454,7 +440,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.obj: home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
@@ -462,7 +448,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.i: home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
@@ -470,7 +456,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.s: home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
@@ -478,7 +464,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
@@ -486,7 +472,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: home/foobar/pico
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
@@ -494,7 +480,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: home/foobar/pico-s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
@@ -502,7 +488,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: home/foobar/pico-s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.obj: home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
@@ -510,7 +496,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.obj: home/foobar/pi
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
@@ -518,7 +504,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
@@ -526,7 +512,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
@@ -534,7 +520,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj: home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
@@ -542,7 +528,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.i: home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
@@ -550,7 +536,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.s: home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
@@ -558,7 +544,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
@@ -566,7 +552,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.i: home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
@@ -574,7 +560,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.s: home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
@@ -582,7 +568,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
@@ -590,7 +576,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: home/foo
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.obj: home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
@@ -598,7 +584,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.i: home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
@@ -606,7 +592,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.s: home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
@@ -614,7 +600,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.obj: home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
@@ -622,7 +608,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.i: home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
@@ -630,7 +616,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.s: home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
@@ -638,7 +624,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.obj: home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
@@ -646,7 +632,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.i: home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
@@ -654,7 +640,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.s: home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
@@ -662,7 +648,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
@@ -670,7 +656,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.i: home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
@@ -678,7 +664,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.s: home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
@@ -686,7 +672,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.obj: home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
@@ -694,7 +680,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.i: home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
@@ -702,7 +688,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.s: home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
@@ -710,7 +696,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.obj: home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
@@ -718,7 +704,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.i: home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
@@ -726,7 +712,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.s: home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
@@ -734,7 +720,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
@@ -742,7 +728,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
@@ -750,7 +736,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
@@ -758,7 +744,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
@@ -766,7 +752,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: home/foobar/
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
@@ -774,7 +760,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: home/foobar/pi
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
@@ -782,7 +768,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: home/foobar/pi
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
@@ -790,7 +776,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
@@ -798,7 +784,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
@@ -806,7 +792,7 @@ home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
@@ -814,7 +800,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: home/foobar/
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
@@ -822,7 +808,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
@@ -830,7 +816,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
@@ -838,7 +824,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
@@ -846,7 +832,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
@@ -854,7 +840,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: home/foobar/pi
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
@@ -862,7 +848,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: home/foobar
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
@@ -870,7 +856,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: home/foobar/p
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
@@ -878,7 +864,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: home/foobar/p
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.obj: home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
@@ -886,7 +872,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.obj: home/foobar/pic
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.i: home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i
@@ -894,7 +880,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.i: home/foobar/pico-
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.s: home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s
@@ -902,7 +888,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.s: home/foobar/pico-
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
@@ -910,7 +896,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: home/foo
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
@@ -918,7 +904,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/foobar/pico
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
@@ -926,7 +912,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: home/foobar/p
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
@@ -934,7 +920,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: home/foobar/pic
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
@@ -942,7 +928,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: home/foobar/pic
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.obj: home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
@@ -950,7 +936,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.obj: home/foobar/pico-
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.i: home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i
@@ -958,7 +944,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.i: home/foobar/pico-sd
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.s: home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s
@@ -966,7 +952,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.s: home/foobar/pico-sd
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
@@ -974,7 +960,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: home/fooba
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
@@ -982,7 +968,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: hom
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
@@ -990,7 +976,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: home/foobar/pic
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
@@ -998,7 +984,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: home/foobar/pico-
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
@@ -1006,7 +992,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: home/foobar/pico-
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
@@ -1014,7 +1000,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: home/foobar/
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.obj: home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
@@ -1022,7 +1008,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.obj: home/foobar/pico
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.i: home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i
@@ -1030,7 +1016,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.i: home/foobar/pico-s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.s: home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s
@@ -1038,7 +1024,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.s: home/foobar/pico-s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.obj: home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
@@ -1046,7 +1032,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.i: home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i
@@ -1054,7 +1040,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.s: home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s
@@ -1062,7 +1048,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
@@ -1070,7 +1056,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: home/foobar/pico-s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.i: home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
@@ -1078,7 +1064,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.i: home/foobar/pico-sdk
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.s: home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
@@ -1086,7 +1072,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.s: home/foobar/pico-sdk
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
@@ -1094,7 +1080,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: home/foo
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
@@ -1102,7 +1088,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: home/fooba
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
@@ -1110,7 +1096,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: home/fooba
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
@@ -1118,7 +1104,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: home/foobar/pic
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
@@ -1126,7 +1112,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: home/foob
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
@@ -1134,7 +1120,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: home/foobar
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
@@ -1142,7 +1128,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: home/foobar
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
@@ -1150,7 +1136,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: home/foobar/pico-sdk/s
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.i: home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
@@ -1158,7 +1144,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.i: home/foobar/pico-sdk/src
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.s: home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
@@ -1166,7 +1152,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.s: home/foobar/pico-sdk/src
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
@@ -1174,7 +1160,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: home/foobar/
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
@@ -1182,7 +1168,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: home/foobar/pi
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
@@ -1190,7 +1176,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: home/foobar/pi
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
@@ -1198,7 +1184,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/foobar/pico-sdk
 
 # target to build an object file
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
@@ -1206,7 +1192,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: home/foobar/pico-sdk/s
 
 # target to preprocess a source file
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
@@ -1214,7 +1200,7 @@ home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: home/foobar/pico-sdk/s
 
 # target to generate assembly for a file
 home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 .PHONY : home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
 src/display.obj: src/display.c.obj
@@ -1222,7 +1208,7 @@ src/display.obj: src/display.c.obj
 
 # target to build an object file
 src/display.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.obj
 .PHONY : src/display.c.obj
 
 src/display.i: src/display.c.i
@@ -1230,7 +1216,7 @@ src/display.i: src/display.c.i
 
 # target to preprocess a source file
 src/display.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.i
 .PHONY : src/display.c.i
 
 src/display.s: src/display.c.s
@@ -1238,7 +1224,7 @@ src/display.s: src/display.c.s
 
 # target to generate assembly for a file
 src/display.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.s
 .PHONY : src/display.c.s
 
 src/font_8x16.obj: src/font_8x16.c.obj
@@ -1246,7 +1232,7 @@ src/font_8x16.obj: src/font_8x16.c.obj
 
 # target to build an object file
 src/font_8x16.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.obj
 .PHONY : src/font_8x16.c.obj
 
 src/font_8x16.i: src/font_8x16.c.i
@@ -1254,7 +1240,7 @@ src/font_8x16.i: src/font_8x16.c.i
 
 # target to preprocess a source file
 src/font_8x16.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.i
 .PHONY : src/font_8x16.c.i
 
 src/font_8x16.s: src/font_8x16.c.s
@@ -1262,7 +1248,7 @@ src/font_8x16.s: src/font_8x16.c.s
 
 # target to generate assembly for a file
 src/font_8x16.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.s
 .PHONY : src/font_8x16.c.s
 
 src/font_8x8.obj: src/font_8x8.c.obj
@@ -1270,7 +1256,7 @@ src/font_8x8.obj: src/font_8x8.c.obj
 
 # target to build an object file
 src/font_8x8.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.obj
 .PHONY : src/font_8x8.c.obj
 
 src/font_8x8.i: src/font_8x8.c.i
@@ -1278,7 +1264,7 @@ src/font_8x8.i: src/font_8x8.c.i
 
 # target to preprocess a source file
 src/font_8x8.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.i
 .PHONY : src/font_8x8.c.i
 
 src/font_8x8.s: src/font_8x8.c.s
@@ -1286,7 +1272,7 @@ src/font_8x8.s: src/font_8x8.c.s
 
 # target to generate assembly for a file
 src/font_8x8.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.s
 .PHONY : src/font_8x8.c.s
 
 src/imu.obj: src/imu.c.obj
@@ -1294,7 +1280,7 @@ src/imu.obj: src/imu.c.obj
 
 # target to build an object file
 src/imu.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.obj
 .PHONY : src/imu.c.obj
 
 src/imu.i: src/imu.c.i
@@ -1302,7 +1288,7 @@ src/imu.i: src/imu.c.i
 
 # target to preprocess a source file
 src/imu.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.i
 .PHONY : src/imu.c.i
 
 src/imu.s: src/imu.c.s
@@ -1310,7 +1296,7 @@ src/imu.s: src/imu.c.s
 
 # target to generate assembly for a file
 src/imu.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.s
 .PHONY : src/imu.c.s
 
 src/ir_sensors.obj: src/ir_sensors.c.obj
@@ -1318,7 +1304,7 @@ src/ir_sensors.obj: src/ir_sensors.c.obj
 
 # target to build an object file
 src/ir_sensors.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.obj
 .PHONY : src/ir_sensors.c.obj
 
 src/ir_sensors.i: src/ir_sensors.c.i
@@ -1326,7 +1312,7 @@ src/ir_sensors.i: src/ir_sensors.c.i
 
 # target to preprocess a source file
 src/ir_sensors.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.i
 .PHONY : src/ir_sensors.c.i
 
 src/ir_sensors.s: src/ir_sensors.c.s
@@ -1334,7 +1320,7 @@ src/ir_sensors.s: src/ir_sensors.c.s
 
 # target to generate assembly for a file
 src/ir_sensors.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.s
 .PHONY : src/ir_sensors.c.s
 
 src/motors.obj: src/motors.c.obj
@@ -1342,7 +1328,7 @@ src/motors.obj: src/motors.c.obj
 
 # target to build an object file
 src/motors.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.obj
 .PHONY : src/motors.c.obj
 
 src/motors.i: src/motors.c.i
@@ -1350,7 +1336,7 @@ src/motors.i: src/motors.c.i
 
 # target to preprocess a source file
 src/motors.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.i
 .PHONY : src/motors.c.i
 
 src/motors.s: src/motors.c.s
@@ -1358,7 +1344,7 @@ src/motors.s: src/motors.c.s
 
 # target to generate assembly for a file
 src/motors.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.s
 .PHONY : src/motors.c.s
 
 src/sh1106.obj: src/sh1106.c.obj
@@ -1366,7 +1352,7 @@ src/sh1106.obj: src/sh1106.c.obj
 
 # target to build an object file
 src/sh1106.c.obj:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.obj
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.obj
 .PHONY : src/sh1106.c.obj
 
 src/sh1106.i: src/sh1106.c.i
@@ -1374,7 +1360,7 @@ src/sh1106.i: src/sh1106.c.i
 
 # target to preprocess a source file
 src/sh1106.c.i:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.i
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.i
 .PHONY : src/sh1106.c.i
 
 src/sh1106.s: src/sh1106.c.s
@@ -1382,7 +1368,7 @@ src/sh1106.s: src/sh1106.c.s
 
 # target to generate assembly for a file
 src/sh1106.c.s:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.s
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.s
 .PHONY : src/sh1106.c.s
 
 # Help Target
@@ -1397,7 +1383,6 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... PioasmBuild"
 	@echo "... robot_qtr_sensor_counter_pio_h"
 	@echo "... robot_quadrature_encoder_pio_h"
 	@echo "... robot"
@@ -1558,6 +1543,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/foobar/finalproject/src-gen/changeName
+CMAKE_SOURCE_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/foobar/finalproject/src-gen/changeName/build
+CMAKE_BINARY_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/changeName.dir/depend.make
@@ -72,63 +72,63 @@ include CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/lib/schedule.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/lib/schedule.c.obj: ../lib/schedule.c
 CMakeFiles/changeName.dir/lib/schedule.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/changeName.dir/lib/schedule.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/lib/schedule.c.obj -MF CMakeFiles/changeName.dir/lib/schedule.c.obj.d -o CMakeFiles/changeName.dir/lib/schedule.c.obj -c /home/foobar/finalproject/src-gen/changeName/lib/schedule.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/changeName.dir/lib/schedule.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/lib/schedule.c.obj -MF CMakeFiles/changeName.dir/lib/schedule.c.obj.d -o CMakeFiles/changeName.dir/lib/schedule.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/lib/schedule.c
 
 CMakeFiles/changeName.dir/lib/schedule.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/lib/schedule.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/finalproject/src-gen/changeName/lib/schedule.c > CMakeFiles/changeName.dir/lib/schedule.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/lib/schedule.c > CMakeFiles/changeName.dir/lib/schedule.c.i
 
 CMakeFiles/changeName.dir/lib/schedule.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/lib/schedule.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/finalproject/src-gen/changeName/lib/schedule.c -o CMakeFiles/changeName.dir/lib/schedule.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/lib/schedule.c -o CMakeFiles/changeName.dir/lib/schedule.c.s
 
 CMakeFiles/changeName.dir/_changename_main.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/_changename_main.c.obj: ../_changename_main.c
 CMakeFiles/changeName.dir/_changename_main.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/changeName.dir/_changename_main.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/_changename_main.c.obj -MF CMakeFiles/changeName.dir/_changename_main.c.obj.d -o CMakeFiles/changeName.dir/_changename_main.c.obj -c /home/foobar/finalproject/src-gen/changeName/_changename_main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/changeName.dir/_changename_main.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/_changename_main.c.obj -MF CMakeFiles/changeName.dir/_changename_main.c.obj.d -o CMakeFiles/changeName.dir/_changename_main.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/_changename_main.c
 
 CMakeFiles/changeName.dir/_changename_main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/_changename_main.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/finalproject/src-gen/changeName/_changename_main.c > CMakeFiles/changeName.dir/_changename_main.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/_changename_main.c > CMakeFiles/changeName.dir/_changename_main.c.i
 
 CMakeFiles/changeName.dir/_changename_main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/_changename_main.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/finalproject/src-gen/changeName/_changename_main.c -o CMakeFiles/changeName.dir/_changename_main.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/_changename_main.c -o CMakeFiles/changeName.dir/_changename_main.c.s
 
 CMakeFiles/changeName.dir/_display.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/_display.c.obj: ../_display.c
 CMakeFiles/changeName.dir/_display.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/changeName.dir/_display.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/_display.c.obj -MF CMakeFiles/changeName.dir/_display.c.obj.d -o CMakeFiles/changeName.dir/_display.c.obj -c /home/foobar/finalproject/src-gen/changeName/_display.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/changeName.dir/_display.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/_display.c.obj -MF CMakeFiles/changeName.dir/_display.c.obj.d -o CMakeFiles/changeName.dir/_display.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/_display.c
 
 CMakeFiles/changeName.dir/_display.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/_display.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/finalproject/src-gen/changeName/_display.c > CMakeFiles/changeName.dir/_display.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/_display.c > CMakeFiles/changeName.dir/_display.c.i
 
 CMakeFiles/changeName.dir/_display.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/_display.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/finalproject/src-gen/changeName/_display.c -o CMakeFiles/changeName.dir/_display.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/_display.c -o CMakeFiles/changeName.dir/_display.c.s
 
 CMakeFiles/changeName.dir/changeName.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/changeName.c.obj: ../changeName.c
 CMakeFiles/changeName.dir/changeName.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/changeName.dir/changeName.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/changeName.c.obj -MF CMakeFiles/changeName.dir/changeName.c.obj.d -o CMakeFiles/changeName.dir/changeName.c.obj -c /home/foobar/finalproject/src-gen/changeName/changeName.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/changeName.dir/changeName.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/changeName.c.obj -MF CMakeFiles/changeName.dir/changeName.c.obj.d -o CMakeFiles/changeName.dir/changeName.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/changeName.c
 
 CMakeFiles/changeName.dir/changeName.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/changeName.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/finalproject/src-gen/changeName/changeName.c > CMakeFiles/changeName.dir/changeName.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/changeName.c > CMakeFiles/changeName.dir/changeName.c.i
 
 CMakeFiles/changeName.dir/changeName.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/changeName.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/finalproject/src-gen/changeName/changeName.c -o CMakeFiles/changeName.dir/changeName.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/changeName.c -o CMakeFiles/changeName.dir/changeName.c.s
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i: cmake_force
@@ -142,7 +142,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i: cmake_force
@@ -156,7 +156,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i: cmake_force
@@ -170,7 +170,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/plat
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i: cmake_force
@@ -184,7 +184,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/cla
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i: cmake_force
@@ -198,7 +198,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i: cmake_force
@@ -211,7 +211,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i: cmake_force
@@ -225,7 +225,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_h
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj: /home/foobar/pico-sdk/src/common/pico_sync/sem.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj -c /home/foobar/pico-sdk/src/common/pico_sync/sem.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.i: cmake_force
@@ -239,7 +239,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.s: cma
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj: /home/foobar/pico-sdk/src/common/pico_sync/lock_core.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj -c /home/foobar/pico-sdk/src/common/pico_sync/lock_core.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i: cmake_force
@@ -253,7 +253,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj: /home/foobar/pico-sdk/src/common/pico_sync/mutex.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj -c /home/foobar/pico-sdk/src/common/pico_sync/mutex.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i: cmake_force
@@ -267,7 +267,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.s: c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj: /home/foobar/pico-sdk/src/common/pico_sync/critical_section.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj -c /home/foobar/pico-sdk/src/common/pico_sync/critical_section.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i: cmake_force
@@ -281,7 +281,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_sec
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj: /home/foobar/pico-sdk/src/common/pico_time/time.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj -c /home/foobar/pico-sdk/src/common/pico_time/time.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.i: cmake_force
@@ -295,7 +295,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.s: cm
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj: /home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj -c /home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
@@ -309,7 +309,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_help
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
@@ -323,7 +323,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/tim
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj: /home/foobar/pico-sdk/src/common/pico_util/datetime.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj -c /home/foobar/pico-sdk/src/common/pico_util/datetime.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
@@ -337,7 +337,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.s
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj: /home/foobar/pico-sdk/src/common/pico_util/pheap.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj -c /home/foobar/pico-sdk/src/common/pico_util/pheap.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
@@ -351,7 +351,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.s: c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj: /home/foobar/pico-sdk/src/common/pico_util/queue.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj -c /home/foobar/pico-sdk/src/common/pico_util/queue.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
@@ -365,7 +365,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.s: c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i: cmake_force
@@ -379,7 +379,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
@@ -393,7 +393,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/cl
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i: cmake_force
@@ -407,7 +407,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
@@ -421,7 +421,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
@@ -435,7 +435,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
@@ -448,7 +448,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.i: cmake_force
@@ -462,7 +462,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/d
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
@@ -476,7 +476,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runti
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i: cmake_force
@@ -489,7 +489,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i: cmake_force
@@ -503,7 +503,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_o
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i: cmake_force
@@ -516,7 +516,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootr
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.i: cmake_force
@@ -529,7 +529,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divid
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i: cmake_force
@@ -543,7 +543,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i: cmake_force
@@ -557,7 +557,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i: cmake_force
@@ -570,7 +570,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i: cmake_force
@@ -583,7 +583,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i: cmake_force
@@ -596,7 +596,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pic
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i: cmake_force
@@ -610,7 +610,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_a
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i: cmake_force
@@ -624,7 +624,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_i
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i: cmake_force
@@ -637,7 +637,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_m
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i: cmake_force
@@ -651,7 +651,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i: cmake_force
@@ -664,7 +664,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_m
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i: cmake_force
@@ -677,7 +677,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_o
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building ASM object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i: cmake_force
@@ -691,7 +691,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
 	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i: cmake_force
@@ -705,7 +705,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i: cmake_force
@@ -719,7 +719,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i: cmake_force
@@ -733,7 +733,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i: cmake_force
@@ -744,10 +744,346 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/st
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/tusb.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/tusb.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/tusb.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/tusb.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: /home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj -c /home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: CMakeFiles/changeName.dir/flags.make
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c > CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
+
+CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
+
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.i: cmake_force
@@ -761,7 +1097,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/mul
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.i: cmake_force
@@ -775,7 +1111,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.i: cmake_force
@@ -789,7 +1125,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.i: cmake_force
@@ -803,7 +1139,7 @@ CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/changeName.dir/flags.make
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/changeName.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj -MF CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj.d -o CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
 
 CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i: cmake_force
@@ -865,6 +1201,30 @@ changeName_OBJECTS = \
 "CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj" \
 "CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj" \
 "CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj" \
+"CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj" \
 "CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj" \
 "CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj" \
 "CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj" \
@@ -923,6 +1283,30 @@ changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pi
 changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/tusb.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
 changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 changeName.elf: CMakeFiles/changeName.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
@@ -933,13 +1317,13 @@ changeName.elf: core/libcore.a
 changeName.elf: robot/librobot.a
 changeName.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 changeName.elf: CMakeFiles/changeName.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/foobar/finalproject/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Linking CXX executable changeName.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Linking CXX executable changeName.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/changeName.dir/link.txt --verbose=$(VERBOSE)
-	/usr/bin/arm-none-eabi-objcopy -Oihex /home/foobar/finalproject/src-gen/changeName/build/changeName.elf changeName.hex
-	/usr/bin/arm-none-eabi-objcopy -Obinary /home/foobar/finalproject/src-gen/changeName/build/changeName.elf changeName.bin
-	/usr/bin/arm-none-eabi-objdump -h /home/foobar/finalproject/src-gen/changeName/build/changeName.elf > changeName.dis
-	/usr/bin/arm-none-eabi-objdump -d /home/foobar/finalproject/src-gen/changeName/build/changeName.elf >> changeName.dis
-	elf2uf2/elf2uf2 /home/foobar/finalproject/src-gen/changeName/build/changeName.elf changeName.uf2
+	/usr/bin/arm-none-eabi-objcopy -Oihex /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/changeName.elf changeName.hex
+	/usr/bin/arm-none-eabi-objcopy -Obinary /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/changeName.elf changeName.bin
+	/usr/bin/arm-none-eabi-objdump -h /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/changeName.elf > changeName.dis
+	/usr/bin/arm-none-eabi-objdump -d /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/changeName.elf >> changeName.dis
+	elf2uf2/elf2uf2 /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/changeName.elf changeName.uf2
 
 # Rule to build all files generated by this target.
 CMakeFiles/changeName.dir/build: changeName.elf
@@ -950,6 +1334,6 @@ CMakeFiles/changeName.dir/clean:
 .PHONY : CMakeFiles/changeName.dir/clean
 
 CMakeFiles/changeName.dir/depend:
-	cd /home/foobar/finalproject/src-gen/changeName/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/foobar/finalproject/src-gen/changeName /home/foobar/finalproject/src-gen/changeName /home/foobar/finalproject/src-gen/changeName/build /home/foobar/finalproject/src-gen/changeName/build /home/foobar/finalproject/src-gen/changeName/build/CMakeFiles/changeName.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build/CMakeFiles/changeName.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/changeName.dir/depend
 

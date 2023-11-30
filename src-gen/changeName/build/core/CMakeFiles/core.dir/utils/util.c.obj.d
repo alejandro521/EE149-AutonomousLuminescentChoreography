@@ -1,6 +1,6 @@
 core/CMakeFiles/core.dir/utils/util.c.obj: \
- /home/foobar/finalproject/src-gen/changeName/core/utils/util.c \
- /home/foobar/finalproject/src-gen/changeName/core/../include/core/utils/util.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/utils/util.c \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/core/../include/core/utils/util.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
  /usr/include/newlib/errno.h /usr/include/newlib/sys/errno.h \
