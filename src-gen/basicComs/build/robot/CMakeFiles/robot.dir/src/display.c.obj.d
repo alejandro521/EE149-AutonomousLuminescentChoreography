@@ -1,6 +1,6 @@
 robot/CMakeFiles/robot.dir/src/display.c.obj: \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/robot-lib/src/display.c \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/robot-lib/src/display.h \
+ /home/foobar/finalproject/src-gen/basicComs/robot-lib/src/display.c \
+ /home/foobar/finalproject/src-gen/basicComs/robot-lib/src/display.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /usr/include/newlib/string.h /usr/include/newlib/_ansi.h \
@@ -14,4 +14,4 @@ robot/CMakeFiles/robot.dir/src/display.c.obj: \
  /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h \
  /usr/include/newlib/sys/_locale.h /usr/include/newlib/strings.h \
  /usr/include/newlib/sys/string.h /usr/include/newlib/assert.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/robot-lib/src/sh1106.h
+ /home/foobar/finalproject/src-gen/basicComs/robot-lib/src/sh1106.h

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs
+CMAKE_SOURCE_DIR = /home/foobar/finalproject/src-gen/basicComs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build
+CMAKE_BINARY_DIR = /home/foobar/finalproject/src-gen/basicComs/build
 
 # Utility rule file for robot_qtr_sensor_counter_pio_h.
 
@@ -69,8 +69,8 @@ include robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/progress.make
 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h: robot/qtr_sensor_counter.pio.h
 
 robot/qtr_sensor_counter.pio.h: ../robot-lib/qtr_sensor_counter.pio
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating qtr_sensor_counter.pio.h"
-	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot && ../pioasm/pioasm -o c-sdk /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/robot-lib/qtr_sensor_counter.pio /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/qtr_sensor_counter.pio.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foobar/finalproject/src-gen/basicComs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating qtr_sensor_counter.pio.h"
+	cd /home/foobar/finalproject/src-gen/basicComs/build/robot && ../pioasm/pioasm -o c-sdk /home/foobar/finalproject/src-gen/basicComs/robot-lib/qtr_sensor_counter.pio /home/foobar/finalproject/src-gen/basicComs/build/robot/qtr_sensor_counter.pio.h
 
 robot_qtr_sensor_counter_pio_h: robot/CMakeFiles/robot_qtr_sensor_counter_pio_h
 robot_qtr_sensor_counter_pio_h: robot/qtr_sensor_counter.pio.h
@@ -82,10 +82,10 @@ robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build: robot_qtr_sensor_coun
 .PHONY : robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build
 
 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/clean:
-	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot && $(CMAKE_COMMAND) -P CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/cmake_clean.cmake
+	cd /home/foobar/finalproject/src-gen/basicComs/build/robot && $(CMAKE_COMMAND) -P CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/cmake_clean.cmake
 .PHONY : robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/clean
 
 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/depend:
-	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/robot-lib /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/foobar/finalproject/src-gen/basicComs/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/foobar/finalproject/src-gen/basicComs /home/foobar/finalproject/src-gen/basicComs/robot-lib /home/foobar/finalproject/src-gen/basicComs/build /home/foobar/finalproject/src-gen/basicComs/build/robot /home/foobar/finalproject/src-gen/basicComs/build/robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/depend
 

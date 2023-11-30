@@ -1,1 +1,1 @@
-/home/foobar/EE149-AutonomousLuminescentChoreography/bin/basicComs.elf
+/home/foobar/finalproject/bin/basicComs.elf

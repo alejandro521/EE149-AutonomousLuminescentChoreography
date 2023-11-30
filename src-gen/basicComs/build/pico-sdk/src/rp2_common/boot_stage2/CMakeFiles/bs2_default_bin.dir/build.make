@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs
+CMAKE_SOURCE_DIR = /home/foobar/finalproject/src-gen/basicComs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build
+CMAKE_BINARY_DIR = /home/foobar/finalproject/src-gen/basicComs/build
 
 # Utility rule file for bs2_default_bin.
 
@@ -69,8 +69,8 @@ include pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/progr
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default.bin"
-	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2 && /usr/bin/arm-none-eabi-objcopy -Obinary /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foobar/finalproject/src-gen/basicComs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default.bin"
+	cd /home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2 && /usr/bin/arm-none-eabi-objcopy -Obinary /home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf /home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 bs2_default_bin: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin
 bs2_default_bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
@@ -82,10 +82,10 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/build: bs2_de
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/build
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/clean:
-	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2 && $(CMAKE_COMMAND) -P CMakeFiles/bs2_default_bin.dir/cmake_clean.cmake
+	cd /home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2 && $(CMAKE_COMMAND) -P CMakeFiles/bs2_default_bin.dir/cmake_clean.cmake
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/clean
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/depend:
-	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs /home/foobar/pico-sdk/src/rp2_common/boot_stage2 /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2 /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/foobar/finalproject/src-gen/basicComs/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/foobar/finalproject/src-gen/basicComs /home/foobar/pico-sdk/src/rp2_common/boot_stage2 /home/foobar/finalproject/src-gen/basicComs/build /home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2 /home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/depend
 

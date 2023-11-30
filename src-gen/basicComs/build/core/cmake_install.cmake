@@ -1,8 +1,8 @@
-# Install script for directory: /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/core
+# Install script for directory: /home/foobar/finalproject/src-gen/basicComs/core
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/foobar/EE149-AutonomousLuminescentChoreography")
+  set(CMAKE_INSTALL_PREFIX "/home/foobar/finalproject")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

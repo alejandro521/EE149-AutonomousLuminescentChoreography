@@ -1,4 +1,4 @@
-// Padded and checksummed version of: /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+// Padded and checksummed version of: /home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 .cpu cortex-m0plus
 .thumb

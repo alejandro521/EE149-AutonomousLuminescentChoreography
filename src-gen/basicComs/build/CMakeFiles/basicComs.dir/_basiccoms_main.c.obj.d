@@ -1,6 +1,6 @@
 CMakeFiles/basicComs.dir/_basiccoms_main.c.obj: \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_basiccoms_main.c \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/api/api.h \
+ /home/foobar/finalproject/src-gen/basicComs/_basiccoms_main.c \
+ /home/foobar/finalproject/src-gen/basicComs/include/api/api.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -17,27 +17,27 @@ CMakeFiles/basicComs.dir/_basiccoms_main.c.obj: \
  /usr/include/newlib/sys/timespec.h /usr/include/newlib/sys/_timespec.h \
  /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/sys/sched.h \
  /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/lf_types.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/lf_types.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/modal_models/modes.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/utils/pqueue.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/lf_token.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/modal_models/modes.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/utils/pqueue.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/lf_token.h \
  /usr/include/newlib/stdlib.h /usr/include/newlib/machine/stdlib.h \
  /usr/include/newlib/alloca.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/tag.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/tag.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed/limits.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/utils/vector.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/tag.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/basicComs/basicComs.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/utils/vector.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/tag.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/basicComs/basicComs.h \
  /home/foobar/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/types.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/assert.h \
  /usr/include/newlib/assert.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/generated/pico_base/pico/version.h \
+ /home/foobar/finalproject/src-gen/basicComs/build/generated/pico_base/pico/version.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/config.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/generated/pico_base/pico/config_autogen.h \
+ /home/foobar/finalproject/src-gen/basicComs/build/generated/pico_base/pico/config_autogen.h \
  /home/foobar/pico-sdk/src/boards/include/boards/pololu_3pi_2040_robot.h \
  /home/foobar/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
@@ -67,19 +67,18 @@ CMakeFiles/basicComs.dir/_basiccoms_main.c.obj: \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
- /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/robot-lib/src/display.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/api/api.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/core/reactor.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/core/lf_types.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/modal_models/modes.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/core/port.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/core/lf_token.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/core/tag.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/core/trace.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/utils/util.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_basiccoms_main.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/reactor.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_display.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/api/set.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/api/set_undef.h
+ /home/foobar/finalproject/src-gen/basicComs/robot-lib/src/display.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/../include/api/api.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/../include/core/reactor.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/../include/core/lf_types.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/modal_models/modes.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/../include/core/port.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/../include/core/lf_token.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/../include/core/tag.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/../include/core/trace.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/utils/util.h \
+ /home/foobar/finalproject/src-gen/basicComs/_basiccoms_main.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/core/reactor.h \
+ /home/foobar/finalproject/src-gen/basicComs/_display.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/api/set.h \
+ /home/foobar/finalproject/src-gen/basicComs/include/api/set_undef.h

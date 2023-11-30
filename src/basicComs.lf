@@ -28,6 +28,8 @@ main reactor {
      //Set up UART and set pins
         lf_set(disp.line0, "START UP");
         uart_init(uart0, BAUD_RATE);
+        uart_set_fifo_enabled(uart0, false);
+        uart_set_hw_flow(uart0, false, false); 
         gpio_init(UART_TX_PIN);
         gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
         gpio_init(UART_RX_PIN);

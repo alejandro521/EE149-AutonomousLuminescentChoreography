@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/foobar/EE149-AutonomousLuminescentChoreography")
+  set(CMAKE_INSTALL_PREFIX "/home/foobar/finalproject")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2040/hardware_regs/cmake_install.cmake")
-  include("/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/src/rp2040/hardware_structs/cmake_install.cmake")
+  include("/home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2040/hardware_regs/cmake_install.cmake")
+  include("/home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/src/rp2040/hardware_structs/cmake_install.cmake")
 
 endif()
 

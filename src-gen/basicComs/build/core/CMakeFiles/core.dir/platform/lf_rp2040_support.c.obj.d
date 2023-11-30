@@ -1,6 +1,6 @@
 core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.obj: \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/core/platform/lf_rp2040_support.c \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/core/../include/core/platform/lf_rp2040_support.h \
+ /home/foobar/finalproject/src-gen/basicComs/core/platform/lf_rp2040_support.c \
+ /home/foobar/finalproject/src-gen/basicComs/core/../include/core/platform/lf_rp2040_support.h \
  /home/foobar/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/types.h \
@@ -12,9 +12,9 @@ core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.obj: \
  /usr/include/newlib/sys/features.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/generated/pico_base/pico/version.h \
+ /home/foobar/finalproject/src-gen/basicComs/build/generated/pico_base/pico/version.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/config.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/generated/pico_base/pico/config_autogen.h \
+ /home/foobar/finalproject/src-gen/basicComs/build/generated/pico_base/pico/config_autogen.h \
  /home/foobar/pico-sdk/src/boards/include/boards/pololu_3pi_2040_robot.h \
  /home/foobar/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
@@ -52,11 +52,11 @@ core/CMakeFiles/core.dir/platform/lf_rp2040_support.c.obj: \
  /home/foobar/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
  /home/foobar/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
  /home/foobar/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/core/../include/core/platform.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/core/../include/core/tag.h \
+ /home/foobar/finalproject/src-gen/basicComs/core/../include/core/platform.h \
+ /home/foobar/finalproject/src-gen/basicComs/core/../include/core/tag.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed/limits.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/core/../include/core/platform/lf_rp2040_support.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/core/../include/core/utils/util.h \
+ /home/foobar/finalproject/src-gen/basicComs/core/../include/core/platform/lf_rp2040_support.h \
+ /home/foobar/finalproject/src-gen/basicComs/core/../include/core/utils/util.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/core/../include/core/tag.h \
+ /home/foobar/finalproject/src-gen/basicComs/core/../include/core/tag.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_multicore/include/pico/multicore.h

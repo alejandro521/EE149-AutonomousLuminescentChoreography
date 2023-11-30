@@ -1,8 +1,8 @@
-# Install script for directory: /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs
+# Install script for directory: /home/foobar/finalproject/src-gen/basicComs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/foobar/EE149-AutonomousLuminescentChoreography")
+  set(CMAKE_INSTALL_PREFIX "/home/foobar/finalproject")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,16 +39,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/pico-sdk/cmake_install.cmake")
+  include("/home/foobar/finalproject/src-gen/basicComs/build/pico-sdk/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/core/cmake_install.cmake")
+  include("/home/foobar/finalproject/src-gen/basicComs/build/core/cmake_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE MESSAGE_NEVER FILES "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/basicComs.elf")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE MESSAGE_NEVER FILES "/home/foobar/finalproject/src-gen/basicComs/build/basicComs.elf")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/basicComs.elf" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/basicComs.elf")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -59,7 +59,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/cmake_install.cmake")
+  include("/home/foobar/finalproject/src-gen/basicComs/build/robot/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -70,5 +70,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/foobar/finalproject/src-gen/basicComs/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -22,9 +22,9 @@ core/CMakeFiles/core.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/types.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/assert.h \
  /usr/include/newlib/assert.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/generated/pico_base/pico/version.h \
+ /home/foobar/finalproject/src-gen/basicComs/build/generated/pico_base/pico/version.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/config.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/generated/pico_base/pico/config_autogen.h \
+ /home/foobar/finalproject/src-gen/basicComs/build/generated/pico_base/pico/config_autogen.h \
  /home/foobar/pico-sdk/src/boards/include/boards/pololu_3pi_2040_robot.h \
  /home/foobar/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \

@@ -13,10 +13,12 @@ void _basiccoms_mainreaction_function_0(void* instance_args) {
     } disp;
     disp.line0 = &(self->_lf_disp.line0);
     disp.line1 = &(self->_lf_disp.line1);
-    #line 28 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 28 "/home/foobar/finalproject/src/basicComs.lf"
     //Set up UART and set pins
        lf_set(disp.line0, "START UP");
        uart_init(uart0, BAUD_RATE);
+       uart_set_fifo_enabled(uart0, false);
+       uart_set_hw_flow(uart0, false, false); 
        gpio_init(UART_TX_PIN);
        gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
        gpio_init(UART_RX_PIN);
@@ -51,7 +53,7 @@ void _basiccoms_mainreaction_function_1(void* instance_args) {
     disp.line0 = &(self->_lf_disp.line0);
     disp.line2 = &(self->_lf_disp.line2);
     disp.line3 = &(self->_lf_disp.line3);
-    #line 54 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 56 "/home/foobar/finalproject/src/basicComs.lf"
     self->led_on = !self->led_on;
     // printf("LED State: %b/n", self->led_on);
     // lf_set(disp.line1, "LED STATE: ");
@@ -82,54 +84,54 @@ _basiccoms_main_main_self_t* new__basiccoms_main() {
     // Set the _width variable for all cases. This will be -2
     // if the reactor is not a bank of reactors.
     self->_lf_disp_width = -2;
-    #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 27 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_0.number = 0;
-    #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 27 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_0.function = _basiccoms_mainreaction_function_0;
-    #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 27 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_0.self = self;
-    #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 27 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_0.deadline_violation_handler = NULL;
-    #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 27 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_0.STP_handler = NULL;
-    #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 27 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_0.name = "?";
-    #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 27 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_0.mode = NULL;
-    #line 53 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 55 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_1.number = 1;
-    #line 53 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 55 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_1.function = _basiccoms_mainreaction_function_1;
-    #line 53 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 55 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_1.self = self;
-    #line 53 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 55 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_1.deadline_violation_handler = NULL;
-    #line 53 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 55 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_1.STP_handler = NULL;
-    #line 53 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 55 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_1.name = "?";
-    #line 53 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 55 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__reaction_1.mode = NULL;
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__t.last = NULL;
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     #ifdef FEDERATED_DECENTRALIZED
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__t.intended_tag = (tag_t) { .time = NEVER, .microstep = 0u};
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     #endif // FEDERATED_DECENTRALIZED
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__t_reactions[0] = &self->_lf__reaction_1;
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__t.reactions = &self->_lf__t_reactions[0];
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__t.number_of_reactions = 1;
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     #ifdef FEDERATED
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     self->_lf__t.physical_time_of_arrival = NEVER;
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/basicComs.lf"
+    #line 24 "/home/foobar/finalproject/src/basicComs.lf"
     #endif // FEDERATED
     self->_lf__t.is_timer = true;
     #ifdef FEDERATED_DECENTRALIZED
