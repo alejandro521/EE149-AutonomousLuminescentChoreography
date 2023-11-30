@@ -28,7 +28,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
   "CFG_TUSB_OS=OPT_OS_PICO"
   "LF_FILE_SEPARATOR=\"/\""
   "LF_PACKAGE_DIRECTORY=\"/home/foobar/EE149-AutonomousLuminescentChoreography\""
-  "LF_REACTION_GRAPH_BREADTH=1"
+  "LF_REACTION_GRAPH_BREADTH=2"
   "LF_SOURCE_DIRECTORY=\"/home/foobar/EE149-AutonomousLuminescentChoreography/src\""
   "LF_UNTHREADED=1"
   "LIB_PICO_BIT_OPS=1"
@@ -141,11 +141,19 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/foobar/pico-sdk/lib/tinyusb/hw"
   "/home/foobar/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include"
   "/home/foobar/pico-sdk/src/rp2_common/pico_multicore/include"
+  "robot"
+  "../robot-lib/src"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_adc/include"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_pio/include"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_pwm/include"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_spi/include"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/include"
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_basiccoms_main.c" "CMakeFiles/basicComs.dir/_basiccoms_main.c.obj" "gcc" "CMakeFiles/basicComs.dir/_basiccoms_main.c.obj.d"
+  "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_display.c" "CMakeFiles/basicComs.dir/_display.c.obj" "gcc" "CMakeFiles/basicComs.dir/_display.c.obj.d"
   "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/basicComs.c" "CMakeFiles/basicComs.dir/basicComs.c.obj" "gcc" "CMakeFiles/basicComs.dir/basicComs.c.obj.d"
   "/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj.d"
   "/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj.d"
@@ -174,12 +182,16 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/foobar/pico-sdk/src/common/pico_util/datetime.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj.d"
   "/home/foobar/pico-sdk/src/common/pico_util/pheap.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj.d"
   "/home/foobar/pico-sdk/src/common/pico_util/queue.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj.d"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj.d"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d"
+  "/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj.d"
   "/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj" "gcc" "CMakeFiles/basicComs.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj.d"
@@ -212,6 +224,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/core/CMakeFiles/core.dir/DependInfo.cmake"
+  "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/robot.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

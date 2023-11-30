@@ -89,4 +89,6 @@ CMakeFiles/basicComs.dir/basicComs.c.obj: \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/mixed_radix.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/port.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/environment.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_display.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/robot-lib/src/display.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_basiccoms_main.h

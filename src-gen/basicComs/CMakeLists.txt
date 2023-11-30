@@ -26,6 +26,8 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+cmake_policy(SET CMP0023 OLD)  # This causes deprecation warnings
+
 set(DEFAULT_BUILD_TYPE Release)
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set(CMAKE_BUILD_TYPE ${DEFAULT_BUILD_TYPE} CACHE STRING "Choose the type of build." FORCE)
@@ -49,6 +51,7 @@ add_executable(
     ${LF_MAIN_TARGET}
     lib/schedule.c
     _basiccoms_main.c
+    _display.c
     basicComs.c
 )
 
@@ -77,6 +80,7 @@ target_compile_definitions( ${LF_MAIN_TARGET} PUBLIC LF_UNTHREADED=1)
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     )
 
+include("robot-lib.txt")
 
 
 

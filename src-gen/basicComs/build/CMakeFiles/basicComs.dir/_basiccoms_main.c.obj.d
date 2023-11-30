@@ -68,6 +68,7 @@ CMakeFiles/basicComs.dir/_basiccoms_main.c.obj: \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/robot-lib/src/display.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/api/api.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/core/reactor.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/../include/core/lf_types.h \
@@ -79,5 +80,6 @@ CMakeFiles/basicComs.dir/_basiccoms_main.c.obj: \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/utils/util.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_basiccoms_main.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/core/reactor.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/_display.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/api/set.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/include/api/set_undef.h

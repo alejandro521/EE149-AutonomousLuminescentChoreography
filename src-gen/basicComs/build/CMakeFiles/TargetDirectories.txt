@@ -498,3 +498,12 @@
 /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/core/CMakeFiles/install.dir
 /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/core/CMakeFiles/install/local.dir
 /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/core/CMakeFiles/install/strip.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/robot.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/edit_cache.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/rebuild_cache.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/list_install_components.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/install.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/install/local.dir
+/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/basicComs/build/robot/CMakeFiles/install/strip.dir
