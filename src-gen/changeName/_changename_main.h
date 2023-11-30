@@ -2,8 +2,10 @@
 #define _CHANGENAME_MAIN_H
 #include "include/core/reactor.h"
 #include "_display.h"
-#ifndef TOP_LEVEL_PREAMBLE_718803389_H
-#define TOP_LEVEL_PREAMBLE_718803389_H
+#ifndef TOP_LEVEL_PREAMBLE_1956244664_H
+#define TOP_LEVEL_PREAMBLE_1956244664_H
+#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
 #include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
@@ -13,38 +15,44 @@
 #define BAUD_RATE 9600
 #define UART_TX_PIN 28
 #define UART_RX_PIN 29
+#define MAX_MSG_LENGTH 100
 
-// Function to send AT command and return the command string
-static char* sendATCommand(uart_inst_t *uart, const char *command) {
-  const char *tempCommand = command;
-  while (*tempCommand) {
-    uart_putc(uart, *tempCommand++);
+// Function to send a message. The message that was transmitted is written to transmitted_message
+static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
+  int index = 0;
+  while (*message && index < MAX_MSG_LENGTH) {
+    uart_putc(uart, *message);
+    transmitted_message[index] = *message;
+    index++;
+    message++;
   }
-  uart_putc(uart, '\r'); // Carriage return to execute the command
-  return command;
+  uart_putc(uart, '\r'); // Carriage return
+  transmitted_message[index] = '\0';
 }
 
-// Function to read response from UART and return the response string
-static char* readUARTResponse(uart_inst_t *uart, char *response, int maxLength) {
-  int count = 0;
-  while (uart_is_readable(uart) && count < maxLength - 1) {
-      response[count++] = uart_getc(uart);
+// Function to write response from UART to received_message
+static void receiveMessage(uart_inst_t *uart, char *received_message) {
+  int index = 0;
+  char received_char;
+  while (uart_is_readable(uart)) { 
+    received_char = uart_getc(uart);
+    if (index < MAX_MSG_LENGTH - 1) {
+      received_message[index] = received_char;
+      index += 1;
+    }
   }
-  response[count] = '\0'; // Null terminate the string
-  return response;
+  received_message[index] = '\0'; // Null terminate the string
 }
-#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
 #endif
 typedef struct {
     struct self_base_t base;
     
-    #line 45 "/home/foobar/finalproject/src/changeName.lf"
+    #line 52 "/home/foobar/finalproject/src/changeName.lf"
     bool led_on;
-    #line 46 "/home/foobar/finalproject/src/changeName.lf"
-    char* message_sent;
-    #line 47 "/home/foobar/finalproject/src/changeName.lf"
-    char* message_received;
+    #line 53 "/home/foobar/finalproject/src/changeName.lf"
+    char* transmitted_message;
+    #line 54 "/home/foobar/finalproject/src/changeName.lf"
+    char* received_message;
     struct {
         #line 25 "/home/foobar/finalproject/src/lib/Display.lf"
         _display_line0_t line0;
@@ -54,13 +62,13 @@ typedef struct {
         _display_line2_t line2;
     } _lf_disp;
     int _lf_disp_width;
-    #line 50 "/home/foobar/finalproject/src/changeName.lf"
+    #line 57 "/home/foobar/finalproject/src/changeName.lf"
     reaction_t _lf__reaction_0;
-    #line 65 "/home/foobar/finalproject/src/changeName.lf"
+    #line 74 "/home/foobar/finalproject/src/changeName.lf"
     reaction_t _lf__reaction_1;
-    #line 44 "/home/foobar/finalproject/src/changeName.lf"
+    #line 51 "/home/foobar/finalproject/src/changeName.lf"
     trigger_t _lf__t;
-    #line 44 "/home/foobar/finalproject/src/changeName.lf"
+    #line 51 "/home/foobar/finalproject/src/changeName.lf"
     reaction_t* _lf__t_reactions[1];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[1];

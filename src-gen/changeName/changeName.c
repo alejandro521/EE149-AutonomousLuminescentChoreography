@@ -65,11 +65,11 @@ void _lf_initialize_trigger_objects() {
     } // End scoping.
     { // For scoping
         static char _initial[100] = "";
-        changename_main_self[0]->message_sent = _initial;
+        changename_main_self[0]->transmitted_message = _initial;
     } // End scoping.
     { // For scoping
         static char _initial[100] = "";
-        changename_main_self[0]->message_received = _initial;
+        changename_main_self[0]->received_message = _initial;
     } // End scoping.
     // Initiaizing timer changeName.t.
     changename_main_self[0]->_lf__t.offset = 0;
