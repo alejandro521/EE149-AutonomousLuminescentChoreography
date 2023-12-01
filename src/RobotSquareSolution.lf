@@ -1,0 +1,74 @@
+/**
+ * Template for robot driving lab exercises.
+ * This template just periodically switches between a
+ * STOPPED and a DRIVING mode, updating the LCD display
+ * on each change of mode.
+ */
+target C {
+  platform: {
+    name: "rp2040",
+    board: "pololu_3pi_2040_robot"
+  },
+  threading: false,
+}
+
+import Display from "lib/Display.lf"
+import Motors from "lib/Motors.lf"
+import Encoders from "lib/Encoders.lf"
+import GyroAngle from "lib/IMU.lf"
+import AngleToDistance from "lib/AngleToDistance.lf"
+
+preamble {=
+  #include <math.h>
+=}
+
+main reactor {
+  state previousDistance:float = 0
+  state previousAngle:float = 0
+
+  m = new Motors()
+  e = new Encoders()
+  d = new Display()
+  gyro = new GyroAngle()
+  angleToDistanceL = new AngleToDistance()
+  angleToDistanceR = new AngleToDistance()
+
+  timer t(0, 10 ms)
+
+  reaction(t) -> e.trigger, gyro.trigger {=
+    lf_set(e.trigger, true);
+    lf_set(gyro.trigger, true);
+  =}
+
+  e.left -> angleToDistanceL.degrees
+  e.right -> angleToDistanceR.degrees
+
+  initial mode DRIVING {
+
+    reaction(angleToDistanceR.distance) -> m.left_power, m.right_power, d.line0, ROTATING {=
+      if (angleToDistanceR.distance->value - self->previousDistance > 0.5) {
+        lf_set(m.left_power, 0.0f);
+        lf_set(m.right_power, 0.0f);
+        self->previousDistance = angleToDistanceR.distance->value;
+        lf_set_mode(ROTATING);
+      } else {
+        lf_set(d.line0, "DRIVE");
+        lf_set(m.left_power, 0.1f);
+        lf_set(m.right_power, 0.1f);
+      }
+    =}
+  }
+
+  mode ROTATING {
+    reaction(gyro.z) -> m.left_power, m.right_power, d.line0, DRIVING {=
+      if (gyro.z->value - self->previousAngle < -90) {
+        lf_set(m.left_power, 0.0f);
+        self->previousAngle = gyro.z->value;
+        lf_set_mode(DRIVING);
+      } else {
+        lf_set(d.line0, "ROTATE");
+        lf_set(m.left_power, 0.1f);
+      }
+    =}
+  }
+}
