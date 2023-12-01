@@ -1,0 +1,20 @@
+target C {
+    platform: {
+      name: "rp2040",
+      board: "pololu_3pi_2040_robot"
+    },
+    threading: false,
+}
+
+preamble {=
+    #include <math.h>
+=}
+
+reactor AngleToDistance {
+    input degrees:int32_t
+    output distance:float
+
+    reaction(degrees) -> distance {=
+        lf_set(distance, degrees->value * (((M_PI * 3.175) / 360) / 100));
+    =}
+}

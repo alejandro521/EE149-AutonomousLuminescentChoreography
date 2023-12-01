@@ -1,0 +1,111 @@
+target C {
+    platform: {
+      name: "rp2040",
+      board: "pololu_3pi_2040_robot"
+    },
+    threading: false,
+  }
+  
+  import Display from "lib/Display.lf"
+  import Motors from "lib/Motors.lf"
+  import Encoders from "lib/Encoders.lf"
+  import GyroAngle from "lib/IMU.lf"
+  import AngleToDistance from "lib/AngleToDistance.lf"
+  
+  preamble {=
+    #include <math.h>
+
+    #define RED_LED_PIN 7
+    #define YELLOW_LED_PIN 27
+    #define GREEN_LED_PIN 24
+  =}
+  
+  main reactor {
+    state previousDistance:float = 0
+    state previousAngle:float = 0
+    state leds_on:bool = false
+  
+    m = new Motors()
+    e = new Encoders()
+    d = new Display()
+    gyro = new GyroAngle()
+    angleToDistanceL = new AngleToDistance()
+    angleToDistanceR = new AngleToDistance()
+  
+    timer t(0, 50 ms)
+  
+    reaction(startup) {=
+        gpio_init(RED_LED_PIN);
+        gpio_init(YELLOW_LED_PIN);
+        gpio_init(GREEN_LED_PIN);
+
+        gpio_set_dir(RED_LED_PIN, GPIO_OUT);
+        gpio_set_dir(YELLOW_LED_PIN, GPIO_OUT);
+        gpio_set_dir(GREEN_LED_PIN, GPIO_OUT);
+
+        // gpio_put(RED_LED_PIN, 1);
+        // gpio_put(YELLOW_LED_PIN, 1);
+        // gpio_put(GREEN_LED_PIN, 1);
+      =}
+
+    reaction(t) -> e.trigger, gyro.trigger {=
+      lf_set(e.trigger, true);
+      lf_set(gyro.trigger, true);
+    =}
+  
+    e.left -> angleToDistanceL.degrees
+    e.right -> angleToDistanceR.degrees
+  
+    initial mode DRIVING {
+      reaction(angleToDistanceR.distance) -> m.left_power, m.right_power, d.line0, ROTATING {=
+        if (self->leds_on) {
+          gpio_put(RED_LED_PIN, 1);
+          gpio_put(YELLOW_LED_PIN, 0);
+          gpio_put(GREEN_LED_PIN, 1);
+          self->leds_on = !self->leds_on;
+        }
+        else {
+          gpio_put(RED_LED_PIN, 0);
+          gpio_put(YELLOW_LED_PIN, 1);
+          gpio_put(GREEN_LED_PIN, 0);
+          self->leds_on = !self->leds_on;
+        }
+        if (angleToDistanceR.distance->value - self->previousDistance > 0.5) {
+          lf_set(m.left_power, 0.0f);
+          lf_set(m.right_power, 0.0f);
+          self->previousDistance = angleToDistanceR.distance->value;
+          lf_set_mode(ROTATING);
+        } else {
+          lf_set(d.line0, "DRIVE");
+          lf_set(m.left_power, 0.5f);
+          lf_set(m.right_power, 0.5f);
+          
+        }
+      =}
+
+    //   reaction(rave) {=
+    //     gpio_put(RED_LED_PIN, 1);
+    //     gpio_put(YELLOW_LED_PIN, 0);
+    //     gpio_put(GREEN_LED_PIN, 1);
+    //   =}
+
+    //   reaction(robot) {=
+    //     gpio_put(RED_LED_PIN, 0);
+    //     gpio_put(YELLOW_LED_PIN, 1);
+    //     gpio_put(GREEN_LED_PIN, 0);
+    //   =}
+    }
+  
+    mode ROTATING {
+      reaction(gyro.z) -> m.left_power, m.right_power, d.line0, DRIVING {=
+        if (gyro.z->value - self->previousAngle < -90.0) {
+          lf_set(m.left_power, 0.0f);
+          self->previousAngle = gyro.z->value;
+          lf_set_mode(DRIVING);
+        } else {
+          lf_set(d.line0, "ROTATE");
+          lf_set(m.left_power, 0.1f);
+        }
+      =}
+    }
+  }
