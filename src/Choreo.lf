@@ -42,10 +42,6 @@ target C {
         gpio_set_dir(RED_LED_PIN, GPIO_OUT);
         gpio_set_dir(YELLOW_LED_PIN, GPIO_OUT);
         gpio_set_dir(GREEN_LED_PIN, GPIO_OUT);
-
-        // gpio_put(RED_LED_PIN, 1);
-        // gpio_put(YELLOW_LED_PIN, 1);
-        // gpio_put(GREEN_LED_PIN, 1);
       =}
 
     reaction(t) -> e.trigger, gyro.trigger {=
@@ -82,29 +78,17 @@ target C {
           
         }
       =}
-
-    //   reaction(rave) {=
-    //     gpio_put(RED_LED_PIN, 1);
-    //     gpio_put(YELLOW_LED_PIN, 0);
-    //     gpio_put(GREEN_LED_PIN, 1);
-    //   =}
-
-    //   reaction(robot) {=
-    //     gpio_put(RED_LED_PIN, 0);
-    //     gpio_put(YELLOW_LED_PIN, 1);
-    //     gpio_put(GREEN_LED_PIN, 0);
-    //   =}
     }
   
     mode ROTATING {
       reaction(gyro.z) -> m.left_power, m.right_power, d.line0, DRIVING {=
-        if (gyro.z->value - self->previousAngle < -90.0) {
+        if (gyro.z->value - self->previousAngle < -1080.0) {
           lf_set(m.left_power, 0.0f);
           self->previousAngle = gyro.z->value;
           lf_set_mode(DRIVING);
         } else {
           lf_set(d.line0, "ROTATE");
-          lf_set(m.left_power, 0.1f);
+          lf_set(m.left_power, 0.5f);
         }
       =}
     }

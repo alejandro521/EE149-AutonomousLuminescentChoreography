@@ -77,11 +77,11 @@ typedef struct {
     int _lf_angleToDistanceR_width;
     #line 37 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_0;
-    #line 51 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 47 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_1;
-    #line 60 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 56 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_2;
-    #line 100 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 84 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_3;
     #line 35 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     trigger_t _lf__t;
