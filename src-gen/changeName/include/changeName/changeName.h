@@ -1,9 +1,7 @@
 #ifndef _changename_main_H
 #define _changename_main_H
-#ifndef TOP_LEVEL_PREAMBLE_66863151_H
-#define TOP_LEVEL_PREAMBLE_66863151_H
-/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
+#ifndef TOP_LEVEL_PREAMBLE_179441020_H
+#define TOP_LEVEL_PREAMBLE_179441020_H
 /*Correspondence: Range: [(10, 2), (49, 1)) -> Range: [(0, 0), (39, 1)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/changeName.lf)*/#include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
@@ -44,6 +42,8 @@ static void receiveMessage(uart_inst_t *uart, char *received_message) {
   }
   received_message[index] = '\0'; // Null terminate the string
 }
+/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
 #endif
 #ifdef __cplusplus
 extern "C" {

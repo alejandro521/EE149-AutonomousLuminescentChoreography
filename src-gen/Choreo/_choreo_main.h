@@ -6,10 +6,13 @@
 #include "_gyroangle.h"
 #include "_angletodistance.h"
 #include "_motors.h"
-#ifndef TOP_LEVEL_PREAMBLE_1883788127_H
-#define TOP_LEVEL_PREAMBLE_1883788127_H
+#ifndef TOP_LEVEL_PREAMBLE_468457220_H
+#define TOP_LEVEL_PREAMBLE_468457220_H
+#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
 #include <pico/stdlib.h>
 #include <imu.h>
+#include <motors.h>
 #include <math.h>
 #include <math.h> 
 #include <hardware/pio.h>
@@ -21,23 +24,68 @@
 #define RIGHT_SM 0
 #define LEFT_SM 1
 #include <math.h>
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+#include <hardware/uart.h>
+#include <hardware/structs/uart.h>
+
+#define BAUD_RATE 9600
+#define UART_TX_PIN 28
+#define UART_RX_PIN 29
+#define MAX_MSG_LENGTH 100
 
 #define RED_LED_PIN 7
 #define YELLOW_LED_PIN 27
 #define GREEN_LED_PIN 24
-#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
-#include <motors.h>
+
+// Function to send a message. The message that was transmitted is written to transmitted_message
+static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
+  int index = 0;
+  while (*message && index < MAX_MSG_LENGTH) {
+    uart_putc(uart, *message);
+    transmitted_message[index] = *message;
+    index++;
+    message++;
+  }
+  uart_putc(uart, '\r'); // Carriage return
+  uart_putc(uart, '\n'); // newline
+  transmitted_message[index] = '\0';
+}
+
+// Function to write response from UART to received_message
+static void receiveMessage(uart_inst_t *uart, char *received_message) {
+  int index = 0;
+  char received_char;
+  while (uart_is_readable(uart)) { 
+    received_char = uart_getc(uart);
+    if (index < MAX_MSG_LENGTH - 1) {
+      received_message[index] = received_char;
+      index += 1;
+    }
+  }
+  received_message[index] = '\0'; // Null terminate the string
+}
 #endif
 typedef struct {
     struct self_base_t base;
     
-    #line 24 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 62 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    char* transmitted_message;
+    #line 63 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    char* received_message;
+    #line 64 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     float previousDistance;
-    #line 25 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 65 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     float previousAngle;
-    #line 26 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     bool leds_on;
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    float leds_speed;
+    #line 68 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    float speed;
+    #line 69 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    float target_distance;
     struct {
         #line 32 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Encoders.lf"
         _encoders_trigger_t trigger;
@@ -72,24 +120,26 @@ typedef struct {
         #line 15 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf"
         trigger_t distance_trigger;
         #line 15 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf"
-        reaction_t* distance_reactions[1];
+        reaction_t* distance_reactions[2];
     } _lf_angleToDistanceR;
     int _lf_angleToDistanceR_width;
-    #line 37 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 80 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_0;
-    #line 47 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 102 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_1;
-    #line 56 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 111 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_2;
-    #line 84 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 140 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_3;
-    #line 35 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 154 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    reaction_t _lf__reaction_4;
+    #line 78 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     trigger_t _lf__t;
-    #line 35 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 78 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t* _lf__t_reactions[1];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[1];
-    reactor_mode_t _lf__modes[2];
+    reactor_mode_t _lf__modes[3];
 } _choreo_main_main_self_t;
 _choreo_main_main_self_t* new__choreo_main();
 #endif // _CHOREO_MAIN_H

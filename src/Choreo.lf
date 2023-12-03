@@ -14,16 +14,59 @@ target C {
   
   preamble {=
     #include <math.h>
+    #include <stdio.h>
+    #include <pico/stdlib.h>
+    #include <hardware/gpio.h>
+    #include <hardware/uart.h>
+    #include <hardware/structs/uart.h>
+
+    #define BAUD_RATE 9600
+    #define UART_TX_PIN 28
+    #define UART_RX_PIN 29
+    #define MAX_MSG_LENGTH 100
 
     #define RED_LED_PIN 7
     #define YELLOW_LED_PIN 27
     #define GREEN_LED_PIN 24
+
+    // Function to send a message. The message that was transmitted is written to transmitted_message
+    static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
+      int index = 0;
+      while (*message && index < MAX_MSG_LENGTH) {
+        uart_putc(uart, *message);
+        transmitted_message[index] = *message;
+        index++;
+        message++;
+      }
+      uart_putc(uart, '\r'); // Carriage return
+      uart_putc(uart, '\n'); // newline
+      transmitted_message[index] = '\0';
+    }
+
+    // Function to write response from UART to received_message
+    static void receiveMessage(uart_inst_t *uart, char *received_message) {
+      int index = 0;
+      char received_char;
+      while (uart_is_readable(uart)) { 
+        received_char = uart_getc(uart);
+        if (index < MAX_MSG_LENGTH - 1) {
+          received_message[index] = received_char;
+          index += 1;
+        }
+      }
+      received_message[index] = '\0'; // Null terminate the string
+    }
   =}
   
   main reactor {
+    state transmitted_message:char[100] = "";
+    state received_message:char[100] = "";
     state previousDistance:float = 0
     state previousAngle:float = 0
     state leds_on:bool = false
+    state leds_speed:float = 0
+    state speed:float = 0
+    state target_distance:float = 0
   
     m = new Motors()
     e = new Encoders()
@@ -42,6 +85,18 @@ target C {
         gpio_set_dir(RED_LED_PIN, GPIO_OUT);
         gpio_set_dir(YELLOW_LED_PIN, GPIO_OUT);
         gpio_set_dir(GREEN_LED_PIN, GPIO_OUT);
+
+        uart_init(uart0, BAUD_RATE);
+        gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+        gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+
+        gpio_init(PICO_DEFAULT_LED_PIN);
+        gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
+
+        // Clear UART buffer
+        while (uart_is_readable(uart0)) {
+            uart_getc(uart0);
+        }       
       =}
 
     reaction(t) -> e.trigger, gyro.trigger {=
@@ -53,7 +108,7 @@ target C {
     e.right -> angleToDistanceR.degrees
   
     initial mode DRIVING {
-      reaction(angleToDistanceR.distance) -> m.left_power, m.right_power, d.line0, ROTATING {=
+      reaction(angleToDistanceR.distance) gyro.z -> m.left_power, m.right_power, d.line0, ROTATING {=
         if (self->leds_on) {
           gpio_put(RED_LED_PIN, 1);
           gpio_put(YELLOW_LED_PIN, 0);
@@ -66,10 +121,11 @@ target C {
           gpio_put(GREEN_LED_PIN, 0);
           self->leds_on = !self->leds_on;
         }
-        if (angleToDistanceR.distance->value - self->previousDistance > 0.5) {
+        if (angleToDistanceR.distance->value - self->previousDistance > 1.0) {
           lf_set(m.left_power, 0.0f);
           lf_set(m.right_power, 0.0f);
           self->previousDistance = angleToDistanceR.distance->value;
+          self->previousAngle = gyro.z->value; 
           lf_set_mode(ROTATING);
         } else {
           lf_set(d.line0, "DRIVE");
@@ -88,8 +144,47 @@ target C {
           lf_set_mode(DRIVING);
         } else {
           lf_set(d.line0, "ROTATE");
-          lf_set(m.left_power, 0.5f);
+          lf_set(m.left_power, 1.0f);
         }
       =}
     }
+
+    //General mode taking in speed and leds_on
+    mode NEW_DRIVING {
+      reaction(angleToDistanceR.distance) gyro.z -> m.left_power, m.right_power, d.line0, ROTATING {=
+        //Convert integer 0 or 1 to a bool
+        int led_bool = atoi(self->received_message[3]);
+        if (led_bool == 0) {
+          self->leds_on = false;
+        } else {
+          self->leds_on = true;
+        }
+        if (self->leds_on) {
+            gpio_put(RED_LED_PIN, 1);
+            gpio_put(YELLOW_LED_PIN, 0);
+            gpio_put(GREEN_LED_PIN, 1);
+            self->leds_on = !self->leds_on;
+        } else {
+          gpio_put(RED_LED_PIN, 0);
+          gpio_put(YELLOW_LED_PIN, 1);
+          gpio_put(GREEN_LED_PIN, 0);            
+          self->leds_on = !self->leds_on;
+        }
+
+        self->target_distance = atoi(self->received_message[4]) / 10.0f;
+        self->speed = atof(self->received_message[2]) / 10.0f; 
+        if (angleToDistanceR.distance->value - self->previousDistance > self->target_distance) {
+          lf_set(m.left_power, self->speed); 
+          lf_set(m.right_power, self->speed);
+          self->previousDistance = angleToDistanceR.distance->value;
+          self->previousAngle = gyro.z->value; 
+          lf_set_mode(ROTATING);
+        } else {
+          lf_set(d.line0, "DRIVE");
+          lf_set(m.left_power, self->speed);
+          lf_set(m.right_power, self->speed);
+        }
+      =}
+    }
+    
   }

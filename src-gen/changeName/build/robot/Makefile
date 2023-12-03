@@ -176,6 +176,20 @@ robot/fast:
 .PHONY : robot/fast
 
 # Convenience name for target.
+robot/CMakeFiles/PioasmBuild.dir/rule:
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/PioasmBuild.dir/rule
+.PHONY : robot/CMakeFiles/PioasmBuild.dir/rule
+
+# Convenience name for target.
+PioasmBuild: robot/CMakeFiles/PioasmBuild.dir/rule
+.PHONY : PioasmBuild
+
+# fast build rule for target.
+PioasmBuild/fast:
+	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/PioasmBuild.dir/build.make robot/CMakeFiles/PioasmBuild.dir/build
+.PHONY : PioasmBuild/fast
+
+# Convenience name for target.
 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule:
 	cd /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
 .PHONY : robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
@@ -1383,6 +1397,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... PioasmBuild"
 	@echo "... robot_qtr_sensor_counter_pio_h"
 	@echo "... robot_quadrature_encoder_pio_h"
 	@echo "... robot"

@@ -2,10 +2,8 @@
 #define _CHANGENAME_MAIN_H
 #include "include/core/reactor.h"
 #include "_display.h"
-#ifndef TOP_LEVEL_PREAMBLE_66863151_H
-#define TOP_LEVEL_PREAMBLE_66863151_H
-#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
+#ifndef TOP_LEVEL_PREAMBLE_179441020_H
+#define TOP_LEVEL_PREAMBLE_179441020_H
 #include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
@@ -46,6 +44,8 @@ static void receiveMessage(uart_inst_t *uart, char *received_message) {
   }
   received_message[index] = '\0'; // Null terminate the string
 }
+#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
 #endif
 typedef struct {
     struct self_base_t base;

@@ -67,7 +67,6 @@ CMakeFiles/changeName.dir/_display.c.obj: \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
- /home/foobar/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/robot-lib/src/display.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/include/../include/api/api.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/changeName/include/../include/core/reactor.h \
