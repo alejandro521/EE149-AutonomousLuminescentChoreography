@@ -1,13 +1,12 @@
 #ifndef _choreo_main_H
 #define _choreo_main_H
-#ifndef TOP_LEVEL_PREAMBLE_228363521_H
-#define TOP_LEVEL_PREAMBLE_228363521_H
+#ifndef TOP_LEVEL_PREAMBLE_253380088_H
+#define TOP_LEVEL_PREAMBLE_253380088_H
+/*Correspondence: Range: [(18, 2), (18, 21)) -> Range: [(0, 0), (0, 19)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Motors.lf)*/#include <motors.h>
 /*Correspondence: Range: [(22, 2), (23, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf)*/#include <pico/stdlib.h>
 #include <imu.h>
-/*Correspondence: Range: [(9, 4), (9, 21)) -> Range: [(0, 0), (0, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf)*/#include <math.h>
-/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
-/*Correspondence: Range: [(15, 4), (29, 24)) -> Range: [(0, 0), (14, 24)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf)*/#include <math.h>
+/*Correspondence: Range: [(15, 4), (30, 24)) -> Range: [(0, 0), (15, 24)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf)*/#include <math.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
@@ -22,7 +21,9 @@
 #define RED_LED_PIN 7
 #define YELLOW_LED_PIN 27
 #define GREEN_LED_PIN 24
-/*Correspondence: Range: [(18, 2), (18, 21)) -> Range: [(0, 0), (0, 19)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Motors.lf)*/#include <motors.h>
+/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
+/*Correspondence: Range: [(9, 4), (9, 21)) -> Range: [(0, 0), (0, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf)*/#include <math.h>
 /*Correspondence: Range: [(19, 2), (27, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Encoders.lf)*/#include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -55,6 +56,7 @@ typedef struct choreo_self_t{
     int num_rotations;
     bool leds_blink;
     int i;
+    bool leds_state;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } choreo_self_t;
 typedef struct {
