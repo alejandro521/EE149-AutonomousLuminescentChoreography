@@ -124,6 +124,10 @@ void _lf_initialize_trigger_objects() {
         choreo_main_self[0]->num_rotations = _initial;
     } // End scoping.
     { // For scoping
+        static bool _initial = false;
+        choreo_main_self[0]->leds_blink = _initial;
+    } // End scoping.
+    { // For scoping
         static int _initial = 0;
         choreo_main_self[0]->i = _initial;
     } // End scoping.
