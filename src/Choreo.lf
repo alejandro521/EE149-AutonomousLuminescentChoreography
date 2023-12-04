@@ -80,6 +80,7 @@ target C {
       else if (self->received_message[2] == '1') {
         self->leds_on = true;
       }
+      // FIXME: atof function does not work. Need to convert str to float another way
       self->target_distance = 0.5;
       if (self->received_message[4] == '0') {
         self->leds_blink = false;
