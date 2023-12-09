@@ -1,8 +1,8 @@
 #ifndef _changename_main_H
 #define _changename_main_H
-#ifndef TOP_LEVEL_PREAMBLE_179441020_H
-#define TOP_LEVEL_PREAMBLE_179441020_H
-/*Correspondence: Range: [(10, 2), (49, 1)) -> Range: [(0, 0), (39, 1)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/changeName.lf)*/#include <stdio.h>
+#ifndef TOP_LEVEL_PREAMBLE_1659618230_H
+#define TOP_LEVEL_PREAMBLE_1659618230_H
+/*Correspondence: Range: [(10, 2), (51, 1)) -> Range: [(0, 0), (41, 1)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/changeName.lf)*/#include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
 #include <hardware/uart.h>
@@ -13,7 +13,7 @@
 #define UART_RX_PIN 29
 #define MAX_MSG_LENGTH 100
 
-
+static int i = 0;
 
 // Function to send a message. The message that was transmitted is written to transmitted_message
 static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
@@ -31,16 +31,18 @@ static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_
 
 // Function to write response from UART to received_message
 static void receiveMessage(uart_inst_t *uart, char *received_message) {
-  int index = 0;
   char received_char;
-  while (uart_is_readable(uart)) { 
-    received_char = uart_getc(uart);
-    if (index < MAX_MSG_LENGTH - 1) {
-      received_message[index] = received_char;
-      index += 1;
+    while (uart_is_readable(uart)) { 
+      received_char = uart_getc(uart);
+      if (received_char == '\r') {
+        received_message[i] = '\0'; // Null terminate the string
+        i = 0;
+      } else if (i < MAX_MSG_LENGTH - 1) {
+        received_message[i] = received_char;
+        self->i += 1;
+      }
     }
-  }
-  received_message[index] = '\0'; // Null terminate the string
+   // received_message[i] = '\0'; // Null terminate the string
 }
 /*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.

@@ -182,7 +182,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 CMakeFiles/Choreo.dir/_choreo_main.c.obj
  .bss           0x0000000000000000        0x0 CMakeFiles/Choreo.dir/_choreo_main.c.obj
  .text._choreo_main_method_setCommand
-                0x0000000000000000       0x68 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x0000000000000000       0x54 CMakeFiles/Choreo.dir/_choreo_main.c.obj
  .text._choreo_main_method_transmitMessage
                 0x0000000000000000       0xbc CMakeFiles/Choreo.dir/_choreo_main.c.obj
  .text          0x0000000000000000        0x0 CMakeFiles/Choreo.dir/_motors.c.obj
@@ -798,8 +798,8 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
  .text.__wrap___aeabi_fcmpeq
                 0x0000000000000000       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
- .text.__wrap___aeabi_fcmple
-                0x0000000000000000       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+ .text.__wrap___aeabi_fcmplt
+                0x0000000000000000        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
  .text.__wrap___aeabi_fcmpun
                 0x0000000000000000       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
  .text.__wrap___aeabi_f2iz
@@ -1357,9 +1357,9 @@ Discarded input sections
                 0x0000000000000000       0x70 robot/librobot.a(sh1106.c.obj)
  .text.sh1106_rotate
                 0x0000000000000000       0x88 robot/librobot.a(sh1106.c.obj)
- .text          0x0000000000000000        0x0 /tmp/ccGpLU6J.o
- .data          0x0000000000000000        0x0 /tmp/ccGpLU6J.o
- .bss           0x0000000000000000        0x0 /tmp/ccGpLU6J.o
+ .text          0x0000000000000000        0x0 /tmp/ccKGr4yU.o
+ .data          0x0000000000000000        0x0 /tmp/ccKGr4yU.o
+ .bss           0x0000000000000000        0x0 /tmp/ccKGr4yU.o
  .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atexit.o)
@@ -1520,11 +1520,11 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
 .boot2          0x0000000010000000      0x100
                 0x0000000010000000                __boot2_start__ = .
  *(.boot2)
- .boot2         0x0000000010000000      0x100 /tmp/ccGpLU6J.o
+ .boot2         0x0000000010000000      0x100 /tmp/ccKGr4yU.o
                 0x0000000010000100                __boot2_end__ = .
                 0x0000000000000001                ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
-.text           0x0000000010000100    0x10230
+.text           0x0000000010000100    0x10670
                 0x0000000010000100                __logical_binary_start = .
  *(.vectors)
  .vectors       0x0000000010000100       0xd4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
@@ -1589,1031 +1589,1037 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
                 0x0000000010000354       0x6c CMakeFiles/Choreo.dir/_choreo_main.c.obj
                 0x0000000010000354                _choreo_mainreaction_function_0
  .text._choreo_mainreaction_function_2
-                0x00000000100003c0      0x148 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x00000000100003c0       0xa8 CMakeFiles/Choreo.dir/_choreo_main.c.obj
                 0x00000000100003c0                _choreo_mainreaction_function_2
  .text._choreo_mainreaction_function_3
-                0x0000000010000508       0xfc CMakeFiles/Choreo.dir/_choreo_main.c.obj
-                0x0000000010000508                _choreo_mainreaction_function_3
+                0x0000000010000468      0x150 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x0000000010000468                _choreo_mainreaction_function_3
+ .text._choreo_mainreaction_function_4
+                0x00000000100005b8      0x114 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x00000000100005b8                _choreo_mainreaction_function_4
+ .text._choreo_mainreaction_function_5
+                0x00000000100006cc      0x114 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x00000000100006cc                _choreo_mainreaction_function_5
  .text._choreo_main_method_receiveMessage
-                0x0000000010000604       0xd4 CMakeFiles/Choreo.dir/_choreo_main.c.obj
-                0x0000000010000604                _choreo_main_method_receiveMessage
+                0x00000000100007e0       0xb4 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x00000000100007e0                _choreo_main_method_receiveMessage
  .text._choreo_mainreaction_function_1
-                0x00000000100006d8      0x140 CMakeFiles/Choreo.dir/_choreo_main.c.obj
-                0x00000000100006d8                _choreo_mainreaction_function_1
+                0x0000000010000894      0x140 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x0000000010000894                _choreo_mainreaction_function_1
  .text.new__choreo_main
-                0x0000000010000818      0x1a8 CMakeFiles/Choreo.dir/_choreo_main.c.obj
-                0x0000000010000818                new__choreo_main
+                0x00000000100009d4      0x278 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x00000000100009d4                new__choreo_main
  .text._motorsreaction_function_1
-                0x00000000100009c0       0x4c CMakeFiles/Choreo.dir/_motors.c.obj
-                0x00000000100009c0                _motorsreaction_function_1
+                0x0000000010000c4c       0x4c CMakeFiles/Choreo.dir/_motors.c.obj
+                0x0000000010000c4c                _motorsreaction_function_1
  .text._motorsreaction_function_2
-                0x0000000010000a0c       0x4c CMakeFiles/Choreo.dir/_motors.c.obj
-                0x0000000010000a0c                _motorsreaction_function_2
+                0x0000000010000c98       0x4c CMakeFiles/Choreo.dir/_motors.c.obj
+                0x0000000010000c98                _motorsreaction_function_2
  .text._motorsreaction_function_0
-                0x0000000010000a58        0xc CMakeFiles/Choreo.dir/_motors.c.obj
-                0x0000000010000a58                _motorsreaction_function_0
+                0x0000000010000ce4        0xc CMakeFiles/Choreo.dir/_motors.c.obj
+                0x0000000010000ce4                _motorsreaction_function_0
  .text.new__motors
-                0x0000000010000a64       0xe8 CMakeFiles/Choreo.dir/_motors.c.obj
-                0x0000000010000a64                new__motors
+                0x0000000010000cf0       0xe8 CMakeFiles/Choreo.dir/_motors.c.obj
+                0x0000000010000cf0                new__motors
  .text._encodersreaction_function_1
-                0x0000000010000b4c       0x8c CMakeFiles/Choreo.dir/_encoders.c.obj
-                0x0000000010000b4c                _encodersreaction_function_1
+                0x0000000010000dd8       0x8c CMakeFiles/Choreo.dir/_encoders.c.obj
+                0x0000000010000dd8                _encodersreaction_function_1
  .text._encodersreaction_function_0
-                0x0000000010000bd8      0x118 CMakeFiles/Choreo.dir/_encoders.c.obj
-                0x0000000010000bd8                _encodersreaction_function_0
+                0x0000000010000e64      0x118 CMakeFiles/Choreo.dir/_encoders.c.obj
+                0x0000000010000e64                _encodersreaction_function_0
  .text.new__encoders
-                0x0000000010000cf0       0xa4 CMakeFiles/Choreo.dir/_encoders.c.obj
-                0x0000000010000cf0                new__encoders
+                0x0000000010000f7c       0xa4 CMakeFiles/Choreo.dir/_encoders.c.obj
+                0x0000000010000f7c                new__encoders
  .text._displayreaction_function_1
-                0x0000000010000d94       0xb4 CMakeFiles/Choreo.dir/_display.c.obj
-                0x0000000010000d94                _displayreaction_function_1
+                0x0000000010001020       0xb4 CMakeFiles/Choreo.dir/_display.c.obj
+                0x0000000010001020                _displayreaction_function_1
  .text._displayreaction_function_0
-                0x0000000010000e48       0x2c CMakeFiles/Choreo.dir/_display.c.obj
-                0x0000000010000e48                _displayreaction_function_0
+                0x00000000100010d4       0x2c CMakeFiles/Choreo.dir/_display.c.obj
+                0x00000000100010d4                _displayreaction_function_0
  .text.new__display
-                0x0000000010000e74      0x104 CMakeFiles/Choreo.dir/_display.c.obj
-                0x0000000010000e74                new__display
+                0x0000000010001100      0x104 CMakeFiles/Choreo.dir/_display.c.obj
+                0x0000000010001100                new__display
  .text.new__gyroangle
-                0x0000000010000f78       0x24 CMakeFiles/Choreo.dir/_gyroangle.c.obj
-                0x0000000010000f78                new__gyroangle
+                0x0000000010001204       0x24 CMakeFiles/Choreo.dir/_gyroangle.c.obj
+                0x0000000010001204                new__gyroangle
  .text._gyroreaction_function_1
-                0x0000000010000f9c       0x78 CMakeFiles/Choreo.dir/_gyro.c.obj
-                0x0000000010000f9c                _gyroreaction_function_1
+                0x0000000010001228       0x78 CMakeFiles/Choreo.dir/_gyro.c.obj
+                0x0000000010001228                _gyroreaction_function_1
  .text._gyroreaction_function_0
-                0x0000000010001014       0x20 CMakeFiles/Choreo.dir/_gyro.c.obj
-                0x0000000010001014                _gyroreaction_function_0
+                0x00000000100012a0       0x20 CMakeFiles/Choreo.dir/_gyro.c.obj
+                0x00000000100012a0                _gyroreaction_function_0
  .text.new__gyro
-                0x0000000010001034       0xa4 CMakeFiles/Choreo.dir/_gyro.c.obj
-                0x0000000010001034                new__gyro
+                0x00000000100012c0       0xa4 CMakeFiles/Choreo.dir/_gyro.c.obj
+                0x00000000100012c0                new__gyro
  .text._trapezoidalintegratorreaction_function_0
-                0x00000000100010d8       0xb0 CMakeFiles/Choreo.dir/_trapezoidalintegrator.c.obj
-                0x00000000100010d8                _trapezoidalintegratorreaction_function_0
+                0x0000000010001364       0xb0 CMakeFiles/Choreo.dir/_trapezoidalintegrator.c.obj
+                0x0000000010001364                _trapezoidalintegratorreaction_function_0
  .text.new__trapezoidalintegrator
-                0x0000000010001188       0x60 CMakeFiles/Choreo.dir/_trapezoidalintegrator.c.obj
-                0x0000000010001188                new__trapezoidalintegrator
+                0x0000000010001414       0x60 CMakeFiles/Choreo.dir/_trapezoidalintegrator.c.obj
+                0x0000000010001414                new__trapezoidalintegrator
  .text._angletodistancereaction_function_0
-                0x00000000100011e8       0x40 CMakeFiles/Choreo.dir/_angletodistance.c.obj
-                0x00000000100011e8                _angletodistancereaction_function_0
+                0x0000000010001474       0x40 CMakeFiles/Choreo.dir/_angletodistance.c.obj
+                0x0000000010001474                _angletodistancereaction_function_0
  .text.new__angletodistance
-                0x0000000010001228       0x60 CMakeFiles/Choreo.dir/_angletodistance.c.obj
-                0x0000000010001228                new__angletodistance
+                0x00000000100014b4       0x60 CMakeFiles/Choreo.dir/_angletodistance.c.obj
+                0x00000000100014b4                new__angletodistance
  .text.startup.main
-                0x0000000010001288        0xc CMakeFiles/Choreo.dir/Choreo.c.obj
-                0x0000000010001288                main
+                0x0000000010001514        0xc CMakeFiles/Choreo.dir/Choreo.c.obj
+                0x0000000010001514                main
  .text._lf_set_default_command_line_options
-                0x0000000010001294        0x4 CMakeFiles/Choreo.dir/Choreo.c.obj
-                0x0000000010001294                _lf_set_default_command_line_options
+                0x0000000010001520        0x4 CMakeFiles/Choreo.dir/Choreo.c.obj
+                0x0000000010001520                _lf_set_default_command_line_options
  .text._lf_create_environments
-                0x0000000010001298       0x34 CMakeFiles/Choreo.dir/Choreo.c.obj
-                0x0000000010001298                _lf_create_environments
+                0x0000000010001524       0x34 CMakeFiles/Choreo.dir/Choreo.c.obj
+                0x0000000010001524                _lf_create_environments
  .text._lf_get_environments
-                0x00000000100012cc        0xc CMakeFiles/Choreo.dir/Choreo.c.obj
-                0x00000000100012cc                _lf_get_environments
+                0x0000000010001558        0xc CMakeFiles/Choreo.dir/Choreo.c.obj
+                0x0000000010001558                _lf_get_environments
  .text._lf_initialize_trigger_objects
-                0x00000000100012d8      0xae8 CMakeFiles/Choreo.dir/Choreo.c.obj
-                0x00000000100012d8                _lf_initialize_trigger_objects
+                0x0000000010001564      0xc98 CMakeFiles/Choreo.dir/Choreo.c.obj
+                0x0000000010001564                _lf_initialize_trigger_objects
  .text.terminate_execution
-                0x0000000010001dc0        0x4 CMakeFiles/Choreo.dir/Choreo.c.obj
-                0x0000000010001dc0                terminate_execution
+                0x00000000100021fc        0x4 CMakeFiles/Choreo.dir/Choreo.c.obj
+                0x00000000100021fc                terminate_execution
  .text.gpio_set_function
-                0x0000000010001dc4       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x0000000010001dc4                gpio_set_function
+                0x0000000010002200       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x0000000010002200                gpio_set_function
  .text.gpio_set_pulls
-                0x0000000010001df4       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x0000000010001df4                gpio_set_pulls
+                0x0000000010002230       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x0000000010002230                gpio_set_pulls
  .text.gpio_init
-                0x0000000010001e24       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x0000000010001e24                gpio_init
+                0x0000000010002260       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x0000000010002260                gpio_init
  .text.running_on_fpga
-                0x0000000010001e60       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-                0x0000000010001e60                running_on_fpga
+                0x000000001000229c       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+                0x000000001000229c                running_on_fpga
  .text.hw_claim_lock
-                0x0000000010001e70       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x0000000010001e70                hw_claim_lock
+                0x00000000100022ac       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x00000000100022ac                hw_claim_lock
  .text.hw_claim_unlock
-                0x0000000010001e88       0x14 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x0000000010001e88                hw_claim_unlock
+                0x00000000100022c4       0x14 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x00000000100022c4                hw_claim_unlock
  .text.hw_claim_or_assert
-                0x0000000010001e9c       0x44 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x0000000010001e9c                hw_claim_or_assert
+                0x00000000100022d8       0x44 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x00000000100022d8                hw_claim_or_assert
  .text.hw_claim_unused_from_range
-                0x0000000010001ee0       0x9c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x0000000010001ee0                hw_claim_unused_from_range
+                0x000000001000231c       0x9c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x000000001000231c                hw_claim_unused_from_range
  .text.spin_locks_reset
-                0x0000000010001f7c       0x1c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x0000000010001f7c                spin_locks_reset
+                0x00000000100023b8       0x1c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x00000000100023b8                spin_locks_reset
  .text.next_striped_spin_lock_num
-                0x0000000010001f98       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x0000000010001f98                next_striped_spin_lock_num
+                0x00000000100023d4       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x00000000100023d4                next_striped_spin_lock_num
  .text.spin_lock_claim_unused
-                0x0000000010001fb0       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x0000000010001fb0                spin_lock_claim_unused
+                0x00000000100023ec       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x00000000100023ec                spin_lock_claim_unused
  .text.irq_set_enabled
-                0x0000000010001fd0       0x24 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010001fd0                irq_set_enabled
+                0x000000001000240c       0x24 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x000000001000240c                irq_set_enabled
  .text.irq_get_vtable_handler
-                0x0000000010001ff4       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010001ff4                irq_get_vtable_handler
+                0x0000000010002430       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010002430                irq_get_vtable_handler
  .text.irq_set_exclusive_handler
-                0x0000000010002004       0x54 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010002004                irq_set_exclusive_handler
+                0x0000000010002440       0x54 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010002440                irq_set_exclusive_handler
  .text.irq_remove_handler
-                0x0000000010002058      0x1b0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010002058                irq_remove_handler
+                0x0000000010002494      0x1b0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010002494                irq_remove_handler
  .text.irq_add_tail_to_free_list
-                0x0000000010002208       0xb4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010002208                irq_add_tail_to_free_list
+                0x0000000010002644       0xb4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010002644                irq_add_tail_to_free_list
  .text.irq_init_priorities
-                0x00000000100022bc       0x24 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x00000000100022bc                irq_init_priorities
+                0x00000000100026f8       0x24 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x00000000100026f8                irq_init_priorities
  .text.sem_init
-                0x00000000100022e0       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
-                0x00000000100022e0                sem_init
+                0x000000001000271c       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj
+                0x000000001000271c                sem_init
  .text.lock_init
-                0x0000000010002300       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
-                0x0000000010002300                lock_init
+                0x000000001000273c       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj
+                0x000000001000273c                lock_init
  .text.mutex_init
-                0x0000000010002310       0x1c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
-                0x0000000010002310                mutex_init
+                0x000000001000274c       0x1c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x000000001000274c                mutex_init
  .text.recursive_mutex_init
-                0x000000001000232c       0x1c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
-                0x000000001000232c                recursive_mutex_init
+                0x0000000010002768       0x1c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x0000000010002768                recursive_mutex_init
  .text.critical_section_init
-                0x0000000010002348       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
-                0x0000000010002348                critical_section_init
+                0x0000000010002784       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
+                0x0000000010002784                critical_section_init
  .text.timer_pool_entry_comparator
-                0x0000000010002368       0x34 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
-                0x0000000010002368                timer_pool_entry_comparator
+                0x00000000100027a4       0x34 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000100027a4                timer_pool_entry_comparator
  .text.sleep_until_callback
-                0x000000001000239c       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000100027d8       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
  .text.add_alarm_under_lock.isra.0
-                0x00000000100023cc      0x100 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010002808      0x100 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_alarm_callback
-                0x00000000100024cc      0x1bc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010002908      0x1bc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_init_default
-                0x0000000010002688       0x6c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
-                0x0000000010002688                alarm_pool_init_default
+                0x0000000010002ac4       0x6c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010002ac4                alarm_pool_init_default
  .text.alarm_pool_add_alarm_at
-                0x00000000100026f4      0x178 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
-                0x00000000100026f4                alarm_pool_add_alarm_at
+                0x0000000010002b30      0x178 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010002b30                alarm_pool_add_alarm_at
  .text.sleep_until
-                0x000000001000286c       0xc4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
-                0x000000001000286c                sleep_until
+                0x0000000010002ca8       0xc4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010002ca8                sleep_until
  .text.sleep_us
-                0x0000000010002930       0x24 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
-                0x0000000010002930                sleep_us
+                0x0000000010002d6c       0x24 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010002d6c                sleep_us
  .text.best_effort_wfe_or_timeout
-                0x0000000010002954       0xd4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
-                0x0000000010002954                best_effort_wfe_or_timeout
+                0x0000000010002d90       0xd4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010002d90                best_effort_wfe_or_timeout
  .text.hardware_alarm_irq_handler
-                0x0000000010002a28       0xbc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010002e64       0xbc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .text.hardware_alarm_claim
-                0x0000000010002ae4       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010002ae4                hardware_alarm_claim
+                0x0000000010002f20       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010002f20                hardware_alarm_claim
  .text.time_us_64
-                0x0000000010002afc       0x14 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010002afc                time_us_64
+                0x0000000010002f38       0x14 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010002f38                time_us_64
  .text.busy_wait_us
-                0x0000000010002b10       0x54 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010002b10                busy_wait_us
+                0x0000000010002f4c       0x54 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010002f4c                busy_wait_us
  .text.busy_wait_until
-                0x0000000010002b64       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010002b64                busy_wait_until
+                0x0000000010002fa0       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010002fa0                busy_wait_until
  .text.hardware_alarm_set_callback
-                0x0000000010002b84       0x8c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010002b84                hardware_alarm_set_callback
+                0x0000000010002fc0       0x8c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010002fc0                hardware_alarm_set_callback
  .text.hardware_alarm_set_target
-                0x0000000010002c10       0xd4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010002c10                hardware_alarm_set_target
+                0x000000001000304c       0xd4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x000000001000304c                hardware_alarm_set_target
  .text.hardware_alarm_cancel
-                0x0000000010002ce4       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010002ce4                hardware_alarm_cancel
+                0x0000000010003120       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010003120                hardware_alarm_cancel
  .text.ph_merge_nodes
-                0x0000000010002d20       0x68 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x000000001000315c       0x68 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_post_alloc_init
-                0x0000000010002d88       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x0000000010002d88                ph_post_alloc_init
+                0x00000000100031c4       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x00000000100031c4                ph_post_alloc_init
  .text.ph_merge_two_pass
-                0x0000000010002dc4       0x90 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x0000000010002dc4                ph_merge_two_pass
+                0x0000000010003200       0x90 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010003200                ph_merge_two_pass
  .text.ph_remove_any_head
-                0x0000000010002e54      0x100 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010003290      0x100 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_remove_head
-                0x0000000010002f54      0x104 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x0000000010002f54                ph_remove_head
+                0x0000000010003390      0x104 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010003390                ph_remove_head
  .text.ph_remove_and_free_node
-                0x0000000010003058       0x7c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x0000000010003058                ph_remove_and_free_node
+                0x0000000010003494       0x7c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010003494                ph_remove_and_free_node
  .text.uart_init
-                0x00000000100030d4      0x188 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-                0x00000000100030d4                uart_init
+                0x0000000010003510      0x188 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+                0x0000000010003510                uart_init
  .text.clocks_init
-                0x000000001000325c      0x2d0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x000000001000325c                clocks_init
+                0x0000000010003698      0x2d0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x0000000010003698                clocks_init
  .text.clock_get_hz
-                0x000000001000352c        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x000000001000352c                clock_get_hz
+                0x0000000010003968        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x0000000010003968                clock_get_hz
  .text.pll_init
-                0x0000000010003538       0xa0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-                0x0000000010003538                pll_init
+                0x0000000010003974       0xa0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+                0x0000000010003974                pll_init
  .text.watchdog_start_tick
-                0x00000000100035d8       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x00000000100035d8                watchdog_start_tick
+                0x0000000010003a14       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x0000000010003a14                watchdog_start_tick
  .text.xosc_init
-                0x00000000100035e8       0x28 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-                0x00000000100035e8                xosc_init
+                0x0000000010003a24       0x28 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+                0x0000000010003a24                xosc_init
  .text.runtime_init
-                0x0000000010003610       0xf0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010003610                runtime_init
- .text._exit    0x0000000010003700        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010003700                _exit
- .text._sbrk    0x0000000010003704       0x34 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010003704                _sbrk
- .text.exit     0x0000000010003738        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010003738                exit
+                0x0000000010003a4c       0xf0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010003a4c                runtime_init
+ .text._exit    0x0000000010003b3c        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010003b3c                _exit
+ .text._sbrk    0x0000000010003b40       0x34 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010003b40                _sbrk
+ .text.exit     0x0000000010003b74        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010003b74                exit
  .text.__assert_func
-                0x0000000010003740       0x34 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010003740                __assert_func
- .text.panic    0x0000000010003774       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010003774                panic
+                0x0000000010003b7c       0x34 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010003b7c                __assert_func
+ .text.panic    0x0000000010003bb0       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010003bb0                panic
  .text.hard_assertion_failure
-                0x00000000100037a4        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x00000000100037a4                hard_assertion_failure
+                0x0000000010003be0        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010003be0                hard_assertion_failure
  .text._out_buffer
-                0x00000000100037b0        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003bec        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_null
-                0x00000000100037b8        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003bf4        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_rev
-                0x00000000100037bc       0x9c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003bf8       0x9c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._ntoa_format
-                0x0000000010003858      0x1cc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003c94      0x1cc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_char
-                0x0000000010003a24       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003e60       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_fct
-                0x0000000010003a34       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .text._etoa    0x0000000010003a44      0x44c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .text._ftoa    0x0000000010003e90      0x398 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003e70       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .text._etoa    0x0000000010003e80      0x44c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .text._ftoa    0x00000000100042cc      0x398 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._vsnprintf
-                0x0000000010004228      0xb04 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010004664      0xb04 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text.__wrap_snprintf
-                0x0000000010004d2c       0x28 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x0000000010004d2c                __wrap_snprintf
+                0x0000000010005168       0x28 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010005168                __wrap_snprintf
  .text.vfctprintf
-                0x0000000010004d54       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x0000000010004d54                vfctprintf
+                0x0000000010005190       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010005190                vfctprintf
  .text.weak_raw_printf
-                0x0000000010004d74       0x40 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x0000000010004d74                weak_raw_printf
+                0x00000000100051b0       0x40 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x00000000100051b0                weak_raw_printf
  .text.weak_raw_vprintf
-                0x0000000010004db4       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x0000000010004db4                weak_raw_vprintf
- .text          0x0000000010004de4       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                0x00000000100051f0       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x00000000100051f0                weak_raw_vprintf
+ .text          0x0000000010005220       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
  .text.rom_func_lookup
-                0x0000000010004df4       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x0000000010004df4                rom_func_lookup
+                0x0000000010005230       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x0000000010005230                rom_func_lookup
  .text.rom_data_lookup
-                0x0000000010004e04       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x0000000010004e04                rom_data_lookup
+                0x0000000010005240       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x0000000010005240                rom_data_lookup
  .text.rom_funcs_lookup
-                0x0000000010004e14       0x44 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x0000000010004e14                rom_funcs_lookup
+                0x0000000010005250       0x44 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x0000000010005250                rom_funcs_lookup
  .text.__wrap___aeabi_idiv
-                0x0000000010004e58       0x50 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x0000000010004e58                __wrap___aeabi_idivmod
-                0x0000000010004e58                divmod_s32s32
-                0x0000000010004e58                div_s32s32
-                0x0000000010004e58                __wrap___aeabi_idiv
-                0x0000000010004e60                divmod_s32s32_unsafe
-                0x0000000010004e8c                divmod_s32s32_savestate
+                0x0000000010005294       0x50 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x0000000010005294                __wrap___aeabi_idivmod
+                0x0000000010005294                divmod_s32s32
+                0x0000000010005294                div_s32s32
+                0x0000000010005294                __wrap___aeabi_idiv
+                0x000000001000529c                divmod_s32s32_unsafe
+                0x00000000100052c8                divmod_s32s32_savestate
  .text.__wrap___aeabi_uidiv
-                0x0000000010004ea8       0x4c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x0000000010004ea8                __wrap___aeabi_uidiv
-                0x0000000010004ea8                __wrap___aeabi_uidivmod
-                0x0000000010004ea8                div_u32u32
-                0x0000000010004ea8                divmod_u32u32
-                0x0000000010004eb0                divmod_u32u32_unsafe
-                0x0000000010004ed8                divmod_u32u32_savestate
+                0x00000000100052e4       0x4c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x00000000100052e4                __wrap___aeabi_uidiv
+                0x00000000100052e4                __wrap___aeabi_uidivmod
+                0x00000000100052e4                div_u32u32
+                0x00000000100052e4                divmod_u32u32
+                0x00000000100052ec                divmod_u32u32_unsafe
+                0x0000000010005314                divmod_u32u32_savestate
  .text.__wrap___aeabi_ldiv
-                0x0000000010004ef4      0x424 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x0000000010004ef4                div_s64s64
-                0x0000000010004ef4                divmod_s64s64
-                0x0000000010004ef4                __wrap___aeabi_ldivmod
-                0x0000000010004f24                div_u64u64
-                0x0000000010004f24                divmod_u64u64
-                0x0000000010004f24                __wrap___aeabi_uldivmod
-                0x0000000010004f34                divmod_u64u64_savestate
-                0x0000000010004f54                divmod_s64s64_unsafe
-                0x0000000010004fdc                divmod_u64u64_unsafe
+                0x0000000010005330      0x424 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x0000000010005330                div_s64s64
+                0x0000000010005330                divmod_s64s64
+                0x0000000010005330                __wrap___aeabi_ldivmod
+                0x0000000010005360                div_u64u64
+                0x0000000010005360                divmod_u64u64
+                0x0000000010005360                __wrap___aeabi_uldivmod
+                0x0000000010005370                divmod_u64u64_savestate
+                0x0000000010005390                divmod_s64s64_unsafe
+                0x0000000010005418                divmod_u64u64_unsafe
  .text.__wrap___aeabi_darithmetic
-                0x0000000010005318       0x60 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010005318                __wrap___aeabi_drsub
-                0x000000001000531e                __wrap___aeabi_dsub
-                0x0000000010005328                __wrap___aeabi_dadd
-                0x0000000010005332                __wrap___aeabi_ddiv
-                0x0000000010005366                __wrap___aeabi_dmul
+                0x0000000010005754       0x60 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010005754                __wrap___aeabi_drsub
+                0x000000001000575a                __wrap___aeabi_dsub
+                0x0000000010005764                __wrap___aeabi_dadd
+                0x000000001000576e                __wrap___aeabi_ddiv
+                0x00000000100057a2                __wrap___aeabi_dmul
  .text.__wrap___aeabi_cdcmple
-                0x0000000010005378       0x6c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010005378                __wrap___aeabi_cdrcmple
-                0x0000000010005388                __wrap___aeabi_cdcmple
-                0x0000000010005388                __wrap___aeabi_cdcmpeq
+                0x00000000100057b4       0x6c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x00000000100057b4                __wrap___aeabi_cdrcmple
+                0x00000000100057c4                __wrap___aeabi_cdcmple
+                0x00000000100057c4                __wrap___aeabi_cdcmpeq
  .text.__wrap___aeabi_dcmpeq
-                0x00000000100053e4       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x00000000100053e4                __wrap___aeabi_dcmpeq
+                0x0000000010005820       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010005820                __wrap___aeabi_dcmpeq
  .text.__wrap___aeabi_dcmplt
-                0x00000000100053f4        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x00000000100053f4                __wrap___aeabi_dcmplt
+                0x0000000010005830        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010005830                __wrap___aeabi_dcmplt
  .text.__wrap___aeabi_dcmple
-                0x0000000010005400       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010005400                __wrap___aeabi_dcmple
+                0x000000001000583c       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x000000001000583c                __wrap___aeabi_dcmple
  .text.__wrap___aeabi_dcmpge
-                0x0000000010005410       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010005410                __wrap___aeabi_dcmpge
+                0x000000001000584c       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x000000001000584c                __wrap___aeabi_dcmpge
  .text.__wrap___aeabi_dcmpgt
-                0x0000000010005420        0xa CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010005420                __wrap___aeabi_dcmpgt
+                0x000000001000585c        0xa CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x000000001000585c                __wrap___aeabi_dcmpgt
  .text.__wrap___aeabi_dcmpun
-                0x000000001000542a       0x1c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x000000001000542a                __wrap___aeabi_dcmpun
- *fill*         0x0000000010005446        0x2 
+                0x0000000010005866       0x1c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010005866                __wrap___aeabi_dcmpun
+ *fill*         0x0000000010005882        0x2 
  .text.__wrap___aeabi_i2d
-                0x0000000010005448       0x38 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010005448                __wrap___aeabi_ui2d
-                0x0000000010005450                __wrap___aeabi_i2d
+                0x0000000010005884       0x38 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010005884                __wrap___aeabi_ui2d
+                0x000000001000588c                __wrap___aeabi_i2d
  .text.__wrap___aeabi_d2iz
-                0x0000000010005480       0x48 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010005480                __wrap___aeabi_d2iz
-                0x0000000010005480                double2int_z
+                0x00000000100058bc       0x48 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x00000000100058bc                __wrap___aeabi_d2iz
+                0x00000000100058bc                double2int_z
  .text.__wrap___aeabi_d2uiz
-                0x00000000100054c8       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x00000000100054c8                double2uint
-                0x00000000100054c8                __wrap___aeabi_d2uiz
+                0x0000000010005904       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010005904                double2uint
+                0x0000000010005904                __wrap___aeabi_d2uiz
  .text.__wrap___aeabi_l2d
-                0x00000000100054d8       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x00000000100054d8                __wrap___aeabi_l2d
+                0x0000000010005914       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010005914                __wrap___aeabi_l2d
  .text.__wrap___aeabi_d2f
-                0x00000000100054e8       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x00000000100054e8                __wrap___aeabi_d2f
+                0x0000000010005924       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010005924                __wrap___aeabi_d2f
  .text.missing_double_func_shim
-                0x00000000100054f8        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                0x0000000010005934        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
  .text.__aeabi_double_init
-                0x0000000010005504       0x98 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-                0x0000000010005504                __aeabi_double_init
+                0x0000000010005940       0x98 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                0x0000000010005940                __aeabi_double_init
  .text.double_table_shim_on_use_helper
-                0x000000001000559c       0x2c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x000000001000559c                double_table_shim_on_use_helper
+                0x00000000100059d8       0x2c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x00000000100059d8                double_table_shim_on_use_helper
  .text.__aeabi_lmul
-                0x00000000100055c8       0x32 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-                0x00000000100055c8                __wrap___aeabi_lmul
- *fill*         0x00000000100055fa        0x2 
+                0x0000000010005a04       0x32 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+                0x0000000010005a04                __wrap___aeabi_lmul
+ *fill*         0x0000000010005a36        0x2 
  .text.__wrap___aeabi_farithmetic
-                0x00000000100055fc       0x48 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x00000000100055fc                __wrap___aeabi_frsub
-                0x0000000010005602                __wrap___aeabi_fsub
-                0x0000000010005608                __wrap___aeabi_fadd
-                0x000000001000560e                __wrap___aeabi_fdiv
-                0x0000000010005636                __wrap___aeabi_fmul
+                0x0000000010005a38       0x48 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005a38                __wrap___aeabi_frsub
+                0x0000000010005a3e                __wrap___aeabi_fsub
+                0x0000000010005a44                __wrap___aeabi_fadd
+                0x0000000010005a4a                __wrap___aeabi_fdiv
+                0x0000000010005a72                __wrap___aeabi_fmul
  .text.__wrap___aeabi_cfcmple
-                0x0000000010005644       0x50 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x0000000010005644                __wrap___aeabi_cfrcmple
-                0x0000000010005650                __wrap___aeabi_cfcmpeq
-                0x0000000010005650                __wrap___aeabi_cfcmple
- .text.__wrap___aeabi_fcmplt
-                0x0000000010005694        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x0000000010005694                __wrap___aeabi_fcmplt
+                0x0000000010005a80       0x50 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005a80                __wrap___aeabi_cfrcmple
+                0x0000000010005a8c                __wrap___aeabi_cfcmpeq
+                0x0000000010005a8c                __wrap___aeabi_cfcmple
+ .text.__wrap___aeabi_fcmple
+                0x0000000010005ad0       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005ad0                __wrap___aeabi_fcmple
  .text.__wrap___aeabi_fcmpge
-                0x00000000100056a0       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x00000000100056a0                __wrap___aeabi_fcmpge
+                0x0000000010005ae0       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005ae0                __wrap___aeabi_fcmpge
  .text.__wrap___aeabi_fcmpgt
-                0x00000000100056b0        0xa CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x00000000100056b0                __wrap___aeabi_fcmpgt
+                0x0000000010005af0        0xa CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005af0                __wrap___aeabi_fcmpgt
  .text.__wrap___aeabi_ui2f
-                0x00000000100056ba        0xa CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x00000000100056ba                __wrap___aeabi_ui2f
+                0x0000000010005afa        0xa CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005afa                __wrap___aeabi_ui2f
  .text.__wrap___aeabi_i2f
-                0x00000000100056c4       0x44 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x00000000100056c4                __wrap___aeabi_i2f
+                0x0000000010005b04       0x44 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005b04                __wrap___aeabi_i2f
  .text.__wrap___aeabi_f2uiz
-                0x0000000010005708        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x0000000010005708                __wrap___aeabi_f2uiz
+                0x0000000010005b48        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005b48                __wrap___aeabi_f2uiz
  .text.__wrap___aeabi_f2d
-                0x0000000010005714        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x0000000010005714                __wrap___aeabi_f2d
+                0x0000000010005b54        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010005b54                __wrap___aeabi_f2d
  .text.missing_float_func_shim
-                0x0000000010005720        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+                0x0000000010005b60        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
  .text.__aeabi_float_init
-                0x000000001000572c       0x5c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-                0x000000001000572c                __aeabi_float_init
+                0x0000000010005b6c       0x5c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+                0x0000000010005b6c                __aeabi_float_init
  .text.__wrap_malloc
-                0x0000000010005788       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-                0x0000000010005788                __wrap_malloc
+                0x0000000010005bc8       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x0000000010005bc8                __wrap_malloc
  .text.__wrap_calloc
-                0x00000000100057c4       0x40 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-                0x00000000100057c4                __wrap_calloc
+                0x0000000010005c04       0x40 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x0000000010005c04                __wrap_calloc
  .text.__wrap_realloc
-                0x0000000010005804       0x40 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-                0x0000000010005804                __wrap_realloc
+                0x0000000010005c44       0x40 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x0000000010005c44                __wrap_realloc
  .text.__wrap_free
-                0x0000000010005844       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-                0x0000000010005844                __wrap_free
- .text          0x0000000010005864       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x0000000010005864                __aeabi_mem_init
- .text.memset   0x0000000010005874        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x0000000010005874                __wrap_memset
- .text.memcpy   0x0000000010005880        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x0000000010005880                __wrap___aeabi_memcpy
-                0x0000000010005880                __wrap_memcpy
+                0x0000000010005c84       0x20 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x0000000010005c84                __wrap_free
+ .text          0x0000000010005ca4       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x0000000010005ca4                __aeabi_mem_init
+ .text.memset   0x0000000010005cb4        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x0000000010005cb4                __wrap_memset
+ .text.memcpy   0x0000000010005cc0        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x0000000010005cc0                __wrap___aeabi_memcpy
+                0x0000000010005cc0                __wrap_memcpy
  .text.stdio_out_chars_no_crlf
-                0x000000001000588c       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010005ccc       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_out_chars_crlf
-                0x000000001000589c       0xb4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010005cdc       0xb4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_buffered_printer
-                0x0000000010005950       0x64 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010005d90       0x64 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_put_string.isra.0
-                0x00000000100059b4       0xfc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010005df4       0xfc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.__wrap_putchar
-                0x0000000010005ab0       0x98 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005ab0                __wrap_putchar
+                0x0000000010005ef0       0x98 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010005ef0                __wrap_putchar
  .text.__wrap_puts
-                0x0000000010005b48       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005b48                __wrap_puts
- .text._read    0x0000000010005b84       0x94 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005b84                _read
- .text._write   0x0000000010005c18       0xac CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005c18                _write
- .text._close   0x0000000010005cc4        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005cc4                _close
- .text._lseek   0x0000000010005ccc        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005ccc                _lseek
- .text._fstat   0x0000000010005cd4        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005cd4                _fstat
- .text._isatty  0x0000000010005cdc        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005cdc                _isatty
+                0x0000000010005f88       0x3c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010005f88                __wrap_puts
+ .text._read    0x0000000010005fc4       0x94 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010005fc4                _read
+ .text._write   0x0000000010006058       0xac CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010006058                _write
+ .text._close   0x0000000010006104        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010006104                _close
+ .text._lseek   0x000000001000610c        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x000000001000610c                _lseek
+ .text._fstat   0x0000000010006114        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010006114                _fstat
+ .text._isatty  0x000000001000611c        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x000000001000611c                _isatty
  .text.__wrap_vprintf
-                0x0000000010005ce8       0xd8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005ce8                __wrap_vprintf
+                0x0000000010006128       0xd8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010006128                __wrap_vprintf
  .text.__wrap_printf
-                0x0000000010005dc0       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005dc0                __wrap_printf
+                0x0000000010006200       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010006200                __wrap_printf
  .text.stdio_init_all
-                0x0000000010005dd8        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010005dd8                stdio_init_all
+                0x0000000010006218        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010006218                stdio_init_all
  .text.stdio_uart_init
-                0x0000000010005de4        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-                0x0000000010005de4                stdio_uart_init
+                0x0000000010006224        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x0000000010006224                stdio_uart_init
  .text.pio_add_program
-                0x0000000010005de8       0xc8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
-                0x0000000010005de8                pio_add_program
+                0x0000000010006228       0xc8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+                0x0000000010006228                pio_add_program
  .text.pio_sm_set_consecutive_pindirs
-                0x0000000010005eb0       0xb0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
-                0x0000000010005eb0                pio_sm_set_consecutive_pindirs
+                0x00000000100062f0       0xb0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+                0x00000000100062f0                pio_sm_set_consecutive_pindirs
  .text.pio_sm_init
-                0x0000000010005f60       0x8c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
-                0x0000000010005f60                pio_sm_init
+                0x00000000100063a0       0x8c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+                0x00000000100063a0                pio_sm_init
  .text.spi_init
-                0x0000000010005fec      0x138 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
-                0x0000000010005fec                spi_init
+                0x000000001000642c      0x138 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
+                0x000000001000642c                spi_init
  .text.i2c_set_baudrate
-                0x0000000010006124       0xc4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x0000000010006124                i2c_set_baudrate
+                0x0000000010006564       0xc4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x0000000010006564                i2c_set_baudrate
  .text.i2c_init
-                0x00000000100061e8       0x54 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x00000000100061e8                i2c_init
+                0x0000000010006628       0x54 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x0000000010006628                i2c_init
  .text.i2c_write_blocking
-                0x000000001000623c       0xd0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x000000001000623c                i2c_write_blocking
+                0x000000001000667c       0xd0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x000000001000667c                i2c_write_blocking
  .text.i2c_read_blocking
-                0x000000001000630c       0xac CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x000000001000630c                i2c_read_blocking
+                0x000000001000674c       0xac CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x000000001000674c                i2c_read_blocking
  .text.lf_tag_compare
-                0x00000000100063b8       0x38 core/libcore.a(tag.c.obj)
-                0x00000000100063b8                lf_tag_compare
+                0x00000000100067f8       0x38 core/libcore.a(tag.c.obj)
+                0x00000000100067f8                lf_tag_compare
  .text.lf_time_logical
-                0x00000000100063f0        0x8 core/libcore.a(tag.c.obj)
-                0x00000000100063f0                lf_time_logical
+                0x0000000010006830        0x8 core/libcore.a(tag.c.obj)
+                0x0000000010006830                lf_time_logical
  .text.lf_time_logical_elapsed
-                0x00000000100063f8       0x14 core/libcore.a(tag.c.obj)
-                0x00000000100063f8                lf_time_logical_elapsed
+                0x0000000010006838       0x14 core/libcore.a(tag.c.obj)
+                0x0000000010006838                lf_time_logical_elapsed
  .text.lf_time_physical
-                0x000000001000640c       0x60 core/libcore.a(tag.c.obj)
-                0x000000001000640c                lf_time_physical
+                0x000000001000684c       0x60 core/libcore.a(tag.c.obj)
+                0x000000001000684c                lf_time_physical
  .text.lf_time_physical_elapsed
-                0x000000001000646c       0x6c core/libcore.a(tag.c.obj)
-                0x000000001000646c                lf_time_physical_elapsed
+                0x00000000100068ac       0x6c core/libcore.a(tag.c.obj)
+                0x00000000100068ac                lf_time_physical_elapsed
  .text.lf_time_start
-                0x00000000100064d8        0xc core/libcore.a(tag.c.obj)
-                0x00000000100064d8                lf_time_start
+                0x0000000010006918        0xc core/libcore.a(tag.c.obj)
+                0x0000000010006918                lf_time_start
  .text.lf_comma_separated_time
-                0x00000000100064e4      0x274 core/libcore.a(tag.c.obj)
-                0x00000000100064e4                lf_comma_separated_time
+                0x0000000010006924      0x274 core/libcore.a(tag.c.obj)
+                0x0000000010006924                lf_comma_separated_time
  .text._lf_allocate
-                0x0000000010006758       0x3c core/libcore.a(reactor_common.c.obj)
-                0x0000000010006758                _lf_allocate
+                0x0000000010006b98       0x3c core/libcore.a(reactor_common.c.obj)
+                0x0000000010006b98                _lf_allocate
  .text._lf_new_reactor
-                0x0000000010006794       0x40 core/libcore.a(reactor_common.c.obj)
-                0x0000000010006794                _lf_new_reactor
+                0x0000000010006bd4       0x40 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006bd4                _lf_new_reactor
  .text._lf_set_stop_tag
-                0x00000000100067d4       0x3c core/libcore.a(reactor_common.c.obj)
-                0x00000000100067d4                _lf_set_stop_tag
+                0x0000000010006c14       0x3c core/libcore.a(reactor_common.c.obj)
+                0x0000000010006c14                _lf_set_stop_tag
  .text._lf_start_time_step
-                0x0000000010006810       0x68 core/libcore.a(reactor_common.c.obj)
-                0x0000000010006810                _lf_start_time_step
+                0x0000000010006c50       0x68 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006c50                _lf_start_time_step
  .text._lf_is_tag_after_stop_tag
-                0x0000000010006878       0x30 core/libcore.a(reactor_common.c.obj)
-                0x0000000010006878                _lf_is_tag_after_stop_tag
+                0x0000000010006cb8       0x30 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006cb8                _lf_is_tag_after_stop_tag
  .text._lf_initialize_timer
-                0x00000000100068a8       0xd4 core/libcore.a(reactor_common.c.obj)
-                0x00000000100068a8                _lf_initialize_timer
+                0x0000000010006ce8       0xd4 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006ce8                _lf_initialize_timer
  .text._lf_initialize_timers
-                0x000000001000697c       0x30 core/libcore.a(reactor_common.c.obj)
-                0x000000001000697c                _lf_initialize_timers
+                0x0000000010006dbc       0x30 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006dbc                _lf_initialize_timers
  .text._lf_trigger_startup_reactions
-                0x00000000100069ac       0x58 core/libcore.a(reactor_common.c.obj)
-                0x00000000100069ac                _lf_trigger_startup_reactions
+                0x0000000010006dec       0x58 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006dec                _lf_trigger_startup_reactions
  .text._lf_trigger_shutdown_reactions
-                0x0000000010006a04       0x48 core/libcore.a(reactor_common.c.obj)
-                0x0000000010006a04                _lf_trigger_shutdown_reactions
+                0x0000000010006e44       0x48 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006e44                _lf_trigger_shutdown_reactions
  .text._lf_recycle_event
-                0x0000000010006a4c       0x20 core/libcore.a(reactor_common.c.obj)
-                0x0000000010006a4c                _lf_recycle_event
+                0x0000000010006e8c       0x20 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006e8c                _lf_recycle_event
  .text._lf_create_dummy_events
-                0x0000000010006a6c       0xbc core/libcore.a(reactor_common.c.obj)
-                0x0000000010006a6c                _lf_create_dummy_events
+                0x0000000010006eac       0xbc core/libcore.a(reactor_common.c.obj)
+                0x0000000010006eac                _lf_create_dummy_events
  .text._lf_schedule_at_tag
-                0x0000000010006b28      0x2c4 core/libcore.a(reactor_common.c.obj)
-                0x0000000010006b28                _lf_schedule_at_tag
+                0x0000000010006f68      0x2c4 core/libcore.a(reactor_common.c.obj)
+                0x0000000010006f68                _lf_schedule_at_tag
  .text._lf_schedule
-                0x0000000010006dec      0x2c4 core/libcore.a(reactor_common.c.obj)
-                0x0000000010006dec                _lf_schedule
+                0x000000001000722c      0x2c4 core/libcore.a(reactor_common.c.obj)
+                0x000000001000722c                _lf_schedule
  .text._lf_pop_events
-                0x00000000100070b0      0x130 core/libcore.a(reactor_common.c.obj)
-                0x00000000100070b0                _lf_pop_events
+                0x00000000100074f0      0x130 core/libcore.a(reactor_common.c.obj)
+                0x00000000100074f0                _lf_pop_events
  .text._lf_advance_logical_time
-                0x00000000100071e0       0x38 core/libcore.a(reactor_common.c.obj)
-                0x00000000100071e0                _lf_advance_logical_time
+                0x0000000010007620       0x38 core/libcore.a(reactor_common.c.obj)
+                0x0000000010007620                _lf_advance_logical_time
  .text._lf_invoke_reaction
-                0x0000000010007218       0x14 core/libcore.a(reactor_common.c.obj)
-                0x0000000010007218                _lf_invoke_reaction
+                0x0000000010007658       0x14 core/libcore.a(reactor_common.c.obj)
+                0x0000000010007658                _lf_invoke_reaction
  .text.schedule_output_reactions
-                0x000000001000722c      0x150 core/libcore.a(reactor_common.c.obj)
-                0x000000001000722c                schedule_output_reactions
- .text.usage    0x000000001000737c       0xb0 core/libcore.a(reactor_common.c.obj)
-                0x000000001000737c                usage
+                0x000000001000766c      0x150 core/libcore.a(reactor_common.c.obj)
+                0x000000001000766c                schedule_output_reactions
+ .text.usage    0x00000000100077bc       0xb0 core/libcore.a(reactor_common.c.obj)
+                0x00000000100077bc                usage
  .text.process_args
-                0x000000001000742c      0x414 core/libcore.a(reactor_common.c.obj)
-                0x000000001000742c                process_args
+                0x000000001000786c      0x414 core/libcore.a(reactor_common.c.obj)
+                0x000000001000786c                process_args
  .text.initialize_global
-                0x0000000010007840       0x24 core/libcore.a(reactor_common.c.obj)
-                0x0000000010007840                initialize_global
+                0x0000000010007c80       0x24 core/libcore.a(reactor_common.c.obj)
+                0x0000000010007c80                initialize_global
  .text.termination
-                0x0000000010007864      0x198 core/libcore.a(reactor_common.c.obj)
-                0x0000000010007864                termination
+                0x0000000010007ca4      0x198 core/libcore.a(reactor_common.c.obj)
+                0x0000000010007ca4                termination
  .text._lf_free_token.part.0
-                0x00000000100079fc       0xcc core/libcore.a(lf_token.c.obj)
+                0x0000000010007e3c       0xcc core/libcore.a(lf_token.c.obj)
  .text._lf_new_token
-                0x0000000010007ac8       0xb4 core/libcore.a(lf_token.c.obj)
-                0x0000000010007ac8                _lf_new_token
+                0x0000000010007f08       0xb4 core/libcore.a(lf_token.c.obj)
+                0x0000000010007f08                _lf_new_token
  .text._lf_initialize_token_with_value
-                0x0000000010007b7c       0x80 core/libcore.a(lf_token.c.obj)
-                0x0000000010007b7c                _lf_initialize_token_with_value
+                0x0000000010007fbc       0x80 core/libcore.a(lf_token.c.obj)
+                0x0000000010007fbc                _lf_initialize_token_with_value
  .text._lf_free_all_tokens
-                0x0000000010007bfc       0xe0 core/libcore.a(lf_token.c.obj)
-                0x0000000010007bfc                _lf_free_all_tokens
+                0x000000001000803c       0xe0 core/libcore.a(lf_token.c.obj)
+                0x000000001000803c                _lf_free_all_tokens
  .text._lf_replace_template_token
-                0x0000000010007cdc       0x44 core/libcore.a(lf_token.c.obj)
-                0x0000000010007cdc                _lf_replace_template_token
+                0x000000001000811c       0x44 core/libcore.a(lf_token.c.obj)
+                0x000000001000811c                _lf_replace_template_token
  .text._lf_done_using
-                0x0000000010007d20       0x2c core/libcore.a(lf_token.c.obj)
-                0x0000000010007d20                _lf_done_using
+                0x0000000010008160       0x2c core/libcore.a(lf_token.c.obj)
+                0x0000000010008160                _lf_done_using
  .text._lf_free_token_copies
-                0x0000000010007d4c       0x44 core/libcore.a(lf_token.c.obj)
-                0x0000000010007d4c                _lf_free_token_copies
+                0x000000001000818c       0x44 core/libcore.a(lf_token.c.obj)
+                0x000000001000818c                _lf_free_token_copies
  .text.environment_init_tags
-                0x0000000010007d90       0x58 core/libcore.a(environment.c.obj)
-                0x0000000010007d90                environment_init_tags
+                0x00000000100081d0       0x58 core/libcore.a(environment.c.obj)
+                0x00000000100081d0                environment_init_tags
  .text.environment_free
-                0x0000000010007de8       0x60 core/libcore.a(environment.c.obj)
-                0x0000000010007de8                environment_free
+                0x0000000010008228       0x60 core/libcore.a(environment.c.obj)
+                0x0000000010008228                environment_free
  .text.environment_init
-                0x0000000010007e48      0x1e4 core/libcore.a(environment.c.obj)
-                0x0000000010007e48                environment_init
+                0x0000000010008288      0x1e4 core/libcore.a(environment.c.obj)
+                0x0000000010008288                environment_init
  .text._lf_set_present
-                0x000000001000802c       0x4c core/libcore.a(reactor.c.obj)
-                0x000000001000802c                _lf_set_present
+                0x000000001000846c       0x4c core/libcore.a(reactor.c.obj)
+                0x000000001000846c                _lf_set_present
  .text._lf_trigger_reaction
-                0x0000000010008078       0x38 core/libcore.a(reactor.c.obj)
-                0x0000000010008078                _lf_trigger_reaction
+                0x00000000100084b8       0x38 core/libcore.a(reactor.c.obj)
+                0x00000000100084b8                _lf_trigger_reaction
  .text._lf_do_step
-                0x00000000100080b0       0xb8 core/libcore.a(reactor.c.obj)
-                0x00000000100080b0                _lf_do_step
- .text.next     0x0000000010008168      0x138 core/libcore.a(reactor.c.obj)
-                0x0000000010008168                next
+                0x00000000100084f0       0xb8 core/libcore.a(reactor.c.obj)
+                0x00000000100084f0                _lf_do_step
+ .text.next     0x00000000100085a8      0x138 core/libcore.a(reactor.c.obj)
+                0x00000000100085a8                next
  .text.lf_reactor_c_main
-                0x00000000100082a0       0xfc core/libcore.a(reactor.c.obj)
-                0x00000000100082a0                lf_reactor_c_main
+                0x00000000100086e0       0xfc core/libcore.a(reactor.c.obj)
+                0x00000000100086e0                lf_reactor_c_main
  .text.lf_critical_section_enter
-                0x000000001000839c        0x8 core/libcore.a(reactor.c.obj)
-                0x000000001000839c                lf_critical_section_enter
+                0x00000000100087dc        0x8 core/libcore.a(reactor.c.obj)
+                0x00000000100087dc                lf_critical_section_enter
  .text.lf_critical_section_exit
-                0x00000000100083a4        0x8 core/libcore.a(reactor.c.obj)
-                0x00000000100083a4                lf_critical_section_exit
+                0x00000000100087e4        0x8 core/libcore.a(reactor.c.obj)
+                0x00000000100087e4                lf_critical_section_exit
  .text.vector_at
-                0x00000000100083ac       0x54 core/libcore.a(vector.c.obj)
-                0x00000000100083ac                vector_at
+                0x00000000100087ec       0x54 core/libcore.a(vector.c.obj)
+                0x00000000100087ec                vector_at
  .text.vector_size
-                0x0000000010008400        0x8 core/libcore.a(vector.c.obj)
-                0x0000000010008400                vector_size
+                0x0000000010008840        0x8 core/libcore.a(vector.c.obj)
+                0x0000000010008840                vector_size
  .text.percolate_down
-                0x0000000010008408       0xd8 core/libcore.a(pqueue.c.obj)
+                0x0000000010008848       0xd8 core/libcore.a(pqueue.c.obj)
  .text.bubble_up.isra.0
-                0x00000000100084e0       0x84 core/libcore.a(pqueue.c.obj)
+                0x0000000010008920       0x84 core/libcore.a(pqueue.c.obj)
  .text.find_equal_same_priority
-                0x0000000010008564       0xa8 core/libcore.a(pqueue.c.obj)
-                0x0000000010008564                find_equal_same_priority
+                0x00000000100089a4       0xa8 core/libcore.a(pqueue.c.obj)
+                0x00000000100089a4                find_equal_same_priority
  .text.pqueue_init
-                0x000000001000860c       0x54 core/libcore.a(pqueue.c.obj)
-                0x000000001000860c                pqueue_init
+                0x0000000010008a4c       0x54 core/libcore.a(pqueue.c.obj)
+                0x0000000010008a4c                pqueue_init
  .text.pqueue_free
-                0x0000000010008660       0x14 core/libcore.a(pqueue.c.obj)
-                0x0000000010008660                pqueue_free
+                0x0000000010008aa0       0x14 core/libcore.a(pqueue.c.obj)
+                0x0000000010008aa0                pqueue_free
  .text.pqueue_size
-                0x0000000010008674       0x10 core/libcore.a(pqueue.c.obj)
-                0x0000000010008674                pqueue_size
+                0x0000000010008ab4       0x10 core/libcore.a(pqueue.c.obj)
+                0x0000000010008ab4                pqueue_size
  .text.pqueue_find_equal_same_priority
-                0x0000000010008684        0xc core/libcore.a(pqueue.c.obj)
-                0x0000000010008684                pqueue_find_equal_same_priority
+                0x0000000010008ac4        0xc core/libcore.a(pqueue.c.obj)
+                0x0000000010008ac4                pqueue_find_equal_same_priority
  .text.pqueue_insert
-                0x0000000010008690       0x44 core/libcore.a(pqueue.c.obj)
-                0x0000000010008690                pqueue_insert
+                0x0000000010008ad0       0x44 core/libcore.a(pqueue.c.obj)
+                0x0000000010008ad0                pqueue_insert
  .text.pqueue_remove
-                0x00000000100086d4       0x6c core/libcore.a(pqueue.c.obj)
-                0x00000000100086d4                pqueue_remove
+                0x0000000010008b14       0x6c core/libcore.a(pqueue.c.obj)
+                0x0000000010008b14                pqueue_remove
  .text.pqueue_pop
-                0x0000000010008740       0x28 core/libcore.a(pqueue.c.obj)
-                0x0000000010008740                pqueue_pop
+                0x0000000010008b80       0x28 core/libcore.a(pqueue.c.obj)
+                0x0000000010008b80                pqueue_pop
  .text.pqueue_peek
-                0x0000000010008768       0x14 core/libcore.a(pqueue.c.obj)
-                0x0000000010008768                pqueue_peek
+                0x0000000010008ba8       0x14 core/libcore.a(pqueue.c.obj)
+                0x0000000010008ba8                pqueue_peek
  .text.in_reverse_order
-                0x000000001000877c       0x18 core/libcore.a(pqueue.c.obj)
-                0x000000001000877c                in_reverse_order
+                0x0000000010008bbc       0x18 core/libcore.a(pqueue.c.obj)
+                0x0000000010008bbc                in_reverse_order
  .text.in_no_particular_order
-                0x0000000010008794        0x4 core/libcore.a(pqueue.c.obj)
-                0x0000000010008794                in_no_particular_order
+                0x0000000010008bd4        0x4 core/libcore.a(pqueue.c.obj)
+                0x0000000010008bd4                in_no_particular_order
  .text.event_matches
-                0x0000000010008798        0xc core/libcore.a(pqueue.c.obj)
-                0x0000000010008798                event_matches
+                0x0000000010008bd8        0xc core/libcore.a(pqueue.c.obj)
+                0x0000000010008bd8                event_matches
  .text.reaction_matches
-                0x00000000100087a4        0x8 core/libcore.a(pqueue.c.obj)
-                0x00000000100087a4                reaction_matches
+                0x0000000010008be4        0x8 core/libcore.a(pqueue.c.obj)
+                0x0000000010008be4                reaction_matches
  .text.get_event_time
-                0x00000000100087ac        0x8 core/libcore.a(pqueue.c.obj)
-                0x00000000100087ac                get_event_time
+                0x0000000010008bec        0x8 core/libcore.a(pqueue.c.obj)
+                0x0000000010008bec                get_event_time
  .text.get_reaction_index
-                0x00000000100087b4        0x8 core/libcore.a(pqueue.c.obj)
-                0x00000000100087b4                get_reaction_index
+                0x0000000010008bf4        0x8 core/libcore.a(pqueue.c.obj)
+                0x0000000010008bf4                get_reaction_index
  .text.get_event_position
-                0x00000000100087bc        0x4 core/libcore.a(pqueue.c.obj)
-                0x00000000100087bc                get_event_position
+                0x0000000010008bfc        0x4 core/libcore.a(pqueue.c.obj)
+                0x0000000010008bfc                get_event_position
  .text.get_reaction_position
-                0x00000000100087c0        0x4 core/libcore.a(pqueue.c.obj)
-                0x00000000100087c0                get_reaction_position
+                0x0000000010008c00        0x4 core/libcore.a(pqueue.c.obj)
+                0x0000000010008c00                get_reaction_position
  .text.set_event_position
-                0x00000000100087c4        0x4 core/libcore.a(pqueue.c.obj)
-                0x00000000100087c4                set_event_position
+                0x0000000010008c04        0x4 core/libcore.a(pqueue.c.obj)
+                0x0000000010008c04                set_event_position
  .text.set_reaction_position
-                0x00000000100087c8        0x4 core/libcore.a(pqueue.c.obj)
-                0x00000000100087c8                set_reaction_position
+                0x0000000010008c08        0x4 core/libcore.a(pqueue.c.obj)
+                0x0000000010008c08                set_reaction_position
  .text.print_reaction
-                0x00000000100087cc        0x4 core/libcore.a(pqueue.c.obj)
-                0x00000000100087cc                print_reaction
+                0x0000000010008c0c        0x4 core/libcore.a(pqueue.c.obj)
+                0x0000000010008c0c                print_reaction
  .text.print_event
-                0x00000000100087d0        0x4 core/libcore.a(pqueue.c.obj)
-                0x00000000100087d0                print_event
+                0x0000000010008c10        0x4 core/libcore.a(pqueue.c.obj)
+                0x0000000010008c10                print_event
  .text._lf_message_print
-                0x00000000100087d4       0xc0 core/libcore.a(util.c.obj)
-                0x00000000100087d4                _lf_message_print
+                0x0000000010008c14       0xc0 core/libcore.a(util.c.obj)
+                0x0000000010008c14                _lf_message_print
  .text.lf_print
-                0x0000000010008894       0x88 core/libcore.a(util.c.obj)
-                0x0000000010008894                lf_print
+                0x0000000010008cd4       0x88 core/libcore.a(util.c.obj)
+                0x0000000010008cd4                lf_print
  .text.lf_print_error
-                0x000000001000891c       0x88 core/libcore.a(util.c.obj)
-                0x000000001000891c                lf_print_error
+                0x0000000010008d5c       0x88 core/libcore.a(util.c.obj)
+                0x0000000010008d5c                lf_print_error
  .text.lf_print_warning
-                0x00000000100089a4       0x88 core/libcore.a(util.c.obj)
-                0x00000000100089a4                lf_print_warning
+                0x0000000010008de4       0x88 core/libcore.a(util.c.obj)
+                0x0000000010008de4                lf_print_warning
  .text.lf_print_error_and_exit
-                0x0000000010008a2c       0x24 core/libcore.a(util.c.obj)
-                0x0000000010008a2c                lf_print_error_and_exit
+                0x0000000010008e6c       0x24 core/libcore.a(util.c.obj)
+                0x0000000010008e6c                lf_print_error_and_exit
  .text.lf_assert
-                0x0000000010008a50       0x2c core/libcore.a(util.c.obj)
-                0x0000000010008a50                lf_assert
+                0x0000000010008e90       0x2c core/libcore.a(util.c.obj)
+                0x0000000010008e90                lf_assert
  .text.hashset_num_items
-                0x0000000010008a7c        0x4 core/libcore.a(hashset.c.obj)
-                0x0000000010008a7c                hashset_num_items
+                0x0000000010008ebc        0x4 core/libcore.a(hashset.c.obj)
+                0x0000000010008ebc                hashset_num_items
  .text.hashset_destroy
-                0x0000000010008a80       0x18 core/libcore.a(hashset.c.obj)
-                0x0000000010008a80                hashset_destroy
+                0x0000000010008ec0       0x18 core/libcore.a(hashset.c.obj)
+                0x0000000010008ec0                hashset_destroy
  .text.hashset_create
-                0x0000000010008a98       0x40 core/libcore.a(hashset.c.obj)
-                0x0000000010008a98                hashset_create
+                0x0000000010008ed8       0x40 core/libcore.a(hashset.c.obj)
+                0x0000000010008ed8                hashset_create
  .text.hashset_add
-                0x0000000010008ad8      0x180 core/libcore.a(hashset.c.obj)
-                0x0000000010008ad8                hashset_add
+                0x0000000010008f18      0x180 core/libcore.a(hashset.c.obj)
+                0x0000000010008f18                hashset_add
  .text.hashset_remove
-                0x0000000010008c58       0x50 core/libcore.a(hashset.c.obj)
-                0x0000000010008c58                hashset_remove
+                0x0000000010009098       0x50 core/libcore.a(hashset.c.obj)
+                0x0000000010009098                hashset_remove
  .text.hashset_iterator
-                0x0000000010008ca8       0x1c core/libcore.a(hashset_itr.c.obj)
-                0x0000000010008ca8                hashset_iterator
+                0x00000000100090e8       0x1c core/libcore.a(hashset_itr.c.obj)
+                0x00000000100090e8                hashset_iterator
  .text.hashset_iterator_next
-                0x0000000010008cc4       0x34 core/libcore.a(hashset_itr.c.obj)
-                0x0000000010008cc4                hashset_iterator_next
+                0x0000000010009104       0x34 core/libcore.a(hashset_itr.c.obj)
+                0x0000000010009104                hashset_iterator_next
  .text.hashset_iterator_value
-                0x0000000010008cf8        0xc core/libcore.a(hashset_itr.c.obj)
-                0x0000000010008cf8                hashset_iterator_value
+                0x0000000010009138        0xc core/libcore.a(hashset_itr.c.obj)
+                0x0000000010009138                hashset_iterator_value
  .text._lf_add_suspended_event
-                0x0000000010008d04       0x3c core/libcore.a(modes.c.obj)
-                0x0000000010008d04                _lf_add_suspended_event
+                0x0000000010009144       0x3c core/libcore.a(modes.c.obj)
+                0x0000000010009144                _lf_add_suspended_event
  .text._lf_mode_is_active
-                0x0000000010008d40       0x10 core/libcore.a(modes.c.obj)
-                0x0000000010008d40                _lf_mode_is_active
+                0x0000000010009180       0x10 core/libcore.a(modes.c.obj)
+                0x0000000010009180                _lf_mode_is_active
  .text._lf_handle_mode_startup_reset_reactions
-                0x0000000010008d50       0xfc core/libcore.a(modes.c.obj)
-                0x0000000010008d50                _lf_handle_mode_startup_reset_reactions
+                0x0000000010009190       0xfc core/libcore.a(modes.c.obj)
+                0x0000000010009190                _lf_handle_mode_startup_reset_reactions
  .text._lf_handle_mode_shutdown_reactions
-                0x0000000010008e4c       0x5c core/libcore.a(modes.c.obj)
-                0x0000000010008e4c                _lf_handle_mode_shutdown_reactions
+                0x000000001000928c       0x5c core/libcore.a(modes.c.obj)
+                0x000000001000928c                _lf_handle_mode_shutdown_reactions
  .text._lf_process_mode_changes
-                0x0000000010008ea8      0x39c core/libcore.a(modes.c.obj)
-                0x0000000010008ea8                _lf_process_mode_changes
+                0x00000000100092e8      0x39c core/libcore.a(modes.c.obj)
+                0x00000000100092e8                _lf_process_mode_changes
  .text._lf_terminate_modal_reactors
-                0x0000000010009244       0x50 core/libcore.a(modes.c.obj)
-                0x0000000010009244                _lf_terminate_modal_reactors
+                0x0000000010009684       0x50 core/libcore.a(modes.c.obj)
+                0x0000000010009684                _lf_terminate_modal_reactors
  .text._lf_initialize_modes
-                0x0000000010009294       0x44 core/libcore.a(modes.c.obj)
-                0x0000000010009294                _lf_initialize_modes
+                0x00000000100096d4       0x44 core/libcore.a(modes.c.obj)
+                0x00000000100096d4                _lf_initialize_modes
  .text._lf_handle_mode_changes
-                0x00000000100092d8       0x24 core/libcore.a(modes.c.obj)
-                0x00000000100092d8                _lf_handle_mode_changes
+                0x0000000010009718       0x24 core/libcore.a(modes.c.obj)
+                0x0000000010009718                _lf_handle_mode_changes
  .text._lf_handle_mode_triggered_reactions
-                0x00000000100092fc       0x24 core/libcore.a(modes.c.obj)
-                0x00000000100092fc                _lf_handle_mode_triggered_reactions
+                0x000000001000973c       0x24 core/libcore.a(modes.c.obj)
+                0x000000001000973c                _lf_handle_mode_triggered_reactions
  .text._lf_initialize_clock
-                0x0000000010009320       0x20 core/libcore.a(lf_rp2040_support.c.obj)
-                0x0000000010009320                _lf_initialize_clock
+                0x0000000010009760       0x20 core/libcore.a(lf_rp2040_support.c.obj)
+                0x0000000010009760                _lf_initialize_clock
  .text._lf_clock_now
-                0x0000000010009340       0x24 core/libcore.a(lf_rp2040_support.c.obj)
-                0x0000000010009340                _lf_clock_now
+                0x0000000010009780       0x24 core/libcore.a(lf_rp2040_support.c.obj)
+                0x0000000010009780                _lf_clock_now
  .text._lf_interruptable_sleep_until_locked
-                0x0000000010009364       0x48 core/libcore.a(lf_rp2040_support.c.obj)
-                0x0000000010009364                _lf_interruptable_sleep_until_locked
+                0x00000000100097a4       0x48 core/libcore.a(lf_rp2040_support.c.obj)
+                0x00000000100097a4                _lf_interruptable_sleep_until_locked
  .text.lf_disable_interrupts_nested
-                0x00000000100093ac       0x3c core/libcore.a(lf_rp2040_support.c.obj)
-                0x00000000100093ac                lf_disable_interrupts_nested
+                0x00000000100097ec       0x3c core/libcore.a(lf_rp2040_support.c.obj)
+                0x00000000100097ec                lf_disable_interrupts_nested
  .text.lf_enable_interrupts_nested
-                0x00000000100093e8       0x34 core/libcore.a(lf_rp2040_support.c.obj)
-                0x00000000100093e8                lf_enable_interrupts_nested
+                0x0000000010009828       0x34 core/libcore.a(lf_rp2040_support.c.obj)
+                0x0000000010009828                lf_enable_interrupts_nested
  .text.color32_0
-                0x000000001000941c        0x8 robot/librobot.a(display.c.obj)
-                0x000000001000941c                color32_0
+                0x000000001000985c        0x8 robot/librobot.a(display.c.obj)
+                0x000000001000985c                color32_0
  .text.color32_1
-                0x0000000010009424        0x8 robot/librobot.a(display.c.obj)
-                0x0000000010009424                color32_1
+                0x0000000010009864        0x8 robot/librobot.a(display.c.obj)
+                0x0000000010009864                color32_1
  .text.color32_0_on_1
-                0x000000001000942c        0x8 robot/librobot.a(display.c.obj)
-                0x000000001000942c                color32_0_on_1
+                0x000000001000986c        0x8 robot/librobot.a(display.c.obj)
+                0x000000001000986c                color32_0_on_1
  .text.color32_1_on_0
-                0x0000000010009434        0x4 robot/librobot.a(display.c.obj)
-                0x0000000010009434                color32_1_on_0
+                0x0000000010009874        0x4 robot/librobot.a(display.c.obj)
+                0x0000000010009874                color32_1_on_0
  .text.color32_xor
-                0x0000000010009438        0x8 robot/librobot.a(display.c.obj)
-                0x0000000010009438                color32_xor
+                0x0000000010009878        0x8 robot/librobot.a(display.c.obj)
+                0x0000000010009878                color32_xor
  .text.color32_nop
-                0x0000000010009440        0x4 robot/librobot.a(display.c.obj)
-                0x0000000010009440                color32_nop
+                0x0000000010009880        0x4 robot/librobot.a(display.c.obj)
+                0x0000000010009880                color32_nop
  .text.color8_0
-                0x0000000010009444        0x8 robot/librobot.a(display.c.obj)
-                0x0000000010009444                color8_0
+                0x0000000010009884        0x8 robot/librobot.a(display.c.obj)
+                0x0000000010009884                color8_0
  .text.color8_1
-                0x000000001000944c        0x8 robot/librobot.a(display.c.obj)
-                0x000000001000944c                color8_1
+                0x000000001000988c        0x8 robot/librobot.a(display.c.obj)
+                0x000000001000988c                color8_1
  .text.color8_0_on_1
-                0x0000000010009454        0x8 robot/librobot.a(display.c.obj)
-                0x0000000010009454                color8_0_on_1
+                0x0000000010009894        0x8 robot/librobot.a(display.c.obj)
+                0x0000000010009894                color8_0_on_1
  .text.color8_1_on_0
-                0x000000001000945c        0x4 robot/librobot.a(display.c.obj)
-                0x000000001000945c                color8_1_on_0
+                0x000000001000989c        0x4 robot/librobot.a(display.c.obj)
+                0x000000001000989c                color8_1_on_0
  .text.color8_xor
-                0x0000000010009460        0x8 robot/librobot.a(display.c.obj)
-                0x0000000010009460                color8_xor
+                0x00000000100098a0        0x8 robot/librobot.a(display.c.obj)
+                0x00000000100098a0                color8_xor
  .text.color8_nop
-                0x0000000010009468        0x4 robot/librobot.a(display.c.obj)
-                0x0000000010009468                color8_nop
+                0x00000000100098a8        0x4 robot/librobot.a(display.c.obj)
+                0x00000000100098a8                color8_nop
  .text.display_set_font
-                0x000000001000946c        0xc robot/librobot.a(display.c.obj)
-                0x000000001000946c                display_set_font
+                0x00000000100098ac        0xc robot/librobot.a(display.c.obj)
+                0x00000000100098ac                display_set_font
  .text.display_init
-                0x0000000010009478       0x18 robot/librobot.a(display.c.obj)
-                0x0000000010009478                display_init
+                0x00000000100098b8       0x18 robot/librobot.a(display.c.obj)
+                0x00000000100098b8                display_init
  .text.display_fill
-                0x0000000010009490       0x2c robot/librobot.a(display.c.obj)
-                0x0000000010009490                display_fill
+                0x00000000100098d0       0x2c robot/librobot.a(display.c.obj)
+                0x00000000100098d0                display_fill
  .text.display_show_partial
-                0x00000000100094bc       0xb0 robot/librobot.a(display.c.obj)
-                0x00000000100094bc                display_show_partial
+                0x00000000100098fc       0xb0 robot/librobot.a(display.c.obj)
+                0x00000000100098fc                display_show_partial
  .text.display_text
-                0x000000001000956c      0x44c robot/librobot.a(display.c.obj)
-                0x000000001000956c                display_text
+                0x00000000100099ac      0x44c robot/librobot.a(display.c.obj)
+                0x00000000100099ac                display_text
  .text.display_fill_rect
-                0x00000000100099b8      0x15c robot/librobot.a(display.c.obj)
-                0x00000000100099b8                display_fill_rect
+                0x0000000010009df8      0x15c robot/librobot.a(display.c.obj)
+                0x0000000010009df8                display_fill_rect
  .text.display_show
-                0x0000000010009b14       0x28 robot/librobot.a(display.c.obj)
-                0x0000000010009b14                display_show
+                0x0000000010009f54       0x28 robot/librobot.a(display.c.obj)
+                0x0000000010009f54                display_show
  .text._imu_reset
-                0x0000000010009b3c       0xb4 robot/librobot.a(imu.c.obj)
-                0x0000000010009b3c                _imu_reset
+                0x0000000010009f7c       0xb4 robot/librobot.a(imu.c.obj)
+                0x0000000010009f7c                _imu_reset
  .text._imu_set
-                0x0000000010009bf0       0x7c robot/librobot.a(imu.c.obj)
-                0x0000000010009bf0                _imu_set
+                0x000000001000a030       0x7c robot/librobot.a(imu.c.obj)
+                0x000000001000a030                _imu_set
  .text.imu_init
-                0x0000000010009c6c       0x94 robot/librobot.a(imu.c.obj)
-                0x0000000010009c6c                imu_init
+                0x000000001000a0ac       0x94 robot/librobot.a(imu.c.obj)
+                0x000000001000a0ac                imu_init
  .text.imu_read_gyro
-                0x0000000010009d00       0x94 robot/librobot.a(imu.c.obj)
-                0x0000000010009d00                imu_read_gyro
+                0x000000001000a140       0x94 robot/librobot.a(imu.c.obj)
+                0x000000001000a140                imu_read_gyro
  .text.motors_init
-                0x0000000010009d94       0x5c robot/librobot.a(motors.c.obj)
-                0x0000000010009d94                motors_init
+                0x000000001000a1d4       0x5c robot/librobot.a(motors.c.obj)
+                0x000000001000a1d4                motors_init
  .text.motors_set_power
-                0x0000000010009df0       0x70 robot/librobot.a(motors.c.obj)
-                0x0000000010009df0                motors_set_power
+                0x000000001000a230       0x70 robot/librobot.a(motors.c.obj)
+                0x000000001000a230                motors_set_power
  .text.sh1106_transfer_start
-                0x0000000010009e60       0x40 robot/librobot.a(sh1106.c.obj)
-                0x0000000010009e60                sh1106_transfer_start
+                0x000000001000a2a0       0x40 robot/librobot.a(sh1106.c.obj)
+                0x000000001000a2a0                sh1106_transfer_start
  .text.sh1106_transfer_end
-                0x0000000010009ea0       0x1c robot/librobot.a(sh1106.c.obj)
-                0x0000000010009ea0                sh1106_transfer_end
+                0x000000001000a2e0       0x1c robot/librobot.a(sh1106.c.obj)
+                0x000000001000a2e0                sh1106_transfer_end
  .text.sh1106_write_page
-                0x0000000010009ebc       0x54 robot/librobot.a(sh1106.c.obj)
-                0x0000000010009ebc                sh1106_write_page
+                0x000000001000a2fc       0x54 robot/librobot.a(sh1106.c.obj)
+                0x000000001000a2fc                sh1106_write_page
  .text.sh1106_clear
-                0x0000000010009f10       0xa0 robot/librobot.a(sh1106.c.obj)
-                0x0000000010009f10                sh1106_clear
+                0x000000001000a350       0xa0 robot/librobot.a(sh1106.c.obj)
+                0x000000001000a350                sh1106_clear
  .text.sh1106_init
-                0x0000000010009fb0       0xd0 robot/librobot.a(sh1106.c.obj)
-                0x0000000010009fb0                sh1106_init
- .text          0x000000001000a080       0x10 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atexit.o)
-                0x000000001000a080                atexit
- .text          0x000000001000a090       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atoi.o)
-                0x000000001000a090                atoi
-                0x000000001000a09c                _atoi_r
- .text          0x000000001000a0a8       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atoll.o)
-                0x000000001000a0a8                atoll
-                0x000000001000a0b4                _atoll_r
- .text          0x000000001000a0c0       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-calloc.o)
-                0x000000001000a0c0                calloc
- .text          0x000000001000a0d8       0x5c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-callocr.o)
-                0x000000001000a0d8                _calloc_r
- .text          0x000000001000a134       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-malloc.o)
-                0x000000001000a134                malloc
-                0x000000001000a148                free
- .text          0x000000001000a15c      0x574 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mallocr.o)
-                0x000000001000a15c                _malloc_r
- .text          0x000000001000a6d0        0x8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mlock.o)
-                0x000000001000a6d0                __malloc_lock
-                0x000000001000a6d4                __malloc_unlock
- .text          0x000000001000a6d8       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-realloc.o)
-                0x000000001000a6d8                realloc
- .text          0x000000001000a6f0      0x354 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-reallocr.o)
-                0x000000001000a6f0                _realloc_r
- .text          0x000000001000aa44       0x24 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-sbrkr.o)
-                0x000000001000aa44                _sbrk_r
- .text          0x000000001000aa68       0x88 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strcmp.o)
-                0x000000001000aa68                strcmp
- .text          0x000000001000aaf0       0x5c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strlen-stub.o)
-                0x000000001000aaf0                strlen
- .text          0x000000001000ab4c       0x74 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strncmp.o)
-                0x000000001000ab4c                strncmp
- .text          0x000000001000abc0      0x1b8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strtol.o)
-                0x000000001000ad04                _strtol_r
-                0x000000001000ad20                strtol_l
-                0x000000001000ad4c                strtol
- .text          0x000000001000ad78      0x1d0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strtoll.o)
-                0x000000001000af10                _strtoll_r
-                0x000000001000af18                strtoll_l
-                0x000000001000af30                strtoll
- .text          0x000000001000af48     0x16e4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfprintf.o)
-                0x000000001000af48                _vfprintf_r
-                0x000000001000c5a0                vfprintf
- .text          0x000000001000c62c       0xdc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-wsetup.o)
-                0x000000001000c62c                __swsetup_r
- .text          0x000000001000c708       0x88 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-__atexit.o)
-                0x000000001000c708                __register_exitproc
- .text          0x000000001000c790     0x1104 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-dtoa.o)
-                0x000000001000c8d8                _dtoa_r
- .text          0x000000001000d894        0xc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
-                0x000000001000d894                __errno
- .text          0x000000001000d8a0      0x1c0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fflush.o)
-                0x000000001000d8a0                __sflush_r
-                0x000000001000d9e0                _fflush_r
-                0x000000001000da0c                fflush
- .text          0x000000001000da60      0x248 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-findfp.o)
-                0x000000001000da64                _cleanup_r
-                0x000000001000db60                __sfmoreglue
-                0x000000001000db90                __sfp
-                0x000000001000dc40                _cleanup
-                0x000000001000dc58                __sinit
-                0x000000001000dc68                __sfp_lock_acquire
-                0x000000001000dc6c                __sfp_lock_release
-                0x000000001000dc70                __sinit_lock_acquire
-                0x000000001000dc74                __sinit_lock_release
-                0x000000001000dc78                __fp_lock_all
-                0x000000001000dc90                __fp_unlock_all
- .text          0x000000001000dca8      0x260 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-freer.o)
-                0x000000001000dca8                _malloc_trim_r
-                0x000000001000dd44                _free_r
- .text          0x000000001000df08       0x88 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fwalk.o)
-                0x000000001000df08                _fwalk
-                0x000000001000df48                _fwalk_reent
- .text          0x000000001000df90       0x14 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-localeconv.o)
-                0x000000001000df90                __localeconv_l
-                0x000000001000df94                _localeconv_r
-                0x000000001000df9c                localeconv
- .text          0x000000001000dfa4      0x144 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-makebuf.o)
-                0x000000001000dfa4                __smakebuf_r
-                0x000000001000e088                __swhatbuf_r
- .text          0x000000001000e0e8      0xafc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mprec.o)
-                0x000000001000e0e8                _Balloc
-                0x000000001000e138                _Bfree
-                0x000000001000e14c                __multadd
-                0x000000001000e1f4                __s2b
-                0x000000001000e2a4                __hi0bits
-                0x000000001000e2dc                __lo0bits
-                0x000000001000e338                __i2b
-                0x000000001000e398                __multiply
-                0x000000001000e53c                __pow5mult
-                0x000000001000e614                __lshift
-                0x000000001000e710                __mcmp
-                0x000000001000e744                __mdiff
-                0x000000001000e8d0                __ulp
-                0x000000001000e918                __b2d
-                0x000000001000e9e0                __d2b
-                0x000000001000eab8                __ratio
-                0x000000001000eb20                _mprec_log10
-                0x000000001000eb54                __copybits
-                0x000000001000eb94                __any_on
- .text          0x000000001000ebe4       0xa4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-stdio.o)
-                0x000000001000ebe4                __sread
-                0x000000001000ec0c                __seofread
-                0x000000001000ec10                __swrite
-                0x000000001000ec50                __sseek
-                0x000000001000ec7c                __sclose
- .text          0x000000001000ec88      0xdd8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfiprintf.o)
-                0x000000001000ed10                __sprint_r
-                0x000000001000ed24                _vfiprintf_r
-                0x000000001000f9d4                vfiprintf
- .text          0x000000001000fa60       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-writer.o)
-                0x000000001000fa60                _write_r
- .text          0x000000001000fa88       0x24 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-closer.o)
-                0x000000001000fa88                _close_r
- .text          0x000000001000faac       0xe8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fclose.o)
-                0x000000001000fb1c                _fclose_r
-                0x000000001000fb54                fclose
- .text          0x000000001000fb94       0xfc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fputwc.o)
-                0x000000001000fb94                __fputwc
-                0x000000001000fc2c                _fputwc_r
-                0x000000001000fc4c                fputwc
- .text          0x000000001000fc90       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fstatr.o)
-                0x000000001000fc90                _fstat_r
- .text          0x000000001000fcb8      0x2f4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fvwrite.o)
-                0x000000001000fcb8                __sfvwrite_r
- .text          0x000000001000ffac       0x24 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-isattyr.o)
-                0x000000001000ffac                _isatty_r
- .text          0x000000001000ffd0       0x98 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-locale.o)
-                0x000000001000ffd0                _setlocale_r
-                0x0000000010010014                __locale_mb_cur_max
-                0x0000000010010024                setlocale
- .text          0x0000000010010068       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-lseekr.o)
-                0x0000000010010068                _lseek_r
- .text          0x0000000010010090       0x44 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mbtowc_r.o)
-                0x0000000010010090                _mbtowc_r
-                0x00000000100100a8                __ascii_mbtowc
- .text          0x00000000100100d4       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-readr.o)
-                0x00000000100100d4                _read_r
- .text          0x00000000100100fc       0xe0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-wbuf.o)
-                0x00000000100100fc                __swbuf_r
-                0x00000000100101c4                __swbuf
- .text          0x00000000100101dc       0x84 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-wcrtomb.o)
-                0x00000000100101dc                _wcrtomb_r
-                0x000000001001021c                wcrtomb
- .text          0x0000000010010260       0x2c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-wctomb_r.o)
-                0x0000000010010260                _wctomb_r
-                0x0000000010010270                __ascii_wctomb
+                0x000000001000a3f0       0xd0 robot/librobot.a(sh1106.c.obj)
+                0x000000001000a3f0                sh1106_init
+ .text          0x000000001000a4c0       0x10 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atexit.o)
+                0x000000001000a4c0                atexit
+ .text          0x000000001000a4d0       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atoi.o)
+                0x000000001000a4d0                atoi
+                0x000000001000a4dc                _atoi_r
+ .text          0x000000001000a4e8       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atoll.o)
+                0x000000001000a4e8                atoll
+                0x000000001000a4f4                _atoll_r
+ .text          0x000000001000a500       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-calloc.o)
+                0x000000001000a500                calloc
+ .text          0x000000001000a518       0x5c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-callocr.o)
+                0x000000001000a518                _calloc_r
+ .text          0x000000001000a574       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-malloc.o)
+                0x000000001000a574                malloc
+                0x000000001000a588                free
+ .text          0x000000001000a59c      0x574 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mallocr.o)
+                0x000000001000a59c                _malloc_r
+ .text          0x000000001000ab10        0x8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mlock.o)
+                0x000000001000ab10                __malloc_lock
+                0x000000001000ab14                __malloc_unlock
+ .text          0x000000001000ab18       0x18 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-realloc.o)
+                0x000000001000ab18                realloc
+ .text          0x000000001000ab30      0x354 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-reallocr.o)
+                0x000000001000ab30                _realloc_r
+ .text          0x000000001000ae84       0x24 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-sbrkr.o)
+                0x000000001000ae84                _sbrk_r
+ .text          0x000000001000aea8       0x88 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strcmp.o)
+                0x000000001000aea8                strcmp
+ .text          0x000000001000af30       0x5c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strlen-stub.o)
+                0x000000001000af30                strlen
+ .text          0x000000001000af8c       0x74 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strncmp.o)
+                0x000000001000af8c                strncmp
+ .text          0x000000001000b000      0x1b8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strtol.o)
+                0x000000001000b144                _strtol_r
+                0x000000001000b160                strtol_l
+                0x000000001000b18c                strtol
+ .text          0x000000001000b1b8      0x1d0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strtoll.o)
+                0x000000001000b350                _strtoll_r
+                0x000000001000b358                strtoll_l
+                0x000000001000b370                strtoll
+ .text          0x000000001000b388     0x16e4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfprintf.o)
+                0x000000001000b388                _vfprintf_r
+                0x000000001000c9e0                vfprintf
+ .text          0x000000001000ca6c       0xdc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-wsetup.o)
+                0x000000001000ca6c                __swsetup_r
+ .text          0x000000001000cb48       0x88 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-__atexit.o)
+                0x000000001000cb48                __register_exitproc
+ .text          0x000000001000cbd0     0x1104 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-dtoa.o)
+                0x000000001000cd18                _dtoa_r
+ .text          0x000000001000dcd4        0xc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-errno.o)
+                0x000000001000dcd4                __errno
+ .text          0x000000001000dce0      0x1c0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fflush.o)
+                0x000000001000dce0                __sflush_r
+                0x000000001000de20                _fflush_r
+                0x000000001000de4c                fflush
+ .text          0x000000001000dea0      0x248 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-findfp.o)
+                0x000000001000dea4                _cleanup_r
+                0x000000001000dfa0                __sfmoreglue
+                0x000000001000dfd0                __sfp
+                0x000000001000e080                _cleanup
+                0x000000001000e098                __sinit
+                0x000000001000e0a8                __sfp_lock_acquire
+                0x000000001000e0ac                __sfp_lock_release
+                0x000000001000e0b0                __sinit_lock_acquire
+                0x000000001000e0b4                __sinit_lock_release
+                0x000000001000e0b8                __fp_lock_all
+                0x000000001000e0d0                __fp_unlock_all
+ .text          0x000000001000e0e8      0x260 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-freer.o)
+                0x000000001000e0e8                _malloc_trim_r
+                0x000000001000e184                _free_r
+ .text          0x000000001000e348       0x88 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fwalk.o)
+                0x000000001000e348                _fwalk
+                0x000000001000e388                _fwalk_reent
+ .text          0x000000001000e3d0       0x14 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-localeconv.o)
+                0x000000001000e3d0                __localeconv_l
+                0x000000001000e3d4                _localeconv_r
+                0x000000001000e3dc                localeconv
+ .text          0x000000001000e3e4      0x144 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-makebuf.o)
+                0x000000001000e3e4                __smakebuf_r
+                0x000000001000e4c8                __swhatbuf_r
+ .text          0x000000001000e528      0xafc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mprec.o)
+                0x000000001000e528                _Balloc
+                0x000000001000e578                _Bfree
+                0x000000001000e58c                __multadd
+                0x000000001000e634                __s2b
+                0x000000001000e6e4                __hi0bits
+                0x000000001000e71c                __lo0bits
+                0x000000001000e778                __i2b
+                0x000000001000e7d8                __multiply
+                0x000000001000e97c                __pow5mult
+                0x000000001000ea54                __lshift
+                0x000000001000eb50                __mcmp
+                0x000000001000eb84                __mdiff
+                0x000000001000ed10                __ulp
+                0x000000001000ed58                __b2d
+                0x000000001000ee20                __d2b
+                0x000000001000eef8                __ratio
+                0x000000001000ef60                _mprec_log10
+                0x000000001000ef94                __copybits
+                0x000000001000efd4                __any_on
+ .text          0x000000001000f024       0xa4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-stdio.o)
+                0x000000001000f024                __sread
+                0x000000001000f04c                __seofread
+                0x000000001000f050                __swrite
+                0x000000001000f090                __sseek
+                0x000000001000f0bc                __sclose
+ .text          0x000000001000f0c8      0xdd8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfiprintf.o)
+                0x000000001000f150                __sprint_r
+                0x000000001000f164                _vfiprintf_r
+                0x000000001000fe14                vfiprintf
+ .text          0x000000001000fea0       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-writer.o)
+                0x000000001000fea0                _write_r
+ .text          0x000000001000fec8       0x24 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-closer.o)
+                0x000000001000fec8                _close_r
+ .text          0x000000001000feec       0xe8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fclose.o)
+                0x000000001000ff5c                _fclose_r
+                0x000000001000ff94                fclose
+ .text          0x000000001000ffd4       0xfc /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fputwc.o)
+                0x000000001000ffd4                __fputwc
+                0x000000001001006c                _fputwc_r
+                0x000000001001008c                fputwc
+ .text          0x00000000100100d0       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fstatr.o)
+                0x00000000100100d0                _fstat_r
+ .text          0x00000000100100f8      0x2f4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-fvwrite.o)
+                0x00000000100100f8                __sfvwrite_r
+ .text          0x00000000100103ec       0x24 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-isattyr.o)
+                0x00000000100103ec                _isatty_r
+ .text          0x0000000010010410       0x98 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-locale.o)
+                0x0000000010010410                _setlocale_r
+                0x0000000010010454                __locale_mb_cur_max
+                0x0000000010010464                setlocale
+ .text          0x00000000100104a8       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-lseekr.o)
+                0x00000000100104a8                _lseek_r
+ .text          0x00000000100104d0       0x44 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mbtowc_r.o)
+                0x00000000100104d0                _mbtowc_r
+                0x00000000100104e8                __ascii_mbtowc
+ .text          0x0000000010010514       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-readr.o)
+                0x0000000010010514                _read_r
+ .text          0x000000001001053c       0xe0 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-wbuf.o)
+                0x000000001001053c                __swbuf_r
+                0x0000000010010604                __swbuf
+ .text          0x000000001001061c       0x84 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-wcrtomb.o)
+                0x000000001001061c                _wcrtomb_r
+                0x000000001001065c                wcrtomb
+ .text          0x00000000100106a0       0x2c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-wctomb_r.o)
+                0x00000000100106a0                _wctomb_r
+                0x00000000100106b0                __ascii_wctomb
  *(.fini)
- .fini          0x000000001001028c        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
-                0x000000001001028c                _fini
- .fini.__stub   0x0000000010010290       0xa0 linker stubs
+ .fini          0x00000000100106cc        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
+                0x00000000100106cc                _fini
+ .fini.__stub   0x00000000100106d0       0xa0 linker stubs
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -2625,246 +2631,249 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
  *(.eh_frame*)
- .eh_frame      0x0000000010010330        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
-                0x0000000010010330                . = ALIGN (0x4)
+ .eh_frame      0x0000000010010770        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x0000000010010770                . = ALIGN (0x4)
 
-.glue_7         0x0000000010010330        0x0
- .glue_7        0x0000000010010330        0x0 linker stubs
+.glue_7         0x0000000010010770        0x0
+ .glue_7        0x0000000010010770        0x0 linker stubs
 
-.glue_7t        0x0000000010010330        0x0
- .glue_7t       0x0000000010010330        0x0 linker stubs
+.glue_7t        0x0000000010010770        0x0
+ .glue_7t       0x0000000010010770        0x0 linker stubs
 
-.vfp11_veneer   0x0000000010010330        0x0
- .vfp11_veneer  0x0000000010010330        0x0 linker stubs
+.vfp11_veneer   0x0000000010010770        0x0
+ .vfp11_veneer  0x0000000010010770        0x0 linker stubs
 
-.v4_bx          0x0000000010010330        0x0
- .v4_bx         0x0000000010010330        0x0 linker stubs
+.v4_bx          0x0000000010010770        0x0
+ .v4_bx         0x0000000010010770        0x0 linker stubs
 
-.iplt           0x0000000010010330        0x0
- .iplt          0x0000000010010330        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x0000000010010770        0x0
+ .iplt          0x0000000010010770        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x0000000010010330     0x4148
+.rodata         0x0000000010010770     0x4168
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
  .rodata._choreo_mainreaction_function_2.str1.4
-                0x0000000010010330       0x16 CMakeFiles/Choreo.dir/_choreo_main.c.obj
- *fill*         0x0000000010010346        0x2 
+                0x0000000010010770        0xa CMakeFiles/Choreo.dir/_choreo_main.c.obj
+ *fill*         0x000000001001077a        0x2 
  .rodata._choreo_mainreaction_function_3.str1.4
-                0x0000000010010348       0x13 CMakeFiles/Choreo.dir/_choreo_main.c.obj
- *fill*         0x000000001001035b        0x1 
+                0x000000001001077c       0x16 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+ *fill*         0x0000000010010792        0x2 
+ .rodata._choreo_mainreaction_function_4.str1.4
+                0x0000000010010794       0x13 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+ *fill*         0x00000000100107a7        0x1 
  .rodata._choreo_main_method_setCommand.str1.4
-                0x000000001001035c        0xc CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x00000000100107a8        0xc CMakeFiles/Choreo.dir/_choreo_main.c.obj
  .rodata._choreo_mainreaction_function_1.str1.4
-                0x0000000010010368       0x17 CMakeFiles/Choreo.dir/_choreo_main.c.obj
- *fill*         0x000000001001037f        0x1 
+                0x00000000100107b4       0x17 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+ *fill*         0x00000000100107cb        0x1 
  .rodata.new__choreo_main.str1.4
-                0x0000000010010380       0x11 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+                0x00000000100107cc       0x27 CMakeFiles/Choreo.dir/_choreo_main.c.obj
  .rodata.new__motors.str1.4
-                0x0000000010010391        0x2 CMakeFiles/Choreo.dir/_motors.c.obj
+                0x00000000100107f3        0x2 CMakeFiles/Choreo.dir/_motors.c.obj
  .rodata.new__encoders.str1.4
-                0x0000000010010391        0x2 CMakeFiles/Choreo.dir/_encoders.c.obj
- *fill*         0x0000000010010391        0x3 
+                0x00000000100107f3        0x2 CMakeFiles/Choreo.dir/_encoders.c.obj
+ *fill*         0x00000000100107f3        0x1 
  .rodata.quadrature_encoder_program
-                0x0000000010010394        0x6 CMakeFiles/Choreo.dir/_encoders.c.obj
- *fill*         0x000000001001039a        0x2 
+                0x00000000100107f4        0x6 CMakeFiles/Choreo.dir/_encoders.c.obj
+ *fill*         0x00000000100107fa        0x2 
  .rodata.quadrature_encoder_program_instructions
-                0x000000001001039c       0x30 CMakeFiles/Choreo.dir/_encoders.c.obj
+                0x00000000100107fc       0x30 CMakeFiles/Choreo.dir/_encoders.c.obj
  .rodata.new__display.str1.4
-                0x00000000100103cc        0x2 CMakeFiles/Choreo.dir/_display.c.obj
+                0x000000001001082c        0x2 CMakeFiles/Choreo.dir/_display.c.obj
  .rodata.new__gyro.str1.4
-                0x00000000100103cc        0x2 CMakeFiles/Choreo.dir/_gyro.c.obj
+                0x000000001001082c        0x2 CMakeFiles/Choreo.dir/_gyro.c.obj
  .rodata.new__trapezoidalintegrator.str1.4
-                0x00000000100103cc        0x2 CMakeFiles/Choreo.dir/_trapezoidalintegrator.c.obj
+                0x000000001001082c        0x2 CMakeFiles/Choreo.dir/_trapezoidalintegrator.c.obj
  .rodata.new__angletodistance.str1.4
-                0x00000000100103cc        0x2 CMakeFiles/Choreo.dir/_angletodistance.c.obj
+                0x000000001001082c        0x2 CMakeFiles/Choreo.dir/_angletodistance.c.obj
  .rodata.spin_lock_claim_unused.str1.4
-                0x00000000100103cc       0x1b CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- *fill*         0x00000000100103e7        0x1 
+                0x000000001001082c       0x1b CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ *fill*         0x0000000010010847        0x1 
  .rodata.at_the_end_of_time
-                0x00000000100103e8        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
-                0x00000000100103e8                at_the_end_of_time
+                0x0000000010010848        0x8 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010010848                at_the_end_of_time
  .rodata.hardware_alarm_claim.str1.4
-                0x00000000100103f0       0x22 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x0000000010010412        0x2 
+                0x0000000010010850       0x22 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x0000000010010872        0x2 
  .rodata.__assert_func.str1.4
-                0x0000000010010414       0x3f CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010010874       0x3f CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                                          0x43 (size before relaxing)
- *fill*         0x0000000010010453        0x1 
+ *fill*         0x00000000100108b3        0x1 
  .rodata.panic.str1.4
-                0x0000000010010454       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x00000000100108b4       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                                          0x12 (size before relaxing)
  .rodata.hard_assertion_failure.str1.4
-                0x0000000010010464        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x00000000100108c4        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
  .rodata._ftoa.str1.4
-                0x0000000010010470       0x15 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- *fill*         0x0000000010010485        0x3 
+                0x00000000100108d0       0x15 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ *fill*         0x00000000100108e5        0x3 
  .rodata._vsnprintf
-                0x0000000010010488      0x1e0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x00000000100108e8      0x1e0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .rodata.pow10.0
-                0x0000000010010668       0x50 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010010ac8       0x50 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .rodata.missing_double_func_shim.str1.4
-                0x00000000100106b8       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                0x0000000010010b18       0x18 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
  .rodata.missing_float_func_shim.str1.4
-                0x00000000100106d0        0x1 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+                0x0000000010010b30        0x1 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
  .rodata.__wrap_malloc.str1.4
-                0x00000000100106d0        0xe CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
- *fill*         0x00000000100106de        0x2 
+                0x0000000010010b30        0xe CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+ *fill*         0x0000000010010b3e        0x2 
  .rodata.str1.4
-                0x00000000100106e0       0x4c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x0000000010010b40       0x4c CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_44
-                0x000000001001072c        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x0000000010010b8c        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_75
-                0x0000000010010738        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x0000000010010b98        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_81
-                0x0000000010010744        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x0000000010010ba4        0xc CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.crlf_str.0
-                0x0000000010010750        0x2 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- *fill*         0x0000000010010752        0x2 
+                0x0000000010010bb0        0x2 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ *fill*         0x0000000010010bb2        0x2 
  .rodata.pio_add_program.str1.4
-                0x0000000010010754       0x11 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
- *fill*         0x0000000010010765        0x3 
+                0x0000000010010bb4       0x11 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+ *fill*         0x0000000010010bc5        0x3 
  .rodata._lf_physical_time.str1.4
-                0x0000000010010768       0x23 core/libcore.a(tag.c.obj)
- *fill*         0x000000001001078b        0x1 
+                0x0000000010010bc8       0x23 core/libcore.a(tag.c.obj)
+ *fill*         0x0000000010010beb        0x1 
  .rodata.lf_comma_separated_time.str1.4
-                0x000000001001078c       0x14 core/libcore.a(tag.c.obj)
+                0x0000000010010bec       0x14 core/libcore.a(tag.c.obj)
                                          0x18 (size before relaxing)
  .rodata._lf_allocate.str1.4
-                0x00000000100107a0        0xf core/libcore.a(reactor_common.c.obj)
- *fill*         0x00000000100107af        0x1 
+                0x0000000010010c00        0xf core/libcore.a(reactor_common.c.obj)
+ *fill*         0x0000000010010c0f        0x1 
  .rodata._lf_schedule_at_tag.str1.4
-                0x00000000100107b0       0xbd core/libcore.a(reactor_common.c.obj)
- *fill*         0x000000001001086d        0x3 
+                0x0000000010010c10       0xbd core/libcore.a(reactor_common.c.obj)
+ *fill*         0x0000000010010ccd        0x3 
  .rodata._lf_schedule.str1.4
-                0x0000000010010870       0x6f core/libcore.a(reactor_common.c.obj)
- *fill*         0x00000000100108df        0x1 
+                0x0000000010010cd0       0x6f core/libcore.a(reactor_common.c.obj)
+ *fill*         0x0000000010010d3f        0x1 
  .rodata._lf_pop_events.str1.4
-                0x00000000100108e0       0x62 core/libcore.a(reactor_common.c.obj)
- *fill*         0x0000000010010942        0x2 
+                0x0000000010010d40       0x62 core/libcore.a(reactor_common.c.obj)
+ *fill*         0x0000000010010da2        0x2 
  .rodata._lf_advance_logical_time.str1.4
-                0x0000000010010944       0x40 core/libcore.a(reactor_common.c.obj)
+                0x0000000010010da4       0x40 core/libcore.a(reactor_common.c.obj)
  .rodata.usage.str1.4
-                0x0000000010010984      0x248 core/libcore.a(reactor_common.c.obj)
+                0x0000000010010de4      0x248 core/libcore.a(reactor_common.c.obj)
                                         0x24a (size before relaxing)
  .rodata.process_args.str1.4
-                0x0000000010010bcc      0x1c3 core/libcore.a(reactor_common.c.obj)
- *fill*         0x0000000010010d8f        0x1 
+                0x000000001001102c      0x1c3 core/libcore.a(reactor_common.c.obj)
+ *fill*         0x00000000100111ef        0x1 
  .rodata.termination.str1.4
-                0x0000000010010d90      0x1ce core/libcore.a(reactor_common.c.obj)
- *fill*         0x0000000010010f5e        0x2 
+                0x00000000100111f0      0x1ce core/libcore.a(reactor_common.c.obj)
+ *fill*         0x00000000100113be        0x2 
  .rodata._lf_free_token.part.0.str1.4
-                0x0000000010010f60       0xbd core/libcore.a(lf_token.c.obj)
- *fill*         0x000000001001101d        0x3 
+                0x00000000100113c0       0xbd core/libcore.a(lf_token.c.obj)
+ *fill*         0x000000001001147d        0x3 
  .rodata._lf_get_token.str1.4
-                0x0000000010011020       0x32 core/libcore.a(lf_token.c.obj)
+                0x0000000010011480       0x32 core/libcore.a(lf_token.c.obj)
  .rodata.environment_init.str1.4
-                0x0000000010011052        0xe core/libcore.a(environment.c.obj)
- *fill*         0x0000000010011052        0x6 
- .rodata        0x0000000010011058       0x10 core/libcore.a(environment.c.obj)
+                0x00000000100114b2        0xe core/libcore.a(environment.c.obj)
+ *fill*         0x00000000100114b2        0x6 
+ .rodata        0x00000000100114b8       0x10 core/libcore.a(environment.c.obj)
  .rodata._lf_trigger_reaction.str1.4
-                0x0000000010011068       0x2a core/libcore.a(reactor.c.obj)
+                0x00000000100114c8       0x2a core/libcore.a(reactor.c.obj)
  .rodata.next.str1.4
-                0x0000000010011092       0x45 core/libcore.a(reactor.c.obj)
- *fill*         0x0000000010011092        0x2 
+                0x00000000100114f2       0x45 core/libcore.a(reactor.c.obj)
+ *fill*         0x00000000100114f2        0x2 
  .rodata.lf_reactor_c_main.str1.4
-                0x0000000010011094       0x72 core/libcore.a(reactor.c.obj)
- *fill*         0x0000000010011106        0x2 
- .rodata        0x0000000010011108       0x10 core/libcore.a(reactor.c.obj)
+                0x00000000100114f4       0x72 core/libcore.a(reactor.c.obj)
+ *fill*         0x0000000010011566        0x2 
+ .rodata        0x0000000010011568       0x10 core/libcore.a(reactor.c.obj)
  .rodata.find_equal_same_priority.str1.4
-                0x0000000010011118       0x3d core/libcore.a(pqueue.c.obj)
- *fill*         0x0000000010011155        0x3 
+                0x0000000010011578       0x3d core/libcore.a(pqueue.c.obj)
+ *fill*         0x00000000100115b5        0x3 
  .rodata._lf_message_print.str1.4
-                0x0000000010011158       0x1b core/libcore.a(util.c.obj)
+                0x00000000100115b8       0x1b core/libcore.a(util.c.obj)
  .rodata.lf_print.str1.4
-                0x0000000010011173        0x1 core/libcore.a(util.c.obj)
- *fill*         0x0000000010011173        0x1 
+                0x00000000100115d3        0x1 core/libcore.a(util.c.obj)
+ *fill*         0x00000000100115d3        0x1 
  .rodata.lf_print_error.str1.4
-                0x0000000010011174        0x8 core/libcore.a(util.c.obj)
+                0x00000000100115d4        0x8 core/libcore.a(util.c.obj)
  .rodata.lf_print_warning.str1.4
-                0x000000001001117c        0xa core/libcore.a(util.c.obj)
- *fill*         0x0000000010011186        0x2 
+                0x00000000100115dc        0xa core/libcore.a(util.c.obj)
+ *fill*         0x00000000100115e6        0x2 
  .rodata.lf_print_error_and_exit.str1.4
-                0x0000000010011188        0xe core/libcore.a(util.c.obj)
- *fill*         0x0000000010011196        0x2 
+                0x00000000100115e8        0xe core/libcore.a(util.c.obj)
+ *fill*         0x00000000100115f6        0x2 
  .rodata._lf_process_mode_changes.str1.4
-                0x0000000010011198       0x5a core/libcore.a(modes.c.obj)
- *fill*         0x00000000100111f2        0x2 
+                0x00000000100115f8       0x5a core/libcore.a(modes.c.obj)
+ *fill*         0x0000000010011652        0x2 
  .rodata.checkerboard
-                0x00000000100111f4       0x10 robot/librobot.a(display.c.obj)
-                0x00000000100111f4                checkerboard
+                0x0000000010011654       0x10 robot/librobot.a(display.c.obj)
+                0x0000000010011654                checkerboard
  .rodata.font_8x8
-                0x0000000010011204     0x10a8 robot/librobot.a(font_8x8.c.obj)
-                0x0000000010011204                font_8x8
+                0x0000000010011664     0x10a8 robot/librobot.a(font_8x8.c.obj)
+                0x0000000010011664                font_8x8
  .rodata.font_8x16
-                0x00000000100122ac     0x1bb8 robot/librobot.a(font_8x16.c.obj)
-                0x00000000100122ac                font_8x16
+                0x000000001001270c     0x1bb8 robot/librobot.a(font_8x16.c.obj)
+                0x000000001001270c                font_8x16
  .rodata.sh1106_configure_default.str1.4
-                0x0000000010013e64        0x7 robot/librobot.a(sh1106.c.obj)
- *fill*         0x0000000010013e6b        0x1 
- .rodata        0x0000000010013e6c        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
-                0x0000000010013e6c                _global_impure_ptr
+                0x00000000100142c4        0x7 robot/librobot.a(sh1106.c.obj)
+ *fill*         0x00000000100142cb        0x1 
+ .rodata        0x00000000100142cc        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-impure.o)
+                0x00000000100142cc                _global_impure_ptr
  .rodata.str1.4
-                0x0000000010013e70       0x3b /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfprintf.o)
+                0x00000000100142d0       0x3b /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfprintf.o)
                                          0x42 (size before relaxing)
- *fill*         0x0000000010013eab        0x1 
- .rodata        0x0000000010013eac      0x184 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfprintf.o)
- .rodata        0x0000000010014030      0x101 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-ctype_.o)
-                0x0000000010014030                _ctype_
- *fill*         0x0000000010014131        0x3 
+ *fill*         0x000000001001430b        0x1 
+ .rodata        0x000000001001430c      0x184 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfprintf.o)
+ .rodata        0x0000000010014490      0x101 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-ctype_.o)
+                0x0000000010014490                _ctype_
+ *fill*         0x0000000010014591        0x3 
  .rodata.str1.4
-                0x0000000010014134       0x56 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-dtoa.o)
+                0x0000000010014594       0x56 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-dtoa.o)
                                          0x5a (size before relaxing)
- *fill*         0x000000001001418a        0x2 
+ *fill*         0x00000000100145ea        0x2 
  .rodata.str1.4
-                0x000000001001418c       0x33 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mprec.o)
+                0x00000000100145ec       0x33 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mprec.o)
                                          0x47 (size before relaxing)
- *fill*         0x00000000100141bf        0x1 
- .rodata        0x00000000100141c0      0x128 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mprec.o)
-                0x00000000100141d0                __mprec_tinytens
-                0x00000000100141f8                __mprec_bigtens
-                0x0000000010014220                __mprec_tens
+ *fill*         0x000000001001461f        0x1 
+ .rodata        0x0000000010014620      0x128 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mprec.o)
+                0x0000000010014630                __mprec_tinytens
+                0x0000000010014658                __mprec_bigtens
+                0x0000000010014680                __mprec_tens
  .rodata.str1.4
-                0x00000000100142e8       0x2f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfiprintf.o)
- .rodata        0x00000000100142e8      0x184 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfiprintf.o)
+                0x0000000010014748       0x2f /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfiprintf.o)
+ .rodata        0x0000000010014748      0x184 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-vfiprintf.o)
  .rodata.str1.4
-                0x000000001001446c        0xa /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-locale.o)
+                0x00000000100148cc        0xa /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-locale.o)
                                          0x12 (size before relaxing)
-                0x0000000010014478                . = ALIGN (0x4)
- *fill*         0x0000000010014476        0x2 
+                0x00000000100148d8                . = ALIGN (0x4)
+ *fill*         0x00000000100148d6        0x2 
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.flashdata*)))
-                0x0000000010014478                . = ALIGN (0x4)
+                0x00000000100148d8                . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000010014478                __exidx_start = .
+                0x00000000100148d8                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000010014478                __exidx_end = .
-                0x0000000010014478                . = ALIGN (0x4)
-                0x0000000010014478                __binary_info_start = .
+                0x00000000100148d8                __exidx_end = .
+                0x00000000100148d8                . = ALIGN (0x4)
+                0x00000000100148d8                __binary_info_start = .
 
-.binary_info    0x0000000010014478       0x1c
+.binary_info    0x00000000100148d8       0x1c
  *(.binary_info.keep.*)
  .binary_info.keep.__bi_ptr22
-                0x0000000010014478        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x00000000100148d8        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr30
-                0x000000001001447c        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x00000000100148dc        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr38
-                0x0000000010014480        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x00000000100148e0        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr44
-                0x0000000010014484        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x00000000100148e4        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr50
-                0x0000000010014488        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x00000000100148e8        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr75
-                0x000000001001448c        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x00000000100148ec        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr81
-                0x0000000010014490        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x00000000100148f0        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  *(.binary_info.*)
-                0x0000000010014494                __binary_info_end = .
+                0x00000000100148f4                __binary_info_end = .
 
-.rel.dyn        0x0000000010014494        0x0
- .rel.iplt      0x0000000010014494        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
-                0x0000000010014494                . = ALIGN (0x4)
+.rel.dyn        0x00000000100148f4        0x0
+ .rel.iplt      0x00000000100148f4        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x00000000100148f4                . = ALIGN (0x4)
 
 .ram_vector_table
                 0x0000000020000000       0xc0
@@ -2873,7 +2882,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
                 0x0000000020000000       0xc0 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                 0x0000000020000000                ram_vector_table
 
-.data           0x00000000200000c0      0xe10 load address 0x0000000010014494
+.data           0x00000000200000c0      0xe10 load address 0x00000000100148f4
                 0x00000000200000c0                __data_start__ = .
  *(vtable)
  *(.time_critical*)
@@ -3001,38 +3010,38 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
  *(.jcr)
                 0x0000000020000ed0                . = ALIGN (0x4)
                 0x0000000020000ed0                __data_end__ = .
-                0x0000000010014494                __etext = LOADADDR (.data)
+                0x00000000100148f4                __etext = LOADADDR (.data)
 
 .tm_clone_table
-                0x0000000020000ed0        0x0 load address 0x00000000100152a4
+                0x0000000020000ed0        0x0 load address 0x0000000010015704
  .tm_clone_table
                 0x0000000020000ed0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
  .tm_clone_table
                 0x0000000020000ed0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtend.o
 
-.igot.plt       0x0000000020000ed0        0x0 load address 0x00000000100152a4
+.igot.plt       0x0000000020000ed0        0x0 load address 0x0000000010015704
  .igot.plt      0x0000000020000ed0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .uninitialized_data
-                0x0000000020000ed0        0x0 load address 0x00000000100152a4
+                0x0000000020000ed0        0x0 load address 0x0000000010015704
                 0x0000000020000ed0                . = ALIGN (0x4)
  *(.uninitialized_data*)
 
-.scratch_x      0x0000000020040000        0x0 load address 0x00000000100152a4
+.scratch_x      0x0000000020040000        0x0 load address 0x0000000010015704
                 0x0000000020040000                __scratch_x_start__ = .
  *(.scratch_x.*)
                 0x0000000020040000                . = ALIGN (0x4)
                 0x0000000020040000                __scratch_x_end__ = .
-                0x00000000100152a4                __scratch_x_source__ = LOADADDR (.scratch_x)
+                0x0000000010015704                __scratch_x_source__ = LOADADDR (.scratch_x)
 
-.scratch_y      0x0000000020041000        0x0 load address 0x00000000100152a4
+.scratch_y      0x0000000020041000        0x0 load address 0x0000000010015704
                 0x0000000020041000                __scratch_y_start__ = .
  *(.scratch_y.*)
                 0x0000000020041000                . = ALIGN (0x4)
                 0x0000000020041000                __scratch_y_end__ = .
-                0x00000000100152a4                __scratch_y_source__ = LOADADDR (.scratch_y)
+                0x0000000010015704                __scratch_y_source__ = LOADADDR (.scratch_y)
 
-.bss            0x0000000020000ed0      0xa78
+.bss            0x0000000020000ed0      0xa8c
                 0x0000000020000ed0                . = ALIGN (0x4)
                 0x0000000020000ed0                __bss_start__ = .
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.bss*)))
@@ -3059,11 +3068,11 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
                 0x00000000200011bc                __malloc_max_total_mem
  .bss           0x00000000200011c0        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-reent.o)
                 0x00000000200011c0                errno
- .bss._initial.17
+ .bss._initial.18
                 0x00000000200011c4       0x64 CMakeFiles/Choreo.dir/Choreo.c.obj
- .bss._initial.20
-                0x0000000020001228       0x64 CMakeFiles/Choreo.dir/Choreo.c.obj
  .bss._initial.21
+                0x0000000020001228       0x64 CMakeFiles/Choreo.dir/Choreo.c.obj
+ .bss._initial.22
                 0x000000002000128c       0x64 CMakeFiles/Choreo.dir/Choreo.c.obj
  .bss._lf_count_payload_allocations
                 0x00000000200012f0        0x4 core/libcore.a(lf_token.c.obj)
@@ -3107,80 +3116,82 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
  *fill*         0x0000000020001355        0x3 
  .bss.buf.1     0x0000000020001358       0x11 CMakeFiles/Choreo.dir/_choreo_main.c.obj
  *fill*         0x0000000020001369        0x3 
- .bss.buf_received.2
-                0x000000002000136c       0x11 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+ .bss.buf.2     0x000000002000136c       0x11 CMakeFiles/Choreo.dir/_choreo_main.c.obj
  *fill*         0x000000002000137d        0x3 
- .bss.claimed   0x0000000020001380        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ .bss.buf_received.3
+                0x0000000020001380       0x11 CMakeFiles/Choreo.dir/_choreo_main.c.obj
+ *fill*         0x0000000020001391        0x3 
+ .bss.claimed   0x0000000020001394        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
  .bss.configured_freq
-                0x0000000020001384       0x28 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x0000000020001398       0x28 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
  .bss.default_alarm_pool_entry_ids_high
-                0x00000000200013ac       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000200013c0       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
  .bss.default_alarm_pool_heap_nodes
-                0x00000000200013bc       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000200013d0       0x30 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
  .bss.default_argc
-                0x00000000200013ec        0x4 core/libcore.a(reactor_common.c.obj)
-                0x00000000200013ec                default_argc
+                0x0000000020001400        0x4 core/libcore.a(reactor_common.c.obj)
+                0x0000000020001400                default_argc
  .bss.default_argv
-                0x00000000200013f0        0x4 core/libcore.a(reactor_common.c.obj)
-                0x00000000200013f0                default_argv
+                0x0000000020001404        0x4 core/libcore.a(reactor_common.c.obj)
+                0x0000000020001404                default_argv
  .bss.display_buffer
-                0x00000000200013f4      0x400 robot/librobot.a(display.c.obj)
-                0x00000000200013f4                display_buffer
- .bss.drivers   0x00000000200017f4        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- .bss.filter    0x00000000200017f8        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000020001408      0x400 robot/librobot.a(display.c.obj)
+                0x0000000020001408                display_buffer
+ .bss.drivers   0x0000000020001808        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ .bss.filter    0x000000002000180c        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .bss.heap_end.0
-                0x00000000200017fc        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000020001810        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
  .bss.imu_instance
-                0x0000000020001800        0x8 CMakeFiles/Choreo.dir/_gyro.c.obj
+                0x0000000020001814        0x8 CMakeFiles/Choreo.dir/_gyro.c.obj
  .bss.lazy_vsnprintf
-                0x0000000020001808        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .bss.pools     0x000000002000180c       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x000000002000181c        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .bss.pools     0x0000000020001820       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
  .bss.print_message_function
-                0x000000002000181c        0x4 core/libcore.a(util.c.obj)
-                0x000000002000181c                print_message_function
+                0x0000000020001830        0x4 core/libcore.a(util.c.obj)
+                0x0000000020001830                print_message_function
  .bss.sf_clz_func
-                0x0000000020001820        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-                0x0000000020001820                sf_clz_func
- .bss.sf_table  0x0000000020001824      0x100 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-                0x0000000020001824                sf_table
+                0x0000000020001834        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                0x0000000020001834                sf_clz_func
+ .bss.sf_table  0x0000000020001838      0x100 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+                0x0000000020001838                sf_table
  .bss.sleep_notifier
-                0x0000000020001924        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000020001938        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj
  .bss.target_hi
-                0x0000000020001928       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x000000002000193c       0x10 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .bss.uart_char_to_line_feed
-                0x0000000020001938        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-                0x0000000020001938                uart_char_to_line_feed
+                0x000000002000194c        0x4 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+                0x000000002000194c                uart_char_to_line_feed
  .bss.sh1106_cpsr
-                0x000000002000193c        0x2 robot/librobot.a(sh1106.c.obj)
+                0x0000000020001950        0x2 robot/librobot.a(sh1106.c.obj)
  .bss.sh1106_cr0
-                0x000000002000193e        0x2 robot/librobot.a(sh1106.c.obj)
+                0x0000000020001952        0x2 robot/librobot.a(sh1106.c.obj)
  .bss._lf_execution_started
-                0x0000000020001940        0x1 core/libcore.a(reactor_common.c.obj)
-                0x0000000020001940                _lf_execution_started
+                0x0000000020001954        0x1 core/libcore.a(reactor_common.c.obj)
+                0x0000000020001954                _lf_execution_started
  .bss._pololu_robot_display_initialized
-                0x0000000020001941        0x1 CMakeFiles/Choreo.dir/_display.c.obj
+                0x0000000020001955        0x1 CMakeFiles/Choreo.dir/_display.c.obj
  .bss._pololu_robot_imu_initialized
-                0x0000000020001942        0x1 CMakeFiles/Choreo.dir/_gyro.c.obj
- .bss.claimed   0x0000000020001943        0x1 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- .bss.fast      0x0000000020001944        0x1 core/libcore.a(reactor_common.c.obj)
-                0x0000000020001944                fast
+                0x0000000020001956        0x1 CMakeFiles/Choreo.dir/_gyro.c.obj
+ .bss.claimed   0x0000000020001957        0x1 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ .bss.fast      0x0000000020001958        0x1 core/libcore.a(reactor_common.c.obj)
+                0x0000000020001958                fast
  .bss.irq_hander_chain_free_slot_head
-                0x0000000020001945        0x1 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000020001959        0x1 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .bss.keepalive_specified
-                0x0000000020001946        0x1 core/libcore.a(reactor_common.c.obj)
-                0x0000000020001946                keepalive_specified
+                0x000000002000195a        0x1 core/libcore.a(reactor_common.c.obj)
+                0x000000002000195a                keepalive_specified
  .bss.timer_callbacks_pending
-                0x0000000020001947        0x1 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x000000002000195b        0x1 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  *(COMMON)
-                0x0000000020001948                . = ALIGN (0x4)
-                0x0000000020001948                __bss_end__ = .
+                0x000000002000195c                . = ALIGN (0x4)
+                0x000000002000195c                __bss_end__ = .
 
-.heap           0x0000000020001948      0x800
-                0x0000000020001948                __end__ = .
-                0x0000000020001948                end = __end__
+.heap           0x000000002000195c      0x800
+                0x000000002000195c                __end__ = .
+                0x000000002000195c                end = __end__
  *(.heap*)
- .heap          0x0000000020001948      0x800 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-                0x0000000020002148                __HeapLimit = .
+ .heap          0x000000002000195c      0x800 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+                0x000000002000215c                __HeapLimit = .
 
 .stack1_dummy   0x0000000020040000      0x800
  *(.stack1*)
@@ -3190,8 +3201,8 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
  *(.stack*)
  .stack         0x0000000020041000      0x800 CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 
-.flash_end      0x00000000100152a4        0x0
-                0x00000000100152a4                PROVIDE (__flash_binary_end = .)
+.flash_end      0x0000000010015704        0x0
+                0x0000000010015704                PROVIDE (__flash_binary_end = .)
                 0x0000000020040000                __StackLimit = (ORIGIN (RAM) + LENGTH (RAM))
                 0x0000000020041000                __StackOneTop = (ORIGIN (SCRATCH_X) + LENGTH (SCRATCH_X))
                 0x0000000020042000                __StackTop = (ORIGIN (SCRATCH_Y) + LENGTH (SCRATCH_Y))
@@ -3262,7 +3273,7 @@ LOAD CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.
 LOAD CMakeFiles/Choreo.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 LOAD core/libcore.a
 LOAD robot/librobot.a
-LOAD /tmp/ccGpLU6J.o
+LOAD /tmp/ccKGr4yU.o
 LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -3418,7 +3429,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000000000000b2e       0x2c robot/librobot.a(sh1106.c.obj)
  .ARM.attributes
-                0x0000000000000b5a       0x22 /tmp/ccGpLU6J.o
+                0x0000000000000b5a       0x22 /tmp/ccKGr4yU.o
  .ARM.attributes
                 0x0000000000000b7c       0x1e /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
