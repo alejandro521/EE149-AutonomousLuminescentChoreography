@@ -1,5 +1,6 @@
 # Assume we are recieving messages from pololu in (name, (x, y))
 # We send (name, "commands")
+# "[DRIVE,10, ]"
 
 import random
 import math
@@ -44,3 +45,5 @@ agents = [Agent(random.uniform(0, 800), random.uniform(0, 600)) for _ in range(1
 for agent in agents:
     next_x, next_y = agent.calculate_next_position(agents)
     print(f"Agent at ({agent.x}, {agent.y}) will move to ({next_x}, {next_y})")
+
+    # write a function that takes in the next (x, y) and turns it into a list of commands to send to pololu

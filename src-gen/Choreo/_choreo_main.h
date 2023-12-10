@@ -7,8 +7,9 @@
 #include "_angletodistance.h"
 #include "_line.h"
 #include "_motors.h"
-#ifndef TOP_LEVEL_PREAMBLE_1591683105_H
-#define TOP_LEVEL_PREAMBLE_1591683105_H
+#ifndef TOP_LEVEL_PREAMBLE_1050462151_H
+#define TOP_LEVEL_PREAMBLE_1050462151_H
+#include <ir_sensors.h>
 #include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -20,7 +21,6 @@
 #define LEFT_SM 1
 #include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
-#include <motors.h>
 #include <pico/stdlib.h>
 #include <imu.h>
 #include <math.h>
@@ -39,8 +39,8 @@
 #define RED_LED_PIN 7
 #define YELLOW_LED_PIN 27
 #define GREEN_LED_PIN 24
+#include <motors.h>
 #include <math.h>
-#include <ir_sensors.h>
 #endif
 typedef struct {
     struct self_base_t base;
