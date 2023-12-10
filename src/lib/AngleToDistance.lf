@@ -12,9 +12,9 @@ preamble {=
 
 reactor AngleToDistance {
     input degrees:int32_t
-    output distance:float
+    output distance:float // in cm (centimeters)
 
     reaction(degrees) -> distance {=
-        lf_set(distance, degrees->value * (((M_PI * 3.175) / 360) / 100));
+        lf_set(distance, degrees->value * (((M_PI * 3.175) / 360)));
     =}
 }

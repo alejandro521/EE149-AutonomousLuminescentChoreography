@@ -23,6 +23,7 @@ void _lf_set_default_command_line_options() {}
 #include "_trapezoidalintegrator.h"
 #include "_gyroangle.h"
 #include "_angletodistance.h"
+#include "_line.h"
 #include "_choreo_main.h"
 typedef enum {
     choreo_main,
@@ -32,7 +33,7 @@ typedef enum {
 environment_t envs[_num_enclaves];
 // 'Create' and initialize the environments in the program
 void _lf_create_environments() {
-    environment_init(&envs[choreo_main],choreo_main,_lf_number_of_workers,1,5,0,0,18,1,0,NULL);
+    environment_init(&envs[choreo_main],choreo_main,_lf_number_of_workers,2,5,0,0,21,1,0,NULL);
 }
 // Update the pointer argument to point to the beginning of the environment array
 // and return the size of that array
@@ -77,6 +78,8 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(choreo_angletodistancel_self);
     _angletodistance_self_t* choreo_angletodistancer_self[1];
     SUPPRESS_UNUSED_WARNING(choreo_angletodistancer_self);
+    _line_self_t* choreo_line_self[1];
+    SUPPRESS_UNUSED_WARNING(choreo_line_self);
     // ***** Start initializing Choreo of class Choreo
     choreo_main_self[0] = new__choreo_main();
     choreo_main_self[0]->base.environment = &envs[choreo_main];
@@ -101,7 +104,7 @@ void _lf_initialize_trigger_objects() {
     } // End scoping.
     { // For scoping
         static char _initial[100] = "";
-        choreo_main_self[0]->curr_mode = _initial;
+        choreo_main_self[0]->next_mode = _initial;
     } // End scoping.
     { // For scoping
         static int _initial = 0;
@@ -120,8 +123,8 @@ void _lf_initialize_trigger_objects() {
         choreo_main_self[0]->target_distance = _initial;
     } // End scoping.
     { // For scoping
-        static int _initial = 0;
-        choreo_main_self[0]->num_rotations = _initial;
+        static float _initial = 0.0;
+        choreo_main_self[0]->degrees = _initial;
     } // End scoping.
     { // For scoping
         static int _initial = 0;
@@ -139,18 +142,37 @@ void _lf_initialize_trigger_objects() {
         static float _initial = 0.0;
         choreo_main_self[0]->calibration_speed = _initial;
     } // End scoping.
+    { // For scoping
+        static int _initial = 0;
+        choreo_main_self[0]->x = _initial;
+    } // End scoping.
+    { // For scoping
+        static int _initial = 0;
+        choreo_main_self[0]->y = _initial;
+    } // End scoping.
+    { // For scoping
+        static int _initial = 0;
+        choreo_main_self[0]->stable_counter = _initial;
+    } // End scoping.
     // Initiaizing timer Choreo.t.
     choreo_main_self[0]->_lf__t.offset = 0;
     choreo_main_self[0]->_lf__t.period = MSEC(50);
     // Associate timer with the environment of its parent
     envs[choreo_main].timer_triggers[timer_triggers_count[choreo_main]++] = &choreo_main_self[0]->_lf__t;
     choreo_main_self[0]->_lf__t.mode = NULL;
+    // Initiaizing timer Choreo.end_calibration.
+    choreo_main_self[0]->_lf__end_calibration.offset = SEC(10);
+    choreo_main_self[0]->_lf__end_calibration.period = 0;
+    // Associate timer with the environment of its parent
+    envs[choreo_main].timer_triggers[timer_triggers_count[choreo_main]++] = &choreo_main_self[0]->_lf__end_calibration;
+    choreo_main_self[0]->_lf__end_calibration.mode = NULL;
     
     choreo_main_self[0]->_lf__reaction_0.deadline = NEVER;
     choreo_main_self[0]->_lf__reaction_1.deadline = NEVER;
     choreo_main_self[0]->_lf__reaction_2.deadline = NEVER;
     choreo_main_self[0]->_lf__reaction_3.deadline = NEVER;
     choreo_main_self[0]->_lf__reaction_4.deadline = NEVER;
+    choreo_main_self[0]->_lf__reaction_5.deadline = NEVER;
     // Register for transition handling
     envs[choreo_main].modes->modal_reactor_states[modal_reactor_count[choreo_main]++] = &((self_base_t*)choreo_main_self[0])->_lf__mode_state;
     {
@@ -351,76 +373,120 @@ void _lf_initialize_trigger_objects() {
         choreo_angletodistancer_self[0]->_lf__reaction_0.deadline = NEVER;
         //***** End initializing Choreo.angleToDistanceR
     }
+    {
+        // ***** Start initializing Choreo.line of class Line
+        choreo_line_self[0] = new__line();
+        choreo_line_self[0]->base.environment = &envs[choreo_main];
+        bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+        // width of -2 indicates that it is not a multiport.
+        choreo_line_self[0]->_lf_reflect_width = -2;
+        // width of -2 indicates that it is not a multiport.
+        choreo_line_self[0]->_lf_calibrate_width = -2;
+        // width of -2 indicates that it is not a multiport.
+        choreo_line_self[0]->_lf_trigger_width = -2;
+        SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
+        { // For scoping
+            static bool _initial = true;
+            choreo_line_self[0]->calibrating = _initial;
+        } // End scoping.
+        { // For scoping
+            static bool _initial = false;
+            choreo_line_self[0]->calibrated = _initial;
+        } // End scoping.
+    
+        choreo_line_self[0]->_lf__reaction_0.deadline = NEVER;
+        choreo_line_self[0]->_lf__reaction_1.deadline = NEVER;
+        //***** End initializing Choreo.line
+    }
     //***** End initializing Choreo
     // **** Start deferred initialize for Choreo
     {
     
         // Total number of outputs (single ports and multiport channels)
         // produced by reaction_0 of Choreo.
-        choreo_main_self[0]->_lf__reaction_0.num_outputs = 0;
-        {
-            int count = 0; SUPPRESS_UNUSED_WARNING(count);
-        }
-        
-        // ** End initialization for reaction 0 of Choreo
-        // Total number of outputs (single ports and multiport channels)
-        // produced by reaction_1 of Choreo.
-        choreo_main_self[0]->_lf__reaction_1.num_outputs = 3;
+        choreo_main_self[0]->_lf__reaction_0.num_outputs = 3;
         // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
         // struct for this reaction.
-        choreo_main_self[0]->_lf__reaction_1.triggers = (trigger_t***)_lf_allocate(
+        choreo_main_self[0]->_lf__reaction_0.triggers = (trigger_t***)_lf_allocate(
                 3, sizeof(trigger_t**),
                 &choreo_main_self[0]->base.allocations);
-        choreo_main_self[0]->_lf__reaction_1.triggered_sizes = (int*)_lf_allocate(
+        choreo_main_self[0]->_lf__reaction_0.triggered_sizes = (int*)_lf_allocate(
                 3, sizeof(int),
                 &choreo_main_self[0]->base.allocations);
-        choreo_main_self[0]->_lf__reaction_1.output_produced = (bool**)_lf_allocate(
+        choreo_main_self[0]->_lf__reaction_0.output_produced = (bool**)_lf_allocate(
                 3, sizeof(bool*),
                 &choreo_main_self[0]->base.allocations);
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             // Reaction writes to an input of a contained reactor.
             {
-                choreo_main_self[0]->_lf__reaction_1.output_produced[count++] = &choreo_main_self[0]->_lf_e.trigger.is_present;
+                choreo_main_self[0]->_lf__reaction_0.output_produced[count++] = &choreo_main_self[0]->_lf_d.line0.is_present;
             }
             // Reaction writes to an input of a contained reactor.
             {
-                choreo_main_self[0]->_lf__reaction_1.output_produced[count++] = &choreo_main_self[0]->_lf_gyro.trigger.is_present;
+                choreo_main_self[0]->_lf__reaction_0.output_produced[count++] = &choreo_main_self[0]->_lf_d.line1.is_present;
             }
             // Reaction writes to an input of a contained reactor.
             {
-                choreo_main_self[0]->_lf__reaction_1.output_produced[count++] = &choreo_main_self[0]->_lf_d.line2.is_present;
+                choreo_main_self[0]->_lf__reaction_0.output_produced[count++] = &choreo_main_self[0]->_lf_d.line2.is_present;
+            }
+        }
+        
+        // ** End initialization for reaction 0 of Choreo
+        // Total number of outputs (single ports and multiport channels)
+        // produced by reaction_1 of Choreo.
+        choreo_main_self[0]->_lf__reaction_1.num_outputs = 1;
+        // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+        // struct for this reaction.
+        choreo_main_self[0]->_lf__reaction_1.triggers = (trigger_t***)_lf_allocate(
+                1, sizeof(trigger_t**),
+                &choreo_main_self[0]->base.allocations);
+        choreo_main_self[0]->_lf__reaction_1.triggered_sizes = (int*)_lf_allocate(
+                1, sizeof(int),
+                &choreo_main_self[0]->base.allocations);
+        choreo_main_self[0]->_lf__reaction_1.output_produced = (bool**)_lf_allocate(
+                1, sizeof(bool*),
+                &choreo_main_self[0]->base.allocations);
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            // Reaction writes to an input of a contained reactor.
+            {
+                choreo_main_self[0]->_lf__reaction_1.output_produced[count++] = &choreo_main_self[0]->_lf_line.calibrate.is_present;
             }
         }
         
         // ** End initialization for reaction 1 of Choreo
         // Total number of outputs (single ports and multiport channels)
         // produced by reaction_2 of Choreo.
-        choreo_main_self[0]->_lf__reaction_2.num_outputs = 3;
+        choreo_main_self[0]->_lf__reaction_2.num_outputs = 4;
         // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
         // struct for this reaction.
         choreo_main_self[0]->_lf__reaction_2.triggers = (trigger_t***)_lf_allocate(
-                3, sizeof(trigger_t**),
+                4, sizeof(trigger_t**),
                 &choreo_main_self[0]->base.allocations);
         choreo_main_self[0]->_lf__reaction_2.triggered_sizes = (int*)_lf_allocate(
-                3, sizeof(int),
+                4, sizeof(int),
                 &choreo_main_self[0]->base.allocations);
         choreo_main_self[0]->_lf__reaction_2.output_produced = (bool**)_lf_allocate(
-                3, sizeof(bool*),
+                4, sizeof(bool*),
                 &choreo_main_self[0]->base.allocations);
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             // Reaction writes to an input of a contained reactor.
             {
-                choreo_main_self[0]->_lf__reaction_2.output_produced[count++] = &choreo_main_self[0]->_lf_m.left_power.is_present;
+                choreo_main_self[0]->_lf__reaction_2.output_produced[count++] = &choreo_main_self[0]->_lf_e.trigger.is_present;
             }
             // Reaction writes to an input of a contained reactor.
             {
-                choreo_main_self[0]->_lf__reaction_2.output_produced[count++] = &choreo_main_self[0]->_lf_m.right_power.is_present;
+                choreo_main_self[0]->_lf__reaction_2.output_produced[count++] = &choreo_main_self[0]->_lf_gyro.trigger.is_present;
             }
             // Reaction writes to an input of a contained reactor.
             {
-                choreo_main_self[0]->_lf__reaction_2.output_produced[count++] = &choreo_main_self[0]->_lf_d.line0.is_present;
+                choreo_main_self[0]->_lf__reaction_2.output_produced[count++] = &choreo_main_self[0]->_lf_line.trigger.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
+                choreo_main_self[0]->_lf__reaction_2.output_produced[count++] = &choreo_main_self[0]->_lf_d.line2.is_present;
             }
         }
         
@@ -443,19 +509,19 @@ void _lf_initialize_trigger_objects() {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             // Reaction writes to an input of a contained reactor.
             {
-                choreo_main_self[0]->_lf__reaction_3.output_produced[count++] = &choreo_main_self[0]->_lf_m.left_power.is_present;
-            }
-            // Reaction writes to an input of a contained reactor.
-            {
-                choreo_main_self[0]->_lf__reaction_3.output_produced[count++] = &choreo_main_self[0]->_lf_m.right_power.is_present;
-            }
-            // Reaction writes to an input of a contained reactor.
-            {
                 choreo_main_self[0]->_lf__reaction_3.output_produced[count++] = &choreo_main_self[0]->_lf_d.line0.is_present;
             }
             // Reaction writes to an input of a contained reactor.
             {
                 choreo_main_self[0]->_lf__reaction_3.output_produced[count++] = &choreo_main_self[0]->_lf_d.line1.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
+                choreo_main_self[0]->_lf__reaction_3.output_produced[count++] = &choreo_main_self[0]->_lf_d.line2.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
+                choreo_main_self[0]->_lf__reaction_3.output_produced[count++] = &choreo_main_self[0]->_lf_d.line3.is_present;
             }
         }
         
@@ -490,11 +556,46 @@ void _lf_initialize_trigger_objects() {
             }
             // Reaction writes to an input of a contained reactor.
             {
-                choreo_main_self[0]->_lf__reaction_4.output_produced[count++] = &choreo_main_self[0]->_lf_d.line3.is_present;
+                choreo_main_self[0]->_lf__reaction_4.output_produced[count++] = &choreo_main_self[0]->_lf_d.line1.is_present;
             }
         }
         
         // ** End initialization for reaction 4 of Choreo
+        // Total number of outputs (single ports and multiport channels)
+        // produced by reaction_5 of Choreo.
+        choreo_main_self[0]->_lf__reaction_5.num_outputs = 4;
+        // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+        // struct for this reaction.
+        choreo_main_self[0]->_lf__reaction_5.triggers = (trigger_t***)_lf_allocate(
+                4, sizeof(trigger_t**),
+                &choreo_main_self[0]->base.allocations);
+        choreo_main_self[0]->_lf__reaction_5.triggered_sizes = (int*)_lf_allocate(
+                4, sizeof(int),
+                &choreo_main_self[0]->base.allocations);
+        choreo_main_self[0]->_lf__reaction_5.output_produced = (bool**)_lf_allocate(
+                4, sizeof(bool*),
+                &choreo_main_self[0]->base.allocations);
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            // Reaction writes to an input of a contained reactor.
+            {
+                choreo_main_self[0]->_lf__reaction_5.output_produced[count++] = &choreo_main_self[0]->_lf_m.left_power.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
+                choreo_main_self[0]->_lf__reaction_5.output_produced[count++] = &choreo_main_self[0]->_lf_m.right_power.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
+                choreo_main_self[0]->_lf__reaction_5.output_produced[count++] = &choreo_main_self[0]->_lf_d.line0.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
+                choreo_main_self[0]->_lf__reaction_5.output_produced[count++] = &choreo_main_self[0]->_lf_d.line3.is_present;
+            }
+        }
+        
+        // ** End initialization for reaction 5 of Choreo
     
         // **** Start deferred initialize for Choreo.m
         {
@@ -776,9 +877,85 @@ void _lf_initialize_trigger_objects() {
         
         }
         // **** End of deferred initialize for Choreo.angleToDistanceR
+        // **** Start deferred initialize for Choreo.line
+        {
+        
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_0 of Choreo.line.
+            choreo_line_self[0]->_lf__reaction_0.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 0 of Choreo.line
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_1 of Choreo.line.
+            choreo_line_self[0]->_lf__reaction_1.num_outputs = 1;
+            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+            // struct for this reaction.
+            choreo_line_self[0]->_lf__reaction_1.triggers = (trigger_t***)_lf_allocate(
+                    1, sizeof(trigger_t**),
+                    &choreo_line_self[0]->base.allocations);
+            choreo_line_self[0]->_lf__reaction_1.triggered_sizes = (int*)_lf_allocate(
+                    1, sizeof(int),
+                    &choreo_line_self[0]->base.allocations);
+            choreo_line_self[0]->_lf__reaction_1.output_produced = (bool**)_lf_allocate(
+                    1, sizeof(bool*),
+                    &choreo_line_self[0]->base.allocations);
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                {
+                    choreo_line_self[0]->_lf__reaction_1.output_produced[count++] = &choreo_line_self[0]->_lf_reflect.is_present;
+                }
+            }
+            
+            // ** End initialization for reaction 1 of Choreo.line
+        
+        }
+        // **** End of deferred initialize for Choreo.line
     }
     // **** End of deferred initialize for Choreo
     // **** Start non-nested deferred initialize for Choreo
+    // Set number of destination reactors for port d.line0.
+    // Iterate over range Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        choreo_main_self[src_runtime]->_lf_d.line0._base.num_destinations = 1;
+        choreo_main_self[src_runtime]->_lf_d.line0._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
+    }
+    // Set number of destination reactors for port d.line1.
+    // Iterate over range Choreo.d.line1(0,1)->[Choreo.d.line1(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        choreo_main_self[src_runtime]->_lf_d.line1._base.num_destinations = 1;
+        choreo_main_self[src_runtime]->_lf_d.line1._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
+    }
+    // Set number of destination reactors for port d.line2.
+    // Iterate over range Choreo.d.line2(0,1)->[Choreo.d.line2(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        choreo_main_self[src_runtime]->_lf_d.line2._base.num_destinations = 1;
+        choreo_main_self[src_runtime]->_lf_d.line2._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
+    }
+    // Set number of destination reactors for port line.calibrate.
+    // Iterate over range Choreo.line.calibrate(0,1)->[Choreo.line.calibrate(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        choreo_main_self[src_runtime]->_lf_line.calibrate._base.num_destinations = 1;
+        choreo_main_self[src_runtime]->_lf_line.calibrate._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
+    }
     // Set number of destination reactors for port e.trigger.
     // Iterate over range Choreo.e.trigger(0,1)->[Choreo.e.trigger(0,1)].
     {
@@ -799,15 +976,25 @@ void _lf_initialize_trigger_objects() {
         choreo_main_self[src_runtime]->_lf_gyro.trigger._base.num_destinations = 1;
         choreo_main_self[src_runtime]->_lf_gyro.trigger._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
     }
-    // Set number of destination reactors for port d.line2.
-    // Iterate over range Choreo.d.line2(0,1)->[Choreo.d.line2(0,1)].
+    // Set number of destination reactors for port line.trigger.
+    // Iterate over range Choreo.line.trigger(0,1)->[Choreo.line.trigger(0,1)].
     {
         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        choreo_main_self[src_runtime]->_lf_d.line2._base.num_destinations = 1;
-        choreo_main_self[src_runtime]->_lf_d.line2._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
+        choreo_main_self[src_runtime]->_lf_line.trigger._base.num_destinations = 1;
+        choreo_main_self[src_runtime]->_lf_line.trigger._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
+    }
+    // Set number of destination reactors for port d.line3.
+    // Iterate over range Choreo.d.line3(0,1)->[Choreo.d.line3(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        choreo_main_self[src_runtime]->_lf_d.line3._base.num_destinations = 1;
+        choreo_main_self[src_runtime]->_lf_d.line3._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
     }
     // Set number of destination reactors for port m.left_power.
     // Iterate over range Choreo.m.left_power(0,1)->[Choreo.m.left_power(0,1)].
@@ -829,69 +1016,39 @@ void _lf_initialize_trigger_objects() {
         choreo_main_self[src_runtime]->_lf_m.right_power._base.num_destinations = 1;
         choreo_main_self[src_runtime]->_lf_m.right_power._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
     }
-    // Set number of destination reactors for port d.line0.
-    // Iterate over range Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        choreo_main_self[src_runtime]->_lf_d.line0._base.num_destinations = 1;
-        choreo_main_self[src_runtime]->_lf_d.line0._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port d.line1.
-    // Iterate over range Choreo.d.line1(0,1)->[Choreo.d.line1(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        choreo_main_self[src_runtime]->_lf_d.line1._base.num_destinations = 1;
-        choreo_main_self[src_runtime]->_lf_d.line1._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port d.line3.
-    // Iterate over range Choreo.d.line3(0,1)->[Choreo.d.line3(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        choreo_main_self[src_runtime]->_lf_d.line3._base.num_destinations = 1;
-        choreo_main_self[src_runtime]->_lf_d.line3._base.source_reactor = (self_base_t*)choreo_main_self[src_runtime];
-    }
     {
         int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range Choreo.e.trigger(0,1)->[Choreo.e.trigger(0,1)].
+        // Iterate over range Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of Choreo triggers 1 downstream reactions
-            // through port Choreo.e.trigger.
-            choreo_main_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of Choreo, allocate an
-            // array of trigger pointers for downstream reactions through port Choreo.e.trigger
+            // Reaction 0 of Choreo triggers 1 downstream reactions
+            // through port Choreo.d.line0.
+            choreo_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 0 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.d.line0
             trigger_t** trigger_array = (trigger_t**)_lf_allocate(
                     1, sizeof(trigger_t*),
                     &choreo_main_self[src_runtime]->base.allocations); 
-            choreo_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+            choreo_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
         }
-        // Iterate over range Choreo.gyro.trigger(0,1)->[Choreo.gyro.g.trigger(0,1)].
+        // Iterate over range Choreo.d.line1(0,1)->[Choreo.d.line1(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of Choreo triggers 1 downstream reactions
-            // through port Choreo.gyro.trigger.
-            choreo_main_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of Choreo, allocate an
-            // array of trigger pointers for downstream reactions through port Choreo.gyro.trigger
+            // Reaction 0 of Choreo triggers 1 downstream reactions
+            // through port Choreo.d.line1.
+            choreo_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 0 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.d.line1
             trigger_t** trigger_array = (trigger_t**)_lf_allocate(
                     1, sizeof(trigger_t*),
                     &choreo_main_self[src_runtime]->base.allocations); 
-            choreo_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+            choreo_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
         }
         // Iterate over range Choreo.d.line2(0,1)->[Choreo.d.line2(0,1)].
         {
@@ -899,18 +1056,18 @@ void _lf_initialize_trigger_objects() {
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of Choreo triggers 1 downstream reactions
+            // Reaction 0 of Choreo triggers 1 downstream reactions
             // through port Choreo.d.line2.
-            choreo_main_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of Choreo, allocate an
+            choreo_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 0 of Choreo, allocate an
             // array of trigger pointers for downstream reactions through port Choreo.d.line2
             trigger_t** trigger_array = (trigger_t**)_lf_allocate(
                     1, sizeof(trigger_t*),
                     &choreo_main_self[src_runtime]->base.allocations); 
-            choreo_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+            choreo_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
         }
         for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges Choreo.e.trigger(0,1)->[Choreo.e.trigger(0,1)] and Choreo.e.trigger(0,1).
+        // Iterate over ranges Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)] and Choreo.d.line0(0,1).
         {
             int src_runtime = 0; // Runtime index.
             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -918,18 +1075,18 @@ void _lf_initialize_trigger_objects() {
             SUPPRESS_UNUSED_WARNING(src_channel);
             int src_bank = 0; // Bank index.
             SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range Choreo.e.trigger(0,1).
+            // Iterate over range Choreo.d.line0(0,1).
             {
                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port Choreo.e.trigger's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_e_self[dst_runtime]->_lf__trigger;
+                // Point to destination port Choreo.d.line0's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line0;
             }
         }
         for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges Choreo.gyro.trigger(0,1)->[Choreo.gyro.g.trigger(0,1)] and Choreo.gyro.g.trigger(0,1).
+        // Iterate over ranges Choreo.d.line1(0,1)->[Choreo.d.line1(0,1)] and Choreo.d.line1(0,1).
         {
             int src_runtime = 0; // Runtime index.
             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -937,14 +1094,14 @@ void _lf_initialize_trigger_objects() {
             SUPPRESS_UNUSED_WARNING(src_channel);
             int src_bank = 0; // Bank index.
             SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range Choreo.gyro.g.trigger(0,1).
+            // Iterate over range Choreo.d.line1(0,1).
             {
                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port Choreo.gyro.g.trigger's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_gyro_g_self[dst_runtime]->_lf__trigger;
+                // Point to destination port Choreo.d.line1's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line1;
             }
         }
         for (int i = 0; i < 1; i++) triggers_index[i] = 2;
@@ -963,62 +1120,116 @@ void _lf_initialize_trigger_objects() {
                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
                 // Point to destination port Choreo.d.line2's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line2;
+                choreo_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line2;
             }
         }
     }
     {
         int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range Choreo.m.left_power(0,1)->[Choreo.m.left_power(0,1)].
+        // Iterate over range Choreo.line.calibrate(0,1)->[Choreo.line.calibrate(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 1 of Choreo triggers 1 downstream reactions
+            // through port Choreo.line.calibrate.
+            choreo_main_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 1 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.line.calibrate
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_main_self[src_runtime]->base.allocations); 
+            choreo_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges Choreo.line.calibrate(0,1)->[Choreo.line.calibrate(0,1)] and Choreo.line.calibrate(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.line.calibrate(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port Choreo.line.calibrate's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_line_self[dst_runtime]->_lf__calibrate;
+            }
+        }
+    }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range Choreo.e.trigger(0,1)->[Choreo.e.trigger(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
             // Reaction 2 of Choreo triggers 1 downstream reactions
-            // through port Choreo.m.left_power.
+            // through port Choreo.e.trigger.
             choreo_main_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
             // For reaction 2 of Choreo, allocate an
-            // array of trigger pointers for downstream reactions through port Choreo.m.left_power
+            // array of trigger pointers for downstream reactions through port Choreo.e.trigger
             trigger_t** trigger_array = (trigger_t**)_lf_allocate(
                     1, sizeof(trigger_t*),
                     &choreo_main_self[src_runtime]->base.allocations); 
             choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
         }
-        // Iterate over range Choreo.m.right_power(0,1)->[Choreo.m.right_power(0,1)].
+        // Iterate over range Choreo.gyro.trigger(0,1)->[Choreo.gyro.g.trigger(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
             // Reaction 2 of Choreo triggers 1 downstream reactions
-            // through port Choreo.m.right_power.
+            // through port Choreo.gyro.trigger.
             choreo_main_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
             // For reaction 2 of Choreo, allocate an
-            // array of trigger pointers for downstream reactions through port Choreo.m.right_power
+            // array of trigger pointers for downstream reactions through port Choreo.gyro.trigger
             trigger_t** trigger_array = (trigger_t**)_lf_allocate(
                     1, sizeof(trigger_t*),
                     &choreo_main_self[src_runtime]->base.allocations); 
             choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
         }
-        // Iterate over range Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)].
+        // Iterate over range Choreo.line.trigger(0,1)->[Choreo.line.trigger(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
             // Reaction 2 of Choreo triggers 1 downstream reactions
-            // through port Choreo.d.line0.
+            // through port Choreo.line.trigger.
             choreo_main_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
             // For reaction 2 of Choreo, allocate an
-            // array of trigger pointers for downstream reactions through port Choreo.d.line0
+            // array of trigger pointers for downstream reactions through port Choreo.line.trigger
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_main_self[src_runtime]->base.allocations); 
+            choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range Choreo.d.line2(0,1)->[Choreo.d.line2(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 2 of Choreo triggers 1 downstream reactions
+            // through port Choreo.d.line2.
+            choreo_main_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 2 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.d.line2
             trigger_t** trigger_array = (trigger_t**)_lf_allocate(
                     1, sizeof(trigger_t*),
                     &choreo_main_self[src_runtime]->base.allocations); 
             choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
         }
         for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges Choreo.m.left_power(0,1)->[Choreo.m.left_power(0,1)] and Choreo.m.left_power(0,1).
+        // Iterate over ranges Choreo.e.trigger(0,1)->[Choreo.e.trigger(0,1)] and Choreo.e.trigger(0,1).
         {
             int src_runtime = 0; // Runtime index.
             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1026,18 +1237,18 @@ void _lf_initialize_trigger_objects() {
             SUPPRESS_UNUSED_WARNING(src_channel);
             int src_bank = 0; // Bank index.
             SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range Choreo.m.left_power(0,1).
+            // Iterate over range Choreo.e.trigger(0,1).
             {
                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port Choreo.m.left_power's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_m_self[dst_runtime]->_lf__left_power;
+                // Point to destination port Choreo.e.trigger's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_e_self[dst_runtime]->_lf__trigger;
             }
         }
         for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges Choreo.m.right_power(0,1)->[Choreo.m.right_power(0,1)] and Choreo.m.right_power(0,1).
+        // Iterate over ranges Choreo.gyro.trigger(0,1)->[Choreo.gyro.g.trigger(0,1)] and Choreo.gyro.g.trigger(0,1).
         {
             int src_runtime = 0; // Runtime index.
             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1045,18 +1256,18 @@ void _lf_initialize_trigger_objects() {
             SUPPRESS_UNUSED_WARNING(src_channel);
             int src_bank = 0; // Bank index.
             SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range Choreo.m.right_power(0,1).
+            // Iterate over range Choreo.gyro.g.trigger(0,1).
             {
                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port Choreo.m.right_power's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_m_self[dst_runtime]->_lf__right_power;
+                // Point to destination port Choreo.gyro.g.trigger's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_gyro_g_self[dst_runtime]->_lf__trigger;
             }
         }
         for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)] and Choreo.d.line0(0,1).
+        // Iterate over ranges Choreo.line.trigger(0,1)->[Choreo.line.trigger(0,1)] and Choreo.line.trigger(0,1).
         {
             int src_runtime = 0; // Runtime index.
             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1064,51 +1275,38 @@ void _lf_initialize_trigger_objects() {
             SUPPRESS_UNUSED_WARNING(src_channel);
             int src_bank = 0; // Bank index.
             SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range Choreo.d.line0(0,1).
+            // Iterate over range Choreo.line.trigger(0,1).
             {
                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port Choreo.d.line0's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line0;
+                // Point to destination port Choreo.line.trigger's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_line_self[dst_runtime]->_lf__trigger;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 3;
+        // Iterate over ranges Choreo.d.line2(0,1)->[Choreo.d.line2(0,1)] and Choreo.d.line2(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.d.line2(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port Choreo.d.line2's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line2;
             }
         }
     }
     {
         int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range Choreo.m.left_power(0,1)->[Choreo.m.left_power(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 3 of Choreo triggers 1 downstream reactions
-            // through port Choreo.m.left_power.
-            choreo_main_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 3 of Choreo, allocate an
-            // array of trigger pointers for downstream reactions through port Choreo.m.left_power
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &choreo_main_self[src_runtime]->base.allocations); 
-            choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range Choreo.m.right_power(0,1)->[Choreo.m.right_power(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 3 of Choreo triggers 1 downstream reactions
-            // through port Choreo.m.right_power.
-            choreo_main_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 3 of Choreo, allocate an
-            // array of trigger pointers for downstream reactions through port Choreo.m.right_power
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &choreo_main_self[src_runtime]->base.allocations); 
-            choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
         // Iterate over range Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
@@ -1141,45 +1339,39 @@ void _lf_initialize_trigger_objects() {
                     &choreo_main_self[src_runtime]->base.allocations); 
             choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
         }
+        // Iterate over range Choreo.d.line2(0,1)->[Choreo.d.line2(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 3 of Choreo triggers 1 downstream reactions
+            // through port Choreo.d.line2.
+            choreo_main_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 3 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.d.line2
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_main_self[src_runtime]->base.allocations); 
+            choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range Choreo.d.line3(0,1)->[Choreo.d.line3(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 3 of Choreo triggers 1 downstream reactions
+            // through port Choreo.d.line3.
+            choreo_main_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 3 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.d.line3
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_main_self[src_runtime]->base.allocations); 
+            choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
         for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges Choreo.m.left_power(0,1)->[Choreo.m.left_power(0,1)] and Choreo.m.left_power(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range Choreo.m.left_power(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port Choreo.m.left_power's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_m_self[dst_runtime]->_lf__left_power;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges Choreo.m.right_power(0,1)->[Choreo.m.right_power(0,1)] and Choreo.m.right_power(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range Choreo.m.right_power(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port Choreo.m.right_power's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_m_self[dst_runtime]->_lf__right_power;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
         // Iterate over ranges Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)] and Choreo.d.line0(0,1).
         {
             int src_runtime = 0; // Runtime index.
@@ -1198,7 +1390,7 @@ void _lf_initialize_trigger_objects() {
                 choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line0;
             }
         }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 3;
+        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
         // Iterate over ranges Choreo.d.line1(0,1)->[Choreo.d.line1(0,1)] and Choreo.d.line1(0,1).
         {
             int src_runtime = 0; // Runtime index.
@@ -1215,6 +1407,44 @@ void _lf_initialize_trigger_objects() {
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
                 // Point to destination port Choreo.d.line1's trigger struct.
                 choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line1;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+        // Iterate over ranges Choreo.d.line2(0,1)->[Choreo.d.line2(0,1)] and Choreo.d.line2(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.d.line2(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port Choreo.d.line2's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line2;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 3;
+        // Iterate over ranges Choreo.d.line3(0,1)->[Choreo.d.line3(0,1)] and Choreo.d.line3(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.d.line3(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port Choreo.d.line3's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line3;
             }
         }
     }
@@ -1268,17 +1498,17 @@ void _lf_initialize_trigger_objects() {
                     &choreo_main_self[src_runtime]->base.allocations); 
             choreo_main_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
         }
-        // Iterate over range Choreo.d.line3(0,1)->[Choreo.d.line3(0,1)].
+        // Iterate over range Choreo.d.line1(0,1)->[Choreo.d.line1(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
             // Reaction 4 of Choreo triggers 1 downstream reactions
-            // through port Choreo.d.line3.
+            // through port Choreo.d.line1.
             choreo_main_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
             // For reaction 4 of Choreo, allocate an
-            // array of trigger pointers for downstream reactions through port Choreo.d.line3
+            // array of trigger pointers for downstream reactions through port Choreo.d.line1
             trigger_t** trigger_array = (trigger_t**)_lf_allocate(
                     1, sizeof(trigger_t*),
                     &choreo_main_self[src_runtime]->base.allocations); 
@@ -1342,6 +1572,149 @@ void _lf_initialize_trigger_objects() {
             }
         }
         for (int i = 0; i < 1; i++) triggers_index[i] = 3;
+        // Iterate over ranges Choreo.d.line1(0,1)->[Choreo.d.line1(0,1)] and Choreo.d.line1(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.d.line1(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port Choreo.d.line1's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line1;
+            }
+        }
+    }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range Choreo.m.left_power(0,1)->[Choreo.m.left_power(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 5 of Choreo triggers 1 downstream reactions
+            // through port Choreo.m.left_power.
+            choreo_main_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 5 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.m.left_power
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_main_self[src_runtime]->base.allocations); 
+            choreo_main_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range Choreo.m.right_power(0,1)->[Choreo.m.right_power(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 5 of Choreo triggers 1 downstream reactions
+            // through port Choreo.m.right_power.
+            choreo_main_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 5 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.m.right_power
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_main_self[src_runtime]->base.allocations); 
+            choreo_main_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 5 of Choreo triggers 1 downstream reactions
+            // through port Choreo.d.line0.
+            choreo_main_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 5 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.d.line0
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_main_self[src_runtime]->base.allocations); 
+            choreo_main_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range Choreo.d.line3(0,1)->[Choreo.d.line3(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 5 of Choreo triggers 1 downstream reactions
+            // through port Choreo.d.line3.
+            choreo_main_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 5 of Choreo, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.d.line3
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_main_self[src_runtime]->base.allocations); 
+            choreo_main_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges Choreo.m.left_power(0,1)->[Choreo.m.left_power(0,1)] and Choreo.m.left_power(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.m.left_power(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port Choreo.m.left_power's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_m_self[dst_runtime]->_lf__left_power;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+        // Iterate over ranges Choreo.m.right_power(0,1)->[Choreo.m.right_power(0,1)] and Choreo.m.right_power(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.m.right_power(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port Choreo.m.right_power's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_m_self[dst_runtime]->_lf__right_power;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+        // Iterate over ranges Choreo.d.line0(0,1)->[Choreo.d.line0(0,1)] and Choreo.d.line0(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.d.line0(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port Choreo.d.line0's trigger struct.
+                choreo_main_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line0;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 3;
         // Iterate over ranges Choreo.d.line3(0,1)->[Choreo.d.line3(0,1)] and Choreo.d.line3(0,1).
         {
             int src_runtime = 0; // Runtime index.
@@ -1357,7 +1730,7 @@ void _lf_initialize_trigger_objects() {
                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
                 // Point to destination port Choreo.d.line3's trigger struct.
-                choreo_main_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line3;
+                choreo_main_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_d_self[dst_runtime]->_lf__line3;
             }
         }
     }
@@ -1760,6 +2133,59 @@ void _lf_initialize_trigger_objects() {
     }
     
     // **** End of non-nested deferred initialize for Choreo.angleToDistanceR
+    // **** Start non-nested deferred initialize for Choreo.line
+    
+    // For reference counting, set num_destinations for port Choreo.line.reflect.
+    // Iterate over range Choreo.line.reflect(0,1)->[Choreo.line.reflect(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        choreo_line_self[src_runtime]->_lf_reflect._base.num_destinations = 1;
+        choreo_line_self[src_runtime]->_lf_reflect._base.source_reactor = (self_base_t*)choreo_line_self[src_runtime];
+    }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range Choreo.line.reflect(0,1)->[Choreo.line.reflect(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 1 of Choreo.line triggers 1 downstream reactions
+            // through port Choreo.line.reflect.
+            choreo_line_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 1 of Choreo.line, allocate an
+            // array of trigger pointers for downstream reactions through port Choreo.line.reflect
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &choreo_line_self[src_runtime]->base.allocations); 
+            choreo_line_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges Choreo.line.reflect(0,1)->[Choreo.line.reflect(0,1)] and Choreo.line.reflect(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range Choreo.line.reflect(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Port Choreo.line.reflect has reactions in its parent's parent.
+                // Point to the trigger struct for those reactions.
+                choreo_line_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &choreo_main_self[dst_runtime]->_lf_line.reflect_trigger;
+            }
+        }
+    }
+    
+    // **** End of non-nested deferred initialize for Choreo.line
     // **** End of non-nested deferred initialize for Choreo
     // Connect inputs and outputs for reactor Choreo.
     // Connect inputs and outputs for reactor Choreo.m.
@@ -2045,6 +2471,61 @@ void _lf_initialize_trigger_objects() {
             choreo_main_self[dst_runtime]->_lf_angleToDistanceR.distance = (_angletodistance_distance_t*)&choreo_angletodistancer_self[src_runtime]->_lf_distance;
         }
     }
+    // Connect inputs and outputs for reactor Choreo.line.
+    // Connect Choreo.line.calibrate(0,1)->[Choreo.line.calibrate(0,1)] to port Choreo.line.calibrate(0,1)
+    // Iterate over ranges Choreo.line.calibrate(0,1)->[Choreo.line.calibrate(0,1)] and Choreo.line.calibrate(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range Choreo.line.calibrate(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            choreo_line_self[dst_runtime]->_lf_calibrate = (_line_calibrate_t*)&choreo_main_self[src_runtime]->_lf_line.calibrate;
+        }
+    }
+    // Connect Choreo.line.trigger(0,1)->[Choreo.line.trigger(0,1)] to port Choreo.line.trigger(0,1)
+    // Iterate over ranges Choreo.line.trigger(0,1)->[Choreo.line.trigger(0,1)] and Choreo.line.trigger(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range Choreo.line.trigger(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            choreo_line_self[dst_runtime]->_lf_trigger = (_line_trigger_t*)&choreo_main_self[src_runtime]->_lf_line.trigger;
+        }
+    }
+    // Connect Choreo.line.reflect(0,1)->[Choreo.line.reflect(0,1)] to port Choreo.line.reflect(0,1)
+    // Iterate over ranges Choreo.line.reflect(0,1)->[Choreo.line.reflect(0,1)] and Choreo.line.reflect(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range Choreo.line.reflect(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            choreo_main_self[dst_runtime]->_lf_line.reflect = (_line_reflect_t*)&choreo_line_self[src_runtime]->_lf_reflect;
+        }
+    }
     {
     }
     {
@@ -2127,27 +2608,29 @@ void _lf_initialize_trigger_objects() {
     }
     {
     }
-    // Add port Choreo.e.trigger to array of is_present fields.
+    {
+    }
+    // Add port Choreo.d.line0 to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[choreo_main].is_present_fields[6 + count] = &choreo_main_self[0]->_lf_e.trigger.is_present;
+                envs[choreo_main].is_present_fields[6 + count] = &choreo_main_self[0]->_lf_d.line0.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[choreo_main]._lf_intended_tag_fields[6 + count] = &choreo_main_self[0]->_lf_e.trigger.intended_tag;
+                envs[choreo_main]._lf_intended_tag_fields[6 + count] = &choreo_main_self[0]->_lf_d.line0.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
         }
     }
-    // Add port Choreo.gyro.trigger to array of is_present fields.
+    // Add port Choreo.d.line1 to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[choreo_main].is_present_fields[7 + count] = &choreo_main_self[0]->_lf_gyro.trigger.is_present;
+                envs[choreo_main].is_present_fields[7 + count] = &choreo_main_self[0]->_lf_d.line1.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[choreo_main]._lf_intended_tag_fields[7 + count] = &choreo_main_self[0]->_lf_gyro.trigger.intended_tag;
+                envs[choreo_main]._lf_intended_tag_fields[7 + count] = &choreo_main_self[0]->_lf_d.line1.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -2166,53 +2649,53 @@ void _lf_initialize_trigger_objects() {
             }
         }
     }
-    // Add port Choreo.m.left_power to array of is_present fields.
+    // Add port Choreo.line.calibrate to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[choreo_main].is_present_fields[9 + count] = &choreo_main_self[0]->_lf_m.left_power.is_present;
+                envs[choreo_main].is_present_fields[9 + count] = &choreo_main_self[0]->_lf_line.calibrate.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[choreo_main]._lf_intended_tag_fields[9 + count] = &choreo_main_self[0]->_lf_m.left_power.intended_tag;
+                envs[choreo_main]._lf_intended_tag_fields[9 + count] = &choreo_main_self[0]->_lf_line.calibrate.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
         }
     }
-    // Add port Choreo.m.right_power to array of is_present fields.
+    // Add port Choreo.e.trigger to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[choreo_main].is_present_fields[10 + count] = &choreo_main_self[0]->_lf_m.right_power.is_present;
+                envs[choreo_main].is_present_fields[10 + count] = &choreo_main_self[0]->_lf_e.trigger.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[choreo_main]._lf_intended_tag_fields[10 + count] = &choreo_main_self[0]->_lf_m.right_power.intended_tag;
+                envs[choreo_main]._lf_intended_tag_fields[10 + count] = &choreo_main_self[0]->_lf_e.trigger.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
         }
     }
-    // Add port Choreo.d.line0 to array of is_present fields.
+    // Add port Choreo.gyro.trigger to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[choreo_main].is_present_fields[11 + count] = &choreo_main_self[0]->_lf_d.line0.is_present;
+                envs[choreo_main].is_present_fields[11 + count] = &choreo_main_self[0]->_lf_gyro.trigger.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[choreo_main]._lf_intended_tag_fields[11 + count] = &choreo_main_self[0]->_lf_d.line0.intended_tag;
+                envs[choreo_main]._lf_intended_tag_fields[11 + count] = &choreo_main_self[0]->_lf_gyro.trigger.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
         }
     }
-    // Add port Choreo.d.line1 to array of is_present fields.
+    // Add port Choreo.line.trigger to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[choreo_main].is_present_fields[12 + count] = &choreo_main_self[0]->_lf_d.line1.is_present;
+                envs[choreo_main].is_present_fields[12 + count] = &choreo_main_self[0]->_lf_line.trigger.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[choreo_main]._lf_intended_tag_fields[12 + count] = &choreo_main_self[0]->_lf_d.line1.intended_tag;
+                envs[choreo_main]._lf_intended_tag_fields[12 + count] = &choreo_main_self[0]->_lf_line.trigger.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -2231,21 +2714,47 @@ void _lf_initialize_trigger_objects() {
             }
         }
     }
+    // Add port Choreo.m.left_power to array of is_present fields.
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            {
+                envs[choreo_main].is_present_fields[14 + count] = &choreo_main_self[0]->_lf_m.left_power.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                envs[choreo_main]._lf_intended_tag_fields[14 + count] = &choreo_main_self[0]->_lf_m.left_power.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
+    }
+    // Add port Choreo.m.right_power to array of is_present fields.
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            {
+                envs[choreo_main].is_present_fields[15 + count] = &choreo_main_self[0]->_lf_m.right_power.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                envs[choreo_main]._lf_intended_tag_fields[15 + count] = &choreo_main_self[0]->_lf_m.right_power.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
+    }
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             // Add port Choreo.e.right to array of is_present fields.
-            envs[choreo_main].is_present_fields[14 + count] = &choreo_e_self[0]->_lf_right.is_present;
+            envs[choreo_main].is_present_fields[16 + count] = &choreo_e_self[0]->_lf_right.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add port Choreo.e.right to array of intended_tag fields.
-            envs[choreo_main]._lf_intended_tag_fields[14 + count] = &choreo_e_self[0]->_lf_right.intended_tag;
+            envs[choreo_main]._lf_intended_tag_fields[16 + count] = &choreo_e_self[0]->_lf_right.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
             // Add port Choreo.e.left to array of is_present fields.
-            envs[choreo_main].is_present_fields[14 + count] = &choreo_e_self[0]->_lf_left.is_present;
+            envs[choreo_main].is_present_fields[16 + count] = &choreo_e_self[0]->_lf_left.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add port Choreo.e.left to array of intended_tag fields.
-            envs[choreo_main]._lf_intended_tag_fields[14 + count] = &choreo_e_self[0]->_lf_left.intended_tag;
+            envs[choreo_main]._lf_intended_tag_fields[16 + count] = &choreo_e_self[0]->_lf_left.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
         }
@@ -2259,10 +2768,10 @@ void _lf_initialize_trigger_objects() {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             // Add port Choreo.angleToDistanceL.distance to array of is_present fields.
-            envs[choreo_main].is_present_fields[16 + count] = &choreo_angletodistancel_self[0]->_lf_distance.is_present;
+            envs[choreo_main].is_present_fields[18 + count] = &choreo_angletodistancel_self[0]->_lf_distance.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add port Choreo.angleToDistanceL.distance to array of intended_tag fields.
-            envs[choreo_main]._lf_intended_tag_fields[16 + count] = &choreo_angletodistancel_self[0]->_lf_distance.intended_tag;
+            envs[choreo_main]._lf_intended_tag_fields[18 + count] = &choreo_angletodistancel_self[0]->_lf_distance.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
         }
@@ -2271,10 +2780,22 @@ void _lf_initialize_trigger_objects() {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             // Add port Choreo.angleToDistanceR.distance to array of is_present fields.
-            envs[choreo_main].is_present_fields[17 + count] = &choreo_angletodistancer_self[0]->_lf_distance.is_present;
+            envs[choreo_main].is_present_fields[19 + count] = &choreo_angletodistancer_self[0]->_lf_distance.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add port Choreo.angleToDistanceR.distance to array of intended_tag fields.
-            envs[choreo_main]._lf_intended_tag_fields[17 + count] = &choreo_angletodistancer_self[0]->_lf_distance.intended_tag;
+            envs[choreo_main]._lf_intended_tag_fields[19 + count] = &choreo_angletodistancer_self[0]->_lf_distance.intended_tag;
+            #endif // FEDERATED_DECENTRALIZED
+            count++;
+        }
+    }
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            // Add port Choreo.line.reflect to array of is_present fields.
+            envs[choreo_main].is_present_fields[20 + count] = &choreo_line_self[0]->_lf_reflect.is_present;
+            #ifdef FEDERATED_DECENTRALIZED
+            // Add port Choreo.line.reflect to array of intended_tag fields.
+            envs[choreo_main]._lf_intended_tag_fields[20 + count] = &choreo_line_self[0]->_lf_reflect.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
         }
@@ -2291,17 +2812,21 @@ void _lf_initialize_trigger_objects() {
         // deadline 9223372036854775807 shifted left 16 bits.
         choreo_main_self[0]->_lf__reaction_1.index = 0xffffffffffff0001LL;
         choreo_main_self[0]->_lf__reaction_2.chain_id = 1;
+        // index is the OR of level 2 and 
+        // deadline 9223372036854775807 shifted left 16 bits.
+        choreo_main_self[0]->_lf__reaction_2.index = 0xffffffffffff0002LL;
+        choreo_main_self[0]->_lf__reaction_3.chain_id = 1;
         // index is the OR of level 4 and 
         // deadline 9223372036854775807 shifted left 16 bits.
-        choreo_main_self[0]->_lf__reaction_2.index = 0xffffffffffff0004LL;
-        choreo_main_self[0]->_lf__reaction_3.chain_id = 1;
+        choreo_main_self[0]->_lf__reaction_3.index = 0xffffffffffff0004LL;
+        choreo_main_self[0]->_lf__reaction_4.chain_id = 1;
         // index is the OR of level 5 and 
         // deadline 9223372036854775807 shifted left 16 bits.
-        choreo_main_self[0]->_lf__reaction_3.index = 0xffffffffffff0005LL;
-        choreo_main_self[0]->_lf__reaction_4.chain_id = 1;
+        choreo_main_self[0]->_lf__reaction_4.index = 0xffffffffffff0005LL;
+        choreo_main_self[0]->_lf__reaction_5.chain_id = 1;
         // index is the OR of level 6 and 
         // deadline 9223372036854775807 shifted left 16 bits.
-        choreo_main_self[0]->_lf__reaction_4.index = 0xffffffffffff0006LL;
+        choreo_main_self[0]->_lf__reaction_5.index = 0xffffffffffff0006LL;
     
         // Set reaction priorities for ReactorInstance Choreo.m
         {
@@ -2327,9 +2852,9 @@ void _lf_initialize_trigger_objects() {
             // deadline 9223372036854775807 shifted left 16 bits.
             choreo_e_self[0]->_lf__reaction_0.index = 0xffffffffffff0000LL;
             choreo_e_self[0]->_lf__reaction_1.chain_id = 1;
-            // index is the OR of level 2 and 
+            // index is the OR of level 3 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            choreo_e_self[0]->_lf__reaction_1.index = 0xffffffffffff0002LL;
+            choreo_e_self[0]->_lf__reaction_1.index = 0xffffffffffff0003LL;
         }
     
     
@@ -2356,36 +2881,36 @@ void _lf_initialize_trigger_objects() {
                 // deadline 9223372036854775807 shifted left 16 bits.
                 choreo_gyro_g_self[0]->_lf__reaction_0.index = 0xffffffffffff0000LL;
                 choreo_gyro_g_self[0]->_lf__reaction_1.chain_id = 1;
-                // index is the OR of level 2 and 
+                // index is the OR of level 3 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                choreo_gyro_g_self[0]->_lf__reaction_1.index = 0xffffffffffff0002LL;
+                choreo_gyro_g_self[0]->_lf__reaction_1.index = 0xffffffffffff0003LL;
             }
         
         
             // Set reaction priorities for ReactorInstance Choreo.gyro.integrator1
             {
                 choreo_gyro_integrator1_self[0]->_lf__reaction_0.chain_id = 1;
-                // index is the OR of level 3 and 
+                // index is the OR of level 4 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                choreo_gyro_integrator1_self[0]->_lf__reaction_0.index = 0xffffffffffff0003LL;
+                choreo_gyro_integrator1_self[0]->_lf__reaction_0.index = 0xffffffffffff0004LL;
             }
         
         
             // Set reaction priorities for ReactorInstance Choreo.gyro.integrator2
             {
                 choreo_gyro_integrator2_self[0]->_lf__reaction_0.chain_id = 1;
-                // index is the OR of level 3 and 
+                // index is the OR of level 4 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                choreo_gyro_integrator2_self[0]->_lf__reaction_0.index = 0xffffffffffff0003LL;
+                choreo_gyro_integrator2_self[0]->_lf__reaction_0.index = 0xffffffffffff0004LL;
             }
         
         
             // Set reaction priorities for ReactorInstance Choreo.gyro.integrator3
             {
                 choreo_gyro_integrator3_self[0]->_lf__reaction_0.chain_id = 1;
-                // index is the OR of level 3 and 
+                // index is the OR of level 4 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                choreo_gyro_integrator3_self[0]->_lf__reaction_0.index = 0xffffffffffff0003LL;
+                choreo_gyro_integrator3_self[0]->_lf__reaction_0.index = 0xffffffffffff0004LL;
             }
         
         }
@@ -2394,18 +2919,31 @@ void _lf_initialize_trigger_objects() {
         // Set reaction priorities for ReactorInstance Choreo.angleToDistanceL
         {
             choreo_angletodistancel_self[0]->_lf__reaction_0.chain_id = 1;
-            // index is the OR of level 3 and 
+            // index is the OR of level 4 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            choreo_angletodistancel_self[0]->_lf__reaction_0.index = 0xffffffffffff0003LL;
+            choreo_angletodistancel_self[0]->_lf__reaction_0.index = 0xffffffffffff0004LL;
         }
     
     
         // Set reaction priorities for ReactorInstance Choreo.angleToDistanceR
         {
             choreo_angletodistancer_self[0]->_lf__reaction_0.chain_id = 1;
+            // index is the OR of level 4 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            choreo_angletodistancer_self[0]->_lf__reaction_0.index = 0xffffffffffff0004LL;
+        }
+    
+    
+        // Set reaction priorities for ReactorInstance Choreo.line
+        {
+            choreo_line_self[0]->_lf__reaction_0.chain_id = 1;
+            // index is the OR of level 2 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            choreo_line_self[0]->_lf__reaction_0.index = 0xffffffffffff0002LL;
+            choreo_line_self[0]->_lf__reaction_1.chain_id = 1;
             // index is the OR of level 3 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            choreo_angletodistancer_self[0]->_lf__reaction_0.index = 0xffffffffffff0003LL;
+            choreo_line_self[0]->_lf__reaction_1.index = 0xffffffffffff0003LL;
         }
     
     }

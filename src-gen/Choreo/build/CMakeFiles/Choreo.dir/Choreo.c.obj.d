@@ -110,4 +110,6 @@ CMakeFiles/Choreo.dir/Choreo.c.obj: \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_trapezoidalintegrator.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_gyroangle.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_angletodistance.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_line.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/robot-lib/src/ir_sensors.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_choreo_main.h

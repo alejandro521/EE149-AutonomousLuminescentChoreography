@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Choreo.dir/_gyro.c.obj.d"
   "CMakeFiles/Choreo.dir/_gyroangle.c.obj"
   "CMakeFiles/Choreo.dir/_gyroangle.c.obj.d"
+  "CMakeFiles/Choreo.dir/_line.c.obj"
+  "CMakeFiles/Choreo.dir/_line.c.obj.d"
   "CMakeFiles/Choreo.dir/_motors.c.obj"
   "CMakeFiles/Choreo.dir/_motors.c.obj.d"
   "CMakeFiles/Choreo.dir/_trapezoidalintegrator.c.obj"

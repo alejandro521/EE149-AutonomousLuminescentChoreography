@@ -10,7 +10,7 @@ void _angletodistancereaction_function_0(void* instance_args) {
     int degrees_width = self->_lf_degrees_width; SUPPRESS_UNUSED_WARNING(degrees_width);
     _angletodistance_distance_t* distance = &self->_lf_distance;
     #line 18 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf"
-    lf_set(distance, degrees->value * (((M_PI * 3.175) / 360) / 100));
+    lf_set(distance, degrees->value * (((M_PI * 3.175) / 360)));
 }
 #include "include/api/set_undef.h"
 _angletodistance_self_t* new__angletodistance() {

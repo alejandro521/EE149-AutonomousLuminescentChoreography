@@ -69,6 +69,7 @@ CMakeFiles/Choreo.dir/_choreo_main.c.obj: \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/robot-lib/src/ir_sensors.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/robot-lib/src/imu.h \
  /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
@@ -99,6 +100,7 @@ CMakeFiles/Choreo.dir/_choreo_main.c.obj: \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_trapezoidalintegrator.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_gyro.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_angletodistance.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_line.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/_motors.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/include/api/set.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/include/api/set_undef.h

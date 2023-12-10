@@ -459,6 +459,30 @@ _gyroangle.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Choreo.dir/build.make CMakeFiles/Choreo.dir/_gyroangle.c.s
 .PHONY : _gyroangle.c.s
 
+_line.obj: _line.c.obj
+.PHONY : _line.obj
+
+# target to build an object file
+_line.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Choreo.dir/build.make CMakeFiles/Choreo.dir/_line.c.obj
+.PHONY : _line.c.obj
+
+_line.i: _line.c.i
+.PHONY : _line.i
+
+# target to preprocess a source file
+_line.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Choreo.dir/build.make CMakeFiles/Choreo.dir/_line.c.i
+.PHONY : _line.c.i
+
+_line.s: _line.c.s
+.PHONY : _line.s
+
+# target to generate assembly for a file
+_line.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Choreo.dir/build.make CMakeFiles/Choreo.dir/_line.c.s
+.PHONY : _line.c.s
+
 _motors.obj: _motors.c.obj
 .PHONY : _motors.obj
 
@@ -1598,6 +1622,9 @@ help:
 	@echo "... _gyroangle.obj"
 	@echo "... _gyroangle.i"
 	@echo "... _gyroangle.s"
+	@echo "... _line.obj"
+	@echo "... _line.i"
+	@echo "... _line.s"
 	@echo "... _motors.obj"
 	@echo "... _motors.i"
 	@echo "... _motors.s"

@@ -58,6 +58,7 @@ add_executable(
     _gyro.c
     _trapezoidalintegrator.c
     _angletodistance.c
+    _line.c
     Choreo.c
 )
 

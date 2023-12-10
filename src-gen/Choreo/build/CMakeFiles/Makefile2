@@ -1557,12 +1557,12 @@ CMakeFiles/Choreo.dir/clean:
 CMakeFiles/ELF2UF2Build.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ELF2UF2Build.dir/build.make CMakeFiles/ELF2UF2Build.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ELF2UF2Build.dir/build.make CMakeFiles/ELF2UF2Build.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles --progress-num=30,31,32 "Built target ELF2UF2Build"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles --progress-num=30,31,32,33 "Built target ELF2UF2Build"
 .PHONY : CMakeFiles/ELF2UF2Build.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ELF2UF2Build.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ELF2UF2Build.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 0
 .PHONY : CMakeFiles/ELF2UF2Build.dir/rule
@@ -1661,12 +1661,12 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_as
 core/CMakeFiles/core.dir/all: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all
 	$(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/depend
 	$(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles --progress-num=40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71 "Built target core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles --progress-num=40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72 "Built target core"
 .PHONY : core/CMakeFiles/core.dir/all
 
 # Build rule for subdir invocation for target.
 core/CMakeFiles/core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 34
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/CMakeFiles/core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 0
 .PHONY : core/CMakeFiles/core.dir/rule
@@ -1689,12 +1689,12 @@ robot/CMakeFiles/robot.dir/all: robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.
 robot/CMakeFiles/robot.dir/all: robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/all
 	$(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/depend
 	$(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles --progress-num=72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99 "Built target robot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles --progress-num=73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99 "Built target robot"
 .PHONY : robot/CMakeFiles/robot.dir/all
 
 # Build rule for subdir invocation for target.
 robot/CMakeFiles/robot.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 33
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 0
 .PHONY : robot/CMakeFiles/robot.dir/rule
@@ -1715,12 +1715,12 @@ robot/CMakeFiles/robot.dir/clean:
 robot/CMakeFiles/PioasmBuild.dir/all:
 	$(MAKE) $(MAKESILENT) -f robot/CMakeFiles/PioasmBuild.dir/build.make robot/CMakeFiles/PioasmBuild.dir/depend
 	$(MAKE) $(MAKESILENT) -f robot/CMakeFiles/PioasmBuild.dir/build.make robot/CMakeFiles/PioasmBuild.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles --progress-num=33,34,35,36 "Built target PioasmBuild"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles --progress-num=34,35,36 "Built target PioasmBuild"
 .PHONY : robot/CMakeFiles/PioasmBuild.dir/all
 
 # Build rule for subdir invocation for target.
 robot/CMakeFiles/PioasmBuild.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/PioasmBuild.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 0
 .PHONY : robot/CMakeFiles/PioasmBuild.dir/rule
@@ -1746,7 +1746,7 @@ robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/all: robot/CMakeFiles/Pioasm
 
 # Build rule for subdir invocation for target.
 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 0
 .PHONY : robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
@@ -1772,7 +1772,7 @@ robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/all: robot/CMakeFiles/Pioasm
 
 # Build rule for subdir invocation for target.
 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/CMakeFiles 0
 .PHONY : robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule
