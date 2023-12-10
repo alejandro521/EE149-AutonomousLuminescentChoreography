@@ -50,7 +50,10 @@ target C {
     state calibration_speed:float = 0.0
     state x: int = 0
     state y: int = 0
-    state stable_counter:int = 0
+    state leftLine: int = 0
+    state centerLine: int = 0
+    state rightLine: int = 0
+    state threshold: int = 200
   
     m = new Motors()
     e = new Encoders()
@@ -186,7 +189,6 @@ target C {
     =}
 
   reaction(line.reflect) -> d.line0, d.line1, d.line2, d.line3 {=
-    int threshold = 200; // Replace with your threshold value
     lf_set(d.line0, "");
     lf_set(d.line1, "");
     lf_set(d.line2, "");
@@ -199,15 +201,6 @@ target C {
     lf_set(d.line0, buf0);
     lf_set(d.line1, buf1);
     lf_set(d.line2, buf2);
-    // if(line.reflect->value[0] > threshold || line.reflect->value[1] > threshold) {
-    //     lf_set(d.line1, buf0);
-    // }
-    // if(line.reflect->value[3] > threshold || line.reflect->value[4] > threshold) {
-    //     lf_set(d.line2, "Right");
-    // }
-    // if( line.reflect->value[2] > threshold ) {
-    //     lf_set(d.line2, "Center");
-    // }
   =}
   
     e.left -> angleToDistanceL.degrees
@@ -226,23 +219,6 @@ target C {
     //       lf_set(m.left_power, self->calibration_speed);
     //     }
     //   =}
-
-      // reaction(line.reflect) -> d.line0, d.line1, d.line2 {=
-      //   self->blockstate=0;
-
-      //   int threshold = 400; // Replace with your threshold value
-      //   lf_set(d.line2, "");
-
-      //   if(line.reflect->value[0] > threshold || line.reflect->value[1] > threshold) {
-      //       lf_set(d.line2, "Left");
-      //   }
-      //   if(line.reflect->value[3] > threshold || line.reflect->value[4] > threshold) {
-      //       lf_set(d.line2, "Right");
-      //   }
-      //   if( line.reflect->value[2] > threshold ) {
-      //       lf_set(d.line2, "Center");
-      //   }
-      // =}
       // }
 
     // General mode taking in speed and leds_on
@@ -263,20 +239,11 @@ target C {
           lf_set(m.right_power, self->speed);
         }
       =}
-      // reaction(line.reflect) -> d.line0, d.line1, d.line2 {=
-      //   int threshold = 400; // Replace with your threshold value
-      //   lf_set(d.line2, "");
-
-      //   if(line.reflect->value[0] > threshold || line.reflect->value[1] > threshold) {
-      //       lf_set(d.line2, "Left");
-      //   }
-      //   if(line.reflect->value[3] > threshold || line.reflect->value[4] > threshold) {
-      //       lf_set(d.line2, "Right");
-      //   }
-      //   if( line.reflect->value[2] > threshold ) {
-      //       lf_set(d.line2, "Center");
-      //   }
-      // =}
+      reaction(line.reflect) {=
+        self->leftLine = line.reflect->value[0];
+        self->centerLine = (line.reflect->value[1] + line.reflect->value[2] + line.reflect->value[3]) / 3;
+        self->leftLine = line.reflect->value[4];
+      =}
       }
 
     mode NEW_ROTATING {
@@ -295,32 +262,25 @@ target C {
         }
       =}
 
-    // reaction(line.reflect) -> d.line0, d.line1, d.line2 {=
-
-    //   int threshold = 400; // Replace with your threshold value
-    //   lf_set(d.line2, "");
-
-    //   if(line.reflect->value[0] > threshold || line.reflect->value[1] > threshold) {
-    //       lf_set(d.line2, "Left");
-    //   }
-    //   if(line.reflect->value[3] > threshold || line.reflect->value[4] > threshold) {
-    //       lf_set(d.line2, "Right");
-    //   }
-    //   if( line.reflect->value[2] > threshold ) {
-    //       lf_set(d.line2, "Center");
-    //   }
-    // =}
+      reaction(line.reflect) {=
+        self->leftLine = line.reflect->value[0];
+        self->centerLine = (line.reflect->value[1] + line.reflect->value[2] + line.reflect->value[3]) / 3;
+        self->leftLine = line.reflect->value[4];
+      =}
     }
-  }
 
-
-    // mode STOP {
-    //   timer t1(0, 2 sec);
-    //   reaction(t1) -> m.left_power, m.right_power, d.line0, NEW_DRIVING, NEW_ROTATING {=
-    //     lf_set(m.left_power, 0.0f);
-    //     lf_set(m.right_power, 0.0f);
-    //   =}
-    // }
+    mode STOP {
+      timer t1(0, 2 sec);
+      reaction(t1) -> m.left_power, m.right_power, d.line0, NEW_DRIVING, NEW_ROTATING {=
+        lf_set(m.left_power, 0.0f);
+        lf_set(m.right_power, 0.0f);
+        if (self->next_mode == "NEW_DRIVING") {
+          lf_set_mode(NEW_DRIVING);
+        } else {
+          lf_set_mode(NEW_ROTATING);
+        }
+      =}
+    }
 
     // mode THIS_IS_WHAT_YOU_CAME_FOR {
     //   reaction(t) gyro.z, angleToDistanceR.distance -> m.left_power, m.right_power, d.line0, NEW_DRIVING {=
@@ -335,4 +295,4 @@ target C {
     //     }
     //   =}
     // }
-  
+  }

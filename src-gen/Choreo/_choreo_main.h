@@ -7,11 +7,22 @@
 #include "_angletodistance.h"
 #include "_line.h"
 #include "_motors.h"
-#ifndef TOP_LEVEL_PREAMBLE_1650183996_H
-#define TOP_LEVEL_PREAMBLE_1650183996_H
+#ifndef TOP_LEVEL_PREAMBLE_1591683105_H
+#define TOP_LEVEL_PREAMBLE_1591683105_H
+#include <math.h> 
+#include <hardware/pio.h>
+#include <quadrature_encoder.pio.h>
+
+// pin defines
+#define RIGHT_ENCODER_AB 8
+#define LEFT_ENCODER_AB 12
+#define RIGHT_SM 0
+#define LEFT_SM 1
+#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
+#include <motors.h>
 #include <pico/stdlib.h>
 #include <imu.h>
-#include <ir_sensors.h>
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -28,19 +39,8 @@
 #define RED_LED_PIN 7
 #define YELLOW_LED_PIN 27
 #define GREEN_LED_PIN 24
-#include <math.h> 
-#include <hardware/pio.h>
-#include <quadrature_encoder.pio.h>
-
-// pin defines
-#define RIGHT_ENCODER_AB 8
-#define LEFT_ENCODER_AB 12
-#define RIGHT_SM 0
-#define LEFT_SM 1
-#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
-#include <motors.h>
 #include <math.h>
+#include <ir_sensors.h>
 #endif
 typedef struct {
     struct self_base_t base;
@@ -78,7 +78,13 @@ typedef struct {
     #line 52 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     int y;
     #line 53 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    int stable_counter;
+    int leftLine;
+    #line 54 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    int centerLine;
+    #line 55 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    int rightLine;
+    #line 56 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    int threshold;
     struct {
         #line 25 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf"
         _display_line0_t line0;
@@ -100,7 +106,7 @@ typedef struct {
         #line 40 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
         trigger_t reflect_trigger;
         #line 40 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
-        reaction_t* reflect_reactions[1];
+        reaction_t* reflect_reactions[3];
     } _lf_line;
     int _lf_line_width;
     struct {
@@ -135,29 +141,39 @@ typedef struct {
         reaction_t* distance_reactions[1];
     } _lf_angleToDistanceR;
     int _lf_angleToDistanceR_width;
-    #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 128 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_0;
-    #line 152 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 155 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_1;
-    #line 156 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 159 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_2;
-    #line 188 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 191 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_3;
-    #line 250 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 226 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_4;
-    #line 283 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 242 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_5;
-    #line 63 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 250 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    reaction_t _lf__reaction_6;
+    #line 265 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    reaction_t _lf__reaction_7;
+    #line 274 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    reaction_t _lf__reaction_8;
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     trigger_t _lf__t;
-    #line 63 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t* _lf__t_reactions[1];
-    #line 64 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     trigger_t _lf__end_calibration;
-    #line 64 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t* _lf__end_calibration_reactions[1];
+    #line 273 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    trigger_t _lf__t1;
+    #line 273 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    reaction_t* _lf__t1_reactions[1];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[1];
-    reactor_mode_t _lf__modes[2];
+    reactor_mode_t _lf__modes[3];
 } _choreo_main_main_self_t;
 _choreo_main_main_self_t* new__choreo_main();
 #endif // _CHOREO_MAIN_H
