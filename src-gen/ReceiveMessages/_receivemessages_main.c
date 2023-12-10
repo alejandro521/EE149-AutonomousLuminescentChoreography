@@ -19,9 +19,6 @@ void _receivemessages_mainreaction_function_0(void* instance_args) {
     while (uart_is_readable(uart0)) {
         uart_getc(uart0);
     }
-    
-    // Send AT+NAMEPololu command
-    transmitMessage(uart0, "AT", self->transmitted_message);
 }
 #include "include/api/set_undef.h"
 #include "include/api/set.h"
@@ -36,7 +33,7 @@ void _receivemessages_mainreaction_function_1(void* instance_args) {
     disp.line0 = &(self->_lf_disp.line0);
     disp.line1 = &(self->_lf_disp.line1);
     disp.line2 = &(self->_lf_disp.line2);
-    #line 80 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 78 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     // Read from UART if readable
     if (uart_is_readable(uart0)) {
       receiveMessage(uart0, self->received_message);
@@ -47,7 +44,7 @@ void _receivemessages_mainreaction_function_1(void* instance_args) {
     if (strncmp(SET_NAME_COMMAND, self->received_message, strlen(SET_NAME_COMMAND)) == 0) {
       strcpy(self->name, self->received_message + strlen(SET_NAME_COMMAND));
     }
-    lf_set(disp.line0, self->name)
+    lf_set(disp.line0, self->name);
     
     // Display last transmitted message
     static char buf_sent[17];
@@ -85,19 +82,19 @@ _receivemessages_main_main_self_t* new__receivemessages_main() {
     self->_lf__reaction_0.name = "?";
     #line 62 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__reaction_0.mode = NULL;
-    #line 79 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 77 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__reaction_1.number = 1;
-    #line 79 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 77 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__reaction_1.function = _receivemessages_mainreaction_function_1;
-    #line 79 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 77 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__reaction_1.self = self;
-    #line 79 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 77 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__reaction_1.deadline_violation_handler = NULL;
-    #line 79 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 77 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__reaction_1.STP_handler = NULL;
-    #line 79 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 77 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__reaction_1.name = "?";
-    #line 79 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 77 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__reaction_1.mode = NULL;
     #line 55 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     self->_lf__t.last = NULL;

@@ -72,8 +72,6 @@ main reactor {
         uart_getc(uart0);
     }
 
-    // Send AT+NAMEPololu command
-    transmitMessage(uart0, "AT", self->transmitted_message);
   =}
 
   reaction(t) -> disp.line0, disp.line1, disp.line2 {=
@@ -87,7 +85,7 @@ main reactor {
     if (strncmp(SET_NAME_COMMAND, self->received_message, strlen(SET_NAME_COMMAND)) == 0) {
       strcpy(self->name, self->received_message + strlen(SET_NAME_COMMAND));
     }
-    lf_set(disp.line0, self->name)
+    lf_set(disp.line0, self->name);
 
     // Display last transmitted message
     static char buf_sent[17];
