@@ -8,29 +8,24 @@ void _choreo_main_method_transmitMessage(void* instance_args, char* message, cha
 #define setCommand() _choreo_main_method_setCommand(self)
 #define receiveMessage(...) _choreo_main_method_receiveMessage(self, ##__VA_ARGS__)
 #define transmitMessage(...) _choreo_main_method_transmitMessage(self, ##__VA_ARGS__)
-#line 73 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+#line 69 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
 // Implementation of method setCommand()
 void _choreo_main_method_setCommand(void* instance_args) {
     _choreo_main_main_self_t* self = (_choreo_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 74 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     char *token = strtok(self->received_message, ",");
     self->next_mode = token;
     token = strtok(NULL, ",");
     self->speed = atof(token);
     token = strtok(NULL, ",");
-    self->degrees = atoi(token);
-    token = strtok(NULL, ",");
     self->leds_on = atoi(token);
     token = strtok(NULL, ",");
-    self->target_x = atoi(token);
-    token = strtok(NULL, ",");
-    self->target_y = atoi(token);
+    self->target_distance = atof(token);
     token = strtok(NULL, ",");
     self->leds_blink = atoi(token);
     token = strtok(NULL, ",");
+    self->degrees = atof(token);
     self->calibration_speed = 0.5f;
-    token = strtok(NULL, ",");
-    self->commandReceived = true;
     
     // if (self->next_mode == "CALIBRATION") {
     //   lf_set_mode(CALIBRATION);
@@ -44,11 +39,11 @@ void _choreo_main_method_setCommand(void* instance_args) {
     //   lf_set_mode(THIS_IS_WHAT_YOU_CAME_FOR);
     // }
 }
-#line 107 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+#line 98 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
 // Implementation of method receiveMessage()
 void _choreo_main_method_receiveMessage(void* instance_args, char* received_message) {
     _choreo_main_main_self_t* self = (_choreo_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 108 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 99 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     char received_char;
     while (uart_is_readable(uart0)) { 
       received_char = uart_getc(uart0);
@@ -62,11 +57,11 @@ void _choreo_main_method_receiveMessage(void* instance_args, char* received_mess
       }
     }
 }
-#line 124 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+#line 115 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
 // Implementation of method transmitMessage()
 void _choreo_main_method_transmitMessage(void* instance_args, char* message, char* transmitted_message) {
     _choreo_main_main_self_t* self = (_choreo_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 116 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     int index = 0;
     while (*message && index < MAX_MSG_LENGTH) {
       uart_putc(uart0, *message);
@@ -97,7 +92,7 @@ void _choreo_mainreaction_function_0(void* instance_args) {
     d.line0 = &(self->_lf_d.line0);
     d.line1 = &(self->_lf_d.line1);
     d.line2 = &(self->_lf_d.line2);
-    #line 138 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 129 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     gpio_init(RED_LED_PIN);
     gpio_init(YELLOW_LED_PIN);
     gpio_init(GREEN_LED_PIN);
@@ -137,7 +132,7 @@ void _choreo_mainreaction_function_1(void* instance_args) {
     
     } line;
     line.calibrate = &(self->_lf_line.calibrate);
-    #line 164 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 156 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     lf_set(line.calibrate, false);
 }
 #undef setCommand
@@ -170,7 +165,7 @@ void _choreo_mainreaction_function_2(void* instance_args) {
     gyro.trigger = &(self->_lf_gyro.trigger);
     line.trigger = &(self->_lf_line.trigger);
     d.line2 = &(self->_lf_d.line2);
-    #line 168 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 160 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     lf_set(e.trigger, true);
     lf_set(gyro.trigger, true);
     lf_set(line.trigger, true);
@@ -227,24 +222,19 @@ void _choreo_mainreaction_function_3(void* instance_args) {
     d.line1 = &(self->_lf_d.line1);
     d.line2 = &(self->_lf_d.line2);
     d.line3 = &(self->_lf_d.line3);
-    #line 200 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    lf_set(d.line0, "");
-    lf_set(d.line1, "");
-    lf_set(d.line2, "");
+    #line 192 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->leftLine = line.reflect->value[0];
+    self->centerLine = (line.reflect->value[1] + line.reflect->value[2] + line.reflect->value[3]) / 3;
+    self->leftLine = line.reflect->value[4];
     static char buf0[17];
-    snprintf(buf0, 17, "1:%d, 2:%d", line.reflect->value[0], line.reflect->value[1]);
+    snprintf(buf0, 17, "1:%d", line.reflect->value[0]);
     static char buf1[17];
-    snprintf(buf1, 17, "3:%d", line.reflect->value[2]);
+    snprintf(buf1, 17, "2: %d, 3:%d, 4:%d", line.reflect->value[1], line.reflect->value[2], line.reflect->value[3]);
     static char buf2[17];
-    snprintf(buf2, 17, "4:%d, 5:%d", line.reflect->value[3], line.reflect->value[4]);
+    snprintf(buf2, 17, "5:%d", line.reflect->value[4]);
     lf_set(d.line0, buf0);
     lf_set(d.line1, buf1);
     lf_set(d.line2, buf2);
-    self->one = line.reflect->value[0];
-    self->two = line.reflect->value[1];
-    self->three = line.reflect->value[2];
-    self->four = line.reflect->value[3];
-    self->five = line.reflect->value[4];
 }
 #undef setCommand
 #undef receiveMessage
@@ -255,42 +245,6 @@ void _choreo_mainreaction_function_3(void* instance_args) {
 #define receiveMessage(...) _choreo_main_method_receiveMessage(self, ##__VA_ARGS__)
 #define transmitMessage(...) _choreo_main_method_transmitMessage(self, ##__VA_ARGS__)
 void _choreo_mainreaction_function_4(void* instance_args) {
-    _choreo_main_main_self_t* self = (_choreo_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    struct m {
-        _motors_left_power_t* left_power;
-    _motors_right_power_t* right_power;
-    
-    } m;
-    m.left_power = &(self->_lf_m.left_power);
-    m.right_power = &(self->_lf_m.right_power);
-    #line 225 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    lf_set(m.left_power, 0.1f); 
-    lf_set(m.right_power, 0.1f);
-}
-#undef setCommand
-#undef receiveMessage
-#undef transmitMessage
-#include "include/api/set_undef.h"
-#include "include/api/set.h"
-#define setCommand() _choreo_main_method_setCommand(self)
-#define receiveMessage(...) _choreo_main_method_receiveMessage(self, ##__VA_ARGS__)
-#define transmitMessage(...) _choreo_main_method_transmitMessage(self, ##__VA_ARGS__)
-void _choreo_mainreaction_function_5(void* instance_args) {
-    _choreo_main_main_self_t* self = (_choreo_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    reactor_mode_t* NEW_DRIVING = &self->_lf__modes[1];
-    lf_mode_change_type_t _lf_NEW_DRIVING_change_type = reset_transition;
-    #line 229 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    lf_set_mode(NEW_DRIVING);
-}
-#undef setCommand
-#undef receiveMessage
-#undef transmitMessage
-#include "include/api/set_undef.h"
-#include "include/api/set.h"
-#define setCommand() _choreo_main_method_setCommand(self)
-#define receiveMessage(...) _choreo_main_method_receiveMessage(self, ##__VA_ARGS__)
-#define transmitMessage(...) _choreo_main_method_transmitMessage(self, ##__VA_ARGS__)
-void _choreo_mainreaction_function_6(void* instance_args) {
     _choreo_main_main_self_t* self = (_choreo_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     struct angleToDistanceR {
         _angletodistance_distance_t* distance;
@@ -307,7 +261,7 @@ void _choreo_mainreaction_function_6(void* instance_args) {
     } m;
     struct d {
         _display_line0_t* line0;
-    _display_line3_t* line3;
+    _display_line1_t* line1;
     
     } d;
     angleToDistanceR.distance = self->_lf_angleToDistanceR.distance;
@@ -315,33 +269,23 @@ void _choreo_mainreaction_function_6(void* instance_args) {
     m.left_power = &(self->_lf_m.left_power);
     m.right_power = &(self->_lf_m.right_power);
     d.line0 = &(self->_lf_d.line0);
-    d.line3 = &(self->_lf_d.line3);
-    reactor_mode_t* NEW_ROTATING = &self->_lf__modes[2];
+    d.line1 = &(self->_lf_d.line1);
+    reactor_mode_t* NEW_ROTATING = &self->_lf__modes[1];
     lf_mode_change_type_t _lf_NEW_ROTATING_change_type = reset_transition;
-    #line 235 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 227 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
       static char buf[17];
-      snprintf(buf, 17, "targetXDist:%i", self->target_x);
+      snprintf(buf, 17, "targetDist:%f", self->target_distance);
     //  lf_set(d.line1, buf);
-      //For 90 degree right turn 
-      if (self->one > 150 && self->three > 700 && self->five > 150 && self->commandReceived) {
+      if (angleToDistanceR.distance->value - self->previousDistance >= self->target_distance) {
         lf_set(m.left_power, 0.0f); 
         lf_set(m.right_power, 0.0f);
         self->previousDistance = angleToDistanceR.distance->value;
         self->previousAngle = gyro.z->value; 
         lf_set_mode(NEW_ROTATING);
       } else {
-        lf_set(d.line3, "DRIVE");
-        if (self->two > self->four && abs(self->two - self->four) > 100) {
-          lf_set(m.left_power, self->speed);
-          lf_set(m.right_power, self->speed + self->speed/10);
-        } else if (self->two < self->four && abs(self->two - self->four) > 100) {
-          lf_set(m.left_power, self->speed + self->speed/10);
-          lf_set(m.right_power, self->speed);
-        }
-        else {
-          lf_set(m.left_power, self->speed);
-          lf_set(m.right_power, self->speed);
-        }
+       // lf_set(d.line0, "DRIVE");
+        lf_set(m.left_power, self->speed);
+        lf_set(m.right_power, self->speed);
       }
 }
 #undef setCommand
@@ -352,8 +296,16 @@ void _choreo_mainreaction_function_6(void* instance_args) {
 #define setCommand() _choreo_main_method_setCommand(self)
 #define receiveMessage(...) _choreo_main_method_receiveMessage(self, ##__VA_ARGS__)
 #define transmitMessage(...) _choreo_main_method_transmitMessage(self, ##__VA_ARGS__)
-void _choreo_mainreaction_function_7(void* instance_args) {
+void _choreo_mainreaction_function_5(void* instance_args) {
     _choreo_main_main_self_t* self = (_choreo_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
+    struct gyro {
+        _gyroangle_z_t* z;
+    
+    } gyro;
+    struct angleToDistanceR {
+        _angletodistance_distance_t* distance;
+    
+    } angleToDistanceR;
     struct m {
         _motors_left_power_t* left_power;
     _motors_right_power_t* right_power;
@@ -364,33 +316,26 @@ void _choreo_mainreaction_function_7(void* instance_args) {
     _display_line3_t* line3;
     
     } d;
+    gyro.z = self->_lf_gyro.z;
+    angleToDistanceR.distance = self->_lf_angleToDistanceR.distance;
     m.left_power = &(self->_lf_m.left_power);
     m.right_power = &(self->_lf_m.right_power);
     d.line0 = &(self->_lf_d.line0);
     d.line3 = &(self->_lf_d.line3);
-    reactor_mode_t* NEW_DRIVING = &self->_lf__modes[1];
+    reactor_mode_t* NEW_DRIVING = &self->_lf__modes[0];
     lf_mode_change_type_t _lf_NEW_DRIVING_change_type = reset_transition;
-    #line 264 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 246 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
      static char buf[17];
      snprintf(buf, 17, "targetZ:%i", self->degrees);
     // lf_set(d.line3, buf);
-     if (self->degrees == 90) { //turn right
-       if (self->one > 0 && self->one < 30 && self->five > 0 && self->five < 30) {
-         lf_set(m.left_power, 0.0f);
-         lf_set_mode(NEW_DRIVING);
-       } else {
-           lf_set(d.line3, "ROTATE");
-           lf_set(m.left_power, self->speed);
-       }
-     }
-     else if (self->degrees == -90) { //turn left
-       if (self->one > 0 && self->one < 30 && self->five > 0 && self->five < 30) {
-         lf_set(m.right_power, 0.0f);
-         lf_set_mode(NEW_DRIVING);
-       } else {
-           lf_set(d.line3, "ROTATE");
-           lf_set(m.right_power, self->speed);
-       }
+     if (abs(gyro.z->value - self->previousAngle) >= self->degrees) {
+       lf_set(m.left_power, 0.0f);
+       self->previousAngle = gyro.z->value;
+       self->previousDistance = angleToDistanceR.distance->value;
+       lf_set_mode(NEW_DRIVING);
+     } else {
+       //  lf_set(d.line0, "ROTATE");
+       lf_set(m.left_power, self->speed);
      }
 }
 #undef setCommand
@@ -401,7 +346,7 @@ void _choreo_mainreaction_function_7(void* instance_args) {
 #define setCommand() _choreo_main_method_setCommand(self)
 #define receiveMessage(...) _choreo_main_method_receiveMessage(self, ##__VA_ARGS__)
 #define transmitMessage(...) _choreo_main_method_transmitMessage(self, ##__VA_ARGS__)
-void _choreo_mainreaction_function_8(void* instance_args) {
+void _choreo_mainreaction_function_6(void* instance_args) {
     _choreo_main_main_self_t* self = (_choreo_main_main_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     struct m {
         _motors_left_power_t* left_power;
@@ -415,11 +360,11 @@ void _choreo_mainreaction_function_8(void* instance_args) {
     m.left_power = &(self->_lf_m.left_power);
     m.right_power = &(self->_lf_m.right_power);
     d.line0 = &(self->_lf_d.line0);
-    reactor_mode_t* NEW_DRIVING = &self->_lf__modes[1];
+    reactor_mode_t* NEW_DRIVING = &self->_lf__modes[0];
     lf_mode_change_type_t _lf_NEW_DRIVING_change_type = reset_transition;
-    reactor_mode_t* NEW_ROTATING = &self->_lf__modes[2];
+    reactor_mode_t* NEW_ROTATING = &self->_lf__modes[1];
     lf_mode_change_type_t _lf_NEW_ROTATING_change_type = reset_transition;
-    #line 291 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 264 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     lf_set(m.left_power, 0.0f);
     lf_set(m.right_power, 0.0f);
     if (self->next_mode == "NEW_DRIVING") {
@@ -473,9 +418,13 @@ _choreo_main_main_self_t* new__choreo_main() {
     #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
     #endif // FEDERATED_DECENTRALIZED
     #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
+    self->_lf_gyro.z_reactions[0] = &self->_lf__reaction_5;
+    #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
+    self->_lf_gyro.z_trigger.reactions = self->_lf_gyro.z_reactions;
+    #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
     self->_lf_gyro.z_trigger.last = NULL;
     #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
-    self->_lf_gyro.z_trigger.number_of_reactions = 0;
+    self->_lf_gyro.z_trigger.number_of_reactions = 1;
     #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
     #ifdef FEDERATED
     #line 125 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
@@ -495,7 +444,7 @@ _choreo_main_main_self_t* new__choreo_main() {
     #line 15 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf"
     #endif // FEDERATED_DECENTRALIZED
     #line 15 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf"
-    self->_lf_angleToDistanceR.distance_reactions[0] = &self->_lf__reaction_6;
+    self->_lf_angleToDistanceR.distance_reactions[0] = &self->_lf__reaction_4;
     #line 15 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf"
     self->_lf_angleToDistanceR.distance_trigger.reactions = self->_lf_angleToDistanceR.distance_reactions;
     #line 15 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf"
@@ -508,211 +457,174 @@ _choreo_main_main_self_t* new__choreo_main() {
     self->_lf_angleToDistanceR.distance_trigger.physical_time_of_arrival = NEVER;
     #line 15 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf"
     #endif // FEDERATED
-    #line 137 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 128 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_0.number = 0;
-    #line 137 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 128 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_0.function = _choreo_mainreaction_function_0;
-    #line 137 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 128 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_0.self = self;
-    #line 137 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 128 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_0.deadline_violation_handler = NULL;
-    #line 137 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 128 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_0.STP_handler = NULL;
-    #line 137 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 128 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_0.name = "?";
-    #line 137 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 128 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_0.mode = NULL;
-    #line 163 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 155 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_1.number = 1;
-    #line 163 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 155 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_1.function = _choreo_mainreaction_function_1;
-    #line 163 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 155 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_1.self = self;
-    #line 163 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 155 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_1.deadline_violation_handler = NULL;
-    #line 163 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 155 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_1.STP_handler = NULL;
-    #line 163 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 155 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_1.name = "?";
-    #line 163 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 155 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_1.mode = NULL;
-    #line 167 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 159 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_2.number = 2;
-    #line 167 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 159 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_2.function = _choreo_mainreaction_function_2;
-    #line 167 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 159 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_2.self = self;
-    #line 167 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 159 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_2.deadline_violation_handler = NULL;
-    #line 167 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 159 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_2.STP_handler = NULL;
-    #line 167 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 159 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_2.name = "?";
-    #line 167 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 159 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_2.mode = NULL;
-    #line 199 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 191 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_3.number = 3;
-    #line 199 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 191 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_3.function = _choreo_mainreaction_function_3;
-    #line 199 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 191 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_3.self = self;
-    #line 199 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 191 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_3.deadline_violation_handler = NULL;
-    #line 199 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 191 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_3.STP_handler = NULL;
-    #line 199 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 191 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_3.name = "?";
-    #line 199 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 191 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_3.mode = NULL;
-    #line 224 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 226 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_4.number = 4;
-    #line 224 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 226 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_4.function = _choreo_mainreaction_function_4;
-    #line 224 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 226 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_4.self = self;
-    #line 224 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 226 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_4.deadline_violation_handler = NULL;
-    #line 224 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 226 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_4.STP_handler = NULL;
-    #line 224 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 226 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_4.name = "?";
-    #line 224 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 226 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_4.mode = &self->_lf__modes[0];
-    #line 228 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 245 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_5.number = 5;
-    #line 228 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 245 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_5.function = _choreo_mainreaction_function_5;
-    #line 228 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 245 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_5.self = self;
-    #line 228 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 245 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_5.deadline_violation_handler = NULL;
-    #line 228 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 245 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_5.STP_handler = NULL;
-    #line 228 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 245 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_5.name = "?";
-    #line 228 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_5.mode = &self->_lf__modes[0];
-    #line 234 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 245 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->_lf__reaction_5.mode = &self->_lf__modes[1];
+    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_6.number = 6;
-    #line 234 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_6.function = _choreo_mainreaction_function_6;
-    #line 234 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_6.self = self;
-    #line 234 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_6.deadline_violation_handler = NULL;
-    #line 234 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_6.STP_handler = NULL;
-    #line 234 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__reaction_6.name = "?";
-    #line 234 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_6.mode = &self->_lf__modes[1];
     #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_7.number = 7;
-    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_7.function = _choreo_mainreaction_function_7;
-    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_7.self = self;
-    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_7.deadline_violation_handler = NULL;
-    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_7.STP_handler = NULL;
-    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_7.name = "?";
-    #line 263 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_7.mode = &self->_lf__modes[2];
-    #line 290 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_8.number = 8;
-    #line 290 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_8.function = _choreo_mainreaction_function_8;
-    #line 290 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_8.self = self;
-    #line 290 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_8.deadline_violation_handler = NULL;
-    #line 290 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_8.STP_handler = NULL;
-    #line 290 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_8.name = "?";
-    #line 290 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__reaction_8.mode = &self->_lf__modes[3];
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->_lf__reaction_6.mode = &self->_lf__modes[2];
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t.last = NULL;
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #ifdef FEDERATED_DECENTRALIZED
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t.intended_tag = (tag_t) { .time = NEVER, .microstep = 0u};
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #endif // FEDERATED_DECENTRALIZED
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t_reactions[0] = &self->_lf__reaction_2;
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__t_reactions[1] = &self->_lf__reaction_4;
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__t_reactions[2] = &self->_lf__reaction_7;
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t.reactions = &self->_lf__t_reactions[0];
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__t.number_of_reactions = 3;
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->_lf__t.number_of_reactions = 1;
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #ifdef FEDERATED
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t.physical_time_of_arrival = NEVER;
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #endif // FEDERATED
     self->_lf__t.is_timer = true;
     #ifdef FEDERATED_DECENTRALIZED
     self->_lf__t.intended_tag = (tag_t) { .time = NEVER, .microstep = 0u};
     #endif // FEDERATED_DECENTRALIZED
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__end_calibration.last = NULL;
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #ifdef FEDERATED_DECENTRALIZED
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__end_calibration.intended_tag = (tag_t) { .time = NEVER, .microstep = 0u};
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #endif // FEDERATED_DECENTRALIZED
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__end_calibration_reactions[0] = &self->_lf__reaction_1;
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__end_calibration_reactions[1] = &self->_lf__reaction_5;
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__end_calibration.reactions = &self->_lf__end_calibration_reactions[0];
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__end_calibration.number_of_reactions = 2;
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->_lf__end_calibration.number_of_reactions = 1;
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #ifdef FEDERATED
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__end_calibration.physical_time_of_arrival = NEVER;
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 67 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #endif // FEDERATED
     self->_lf__end_calibration.is_timer = true;
     #ifdef FEDERATED_DECENTRALIZED
     self->_lf__end_calibration.intended_tag = (tag_t) { .time = NEVER, .microstep = 0u};
     #endif // FEDERATED_DECENTRALIZED
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t1.last = NULL;
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #ifdef FEDERATED_DECENTRALIZED
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t1.intended_tag = (tag_t) { .time = NEVER, .microstep = 0u};
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #endif // FEDERATED_DECENTRALIZED
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__t1_reactions[0] = &self->_lf__reaction_8;
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->_lf__t1_reactions[0] = &self->_lf__reaction_6;
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t1.reactions = &self->_lf__t1_reactions[0];
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t1.number_of_reactions = 1;
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #ifdef FEDERATED
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__t1.physical_time_of_arrival = NEVER;
-    #line 289 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     #endif // FEDERATED
     self->_lf__t1.is_timer = true;
     #ifdef FEDERATED_DECENTRALIZED
@@ -728,38 +640,30 @@ _choreo_main_main_self_t* new__choreo_main() {
     self->_lf__startup.is_timer = false;
     // Initialize modes
     self_base_t* _lf_self_base = (self_base_t*)self;
-    #line 223 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 225 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[0].state = &_lf_self_base->_lf__mode_state;
-    #line 223 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__modes[0].name = "CALIBRATION";
-    #line 223 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 225 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->_lf__modes[0].name = "NEW_DRIVING";
+    #line 225 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[0].deactivation_time = 0;
-    #line 223 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 225 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[0].flags = 0;
-    #line 233 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 244 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[1].state = &_lf_self_base->_lf__mode_state;
-    #line 233 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__modes[1].name = "NEW_DRIVING";
-    #line 233 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 244 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->_lf__modes[1].name = "NEW_ROTATING";
+    #line 244 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[1].deactivation_time = 0;
-    #line 233 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 244 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[1].flags = 0;
-    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 261 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[2].state = &_lf_self_base->_lf__mode_state;
-    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__modes[2].name = "NEW_ROTATING";
-    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 261 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    self->_lf__modes[2].name = "STOP";
+    #line 261 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[2].deactivation_time = 0;
-    #line 262 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 261 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     self->_lf__modes[2].flags = 0;
-    #line 288 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__modes[3].state = &_lf_self_base->_lf__mode_state;
-    #line 288 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__modes[3].name = "STOP";
-    #line 288 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__modes[3].deactivation_time = 0;
-    #line 288 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
-    self->_lf__modes[3].flags = 0;
     // Initialize mode state
     _lf_self_base->_lf__mode_state.parent_mode = NULL;
     _lf_self_base->_lf__mode_state.initial_mode = &self->_lf__modes[0];
