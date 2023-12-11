@@ -1,8 +1,10 @@
 #ifndef _choreo_main_H
 #define _choreo_main_H
-#ifndef TOP_LEVEL_PREAMBLE_1050462151_H
-#define TOP_LEVEL_PREAMBLE_1050462151_H
-/*Correspondence: Range: [(33, 2), (33, 25)) -> Range: [(0, 0), (0, 23)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf)*/#include <ir_sensors.h>
+#ifndef TOP_LEVEL_PREAMBLE_1591683105_H
+#define TOP_LEVEL_PREAMBLE_1591683105_H
+/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
+/*Correspondence: Range: [(9, 4), (9, 21)) -> Range: [(0, 0), (0, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf)*/#include <math.h>
 /*Correspondence: Range: [(19, 2), (27, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Encoders.lf)*/#include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -12,8 +14,6 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
 /*Correspondence: Range: [(22, 2), (23, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf)*/#include <pico/stdlib.h>
 #include <imu.h>
 /*Correspondence: Range: [(16, 4), (31, 24)) -> Range: [(0, 0), (15, 24)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf)*/#include <math.h>
@@ -33,7 +33,7 @@
 #define YELLOW_LED_PIN 27
 #define GREEN_LED_PIN 24
 /*Correspondence: Range: [(18, 2), (18, 21)) -> Range: [(0, 0), (0, 19)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Motors.lf)*/#include <motors.h>
-/*Correspondence: Range: [(9, 4), (9, 21)) -> Range: [(0, 0), (0, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/AngleToDistance.lf)*/#include <math.h>
+/*Correspondence: Range: [(33, 2), (33, 25)) -> Range: [(0, 0), (0, 23)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf)*/#include <ir_sensors.h>
 #endif
 #ifdef __cplusplus
 extern "C" {
@@ -53,7 +53,8 @@ typedef struct choreo_self_t{
     int leds_on;
     float leds_speed;
     float speed;
-    float target_distance;
+    int target_x;
+    int target_y;
     float degrees;
     int leds_blink;
     int i;
@@ -61,10 +62,13 @@ typedef struct choreo_self_t{
     float calibration_speed;
     int x;
     int y;
-    int leftLine;
-    int centerLine;
-    int rightLine;
     int threshold;
+    int one;
+    int two;
+    int three;
+    int four;
+    int five;
+    bool commandReceived;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } choreo_self_t;
 typedef struct {

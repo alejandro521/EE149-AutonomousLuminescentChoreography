@@ -127,7 +127,7 @@ void line_sensors_calibrate()
   uint16_t tmp_min[5] = { 1025, 1025, 1025, 1025, 1025 };
   uint16_t tmp_max[5] = { 0, 0, 0, 0, };
 
-  for (unsigned int trial = 0; trial < 10; trial++)
+  for (unsigned int trial = 0; trial < 50; trial++)
   {
     line_sensors_read();
     for (unsigned int i = 0; i < 5; i++)
