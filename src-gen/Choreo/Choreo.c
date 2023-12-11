@@ -127,7 +127,7 @@ void _lf_initialize_trigger_objects() {
         choreo_main_self[0]->target_y = _initial;
     } // End scoping.
     { // For scoping
-        static float _initial = 0.0;
+        static int _initial = 0;
         choreo_main_self[0]->degrees = _initial;
     } // End scoping.
     { // For scoping

@@ -68,6 +68,7 @@ CMakeFiles/Choreo.dir/_choreo_main.c.obj: \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/robot-lib/src/display.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/robot-lib/src/motors.h \
  /usr/include/newlib/math.h \
  /home/foobar/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pio.h \
@@ -81,7 +82,6 @@ CMakeFiles/Choreo.dir/_choreo_main.c.obj: \
  /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
- /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/robot-lib/src/motors.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/robot-lib/src/ir_sensors.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/include/../include/api/api.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/include/../include/core/reactor.h \
