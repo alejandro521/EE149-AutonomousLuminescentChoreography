@@ -32,19 +32,21 @@ preamble {=
       message++;
     }
     uart_putc(uart, '\r'); // Carriage return
-    uart_putc(uart, '\n'); // newline
     transmitted_message[index] = '\0';
   }
 
   // Function to write response from UART to received_message
   static void receiveMessage(uart_inst_t *uart, char *received_message) {
     int index = 0;
-    char received_char;
-    while (uart_is_readable(uart)) { 
-      received_char = uart_getc(uart);
-      if (index < MAX_MSG_LENGTH - 1) {
-        received_message[index] = received_char;
-        index += 1;
+    char received_char = 'a'; //'a' is just to initialize received_char to a character that is not \r
+    char end_char = '\r';
+    if (uart_is_readable(uart)) {
+      while (received_char != end_char) { 
+        received_char = uart_getc(uart);
+        if (index < MAX_MSG_LENGTH - 1 && received_char != end_char) {
+          received_message[index] = received_char;
+          index += 1;
+        }
       }
     }
     received_message[index] = '\0'; // Null terminate the string
@@ -54,6 +56,7 @@ preamble {=
 main reactor {
   timer t(0, 50 ms);
   state led_on:bool = false;
+  state reply:char[100] = "";
   state transmitted_message:char[100] = "";
   state received_message:char[100] = "";
   state name: char[100] = ""
@@ -75,16 +78,6 @@ main reactor {
   =}
 
   reaction(t) -> disp.line0, disp.line1, disp.line2 {=
-    // Read from UART if readable
-    if (uart_is_readable(uart0)) {
-      receiveMessage(uart0, self->received_message);
-    }
-
-
-    // intercept SET_NAME_COMMAND
-    if (strncmp(SET_NAME_COMMAND, self->received_message, strlen(SET_NAME_COMMAND)) == 0) {
-      strcpy(self->name, self->received_message + strlen(SET_NAME_COMMAND));
-    }
     lf_set(disp.line0, self->name);
 
     // Display last transmitted message
@@ -103,4 +96,28 @@ main reactor {
     self->led_on = !self->led_on;
     gpio_put(PICO_DEFAULT_LED_PIN, self->led_on);
   =}
+
+  initial mode RECEIVING {
+    reaction(t) -> REPLYING {=
+      // Read from UART if readable
+      if (uart_is_readable(uart0)) {
+        receiveMessage(uart0, self->received_message);
+        if (strncmp(SET_NAME_COMMAND, self->received_message, strlen(SET_NAME_COMMAND)) == 0) {
+          strcpy(self->name, self->received_message + strlen(SET_NAME_COMMAND));
+          snprintf(self->reply, 100, "Name:%s", self->name);
+          lf_set_mode(REPLYING);
+        } else {
+          self->reply = "Message Received";
+        }
+        lf_set_mode(REPLYING);
+      }
+    =}
+  }
+
+  mode REPLYING {
+    reaction(t) -> RECEIVING {=
+      transmitMessage(uart0, self->reply, self->transmitted_message);
+      lf_set_mode(RECEIVING);
+    =}
+  }
 }

@@ -43,11 +43,10 @@ main reactor {
   state leds_speed:float = 0.0
   state speed:float = 0.0
   state target_distance:float = 0.0
-  state degrees:float = 0.0
+  state degrees:int = 0
   state leds_blink:int = 0
   state i:int = 0
   state leds_state:int = 0
-  state calibration_speed:float = 0.0
   state x: int = 0
   state y: int = 0
   state leftLine: int = 0
@@ -64,7 +63,7 @@ main reactor {
   line = new Line()
 
   timer t(0, 50 ms)
-  timer end_calibration(10 s)
+  // timer end_calibration(10 s)
 
   method setCommand() {=
     char *token = strtok(self->received_message, ",");
@@ -72,24 +71,25 @@ main reactor {
     token = strtok(NULL, ",");
     self->speed = atof(token);
     token = strtok(NULL, ",");
-    self->leds_on = atoi(token);
+    self->degrees = atoi(token);
     token = strtok(NULL, ",");
     self->target_distance = atof(token);
     token = strtok(NULL, ",");
+    self->leds_on = atoi(token);
+    token = strtok(NULL, ",");
     self->leds_blink = atoi(token);
     token = strtok(NULL, ",");
-    self->degrees = atof(token);
-    self->calibration_speed = 0.5f;
 
-    // if (self->next_mode == "CALIBRATION") {
+    // if (strcmp(self->next_mode, "CALIBRATION")) {
     //   lf_set_mode(CALIBRATION);
-    // } else if (self->next_mode == "DRIVE") {
+    // } else if (strcmp(self->next_mode, "DRIVE")) {
     //   lf_set_mode(NEW_DRIVING);
-    // } else if (self->next_mode == "ROTATE") {
+    // } else if (strcmp(self->next_mode, "ROTATE")) {
     //   lf_set_mode(NEW_ROTATING);
-    // } else if (self->next_mode == "STOP") {
+    // }
+    // } else if (strcmp(self->next_mode, "STOP")) {
     //   lf_set_mode(STOP);
-    // } else if (self->next_mode == "FINALE") {
+    // } else if (strcmp(self->next_mode, "FINALE")) {
     //   lf_set_mode(THIS_IS_WHAT_YOU_CAME_FOR);
     // }     
   =}
@@ -141,9 +141,9 @@ main reactor {
       gpio_init(PICO_DEFAULT_LED_PIN);
       gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
 
-      lf_set(d.line0, "CALIBRATING");
-      lf_set(d.line1, "Roll robot over");
-      lf_set(d.line2, "light and dark.");
+      // lf_set(d.line0, "CALIBRATING");
+      // lf_set(d.line1, "Roll robot over");
+      // lf_set(d.line2, "light and dark.");
 
       // Clear UART buffer
       while (uart_is_readable(uart0)) {
@@ -152,9 +152,9 @@ main reactor {
     =}
 
 
-  reaction(end_calibration) -> line.calibrate {=
-    lf_set(line.calibrate, false);
-  =}
+  // reaction(end_calibration) -> line.calibrate {=
+  //   lf_set(line.calibrate, false);
+  // =}
 
   reaction(t) -> e.trigger, gyro.trigger, line.trigger, d.line2 {=
     lf_set(e.trigger, true);
@@ -206,27 +206,33 @@ main reactor {
   e.left -> angleToDistanceL.degrees
   e.right -> angleToDistanceR.degrees
 
-  // Initially rotate 10 turns to calibrate gyroscope
-  // initial mode CALIBRATION {
-  //   reaction(t) gyro.z, angleToDistanceR.distance -> m.left_power, m.right_power, d.line0, NEW_DRIVING {=
-  //     if (gyro.z->value - self->previousAngle <= -3570) {
-  //       lf_set(m.left_power, 0.0f);
-  //       self->previousAngle = gyro.z->value;
-  //       self->previousDistance = angleToDistanceR.distance->value;
-  //       lf_set_mode(NEW_DRIVING);
-  //     } else {
-  //       lf_set(d.line0, "CALIBRATE");
-  //       lf_set(m.left_power, self->calibration_speed);
-  //     }
-  //   =}
-    // }
+  // Initially rotate 10 turns to the right to calibrate gyroscope
+  initial mode CALIBRATION {
+    reaction(t) gyro.z, angleToDistanceR.distance -> m.left_power, m.right_power, d.line0, NEW_DRIVING {=
+      if (gyro.z->value - self->previousAngle <= -3580) {
+        lf_set(m.left_power, 0.0f);
+        self->previousAngle = gyro.z->value;
+        self->previousDistance = angleToDistanceR.distance->value;
+        lf_set_mode(NEW_DRIVING);
+      } else {
+        lf_set(d.line0, "CALIBRATE");
+        lf_set(m.left_power, 0.5f);
+      }
+    =}
+    }
 
   // General mode taking in speed and leds_on
-  initial mode NEW_DRIVING {
-    reaction(angleToDistanceR.distance) gyro.z -> m.left_power, m.right_power, d.line0, d.line1, NEW_ROTATING {=
+  mode NEW_DRIVING {
+    reaction(angleToDistanceR.distance) gyro.z -> m.left_power, m.right_power, d.line0, d.line1, d.line2, d.line3, NEW_ROTATING {=
       static char buf[17];
       snprintf(buf, 17, "targetDist:%f", self->target_distance);
-    //  lf_set(d.line1, buf);
+      lf_set(d.line1, buf);
+      static char buf2[17];
+      snprintf(buf2, 17, "angdistR:%f", angleToDistanceR.distance->value);
+      lf_set(d.line2, buf2);
+      static char buf3[17];
+      snprintf(buf3, 17, "prevDist:%f", self->previousDistance);
+      lf_set(d.line3, buf3);
       if (angleToDistanceR.distance->value - self->previousDistance >= self->target_distance) {
         lf_set(m.left_power, 0.0f); 
         lf_set(m.right_power, 0.0f);
@@ -234,7 +240,7 @@ main reactor {
         self->previousAngle = gyro.z->value; 
         lf_set_mode(NEW_ROTATING);
       } else {
-       // lf_set(d.line0, "DRIVE");
+        lf_set(d.line0, "DRIVE");
         lf_set(m.left_power, self->speed);
         lf_set(m.right_power, self->speed);
       }

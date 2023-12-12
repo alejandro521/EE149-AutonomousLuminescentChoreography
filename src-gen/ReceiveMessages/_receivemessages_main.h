@@ -2,8 +2,8 @@
 #define _RECEIVEMESSAGES_MAIN_H
 #include "include/core/reactor.h"
 #include "_display.h"
-#ifndef TOP_LEVEL_PREAMBLE_1411487742_H
-#define TOP_LEVEL_PREAMBLE_1411487742_H
+#ifndef TOP_LEVEL_PREAMBLE_461155951_H
+#define TOP_LEVEL_PREAMBLE_461155951_H
 #include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
 #include <stdio.h>
@@ -30,19 +30,21 @@ static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_
     message++;
   }
   uart_putc(uart, '\r'); // Carriage return
-  uart_putc(uart, '\n'); // newline
   transmitted_message[index] = '\0';
 }
 
 // Function to write response from UART to received_message
 static void receiveMessage(uart_inst_t *uart, char *received_message) {
   int index = 0;
-  char received_char;
-  while (uart_is_readable(uart)) { 
-    received_char = uart_getc(uart);
-    if (index < MAX_MSG_LENGTH - 1) {
-      received_message[index] = received_char;
-      index += 1;
+  char received_char = 'a'; //'a' is just to initialize received_char to a character that is not \r
+  char end_char = '\r';
+  if (uart_is_readable(uart)) {
+    while (received_char != end_char) { 
+      received_char = uart_getc(uart);
+      if (index < MAX_MSG_LENGTH - 1 && received_char != end_char) {
+        received_message[index] = received_char;
+        index += 1;
+      }
     }
   }
   received_message[index] = '\0'; // Null terminate the string
@@ -51,13 +53,15 @@ static void receiveMessage(uart_inst_t *uart, char *received_message) {
 typedef struct {
     struct self_base_t base;
     
-    #line 56 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
-    bool led_on;
-    #line 57 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
-    char* transmitted_message;
     #line 58 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
-    char* received_message;
+    bool led_on;
     #line 59 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    char* reply;
+    #line 60 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    char* transmitted_message;
+    #line 61 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    char* received_message;
+    #line 62 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     char* name;
     struct {
         #line 25 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf"
@@ -68,16 +72,21 @@ typedef struct {
         _display_line2_t line2;
     } _lf_disp;
     int _lf_disp_width;
-    #line 62 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 65 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     reaction_t _lf__reaction_0;
-    #line 77 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 80 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     reaction_t _lf__reaction_1;
-    #line 55 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 101 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    reaction_t _lf__reaction_2;
+    #line 118 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    reaction_t _lf__reaction_3;
+    #line 57 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     trigger_t _lf__t;
-    #line 55 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
-    reaction_t* _lf__t_reactions[1];
+    #line 57 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    reaction_t* _lf__t_reactions[3];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[1];
+    reactor_mode_t _lf__modes[2];
 } _receivemessages_main_main_self_t;
 _receivemessages_main_main_self_t* new__receivemessages_main();
 #endif // _RECEIVEMESSAGES_MAIN_H

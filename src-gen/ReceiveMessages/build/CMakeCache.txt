@@ -266,6 +266,9 @@ LOG_LEVEL:UNINITIALIZED=2
 //Path to a library.
 MATH_LIBRARY:FILEPATH=MATH_LIBRARY-NOTFOUND
 
+//No help, variable specified on the command line.
+MODAL_REACTORS:UNINITIALIZED=TRUE
+
 //PICO target board (e.g. pico)
 PICO_BOARD:STRING=pololu_3pi_2040_robot
 

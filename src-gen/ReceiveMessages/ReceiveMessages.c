@@ -26,7 +26,7 @@ typedef enum {
 environment_t envs[_num_enclaves];
 // 'Create' and initialize the environments in the program
 void _lf_create_environments() {
-    environment_init(&envs[receivemessages_main],receivemessages_main,_lf_number_of_workers,1,2,0,0,3,0,0,NULL);
+    environment_init(&envs[receivemessages_main],receivemessages_main,_lf_number_of_workers,1,2,0,0,3,1,0,NULL);
 }
 // Update the pointer argument to point to the beginning of the environment array
 // and return the size of that array
@@ -65,6 +65,10 @@ void _lf_initialize_trigger_objects() {
     } // End scoping.
     { // For scoping
         static char _initial[100] = "";
+        receivemessages_main_self[0]->reply = _initial;
+    } // End scoping.
+    { // For scoping
+        static char _initial[100] = "";
         receivemessages_main_self[0]->transmitted_message = _initial;
     } // End scoping.
     { // For scoping
@@ -84,6 +88,10 @@ void _lf_initialize_trigger_objects() {
     
     receivemessages_main_self[0]->_lf__reaction_0.deadline = NEVER;
     receivemessages_main_self[0]->_lf__reaction_1.deadline = NEVER;
+    receivemessages_main_self[0]->_lf__reaction_2.deadline = NEVER;
+    receivemessages_main_self[0]->_lf__reaction_3.deadline = NEVER;
+    // Register for transition handling
+    envs[receivemessages_main].modes->modal_reactor_states[modal_reactor_count[receivemessages_main]++] = &((self_base_t*)receivemessages_main_self[0])->_lf__mode_state;
     {
         // ***** Start initializing ReceiveMessages.disp of class Display
         receivemessages_disp_self[0] = new__display();
@@ -147,6 +155,22 @@ void _lf_initialize_trigger_objects() {
         }
         
         // ** End initialization for reaction 1 of ReceiveMessages
+        // Total number of outputs (single ports and multiport channels)
+        // produced by reaction_2 of ReceiveMessages.
+        receivemessages_main_self[0]->_lf__reaction_2.num_outputs = 0;
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        }
+        
+        // ** End initialization for reaction 2 of ReceiveMessages
+        // Total number of outputs (single ports and multiport channels)
+        // produced by reaction_3 of ReceiveMessages.
+        receivemessages_main_self[0]->_lf__reaction_3.num_outputs = 0;
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        }
+        
+        // ** End initialization for reaction 3 of ReceiveMessages
     
         // **** Start deferred initialize for ReceiveMessages.disp
         {
@@ -427,6 +451,14 @@ void _lf_initialize_trigger_objects() {
         // index is the OR of level 1 and 
         // deadline 9223372036854775807 shifted left 16 bits.
         receivemessages_main_self[0]->_lf__reaction_1.index = 0xffffffffffff0001LL;
+        receivemessages_main_self[0]->_lf__reaction_2.chain_id = 1;
+        // index is the OR of level 2 and 
+        // deadline 9223372036854775807 shifted left 16 bits.
+        receivemessages_main_self[0]->_lf__reaction_2.index = 0xffffffffffff0002LL;
+        receivemessages_main_self[0]->_lf__reaction_3.chain_id = 1;
+        // index is the OR of level 3 and 
+        // deadline 9223372036854775807 shifted left 16 bits.
+        receivemessages_main_self[0]->_lf__reaction_3.index = 0xffffffffffff0003LL;
     
         // Set reaction priorities for ReactorInstance ReceiveMessages.disp
         {
