@@ -57,7 +57,7 @@ target C {
       input outgoing_message:char[100];
       output message_received_trigger:bool;
       output incoming_message:char[100];
-        
+      
       timer t(0, 50 ms);
       state transmitted_message:char[100] = ""; //shows message that got sent without errors. Meant for debugging
 
@@ -65,24 +65,24 @@ target C {
       uart_init(uart0, BAUD_RATE);
       gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
       gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
-  
+
       gpio_init(PICO_DEFAULT_LED_PIN);
       gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
-  
+
       message_received_trigger = false;
       // Clear UART buffer
       while (uart_is_readable(uart0)) {
-          uart_getc(uart0);
+        uart_getc(uart0);
       }
     =}
   
     reaction(t) {=
-        if (receiveMessage(uart0, self->incoming_message)) {
-            message_received_trigger = !message_received_trigger;
-        };
+      if (receiveMessage(uart0, self->incoming_message->value)) {
+        lf_set(message_received_trigger, !message_received_trigger);
+      };
     =}
   
     reaction(message_send_trigger) {=
-        transmitMessage(uart0, self->outgoing_message, self->transmitted_message);
+      transmitMessage(uart0, self->outgoing_message, self->transmitted_message);
     =}
   }
