@@ -1,15 +1,8 @@
 #ifndef _robot_H
 #define _robot_H
-#ifndef TOP_LEVEL_PREAMBLE_1004862656_H
-#define TOP_LEVEL_PREAMBLE_1004862656_H
-/*Correspondence: Range: [(12, 2), (14, 26)) -> Range: [(0, 0), (2, 26)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf)*/#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-/*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
-#define WHEEL_DIAMETER 0.032 // meters
-#define COUNTS_PER_REV 360 //CPR
-#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
-/*Correspondence: Range: [(19, 2), (27, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Encoders.lf)*/#include <math.h> 
+#ifndef TOP_LEVEL_PREAMBLE_1110875562_H
+#define TOP_LEVEL_PREAMBLE_1110875562_H
+/*Correspondence: Range: [(19, 2), (27, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/Users/alex/149project/src/lib/Encoders.lf)*/#include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
 
@@ -18,6 +11,13 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
+/*Correspondence: Range: [(12, 2), (14, 26)) -> Range: [(0, 0), (2, 26)) (verbatim=true; src=/Users/alex/149project/src/PololuControl.lf)*/#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+/*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/Users/alex/149project/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #endif
 #ifdef __cplusplus
 extern "C" {

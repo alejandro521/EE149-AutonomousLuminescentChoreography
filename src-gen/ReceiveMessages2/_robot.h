@@ -3,15 +3,8 @@
 #include "include/core/reactor.h"
 #include "_encoders.h"
 #include "_motorswithfeedback.h"
-#ifndef TOP_LEVEL_PREAMBLE_1423507882_H
-#define TOP_LEVEL_PREAMBLE_1423507882_H
-#include <math.h>
-#define WHEEL_DIAMETER 0.032 // meters
-#define COUNTS_PER_REV 360 //CPR
-#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
-#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
+#ifndef TOP_LEVEL_PREAMBLE_1699317034_H
+#define TOP_LEVEL_PREAMBLE_1699317034_H
 #include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -21,6 +14,13 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
+#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
 #endif
 typedef struct {
     token_type_t type;
@@ -53,70 +53,70 @@ typedef struct {
 typedef struct {
     struct self_base_t base;
     
-    #line 26 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 26 "/Users/alex/149project/src/PololuControl.lf"
     float orientation;
-    #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 27 "/Users/alex/149project/src/PololuControl.lf"
     float left_speed;
-    #line 28 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 28 "/Users/alex/149project/src/PololuControl.lf"
     float right_speed;
-    #line 19 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 19 "/Users/alex/149project/src/PololuControl.lf"
     _robot_drive_mode_t* _lf_drive_mode;
-    #line 19 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 19 "/Users/alex/149project/src/PololuControl.lf"
     // width of -2 indicates that it is not a multiport.
-    #line 19 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 19 "/Users/alex/149project/src/PololuControl.lf"
     int _lf_drive_mode_width;
-    #line 19 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 19 "/Users/alex/149project/src/PololuControl.lf"
     // Default input (in case it does not get connected)
-    #line 19 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 19 "/Users/alex/149project/src/PololuControl.lf"
     _robot_drive_mode_t _lf_default__drive_mode;
-    #line 20 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 20 "/Users/alex/149project/src/PololuControl.lf"
     _robot_direction_t* _lf_direction;
-    #line 20 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 20 "/Users/alex/149project/src/PololuControl.lf"
     // width of -2 indicates that it is not a multiport.
-    #line 20 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 20 "/Users/alex/149project/src/PololuControl.lf"
     int _lf_direction_width;
-    #line 20 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 20 "/Users/alex/149project/src/PololuControl.lf"
     // Default input (in case it does not get connected)
-    #line 20 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 20 "/Users/alex/149project/src/PololuControl.lf"
     _robot_direction_t _lf_default__direction;
     struct {
-        #line 30 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/MotorsWithFeedback.lf"
+        #line 30 "/Users/alex/149project/src/lib/MotorsWithFeedback.lf"
         _motorswithfeedback_left_speed_t left_speed;
-        #line 31 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/MotorsWithFeedback.lf"
+        #line 31 "/Users/alex/149project/src/lib/MotorsWithFeedback.lf"
         _motorswithfeedback_right_speed_t right_speed;
     } _lf_motors;
     int _lf_motors_width;
     struct {
-        #line 32 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Encoders.lf"
+        #line 32 "/Users/alex/149project/src/lib/Encoders.lf"
         _encoders_trigger_t trigger;
     } _lf_encoders;
     int _lf_encoders_width;
-    #line 33 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 33 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t _lf__reaction_0;
-    #line 47 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 47 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t _lf__reaction_1;
-    #line 55 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 55 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t _lf__reaction_2;
-    #line 68 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 68 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t _lf__reaction_3;
-    #line 81 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 81 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t _lf__reaction_4;
-    #line 94 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 94 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t _lf__reaction_5;
-    #line 30 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 30 "/Users/alex/149project/src/PololuControl.lf"
     trigger_t _lf__t;
-    #line 30 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 30 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t* _lf__t_reactions[3];
-    #line 19 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 19 "/Users/alex/149project/src/PololuControl.lf"
     trigger_t _lf__drive_mode;
-    #line 19 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 19 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t* _lf__drive_mode_reactions[3];
     #ifdef FEDERATED
     
     #endif // FEDERATED
-    #line 20 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 20 "/Users/alex/149project/src/PololuControl.lf"
     trigger_t _lf__direction;
-    #line 20 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+    #line 20 "/Users/alex/149project/src/PololuControl.lf"
     reaction_t* _lf__direction_reactions[2];
     #ifdef FEDERATED
     

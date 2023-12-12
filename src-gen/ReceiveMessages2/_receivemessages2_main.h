@@ -4,8 +4,15 @@
 #include "_accelerometer.h"
 #include "_display.h"
 #include "_robot.h"
-#ifndef TOP_LEVEL_PREAMBLE_224192895_H
-#define TOP_LEVEL_PREAMBLE_224192895_H
+#ifndef TOP_LEVEL_PREAMBLE_188987857_H
+#define TOP_LEVEL_PREAMBLE_188987857_H
+#include <pico/stdlib.h>
+#include <imu.h>
+#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
 #include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
@@ -57,62 +64,55 @@ static void receiveMessage(uart_inst_t *uart, char *received_message) {
 static bool matchesCommand(command, str) {
   return strncmp(command, str, strlen(command)) == 0;
 }
-#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-#include <pico/stdlib.h>
-#include <imu.h>
-#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
 #endif
 typedef struct {
     struct self_base_t base;
     
-    #line 69 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 69 "/Users/alex/149project/src/ReceiveMessages2.lf"
     bool led_on;
-    #line 70 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 70 "/Users/alex/149project/src/ReceiveMessages2.lf"
     char* reply;
-    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 71 "/Users/alex/149project/src/ReceiveMessages2.lf"
     char* transmitted_message;
-    #line 72 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 72 "/Users/alex/149project/src/ReceiveMessages2.lf"
     char* received_message;
-    #line 73 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 73 "/Users/alex/149project/src/ReceiveMessages2.lf"
     char* name;
-    #line 74 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 74 "/Users/alex/149project/src/ReceiveMessages2.lf"
     int counter;
-    #line 75 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 75 "/Users/alex/149project/src/ReceiveMessages2.lf"
     float x;
-    #line 76 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 76 "/Users/alex/149project/src/ReceiveMessages2.lf"
     float y;
     struct {
-        #line 25 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf"
+        #line 25 "/Users/alex/149project/src/lib/Display.lf"
         _display_line0_t line0;
-        #line 26 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf"
+        #line 26 "/Users/alex/149project/src/lib/Display.lf"
         _display_line1_t line1;
-        #line 27 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf"
+        #line 27 "/Users/alex/149project/src/lib/Display.lf"
         _display_line2_t line2;
     } _lf_disp;
     int _lf_disp_width;
     struct {
-        #line 40 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
+        #line 40 "/Users/alex/149project/src/lib/IMU.lf"
         _accelerometer_x_t* x;
-        #line 40 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
+        #line 40 "/Users/alex/149project/src/lib/IMU.lf"
         trigger_t x_trigger;
-        #line 41 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
+        #line 41 "/Users/alex/149project/src/lib/IMU.lf"
         _accelerometer_y_t* y;
-        #line 41 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf"
+        #line 41 "/Users/alex/149project/src/lib/IMU.lf"
         trigger_t y_trigger;
     } _lf_acc;
     int _lf_acc_width;
-    #line 82 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 82 "/Users/alex/149project/src/ReceiveMessages2.lf"
     reaction_t _lf__reaction_0;
-    #line 97 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 97 "/Users/alex/149project/src/ReceiveMessages2.lf"
     reaction_t _lf__reaction_1;
-    #line 118 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 118 "/Users/alex/149project/src/ReceiveMessages2.lf"
     reaction_t _lf__reaction_2;
-    #line 68 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 68 "/Users/alex/149project/src/ReceiveMessages2.lf"
     trigger_t _lf__t;
-    #line 68 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages2.lf"
+    #line 68 "/Users/alex/149project/src/ReceiveMessages2.lf"
     reaction_t* _lf__t_reactions[2];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[1];

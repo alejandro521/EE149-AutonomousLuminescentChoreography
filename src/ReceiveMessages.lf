@@ -20,7 +20,6 @@ preamble {=
   #define UART_TX_PIN 28
   #define UART_RX_PIN 29
   #define MAX_MSG_LENGTH 100
-  
   // COMMANDS TO POLOLU GO HERE
   static char SET_NAME_COMMAND[10] = "SET_NAME:";
   static char DRIVE_FORWARD_COMMAND[14] = "DRIVE_FORWARD";

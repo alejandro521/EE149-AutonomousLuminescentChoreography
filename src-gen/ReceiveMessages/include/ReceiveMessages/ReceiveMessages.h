@@ -1,13 +1,10 @@
 #ifndef _receivemessages_main_H
 #define _receivemessages_main_H
-#ifndef TOP_LEVEL_PREAMBLE_569959775_H
-#define TOP_LEVEL_PREAMBLE_569959775_H
-/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf)*/#include <pico/stdlib.h>
+#ifndef TOP_LEVEL_PREAMBLE_148210119_H
+#define TOP_LEVEL_PREAMBLE_148210119_H
+/*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/Users/alex/149project/src/lib/Display.lf)*/#include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
-/*Correspondence: Range: [(12, 2), (14, 26)) -> Range: [(0, 0), (2, 26)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf)*/#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-/*Correspondence: Range: [(12, 2), (56, 1)) -> Range: [(0, 0), (44, 1)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf)*/#include <stdio.h>
+/*Correspondence: Range: [(12, 2), (61, 1)) -> Range: [(0, 0), (49, 1)) (verbatim=true; src=/Users/alex/149project/src/ReceiveMessages.lf)*/#include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
 #include <hardware/uart.h>
@@ -17,11 +14,12 @@
 #define UART_TX_PIN 28
 #define UART_RX_PIN 29
 #define MAX_MSG_LENGTH 100
-
 // COMMANDS TO POLOLU GO HERE
 static char SET_NAME_COMMAND[10] = "SET_NAME:";
-static char DRIVE_COMMAND[7] = "DRIVE:";
-static char TURN_COMMAND[6] = "TURN:";
+static char DRIVE_FORWARD_COMMAND[14] = "DRIVE_FORWARD";
+static char DRIVE_BACKWARD_COMMAND[15] = "DRIVE_BACKWARD";
+static char TURN_LEFT_COMMAND[10] = "TURN_LEFT";
+static char TURN_RIGHT_COMMAND[11] = "TURN_RIGHT";
 
 // Function to send a message. The message that was transmitted is written to transmitted_message
 static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
@@ -52,6 +50,13 @@ static void receiveMessage(uart_inst_t *uart, char *received_message) {
   }
   received_message[index] = '\0'; // Null terminate the string
 }
+
+static bool matchesCommand(command, str) {
+  return strncmp(command, str, strlen(command)) == 0
+}
+/*Correspondence: Range: [(12, 2), (14, 26)) -> Range: [(0, 0), (2, 26)) (verbatim=true; src=/Users/alex/149project/src/PololuControl.lf)*/#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
 #endif
 #ifdef __cplusplus
 extern "C" {
