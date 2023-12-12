@@ -1,8 +1,8 @@
 #ifndef _LINE_H
 #define _LINE_H
 #include "include/core/reactor.h"
-#ifndef TOP_LEVEL_PREAMBLE_524606891_H
-#define TOP_LEVEL_PREAMBLE_524606891_H
+#ifndef TOP_LEVEL_PREAMBLE_1076866015_H
+#define TOP_LEVEL_PREAMBLE_1076866015_H
 #include <ir_sensors.h>
 #endif
 typedef struct {
@@ -50,48 +50,48 @@ typedef struct {
 typedef struct {
     struct self_base_t base;
     
-    #line 42 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 42 "/Users/alex/149project/src/lib/Line.lf"
     bool calibrating;
-    #line 43 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 43 "/Users/alex/149project/src/lib/Line.lf"
     bool calibrated;
-    #line 38 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 38 "/Users/alex/149project/src/lib/Line.lf"
     _line_calibrate_t* _lf_calibrate;
-    #line 38 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 38 "/Users/alex/149project/src/lib/Line.lf"
     // width of -2 indicates that it is not a multiport.
-    #line 38 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 38 "/Users/alex/149project/src/lib/Line.lf"
     int _lf_calibrate_width;
-    #line 38 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 38 "/Users/alex/149project/src/lib/Line.lf"
     // Default input (in case it does not get connected)
-    #line 38 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 38 "/Users/alex/149project/src/lib/Line.lf"
     _line_calibrate_t _lf_default__calibrate;
-    #line 39 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 39 "/Users/alex/149project/src/lib/Line.lf"
     _line_trigger_t* _lf_trigger;
-    #line 39 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 39 "/Users/alex/149project/src/lib/Line.lf"
     // width of -2 indicates that it is not a multiport.
-    #line 39 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 39 "/Users/alex/149project/src/lib/Line.lf"
     int _lf_trigger_width;
-    #line 39 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 39 "/Users/alex/149project/src/lib/Line.lf"
     // Default input (in case it does not get connected)
-    #line 39 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 39 "/Users/alex/149project/src/lib/Line.lf"
     _line_trigger_t _lf_default__trigger;
-    #line 40 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 40 "/Users/alex/149project/src/lib/Line.lf"
     _line_reflect_t _lf_reflect;
-    #line 40 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 40 "/Users/alex/149project/src/lib/Line.lf"
     int _lf_reflect_width;
-    #line 45 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 45 "/Users/alex/149project/src/lib/Line.lf"
     reaction_t _lf__reaction_0;
-    #line 47 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 47 "/Users/alex/149project/src/lib/Line.lf"
     reaction_t _lf__reaction_1;
-    #line 38 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 38 "/Users/alex/149project/src/lib/Line.lf"
     trigger_t _lf__calibrate;
-    #line 38 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 38 "/Users/alex/149project/src/lib/Line.lf"
     reaction_t* _lf__calibrate_reactions[1];
     #ifdef FEDERATED
     
     #endif // FEDERATED
-    #line 39 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 39 "/Users/alex/149project/src/lib/Line.lf"
     trigger_t _lf__trigger;
-    #line 39 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf"
+    #line 39 "/Users/alex/149project/src/lib/Line.lf"
     reaction_t* _lf__trigger_reactions[1];
     #ifdef FEDERATED
     

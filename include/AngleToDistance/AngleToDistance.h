@@ -1,11 +1,8 @@
-#ifndef _picontrol_H
-#define _picontrol_H
-#ifndef TOP_LEVEL_PREAMBLE_784495159_H
-#define TOP_LEVEL_PREAMBLE_784495159_H
-/*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/Users/alex/149project/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
-#define WHEEL_DIAMETER 0.032 // meters
-#define COUNTS_PER_REV 360 //CPR
-#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
+#ifndef _angletodistance_H
+#define _angletodistance_H
+#ifndef TOP_LEVEL_PREAMBLE_935052534_H
+#define TOP_LEVEL_PREAMBLE_935052534_H
+/*Correspondence: Range: [(9, 4), (9, 21)) -> Range: [(0, 0), (0, 17)) (verbatim=true; src=/Users/alex/149project/src/lib/AngleToDistance.lf)*/#include <math.h>
 #endif
 #ifdef __cplusplus
 extern "C" {
@@ -15,13 +12,24 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-typedef struct picontrol_self_t{
+typedef struct angletodistance_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
-    float p_gain;
-    float i_gain;
-    float acum_err;
     int end[0]; // placeholder; MSVC does not compile empty structs
-} picontrol_self_t;
+} angletodistance_self_t;
+typedef struct {
+    token_type_t type;
+    lf_token_t* token;
+    size_t length;
+    bool is_present;
+    lf_port_internal_t _base;
+    int32_t value;
+    #ifdef FEDERATED
+    #ifdef FEDERATED_DECENTRALIZED
+    tag_t intended_tag;
+    #endif
+    interval_t physical_time_of_arrival;
+    #endif
+} angletodistance_degrees_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -35,19 +43,5 @@ typedef struct {
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} picontrol_err_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    float value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} picontrol_ctrl_t;
+} angletodistance_distance_t;
 #endif

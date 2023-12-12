@@ -74,7 +74,7 @@ target C {
       while (uart_is_readable(uart0)) {
         uart_getc(uart0);
       }
-    =}
+    =} 
   
     reaction(t) -> incoming_message, message_received_trigger {=
       if (receiveMessage(uart0, incoming_message->value)) {
