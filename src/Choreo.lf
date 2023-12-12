@@ -63,7 +63,6 @@ main reactor {
   line = new Line()
 
   timer t(0, 50 ms)
-  // timer end_calibration(10 s)
 
   method setCommand() {=
     char *token = strtok(self->received_message, ",");
@@ -78,20 +77,7 @@ main reactor {
     self->leds_on = atoi(token);
     token = strtok(NULL, ",");
     self->leds_blink = atoi(token);
-    token = strtok(NULL, ",");
-
-    // if (strcmp(self->next_mode, "CALIBRATION")) {
-    //   lf_set_mode(CALIBRATION);
-    // } else if (strcmp(self->next_mode, "DRIVE")) {
-    //   lf_set_mode(NEW_DRIVING);
-    // } else if (strcmp(self->next_mode, "ROTATE")) {
-    //   lf_set_mode(NEW_ROTATING);
-    // }
-    // } else if (strcmp(self->next_mode, "STOP")) {
-    //   lf_set_mode(STOP);
-    // } else if (strcmp(self->next_mode, "FINALE")) {
-    //   lf_set_mode(THIS_IS_WHAT_YOU_CAME_FOR);
-    // }     
+    token = strtok(NULL, ",");  
   =}
 
   // Function to write response from UART to received_message
@@ -141,20 +127,11 @@ main reactor {
       gpio_init(PICO_DEFAULT_LED_PIN);
       gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
 
-      // lf_set(d.line0, "CALIBRATING");
-      // lf_set(d.line1, "Roll robot over");
-      // lf_set(d.line2, "light and dark.");
-
       // Clear UART buffer
       while (uart_is_readable(uart0)) {
           uart_getc(uart0);
       }       
     =}
-
-
-  // reaction(end_calibration) -> line.calibrate {=
-  //   lf_set(line.calibrate, false);
-  // =}
 
   reaction(t) -> e.trigger, gyro.trigger, line.trigger, d.line2 {=
     lf_set(e.trigger, true);
@@ -262,7 +239,6 @@ main reactor {
       }
       static char buf[17];
       snprintf(buf, 17, "targetZ:%i", self->degrees);
-     // lf_set(d.line3, buf);
       if (abs(gyro.z->value - self->previousAngle) >= abs(self->degrees)) {
         self->previousAngle = gyro.z->value;
         self->previousDistance = angleToDistanceR.distance->value;
@@ -271,13 +247,11 @@ main reactor {
         lf_set(d.line1, buf);
         lf_set_mode(STOP);
       } else {
-       // lf_set(d.line0, "ROTATE");
         if (self->degrees < 0) { //Rotate left  
           lf_set(m.right_power, self->speed);
         } else { //Rotate right
           lf_set(m.left_power, self->speed);
         }
-        //  lf_set(d.line0, "ROTATE");
       }
     =}
   }
