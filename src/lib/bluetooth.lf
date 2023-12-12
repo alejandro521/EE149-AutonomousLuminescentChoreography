@@ -76,13 +76,13 @@ target C {
       }
     =}
   
-    reaction(t) {=
-      if (receiveMessage(uart0, self->incoming_message->value)) {
+    reaction(t) -> incoming_message, message_received_trigger {=
+      if (receiveMessage(uart0, incoming_message->value)) {
         lf_set(message_received_trigger, !message_received_trigger);
       };
     =}
   
-    reaction(message_send_trigger) {=
-      transmitMessage(uart0, self->outgoing_message, self->transmitted_message);
+    reaction(message_send_trigger) outgoing_message {=
+      transmitMessage(uart0, outgoing_message, self->transmitted_message);
     =}
   }
