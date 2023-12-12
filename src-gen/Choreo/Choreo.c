@@ -170,7 +170,7 @@ void _lf_initialize_trigger_objects() {
     choreo_main_self[0]->_lf__t.mode = NULL;
     // Initiaizing timer Choreo.STOP.t1.
     choreo_main_self[0]->_lf__t1.offset = 0;
-    choreo_main_self[0]->_lf__t1.period = SEC(2);
+    choreo_main_self[0]->_lf__t1.period = SEC(1);
     // Associate timer with the environment of its parent
     envs[choreo_main].timer_triggers[timer_triggers_count[choreo_main]++] = &choreo_main_self[0]->_lf__t1;
     choreo_main_self[0]->_lf__t1.mode = &choreo_main_self[0]->_lf__modes[3];;

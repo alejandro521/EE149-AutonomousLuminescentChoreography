@@ -9,10 +9,19 @@
 #include "_motors.h"
 #ifndef TOP_LEVEL_PREAMBLE_1591683105_H
 #define TOP_LEVEL_PREAMBLE_1591683105_H
+#include <motors.h>
 #include <ir_sensors.h>
-#include <math.h>
+#include <math.h> 
+#include <hardware/pio.h>
+#include <quadrature_encoder.pio.h>
+
+// pin defines
+#define RIGHT_ENCODER_AB 8
+#define LEFT_ENCODER_AB 12
+#define RIGHT_SM 0
+#define LEFT_SM 1
 #include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
+#include <imu.h>
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -30,17 +39,8 @@
 #define YELLOW_LED_PIN 27
 #define GREEN_LED_PIN 24
 #include <pico/stdlib.h>
-#include <imu.h>
-#include <motors.h>
-#include <math.h> 
-#include <hardware/pio.h>
-#include <quadrature_encoder.pio.h>
-
-// pin defines
-#define RIGHT_ENCODER_AB 8
-#define LEFT_ENCODER_AB 12
-#define RIGHT_SM 0
-#define LEFT_SM 1
+#include <display.h>        // Do not use "display.h". Doesn't work.
+#include <math.h>
 #endif
 typedef struct {
     struct self_base_t base;
@@ -149,15 +149,15 @@ typedef struct {
     reaction_t _lf__reaction_4;
     #line 251 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_5;
-    #line 269 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 282 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t _lf__reaction_6;
     #line 65 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     trigger_t _lf__t;
     #line 65 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t* _lf__t_reactions[2];
-    #line 268 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 281 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     trigger_t _lf__t1;
-    #line 268 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
+    #line 281 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     reaction_t* _lf__t1_reactions[1];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[1];

@@ -107,7 +107,7 @@ main reactor {
           snprintf(self->reply, 100, "Name:%s", self->name);
           lf_set_mode(REPLYING);
         } else {
-          self->reply = "Message Received";
+          self->reply = self->received_message;
         }
         lf_set_mode(REPLYING);
       }

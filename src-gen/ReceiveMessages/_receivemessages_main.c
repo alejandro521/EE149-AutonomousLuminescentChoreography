@@ -67,7 +67,7 @@ void _receivemessages_mainreaction_function_2(void* instance_args) {
         snprintf(self->reply, 100, "Name:%s", self->name);
         lf_set_mode(REPLYING);
       } else {
-        self->reply = "Message Received";
+        self->reply = self->received_message;
       }
       lf_set_mode(REPLYING);
     }
