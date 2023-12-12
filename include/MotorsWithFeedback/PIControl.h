@@ -1,9 +1,11 @@
-#ifndef _trapezoidalintegrator_H
-#define _trapezoidalintegrator_H
-#ifndef TOP_LEVEL_PREAMBLE_557593923_H
-#define TOP_LEVEL_PREAMBLE_557593923_H
-/*Correspondence: Range: [(22, 2), (23, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf)*/#include <pico/stdlib.h>
-#include <imu.h>
+#ifndef _picontrol_H
+#define _picontrol_H
+#ifndef TOP_LEVEL_PREAMBLE_576261694_H
+#define TOP_LEVEL_PREAMBLE_576261694_H
+/*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #endif
 #ifdef __cplusplus
 extern "C" {
@@ -13,13 +15,13 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-typedef struct trapezoidalintegrator_self_t{
+typedef struct picontrol_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
-    float s;
-    float prev_in;
-    instant_t prev_time;
+    float p_gain;
+    float i_gain;
+    float acum_err;
     int end[0]; // placeholder; MSVC does not compile empty structs
-} trapezoidalintegrator_self_t;
+} picontrol_self_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -33,7 +35,7 @@ typedef struct {
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} trapezoidalintegrator_in_t;
+} picontrol_err_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -47,5 +49,5 @@ typedef struct {
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} trapezoidalintegrator_out_t;
+} picontrol_ctrl_t;
 #endif

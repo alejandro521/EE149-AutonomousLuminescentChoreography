@@ -28,7 +28,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
   "INITIAL_REACT_QUEUE_SIZE=10"
   "LF_FILE_SEPARATOR=\"/\""
   "LF_PACKAGE_DIRECTORY=\"/home/foobar/EE149-AutonomousLuminescentChoreography\""
-  "LF_REACTION_GRAPH_BREADTH=2"
+  "LF_REACTION_GRAPH_BREADTH=4"
   "LF_SOURCE_DIRECTORY=\"/home/foobar/EE149-AutonomousLuminescentChoreography/src\""
   "LF_UNTHREADED=1"
   "LIB_PICO_BIT_OPS=1"

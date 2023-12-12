@@ -7,6 +7,8 @@ target C {
 }
 
 import Display from "lib/Display.lf"
+import Robot from "PololuControl.lf"
+
 preamble {=
   #include <stdio.h>
   #include <pico/stdlib.h>
@@ -21,6 +23,10 @@ preamble {=
   
   // COMMANDS TO POLOLU GO HERE
   static char SET_NAME_COMMAND[10] = "SET_NAME:";
+  static char DRIVE_FORWARD_COMMAND[14] = "DRIVE_FORWARD";
+  static char DRIVE_BACKWARD_COMMAND[15] = "DRIVE_BACKWARD";
+  static char TURN_LEFT_COMMAND[10] = "TURN_LEFT";
+  static char TURN_RIGHT_COMMAND[11] = "TURN_RIGHT";
 
   // Function to send a message. The message that was transmitted is written to transmitted_message
   static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
@@ -51,6 +57,10 @@ preamble {=
     }
     received_message[index] = '\0'; // Null terminate the string
   }
+
+  static bool matchesCommand(command, str) {
+    return strncmp(command, str, strlen(command)) == 0
+  }
 =}
 
 main reactor {
@@ -61,6 +71,8 @@ main reactor {
   state received_message:char[100] = "";
   state name: char[100] = ""
   disp = new Display();
+  pololu = new Robot();
+
 
   reaction(startup) {=
     uart_init(uart0, BAUD_RATE);
@@ -98,16 +110,23 @@ main reactor {
   =}
 
   initial mode RECEIVING {
-    reaction(t) -> REPLYING {=
+    reaction(t) -> REPLYING, pololu.drive_mode, pololu.direction {=
       // Read from UART if readable
       if (uart_is_readable(uart0)) {
         receiveMessage(uart0, self->received_message);
         if (strncmp(SET_NAME_COMMAND, self->received_message, strlen(SET_NAME_COMMAND)) == 0) {
           strcpy(self->name, self->received_message + strlen(SET_NAME_COMMAND));
           snprintf(self->reply, 100, "Name:%s", self->name);
-          lf_set_mode(REPLYING);
+        } else if (strncmp(DRIVE_COMMAND, self->received_message, strlen(DRIVE_COMMAND)) == 0) {
+          lf_set(pololu.drive_mode, 1);
+          lf_set(pololu.direction, 0);
+          snprintf(self->reply, 100, "%s is driving", self->name);  
+        } else if (strncmp(TURN_COMMAND, self->received_message, strlen(TURN_COMMAND)) == 0) {
+          lf_set(pololu.drive_mode, 2);
+          lf_set(pololu.direction, 0);
+          snprintf(self->reply, 100, "%s is turning", self->name);  
         } else {
-          self->reply = self->received_message;
+          snprintf(self->reply, 100, "Received: %s", self->received_message);  
         }
         lf_set_mode(REPLYING);
       }

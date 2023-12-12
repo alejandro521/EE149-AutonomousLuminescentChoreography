@@ -52,6 +52,11 @@ add_executable(
     lib/schedule.c
     _receivemessages_main.c
     _display.c
+    _robot.c
+    _encoders.c
+    _motorswithfeedback.c
+    _motors.c
+    _picontrol.c
     ReceiveMessages.c
 )
 

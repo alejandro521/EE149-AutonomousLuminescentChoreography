@@ -17,6 +17,11 @@ int main(void) {
 }
 void _lf_set_default_command_line_options() {}
 #include "_display.h"
+#include "_encoders.h"
+#include "_motors.h"
+#include "_picontrol.h"
+#include "_motorswithfeedback.h"
+#include "_robot.h"
 #include "_receivemessages_main.h"
 typedef enum {
     receivemessages_main,
@@ -26,7 +31,7 @@ typedef enum {
 environment_t envs[_num_enclaves];
 // 'Create' and initialize the environments in the program
 void _lf_create_environments() {
-    environment_init(&envs[receivemessages_main],receivemessages_main,_lf_number_of_workers,1,2,0,0,3,1,0,NULL);
+    environment_init(&envs[receivemessages_main],receivemessages_main,_lf_number_of_workers,2,4,0,0,14,2,0,NULL);
 }
 // Update the pointer argument to point to the beginning of the environment array
 // and return the size of that array
@@ -53,6 +58,18 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(receivemessages_main_self);
     _display_self_t* receivemessages_disp_self[1];
     SUPPRESS_UNUSED_WARNING(receivemessages_disp_self);
+    _robot_self_t* receivemessages_pololu_self[1];
+    SUPPRESS_UNUSED_WARNING(receivemessages_pololu_self);
+    _encoders_self_t* receivemessages_pololu_encoders_self[1];
+    SUPPRESS_UNUSED_WARNING(receivemessages_pololu_encoders_self);
+    _motorswithfeedback_self_t* receivemessages_pololu_motors_self[1];
+    SUPPRESS_UNUSED_WARNING(receivemessages_pololu_motors_self);
+    _motors_self_t* receivemessages_pololu_motors_motors_self[1];
+    SUPPRESS_UNUSED_WARNING(receivemessages_pololu_motors_motors_self);
+    _picontrol_self_t* _eivemessages_pololu_motors_control_left_self[1];
+    SUPPRESS_UNUSED_WARNING(_eivemessages_pololu_motors_control_left_self);
+    _picontrol_self_t* _ivemessages_pololu_motors_control_right_self[1];
+    SUPPRESS_UNUSED_WARNING(_ivemessages_pololu_motors_control_right_self);
     // ***** Start initializing ReceiveMessages of class ReceiveMessages
     receivemessages_main_self[0] = new__receivemessages_main();
     receivemessages_main_self[0]->base.environment = &envs[receivemessages_main];
@@ -112,6 +129,159 @@ void _lf_initialize_trigger_objects() {
         receivemessages_disp_self[0]->_lf__reaction_1.deadline = NEVER;
         //***** End initializing ReceiveMessages.disp
     }
+    {
+        // ***** Start initializing ReceiveMessages.pololu of class Robot
+        receivemessages_pololu_self[0] = new__robot();
+        receivemessages_pololu_self[0]->base.environment = &envs[receivemessages_main];
+        bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+        // width of -2 indicates that it is not a multiport.
+        receivemessages_pololu_self[0]->_lf_drive_mode_width = -2;
+        // width of -2 indicates that it is not a multiport.
+        receivemessages_pololu_self[0]->_lf_direction_width = -2;
+        SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
+        { // For scoping
+            static float _initial = 0;
+            receivemessages_pololu_self[0]->orientation = _initial;
+        } // End scoping.
+        { // For scoping
+            static float _initial = 0.15;
+            receivemessages_pololu_self[0]->left_speed = _initial;
+        } // End scoping.
+        { // For scoping
+            static float _initial = 0.15;
+            receivemessages_pololu_self[0]->right_speed = _initial;
+        } // End scoping.
+        // Initiaizing timer ReceiveMessages.pololu.t.
+        receivemessages_pololu_self[0]->_lf__t.offset = 0;
+        receivemessages_pololu_self[0]->_lf__t.period = MSEC(10);
+        // Associate timer with the environment of its parent
+        envs[receivemessages_main].timer_triggers[timer_triggers_count[receivemessages_main]++] = &receivemessages_pololu_self[0]->_lf__t;
+        receivemessages_pololu_self[0]->_lf__t.mode = NULL;
+    
+        receivemessages_pololu_self[0]->_lf__reaction_0.deadline = NEVER;
+        receivemessages_pololu_self[0]->_lf__reaction_1.deadline = NEVER;
+        receivemessages_pololu_self[0]->_lf__reaction_2.deadline = NEVER;
+        receivemessages_pololu_self[0]->_lf__reaction_3.deadline = NEVER;
+        receivemessages_pololu_self[0]->_lf__reaction_4.deadline = NEVER;
+        receivemessages_pololu_self[0]->_lf__reaction_5.deadline = NEVER;
+        // Register for transition handling
+        envs[receivemessages_main].modes->modal_reactor_states[modal_reactor_count[receivemessages_main]++] = &((self_base_t*)receivemessages_pololu_self[0])->_lf__mode_state;
+        {
+            // ***** Start initializing ReceiveMessages.pololu.encoders of class Encoders
+            receivemessages_pololu_encoders_self[0] = new__encoders();
+            receivemessages_pololu_encoders_self[0]->base.environment = &envs[receivemessages_main];
+            bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+            // width of -2 indicates that it is not a multiport.
+            receivemessages_pololu_encoders_self[0]->_lf_right_width = -2;
+            // width of -2 indicates that it is not a multiport.
+            receivemessages_pololu_encoders_self[0]->_lf_left_width = -2;
+            // width of -2 indicates that it is not a multiport.
+            receivemessages_pololu_encoders_self[0]->_lf_trigger_width = -2;
+            envs[receivemessages_main].startup_reactions[startup_reaction_count[receivemessages_main]++] = &receivemessages_pololu_encoders_self[0]->_lf__reaction_0;
+            SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
+    
+            receivemessages_pololu_encoders_self[0]->_lf__reaction_0.deadline = NEVER;
+            receivemessages_pololu_encoders_self[0]->_lf__reaction_1.deadline = NEVER;
+            //***** End initializing ReceiveMessages.pololu.encoders
+        }
+        {
+            // ***** Start initializing ReceiveMessages.pololu.motors of class MotorsWithFeedback
+            receivemessages_pololu_motors_self[0] = new__motorswithfeedback();
+            receivemessages_pololu_motors_self[0]->base.environment = &envs[receivemessages_main];
+            bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+            receivemessages_pololu_motors_self[0]->p_gain = 0.5;
+            receivemessages_pololu_motors_self[0]->i_gain = 0.25;
+            // width of -2 indicates that it is not a multiport.
+            receivemessages_pololu_motors_self[0]->_lf_left_speed_width = -2;
+            // width of -2 indicates that it is not a multiport.
+            receivemessages_pololu_motors_self[0]->_lf_right_speed_width = -2;
+            // width of -2 indicates that it is not a multiport.
+            receivemessages_pololu_motors_self[0]->_lf_left_width = -2;
+            // width of -2 indicates that it is not a multiport.
+            receivemessages_pololu_motors_self[0]->_lf_right_width = -2;
+            SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
+            receivemessages_pololu_motors_self[0]->prev_time = 0;
+            { // For scoping
+                static int32_t _initial = 0;
+                receivemessages_pololu_motors_self[0]->prev_left = _initial;
+            } // End scoping.
+            { // For scoping
+                static int32_t _initial = 0;
+                receivemessages_pololu_motors_self[0]->prev_right = _initial;
+            } // End scoping.
+            { // For scoping
+                static float _initial = 0;
+                receivemessages_pololu_motors_self[0]->target_speed_left = _initial;
+            } // End scoping.
+            { // For scoping
+                static float _initial = 0;
+                receivemessages_pololu_motors_self[0]->target_speed_right = _initial;
+            } // End scoping.
+    
+            receivemessages_pololu_motors_self[0]->_lf__reaction_0.deadline = NEVER;
+            receivemessages_pololu_motors_self[0]->_lf__reaction_1.deadline = NEVER;
+            receivemessages_pololu_motors_self[0]->_lf__reaction_2.deadline = NEVER;
+            {
+                // ***** Start initializing ReceiveMessages.pololu.motors.motors of class Motors
+                receivemessages_pololu_motors_motors_self[0] = new__motors();
+                receivemessages_pololu_motors_motors_self[0]->base.environment = &envs[receivemessages_main];
+                bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+                // width of -2 indicates that it is not a multiport.
+                receivemessages_pololu_motors_motors_self[0]->_lf_left_power_width = -2;
+                // width of -2 indicates that it is not a multiport.
+                receivemessages_pololu_motors_motors_self[0]->_lf_right_power_width = -2;
+                envs[receivemessages_main].startup_reactions[startup_reaction_count[receivemessages_main]++] = &receivemessages_pololu_motors_motors_self[0]->_lf__reaction_0;
+                SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
+    
+                receivemessages_pololu_motors_motors_self[0]->_lf__reaction_0.deadline = NEVER;
+                receivemessages_pololu_motors_motors_self[0]->_lf__reaction_1.deadline = NEVER;
+                receivemessages_pololu_motors_motors_self[0]->_lf__reaction_2.deadline = NEVER;
+                //***** End initializing ReceiveMessages.pololu.motors.motors
+            }
+            {
+                // ***** Start initializing ReceiveMessages.pololu.motors.control_left of class PIControl
+                _eivemessages_pololu_motors_control_left_self[0] = new__picontrol();
+                _eivemessages_pololu_motors_control_left_self[0]->base.environment = &envs[receivemessages_main];
+                bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+                _eivemessages_pololu_motors_control_left_self[0]->p_gain = receivemessages_pololu_motors_self[0]->p_gain;
+                _eivemessages_pololu_motors_control_left_self[0]->i_gain = receivemessages_pololu_motors_self[0]->i_gain;
+                // width of -2 indicates that it is not a multiport.
+                _eivemessages_pololu_motors_control_left_self[0]->_lf_ctrl_width = -2;
+                // width of -2 indicates that it is not a multiport.
+                _eivemessages_pololu_motors_control_left_self[0]->_lf_err_width = -2;
+                SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
+                { // For scoping
+                    static float _initial = 0;
+                    _eivemessages_pololu_motors_control_left_self[0]->acum_err = _initial;
+                } // End scoping.
+    
+                _eivemessages_pololu_motors_control_left_self[0]->_lf__reaction_0.deadline = NEVER;
+                //***** End initializing ReceiveMessages.pololu.motors.control_left
+            }
+            {
+                // ***** Start initializing ReceiveMessages.pololu.motors.control_right of class PIControl
+                _ivemessages_pololu_motors_control_right_self[0] = new__picontrol();
+                _ivemessages_pololu_motors_control_right_self[0]->base.environment = &envs[receivemessages_main];
+                bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+                _ivemessages_pololu_motors_control_right_self[0]->p_gain = receivemessages_pololu_motors_self[0]->p_gain;
+                _ivemessages_pololu_motors_control_right_self[0]->i_gain = receivemessages_pololu_motors_self[0]->i_gain;
+                // width of -2 indicates that it is not a multiport.
+                _ivemessages_pololu_motors_control_right_self[0]->_lf_ctrl_width = -2;
+                // width of -2 indicates that it is not a multiport.
+                _ivemessages_pololu_motors_control_right_self[0]->_lf_err_width = -2;
+                SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
+                { // For scoping
+                    static float _initial = 0;
+                    _ivemessages_pololu_motors_control_right_self[0]->acum_err = _initial;
+                } // End scoping.
+    
+                _ivemessages_pololu_motors_control_right_self[0]->_lf__reaction_0.deadline = NEVER;
+                //***** End initializing ReceiveMessages.pololu.motors.control_right
+            }
+            //***** End initializing ReceiveMessages.pololu.motors
+        }
+        //***** End initializing ReceiveMessages.pololu
+    }
     //***** End initializing ReceiveMessages
     // **** Start deferred initialize for ReceiveMessages
     {
@@ -157,9 +327,28 @@ void _lf_initialize_trigger_objects() {
         // ** End initialization for reaction 1 of ReceiveMessages
         // Total number of outputs (single ports and multiport channels)
         // produced by reaction_2 of ReceiveMessages.
-        receivemessages_main_self[0]->_lf__reaction_2.num_outputs = 0;
+        receivemessages_main_self[0]->_lf__reaction_2.num_outputs = 2;
+        // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+        // struct for this reaction.
+        receivemessages_main_self[0]->_lf__reaction_2.triggers = (trigger_t***)_lf_allocate(
+                2, sizeof(trigger_t**),
+                &receivemessages_main_self[0]->base.allocations);
+        receivemessages_main_self[0]->_lf__reaction_2.triggered_sizes = (int*)_lf_allocate(
+                2, sizeof(int),
+                &receivemessages_main_self[0]->base.allocations);
+        receivemessages_main_self[0]->_lf__reaction_2.output_produced = (bool**)_lf_allocate(
+                2, sizeof(bool*),
+                &receivemessages_main_self[0]->base.allocations);
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            // Reaction writes to an input of a contained reactor.
+            {
+                receivemessages_main_self[0]->_lf__reaction_2.output_produced[count++] = &receivemessages_main_self[0]->_lf_pololu.drive_mode.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
+                receivemessages_main_self[0]->_lf__reaction_2.output_produced[count++] = &receivemessages_main_self[0]->_lf_pololu.direction.is_present;
+            }
         }
         
         // ** End initialization for reaction 2 of ReceiveMessages
@@ -194,6 +383,303 @@ void _lf_initialize_trigger_objects() {
         
         }
         // **** End of deferred initialize for ReceiveMessages.disp
+        // **** Start deferred initialize for ReceiveMessages.pololu
+        {
+        
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_0 of ReceiveMessages.pololu.
+            receivemessages_pololu_self[0]->_lf__reaction_0.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 0 of ReceiveMessages.pololu
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_1 of ReceiveMessages.pololu.
+            receivemessages_pololu_self[0]->_lf__reaction_1.num_outputs = 3;
+            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+            // struct for this reaction.
+            receivemessages_pololu_self[0]->_lf__reaction_1.triggers = (trigger_t***)_lf_allocate(
+                    3, sizeof(trigger_t**),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            receivemessages_pololu_self[0]->_lf__reaction_1.triggered_sizes = (int*)_lf_allocate(
+                    3, sizeof(int),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            receivemessages_pololu_self[0]->_lf__reaction_1.output_produced = (bool**)_lf_allocate(
+                    3, sizeof(bool*),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_1.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_motors.left_speed.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_1.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_motors.right_speed.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_1.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_encoders.trigger.is_present;
+                }
+            }
+            
+            // ** End initialization for reaction 1 of ReceiveMessages.pololu
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_2 of ReceiveMessages.pololu.
+            receivemessages_pololu_self[0]->_lf__reaction_2.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 2 of ReceiveMessages.pololu
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_3 of ReceiveMessages.pololu.
+            receivemessages_pololu_self[0]->_lf__reaction_3.num_outputs = 3;
+            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+            // struct for this reaction.
+            receivemessages_pololu_self[0]->_lf__reaction_3.triggers = (trigger_t***)_lf_allocate(
+                    3, sizeof(trigger_t**),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            receivemessages_pololu_self[0]->_lf__reaction_3.triggered_sizes = (int*)_lf_allocate(
+                    3, sizeof(int),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            receivemessages_pololu_self[0]->_lf__reaction_3.output_produced = (bool**)_lf_allocate(
+                    3, sizeof(bool*),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_3.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_motors.left_speed.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_3.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_motors.right_speed.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_3.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_encoders.trigger.is_present;
+                }
+            }
+            
+            // ** End initialization for reaction 3 of ReceiveMessages.pololu
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_4 of ReceiveMessages.pololu.
+            receivemessages_pololu_self[0]->_lf__reaction_4.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 4 of ReceiveMessages.pololu
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_5 of ReceiveMessages.pololu.
+            receivemessages_pololu_self[0]->_lf__reaction_5.num_outputs = 3;
+            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+            // struct for this reaction.
+            receivemessages_pololu_self[0]->_lf__reaction_5.triggers = (trigger_t***)_lf_allocate(
+                    3, sizeof(trigger_t**),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            receivemessages_pololu_self[0]->_lf__reaction_5.triggered_sizes = (int*)_lf_allocate(
+                    3, sizeof(int),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            receivemessages_pololu_self[0]->_lf__reaction_5.output_produced = (bool**)_lf_allocate(
+                    3, sizeof(bool*),
+                    &receivemessages_pololu_self[0]->base.allocations);
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_5.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_motors.left_speed.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_5.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_motors.right_speed.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    receivemessages_pololu_self[0]->_lf__reaction_5.output_produced[count++] = &receivemessages_pololu_self[0]->_lf_encoders.trigger.is_present;
+                }
+            }
+            
+            // ** End initialization for reaction 5 of ReceiveMessages.pololu
+        
+            // **** Start deferred initialize for ReceiveMessages.pololu.encoders
+            {
+            
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_0 of ReceiveMessages.pololu.encoders.
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_0.num_outputs = 0;
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                }
+                
+                // ** End initialization for reaction 0 of ReceiveMessages.pololu.encoders
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_1 of ReceiveMessages.pololu.encoders.
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_1.num_outputs = 2;
+                // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+                // struct for this reaction.
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_1.triggers = (trigger_t***)_lf_allocate(
+                        2, sizeof(trigger_t**),
+                        &receivemessages_pololu_encoders_self[0]->base.allocations);
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_1.triggered_sizes = (int*)_lf_allocate(
+                        2, sizeof(int),
+                        &receivemessages_pololu_encoders_self[0]->base.allocations);
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_1.output_produced = (bool**)_lf_allocate(
+                        2, sizeof(bool*),
+                        &receivemessages_pololu_encoders_self[0]->base.allocations);
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    {
+                        receivemessages_pololu_encoders_self[0]->_lf__reaction_1.output_produced[count++] = &receivemessages_pololu_encoders_self[0]->_lf_left.is_present;
+                    }
+                    {
+                        receivemessages_pololu_encoders_self[0]->_lf__reaction_1.output_produced[count++] = &receivemessages_pololu_encoders_self[0]->_lf_right.is_present;
+                    }
+                }
+                
+                // ** End initialization for reaction 1 of ReceiveMessages.pololu.encoders
+            
+            }
+            // **** End of deferred initialize for ReceiveMessages.pololu.encoders
+            // **** Start deferred initialize for ReceiveMessages.pololu.motors
+            {
+            
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_0 of ReceiveMessages.pololu.motors.
+                receivemessages_pololu_motors_self[0]->_lf__reaction_0.num_outputs = 0;
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                }
+                
+                // ** End initialization for reaction 0 of ReceiveMessages.pololu.motors
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_1 of ReceiveMessages.pololu.motors.
+                receivemessages_pololu_motors_self[0]->_lf__reaction_1.num_outputs = 0;
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                }
+                
+                // ** End initialization for reaction 1 of ReceiveMessages.pololu.motors
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_2 of ReceiveMessages.pololu.motors.
+                receivemessages_pololu_motors_self[0]->_lf__reaction_2.num_outputs = 2;
+                // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+                // struct for this reaction.
+                receivemessages_pololu_motors_self[0]->_lf__reaction_2.triggers = (trigger_t***)_lf_allocate(
+                        2, sizeof(trigger_t**),
+                        &receivemessages_pololu_motors_self[0]->base.allocations);
+                receivemessages_pololu_motors_self[0]->_lf__reaction_2.triggered_sizes = (int*)_lf_allocate(
+                        2, sizeof(int),
+                        &receivemessages_pololu_motors_self[0]->base.allocations);
+                receivemessages_pololu_motors_self[0]->_lf__reaction_2.output_produced = (bool**)_lf_allocate(
+                        2, sizeof(bool*),
+                        &receivemessages_pololu_motors_self[0]->base.allocations);
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    // Reaction writes to an input of a contained reactor.
+                    {
+                        receivemessages_pololu_motors_self[0]->_lf__reaction_2.output_produced[count++] = &receivemessages_pololu_motors_self[0]->_lf_control_left.err.is_present;
+                    }
+                    // Reaction writes to an input of a contained reactor.
+                    {
+                        receivemessages_pololu_motors_self[0]->_lf__reaction_2.output_produced[count++] = &receivemessages_pololu_motors_self[0]->_lf_control_right.err.is_present;
+                    }
+                }
+                
+                // ** End initialization for reaction 2 of ReceiveMessages.pololu.motors
+            
+                // **** Start deferred initialize for ReceiveMessages.pololu.motors.motors
+                {
+                
+                    // Total number of outputs (single ports and multiport channels)
+                    // produced by reaction_0 of ReceiveMessages.pololu.motors.motors.
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_0.num_outputs = 0;
+                    {
+                        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    }
+                    
+                    // ** End initialization for reaction 0 of ReceiveMessages.pololu.motors.motors
+                    // Total number of outputs (single ports and multiport channels)
+                    // produced by reaction_1 of ReceiveMessages.pololu.motors.motors.
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_1.num_outputs = 0;
+                    {
+                        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    }
+                    
+                    // ** End initialization for reaction 1 of ReceiveMessages.pololu.motors.motors
+                    // Total number of outputs (single ports and multiport channels)
+                    // produced by reaction_2 of ReceiveMessages.pololu.motors.motors.
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_2.num_outputs = 0;
+                    {
+                        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    }
+                    
+                    // ** End initialization for reaction 2 of ReceiveMessages.pololu.motors.motors
+                
+                }
+                // **** End of deferred initialize for ReceiveMessages.pololu.motors.motors
+                // **** Start deferred initialize for ReceiveMessages.pololu.motors.control_left
+                {
+                
+                    // Total number of outputs (single ports and multiport channels)
+                    // produced by reaction_0 of ReceiveMessages.pololu.motors.control_left.
+                    _eivemessages_pololu_motors_control_left_self[0]->_lf__reaction_0.num_outputs = 1;
+                    // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+                    // struct for this reaction.
+                    _eivemessages_pololu_motors_control_left_self[0]->_lf__reaction_0.triggers = (trigger_t***)_lf_allocate(
+                            1, sizeof(trigger_t**),
+                            &_eivemessages_pololu_motors_control_left_self[0]->base.allocations);
+                    _eivemessages_pololu_motors_control_left_self[0]->_lf__reaction_0.triggered_sizes = (int*)_lf_allocate(
+                            1, sizeof(int),
+                            &_eivemessages_pololu_motors_control_left_self[0]->base.allocations);
+                    _eivemessages_pololu_motors_control_left_self[0]->_lf__reaction_0.output_produced = (bool**)_lf_allocate(
+                            1, sizeof(bool*),
+                            &_eivemessages_pololu_motors_control_left_self[0]->base.allocations);
+                    {
+                        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                        {
+                            _eivemessages_pololu_motors_control_left_self[0]->_lf__reaction_0.output_produced[count++] = &_eivemessages_pololu_motors_control_left_self[0]->_lf_ctrl.is_present;
+                        }
+                    }
+                    
+                    // ** End initialization for reaction 0 of ReceiveMessages.pololu.motors.control_left
+                
+                }
+                // **** End of deferred initialize for ReceiveMessages.pololu.motors.control_left
+                // **** Start deferred initialize for ReceiveMessages.pololu.motors.control_right
+                {
+                
+                    // Total number of outputs (single ports and multiport channels)
+                    // produced by reaction_0 of ReceiveMessages.pololu.motors.control_right.
+                    _ivemessages_pololu_motors_control_right_self[0]->_lf__reaction_0.num_outputs = 1;
+                    // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+                    // struct for this reaction.
+                    _ivemessages_pololu_motors_control_right_self[0]->_lf__reaction_0.triggers = (trigger_t***)_lf_allocate(
+                            1, sizeof(trigger_t**),
+                            &_ivemessages_pololu_motors_control_right_self[0]->base.allocations);
+                    _ivemessages_pololu_motors_control_right_self[0]->_lf__reaction_0.triggered_sizes = (int*)_lf_allocate(
+                            1, sizeof(int),
+                            &_ivemessages_pololu_motors_control_right_self[0]->base.allocations);
+                    _ivemessages_pololu_motors_control_right_self[0]->_lf__reaction_0.output_produced = (bool**)_lf_allocate(
+                            1, sizeof(bool*),
+                            &_ivemessages_pololu_motors_control_right_self[0]->base.allocations);
+                    {
+                        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                        {
+                            _ivemessages_pololu_motors_control_right_self[0]->_lf__reaction_0.output_produced[count++] = &_ivemessages_pololu_motors_control_right_self[0]->_lf_ctrl.is_present;
+                        }
+                    }
+                    
+                    // ** End initialization for reaction 0 of ReceiveMessages.pololu.motors.control_right
+                
+                }
+                // **** End of deferred initialize for ReceiveMessages.pololu.motors.control_right
+            }
+            // **** End of deferred initialize for ReceiveMessages.pololu.motors
+        }
+        // **** End of deferred initialize for ReceiveMessages.pololu
     }
     // **** End of deferred initialize for ReceiveMessages
     // **** Start non-nested deferred initialize for ReceiveMessages
@@ -226,6 +712,26 @@ void _lf_initialize_trigger_objects() {
         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
         receivemessages_main_self[src_runtime]->_lf_disp.line2._base.num_destinations = 1;
         receivemessages_main_self[src_runtime]->_lf_disp.line2._base.source_reactor = (self_base_t*)receivemessages_main_self[src_runtime];
+    }
+    // Set number of destination reactors for port pololu.drive_mode.
+    // Iterate over range ReceiveMessages.pololu.drive_mode(0,1)->[ReceiveMessages.pololu.drive_mode(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_main_self[src_runtime]->_lf_pololu.drive_mode._base.num_destinations = 1;
+        receivemessages_main_self[src_runtime]->_lf_pololu.drive_mode._base.source_reactor = (self_base_t*)receivemessages_main_self[src_runtime];
+    }
+    // Set number of destination reactors for port pololu.direction.
+    // Iterate over range ReceiveMessages.pololu.direction(0,1)->[ReceiveMessages.pololu.direction(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_main_self[src_runtime]->_lf_pololu.direction._base.num_destinations = 1;
+        receivemessages_main_self[src_runtime]->_lf_pololu.direction._base.source_reactor = (self_base_t*)receivemessages_main_self[src_runtime];
     }
     {
         int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
@@ -335,6 +841,79 @@ void _lf_initialize_trigger_objects() {
             }
         }
     }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range ReceiveMessages.pololu.drive_mode(0,1)->[ReceiveMessages.pololu.drive_mode(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 2 of ReceiveMessages triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.drive_mode.
+            receivemessages_main_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 2 of ReceiveMessages, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.drive_mode
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_main_self[src_runtime]->base.allocations); 
+            receivemessages_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.direction(0,1)->[ReceiveMessages.pololu.direction(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 2 of ReceiveMessages triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.direction.
+            receivemessages_main_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 2 of ReceiveMessages, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.direction
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_main_self[src_runtime]->base.allocations); 
+            receivemessages_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges ReceiveMessages.pololu.drive_mode(0,1)->[ReceiveMessages.pololu.drive_mode(0,1)] and ReceiveMessages.pololu.drive_mode(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.drive_mode(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.drive_mode's trigger struct.
+                receivemessages_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_self[dst_runtime]->_lf__drive_mode;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+        // Iterate over ranges ReceiveMessages.pololu.direction(0,1)->[ReceiveMessages.pololu.direction(0,1)] and ReceiveMessages.pololu.direction(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.direction(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.direction's trigger struct.
+                receivemessages_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_self[dst_runtime]->_lf__direction;
+            }
+        }
+    }
     
     // **** Start non-nested deferred initialize for ReceiveMessages.disp
     
@@ -342,6 +921,668 @@ void _lf_initialize_trigger_objects() {
     
     
     // **** End of non-nested deferred initialize for ReceiveMessages.disp
+    // **** Start non-nested deferred initialize for ReceiveMessages.pololu
+    // Set number of destination reactors for port motors.left_speed.
+    // Iterate over range ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_pololu_self[src_runtime]->_lf_motors.left_speed._base.num_destinations = 1;
+        receivemessages_pololu_self[src_runtime]->_lf_motors.left_speed._base.source_reactor = (self_base_t*)receivemessages_pololu_self[src_runtime];
+    }
+    // Set number of destination reactors for port motors.right_speed.
+    // Iterate over range ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_pololu_self[src_runtime]->_lf_motors.right_speed._base.num_destinations = 1;
+        receivemessages_pololu_self[src_runtime]->_lf_motors.right_speed._base.source_reactor = (self_base_t*)receivemessages_pololu_self[src_runtime];
+    }
+    // Set number of destination reactors for port encoders.trigger.
+    // Iterate over range ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_pololu_self[src_runtime]->_lf_encoders.trigger._base.num_destinations = 1;
+        receivemessages_pololu_self[src_runtime]->_lf_encoders.trigger._base.source_reactor = (self_base_t*)receivemessages_pololu_self[src_runtime];
+    }
+    
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 1 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.left_speed.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 1 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.left_speed
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 1 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.right_speed.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 1 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.right_speed
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 1 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.encoders.trigger.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 1 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.encoders.trigger
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)] and ReceiveMessages.pololu.motors.left_speed(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.left_speed(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.left_speed's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_self[dst_runtime]->_lf__left_speed;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+        // Iterate over ranges ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)] and ReceiveMessages.pololu.motors.right_speed(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.right_speed(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.right_speed's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_self[dst_runtime]->_lf__right_speed;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+        // Iterate over ranges ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)] and ReceiveMessages.pololu.encoders.trigger(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.encoders.trigger(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.encoders.trigger's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_encoders_self[dst_runtime]->_lf__trigger;
+            }
+        }
+    }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 3 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.left_speed.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 3 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.left_speed
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 3 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.right_speed.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 3 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.right_speed
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 3 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.encoders.trigger.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 3 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.encoders.trigger
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)] and ReceiveMessages.pololu.motors.left_speed(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.left_speed(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.left_speed's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_self[dst_runtime]->_lf__left_speed;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+        // Iterate over ranges ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)] and ReceiveMessages.pololu.motors.right_speed(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.right_speed(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.right_speed's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_self[dst_runtime]->_lf__right_speed;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+        // Iterate over ranges ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)] and ReceiveMessages.pololu.encoders.trigger(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.encoders.trigger(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.encoders.trigger's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_encoders_self[dst_runtime]->_lf__trigger;
+            }
+        }
+    }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 5 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.left_speed.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 5 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.left_speed
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 5 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.right_speed.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 5 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.right_speed
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 5 of ReceiveMessages.pololu triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.encoders.trigger.
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 5 of ReceiveMessages.pololu, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.encoders.trigger
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)] and ReceiveMessages.pololu.motors.left_speed(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.left_speed(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.left_speed's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_self[dst_runtime]->_lf__left_speed;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+        // Iterate over ranges ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)] and ReceiveMessages.pololu.motors.right_speed(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.right_speed(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.right_speed's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_self[dst_runtime]->_lf__right_speed;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+        // Iterate over ranges ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)] and ReceiveMessages.pololu.encoders.trigger(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.encoders.trigger(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.encoders.trigger's trigger struct.
+                receivemessages_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_encoders_self[dst_runtime]->_lf__trigger;
+            }
+        }
+    }
+    
+    // **** Start non-nested deferred initialize for ReceiveMessages.pololu.encoders
+    
+    // For reference counting, set num_destinations for port ReceiveMessages.pololu.encoders.right.
+    // Iterate over range ReceiveMessages.pololu.encoders.right(0,1)->[ReceiveMessages.pololu.motors.right(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_pololu_encoders_self[src_runtime]->_lf_right._base.num_destinations = 1;
+        receivemessages_pololu_encoders_self[src_runtime]->_lf_right._base.source_reactor = (self_base_t*)receivemessages_pololu_encoders_self[src_runtime];
+    }
+    // For reference counting, set num_destinations for port ReceiveMessages.pololu.encoders.left.
+    // Iterate over range ReceiveMessages.pololu.encoders.left(0,1)->[ReceiveMessages.pololu.motors.left(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_pololu_encoders_self[src_runtime]->_lf_left._base.num_destinations = 1;
+        receivemessages_pololu_encoders_self[src_runtime]->_lf_left._base.source_reactor = (self_base_t*)receivemessages_pololu_encoders_self[src_runtime];
+    }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range ReceiveMessages.pololu.encoders.left(0,1)->[ReceiveMessages.pololu.motors.left(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 1 of ReceiveMessages.pololu.encoders triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.encoders.left.
+            receivemessages_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 1 of ReceiveMessages.pololu.encoders, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.encoders.left
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_encoders_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.encoders.right(0,1)->[ReceiveMessages.pololu.motors.right(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 1 of ReceiveMessages.pololu.encoders triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.encoders.right.
+            receivemessages_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 1 of ReceiveMessages.pololu.encoders, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.encoders.right
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_encoders_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges ReceiveMessages.pololu.encoders.left(0,1)->[ReceiveMessages.pololu.motors.left(0,1)] and ReceiveMessages.pololu.motors.left(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.left(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.left's trigger struct.
+                receivemessages_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_self[dst_runtime]->_lf__left;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+        // Iterate over ranges ReceiveMessages.pololu.encoders.right(0,1)->[ReceiveMessages.pololu.motors.right(0,1)] and ReceiveMessages.pololu.motors.right(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.right(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.right's trigger struct.
+                receivemessages_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_self[dst_runtime]->_lf__right;
+            }
+        }
+    }
+    
+    // **** End of non-nested deferred initialize for ReceiveMessages.pololu.encoders
+    // **** Start non-nested deferred initialize for ReceiveMessages.pololu.motors
+    // Set number of destination reactors for port control_left.err.
+    // Iterate over range ReceiveMessages.pololu.motors.control_left.err(0,1)->[ReceiveMessages.pololu.motors.control_left.err(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_pololu_motors_self[src_runtime]->_lf_control_left.err._base.num_destinations = 1;
+        receivemessages_pololu_motors_self[src_runtime]->_lf_control_left.err._base.source_reactor = (self_base_t*)receivemessages_pololu_motors_self[src_runtime];
+    }
+    // Set number of destination reactors for port control_right.err.
+    // Iterate over range ReceiveMessages.pololu.motors.control_right.err(0,1)->[ReceiveMessages.pololu.motors.control_right.err(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        receivemessages_pololu_motors_self[src_runtime]->_lf_control_right.err._base.num_destinations = 1;
+        receivemessages_pololu_motors_self[src_runtime]->_lf_control_right.err._base.source_reactor = (self_base_t*)receivemessages_pololu_motors_self[src_runtime];
+    }
+    
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range ReceiveMessages.pololu.motors.control_left.err(0,1)->[ReceiveMessages.pololu.motors.control_left.err(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 2 of ReceiveMessages.pololu.motors triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.control_left.err.
+            receivemessages_pololu_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 2 of ReceiveMessages.pololu.motors, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.control_left.err
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_motors_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        // Iterate over range ReceiveMessages.pololu.motors.control_right.err(0,1)->[ReceiveMessages.pololu.motors.control_right.err(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 2 of ReceiveMessages.pololu.motors triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.control_right.err.
+            receivemessages_pololu_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 2 of ReceiveMessages.pololu.motors, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.control_right.err
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &receivemessages_pololu_motors_self[src_runtime]->base.allocations); 
+            receivemessages_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges ReceiveMessages.pololu.motors.control_left.err(0,1)->[ReceiveMessages.pololu.motors.control_left.err(0,1)] and ReceiveMessages.pololu.motors.control_left.err(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.control_left.err(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.control_left.err's trigger struct.
+                receivemessages_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &_eivemessages_pololu_motors_control_left_self[dst_runtime]->_lf__err;
+            }
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+        // Iterate over ranges ReceiveMessages.pololu.motors.control_right.err(0,1)->[ReceiveMessages.pololu.motors.control_right.err(0,1)] and ReceiveMessages.pololu.motors.control_right.err(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.control_right.err(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.control_right.err's trigger struct.
+                receivemessages_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &_ivemessages_pololu_motors_control_right_self[dst_runtime]->_lf__err;
+            }
+        }
+    }
+    
+    // **** Start non-nested deferred initialize for ReceiveMessages.pololu.motors.motors
+    
+    
+    
+    
+    // **** End of non-nested deferred initialize for ReceiveMessages.pololu.motors.motors
+    // **** Start non-nested deferred initialize for ReceiveMessages.pololu.motors.control_left
+    
+    // For reference counting, set num_destinations for port ReceiveMessages.pololu.motors.control_left.ctrl.
+    // Iterate over range ReceiveMessages.pololu.motors.control_left.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.left_power(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        _eivemessages_pololu_motors_control_left_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
+        _eivemessages_pololu_motors_control_left_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)_eivemessages_pololu_motors_control_left_self[src_runtime];
+    }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range ReceiveMessages.pololu.motors.control_left.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.left_power(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 0 of ReceiveMessages.pololu.motors.control_left triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.control_left.ctrl.
+            _eivemessages_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 0 of ReceiveMessages.pololu.motors.control_left, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.control_left.ctrl
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &_eivemessages_pololu_motors_control_left_self[src_runtime]->base.allocations); 
+            _eivemessages_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges ReceiveMessages.pololu.motors.control_left.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.left_power(0,1)] and ReceiveMessages.pololu.motors.motors.left_power(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.motors.left_power(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.motors.left_power's trigger struct.
+                _eivemessages_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_motors_self[dst_runtime]->_lf__left_power;
+            }
+        }
+    }
+    
+    // **** End of non-nested deferred initialize for ReceiveMessages.pololu.motors.control_left
+    // **** Start non-nested deferred initialize for ReceiveMessages.pololu.motors.control_right
+    
+    // For reference counting, set num_destinations for port ReceiveMessages.pololu.motors.control_right.ctrl.
+    // Iterate over range ReceiveMessages.pololu.motors.control_right.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.right_power(0,1)].
+    {
+        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+        _ivemessages_pololu_motors_control_right_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
+        _ivemessages_pololu_motors_control_right_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)_ivemessages_pololu_motors_control_right_self[src_runtime];
+    }
+    {
+        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Iterate over range ReceiveMessages.pololu.motors.control_right.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.right_power(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            // Reaction 0 of ReceiveMessages.pololu.motors.control_right triggers 1 downstream reactions
+            // through port ReceiveMessages.pololu.motors.control_right.ctrl.
+            _ivemessages_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+            // For reaction 0 of ReceiveMessages.pololu.motors.control_right, allocate an
+            // array of trigger pointers for downstream reactions through port ReceiveMessages.pololu.motors.control_right.ctrl
+            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                    1, sizeof(trigger_t*),
+                    &_ivemessages_pololu_motors_control_right_self[src_runtime]->base.allocations); 
+            _ivemessages_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+        }
+        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+        // Iterate over ranges ReceiveMessages.pololu.motors.control_right.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.right_power(0,1)] and ReceiveMessages.pololu.motors.motors.right_power(0,1).
+        {
+            int src_runtime = 0; // Runtime index.
+            SUPPRESS_UNUSED_WARNING(src_runtime);
+            int src_channel = 0; // Channel index.
+            SUPPRESS_UNUSED_WARNING(src_channel);
+            int src_bank = 0; // Bank index.
+            SUPPRESS_UNUSED_WARNING(src_bank);
+            // Iterate over range ReceiveMessages.pololu.motors.motors.right_power(0,1).
+            {
+                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Point to destination port ReceiveMessages.pololu.motors.motors.right_power's trigger struct.
+                _ivemessages_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &receivemessages_pololu_motors_motors_self[dst_runtime]->_lf__right_power;
+            }
+        }
+    }
+    
+    // **** End of non-nested deferred initialize for ReceiveMessages.pololu.motors.control_right
+    // **** End of non-nested deferred initialize for ReceiveMessages.pololu.motors
+    // **** End of non-nested deferred initialize for ReceiveMessages.pololu
     // **** End of non-nested deferred initialize for ReceiveMessages
     // Connect inputs and outputs for reactor ReceiveMessages.
     // Connect inputs and outputs for reactor ReceiveMessages.disp.
@@ -399,16 +1640,340 @@ void _lf_initialize_trigger_objects() {
             receivemessages_disp_self[dst_runtime]->_lf_line2 = (_display_line2_t*)&receivemessages_main_self[src_runtime]->_lf_disp.line2;
         }
     }
+    // Connect inputs and outputs for reactor ReceiveMessages.pololu.
+    // Connect ReceiveMessages.pololu.drive_mode(0,1)->[ReceiveMessages.pololu.drive_mode(0,1)] to port ReceiveMessages.pololu.drive_mode(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.drive_mode(0,1)->[ReceiveMessages.pololu.drive_mode(0,1)] and ReceiveMessages.pololu.drive_mode(0,1).
     {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.drive_mode(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_self[dst_runtime]->_lf_drive_mode = (_robot_drive_mode_t*)&receivemessages_main_self[src_runtime]->_lf_pololu.drive_mode;
+        }
+    }
+    // Connect ReceiveMessages.pololu.direction(0,1)->[ReceiveMessages.pololu.direction(0,1)] to port ReceiveMessages.pololu.direction(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.direction(0,1)->[ReceiveMessages.pololu.direction(0,1)] and ReceiveMessages.pololu.direction(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.direction(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_self[dst_runtime]->_lf_direction = (_robot_direction_t*)&receivemessages_main_self[src_runtime]->_lf_pololu.direction;
+        }
+    }
+    // Connect inputs and outputs for reactor ReceiveMessages.pololu.encoders.
+    // Connect ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)] to port ReceiveMessages.pololu.encoders.trigger(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.encoders.trigger(0,1)->[ReceiveMessages.pololu.encoders.trigger(0,1)] and ReceiveMessages.pololu.encoders.trigger(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.encoders.trigger(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_encoders_self[dst_runtime]->_lf_trigger = (_encoders_trigger_t*)&receivemessages_pololu_self[src_runtime]->_lf_encoders.trigger;
+        }
+    }
+    // Connect ReceiveMessages.pololu.encoders.right(0,1)->[ReceiveMessages.pololu.motors.right(0,1)] to port ReceiveMessages.pololu.motors.right(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.encoders.right(0,1)->[ReceiveMessages.pololu.motors.right(0,1)] and ReceiveMessages.pololu.motors.right(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.motors.right(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_motors_self[dst_runtime]->_lf_right = (_motorswithfeedback_right_t*)&receivemessages_pololu_encoders_self[src_runtime]->_lf_right;
+        }
+    }
+    // Connect ReceiveMessages.pololu.encoders.left(0,1)->[ReceiveMessages.pololu.motors.left(0,1)] to port ReceiveMessages.pololu.motors.left(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.encoders.left(0,1)->[ReceiveMessages.pololu.motors.left(0,1)] and ReceiveMessages.pololu.motors.left(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.motors.left(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_motors_self[dst_runtime]->_lf_left = (_motorswithfeedback_left_t*)&receivemessages_pololu_encoders_self[src_runtime]->_lf_left;
+        }
+    }
+    // Connect inputs and outputs for reactor ReceiveMessages.pololu.motors.
+    // Connect ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)] to port ReceiveMessages.pololu.motors.left_speed(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.motors.left_speed(0,1)->[ReceiveMessages.pololu.motors.left_speed(0,1)] and ReceiveMessages.pololu.motors.left_speed(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.motors.left_speed(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_motors_self[dst_runtime]->_lf_left_speed = (_motorswithfeedback_left_speed_t*)&receivemessages_pololu_self[src_runtime]->_lf_motors.left_speed;
+        }
+    }
+    // Connect ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)] to port ReceiveMessages.pololu.motors.right_speed(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.motors.right_speed(0,1)->[ReceiveMessages.pololu.motors.right_speed(0,1)] and ReceiveMessages.pololu.motors.right_speed(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.motors.right_speed(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_motors_self[dst_runtime]->_lf_right_speed = (_motorswithfeedback_right_speed_t*)&receivemessages_pololu_self[src_runtime]->_lf_motors.right_speed;
+        }
+    }
+    // Connect inputs and outputs for reactor ReceiveMessages.pololu.motors.motors.
+    // Connect inputs and outputs for reactor ReceiveMessages.pololu.motors.control_left.
+    // Connect ReceiveMessages.pololu.motors.control_left.err(0,1)->[ReceiveMessages.pololu.motors.control_left.err(0,1)] to port ReceiveMessages.pololu.motors.control_left.err(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.motors.control_left.err(0,1)->[ReceiveMessages.pololu.motors.control_left.err(0,1)] and ReceiveMessages.pololu.motors.control_left.err(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.motors.control_left.err(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _eivemessages_pololu_motors_control_left_self[dst_runtime]->_lf_err = (_picontrol_err_t*)&receivemessages_pololu_motors_self[src_runtime]->_lf_control_left.err;
+        }
+    }
+    // Connect ReceiveMessages.pololu.motors.control_left.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.left_power(0,1)] to port ReceiveMessages.pololu.motors.motors.left_power(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.motors.control_left.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.left_power(0,1)] and ReceiveMessages.pololu.motors.motors.left_power(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.motors.motors.left_power(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_motors_motors_self[dst_runtime]->_lf_left_power = (_motors_left_power_t*)&_eivemessages_pololu_motors_control_left_self[src_runtime]->_lf_ctrl;
+        }
+    }
+    // Connect inputs and outputs for reactor ReceiveMessages.pololu.motors.control_right.
+    // Connect ReceiveMessages.pololu.motors.control_right.err(0,1)->[ReceiveMessages.pololu.motors.control_right.err(0,1)] to port ReceiveMessages.pololu.motors.control_right.err(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.motors.control_right.err(0,1)->[ReceiveMessages.pololu.motors.control_right.err(0,1)] and ReceiveMessages.pololu.motors.control_right.err(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.motors.control_right.err(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _ivemessages_pololu_motors_control_right_self[dst_runtime]->_lf_err = (_picontrol_err_t*)&receivemessages_pololu_motors_self[src_runtime]->_lf_control_right.err;
+        }
+    }
+    // Connect ReceiveMessages.pololu.motors.control_right.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.right_power(0,1)] to port ReceiveMessages.pololu.motors.motors.right_power(0,1)
+    // Iterate over ranges ReceiveMessages.pololu.motors.control_right.ctrl(0,1)->[ReceiveMessages.pololu.motors.motors.right_power(0,1)] and ReceiveMessages.pololu.motors.motors.right_power(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range ReceiveMessages.pololu.motors.motors.right_power(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            receivemessages_pololu_motors_motors_self[dst_runtime]->_lf_right_power = (_motors_right_power_t*)&_ivemessages_pololu_motors_control_right_self[src_runtime]->_lf_ctrl;
+        }
+    }
+    {
+    }
+    {
+        {
+        }
+        {
+            {
+            }
+            {
+            }
+            {
+            }
+            // Add port ReceiveMessages.pololu.motors.control_left.err to array of is_present fields.
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                {
+                    {
+                        envs[receivemessages_main].is_present_fields[0 + count] = &receivemessages_pololu_motors_self[0]->_lf_control_left.err.is_present;
+                        #ifdef FEDERATED_DECENTRALIZED
+                        envs[receivemessages_main]._lf_intended_tag_fields[0 + count] = &receivemessages_pololu_motors_self[0]->_lf_control_left.err.intended_tag;
+                        #endif // FEDERATED_DECENTRALIZED
+                        count++;
+                    }
+                }
+            }
+            // Add port ReceiveMessages.pololu.motors.control_right.err to array of is_present fields.
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                {
+                    {
+                        envs[receivemessages_main].is_present_fields[1 + count] = &receivemessages_pololu_motors_self[0]->_lf_control_right.err.is_present;
+                        #ifdef FEDERATED_DECENTRALIZED
+                        envs[receivemessages_main]._lf_intended_tag_fields[1 + count] = &receivemessages_pololu_motors_self[0]->_lf_control_right.err.intended_tag;
+                        #endif // FEDERATED_DECENTRALIZED
+                        count++;
+                    }
+                }
+            }
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                {
+                    // Add port ReceiveMessages.pololu.motors.control_left.ctrl to array of is_present fields.
+                    envs[receivemessages_main].is_present_fields[2 + count] = &_eivemessages_pololu_motors_control_left_self[0]->_lf_ctrl.is_present;
+                    #ifdef FEDERATED_DECENTRALIZED
+                    // Add port ReceiveMessages.pololu.motors.control_left.ctrl to array of intended_tag fields.
+                    envs[receivemessages_main]._lf_intended_tag_fields[2 + count] = &_eivemessages_pololu_motors_control_left_self[0]->_lf_ctrl.intended_tag;
+                    #endif // FEDERATED_DECENTRALIZED
+                    count++;
+                }
+            }
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                {
+                    // Add port ReceiveMessages.pololu.motors.control_right.ctrl to array of is_present fields.
+                    envs[receivemessages_main].is_present_fields[3 + count] = &_ivemessages_pololu_motors_control_right_self[0]->_lf_ctrl.is_present;
+                    #ifdef FEDERATED_DECENTRALIZED
+                    // Add port ReceiveMessages.pololu.motors.control_right.ctrl to array of intended_tag fields.
+                    envs[receivemessages_main]._lf_intended_tag_fields[3 + count] = &_ivemessages_pololu_motors_control_right_self[0]->_lf_ctrl.intended_tag;
+                    #endif // FEDERATED_DECENTRALIZED
+                    count++;
+                }
+            }
+        }
+        // Add port ReceiveMessages.pololu.motors.left_speed to array of is_present fields.
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            {
+                {
+                    envs[receivemessages_main].is_present_fields[4 + count] = &receivemessages_pololu_self[0]->_lf_motors.left_speed.is_present;
+                    #ifdef FEDERATED_DECENTRALIZED
+                    envs[receivemessages_main]._lf_intended_tag_fields[4 + count] = &receivemessages_pololu_self[0]->_lf_motors.left_speed.intended_tag;
+                    #endif // FEDERATED_DECENTRALIZED
+                    count++;
+                }
+            }
+        }
+        // Add port ReceiveMessages.pololu.motors.right_speed to array of is_present fields.
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            {
+                {
+                    envs[receivemessages_main].is_present_fields[5 + count] = &receivemessages_pololu_self[0]->_lf_motors.right_speed.is_present;
+                    #ifdef FEDERATED_DECENTRALIZED
+                    envs[receivemessages_main]._lf_intended_tag_fields[5 + count] = &receivemessages_pololu_self[0]->_lf_motors.right_speed.intended_tag;
+                    #endif // FEDERATED_DECENTRALIZED
+                    count++;
+                }
+            }
+        }
+        // Add port ReceiveMessages.pololu.encoders.trigger to array of is_present fields.
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            {
+                {
+                    envs[receivemessages_main].is_present_fields[6 + count] = &receivemessages_pololu_self[0]->_lf_encoders.trigger.is_present;
+                    #ifdef FEDERATED_DECENTRALIZED
+                    envs[receivemessages_main]._lf_intended_tag_fields[6 + count] = &receivemessages_pololu_self[0]->_lf_encoders.trigger.intended_tag;
+                    #endif // FEDERATED_DECENTRALIZED
+                    count++;
+                }
+            }
+        }
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            {
+                // Add port ReceiveMessages.pololu.encoders.right to array of is_present fields.
+                envs[receivemessages_main].is_present_fields[7 + count] = &receivemessages_pololu_encoders_self[0]->_lf_right.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                // Add port ReceiveMessages.pololu.encoders.right to array of intended_tag fields.
+                envs[receivemessages_main]._lf_intended_tag_fields[7 + count] = &receivemessages_pololu_encoders_self[0]->_lf_right.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+                // Add port ReceiveMessages.pololu.encoders.left to array of is_present fields.
+                envs[receivemessages_main].is_present_fields[7 + count] = &receivemessages_pololu_encoders_self[0]->_lf_left.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                // Add port ReceiveMessages.pololu.encoders.left to array of intended_tag fields.
+                envs[receivemessages_main]._lf_intended_tag_fields[7 + count] = &receivemessages_pololu_encoders_self[0]->_lf_left.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
     }
     // Add port ReceiveMessages.disp.line0 to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[receivemessages_main].is_present_fields[0 + count] = &receivemessages_main_self[0]->_lf_disp.line0.is_present;
+                envs[receivemessages_main].is_present_fields[9 + count] = &receivemessages_main_self[0]->_lf_disp.line0.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[receivemessages_main]._lf_intended_tag_fields[0 + count] = &receivemessages_main_self[0]->_lf_disp.line0.intended_tag;
+                envs[receivemessages_main]._lf_intended_tag_fields[9 + count] = &receivemessages_main_self[0]->_lf_disp.line0.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -419,9 +1984,9 @@ void _lf_initialize_trigger_objects() {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[receivemessages_main].is_present_fields[1 + count] = &receivemessages_main_self[0]->_lf_disp.line1.is_present;
+                envs[receivemessages_main].is_present_fields[10 + count] = &receivemessages_main_self[0]->_lf_disp.line1.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[receivemessages_main]._lf_intended_tag_fields[1 + count] = &receivemessages_main_self[0]->_lf_disp.line1.intended_tag;
+                envs[receivemessages_main]._lf_intended_tag_fields[10 + count] = &receivemessages_main_self[0]->_lf_disp.line1.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -432,9 +1997,35 @@ void _lf_initialize_trigger_objects() {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[receivemessages_main].is_present_fields[2 + count] = &receivemessages_main_self[0]->_lf_disp.line2.is_present;
+                envs[receivemessages_main].is_present_fields[11 + count] = &receivemessages_main_self[0]->_lf_disp.line2.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[receivemessages_main]._lf_intended_tag_fields[2 + count] = &receivemessages_main_self[0]->_lf_disp.line2.intended_tag;
+                envs[receivemessages_main]._lf_intended_tag_fields[11 + count] = &receivemessages_main_self[0]->_lf_disp.line2.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
+    }
+    // Add port ReceiveMessages.pololu.drive_mode to array of is_present fields.
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            {
+                envs[receivemessages_main].is_present_fields[12 + count] = &receivemessages_main_self[0]->_lf_pololu.drive_mode.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                envs[receivemessages_main]._lf_intended_tag_fields[12 + count] = &receivemessages_main_self[0]->_lf_pololu.drive_mode.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
+    }
+    // Add port ReceiveMessages.pololu.direction to array of is_present fields.
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            {
+                envs[receivemessages_main].is_present_fields[13 + count] = &receivemessages_main_self[0]->_lf_pololu.direction.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                envs[receivemessages_main]._lf_intended_tag_fields[13 + count] = &receivemessages_main_self[0]->_lf_pololu.direction.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -470,6 +2061,100 @@ void _lf_initialize_trigger_objects() {
             // index is the OR of level 2 and 
             // deadline 9223372036854775807 shifted left 16 bits.
             receivemessages_disp_self[0]->_lf__reaction_1.index = 0xffffffffffff0002LL;
+        }
+    
+    
+        // Set reaction priorities for ReactorInstance ReceiveMessages.pololu
+        {
+            receivemessages_pololu_self[0]->_lf__reaction_0.chain_id = 1;
+            // index is the OR of level 3 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            receivemessages_pololu_self[0]->_lf__reaction_0.index = 0xffffffffffff0003LL;
+            receivemessages_pololu_self[0]->_lf__reaction_1.chain_id = 1;
+            // index is the OR of level 4 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            receivemessages_pololu_self[0]->_lf__reaction_1.index = 0xffffffffffff0004LL;
+            receivemessages_pololu_self[0]->_lf__reaction_2.chain_id = 1;
+            // index is the OR of level 5 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            receivemessages_pololu_self[0]->_lf__reaction_2.index = 0xffffffffffff0005LL;
+            receivemessages_pololu_self[0]->_lf__reaction_3.chain_id = 1;
+            // index is the OR of level 6 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            receivemessages_pololu_self[0]->_lf__reaction_3.index = 0xffffffffffff0006LL;
+            receivemessages_pololu_self[0]->_lf__reaction_4.chain_id = 1;
+            // index is the OR of level 7 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            receivemessages_pololu_self[0]->_lf__reaction_4.index = 0xffffffffffff0007LL;
+            receivemessages_pololu_self[0]->_lf__reaction_5.chain_id = 1;
+            // index is the OR of level 8 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            receivemessages_pololu_self[0]->_lf__reaction_5.index = 0xffffffffffff0008LL;
+        
+            // Set reaction priorities for ReactorInstance ReceiveMessages.pololu.encoders
+            {
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_0.chain_id = 1;
+                // index is the OR of level 0 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_0.index = 0xffffffffffff0000LL;
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_1.chain_id = 1;
+                // index is the OR of level 9 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                receivemessages_pololu_encoders_self[0]->_lf__reaction_1.index = 0xffffffffffff0009LL;
+            }
+        
+        
+            // Set reaction priorities for ReactorInstance ReceiveMessages.pololu.motors
+            {
+                receivemessages_pololu_motors_self[0]->_lf__reaction_0.chain_id = 1;
+                // index is the OR of level 9 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                receivemessages_pololu_motors_self[0]->_lf__reaction_0.index = 0xffffffffffff0009LL;
+                receivemessages_pololu_motors_self[0]->_lf__reaction_1.chain_id = 1;
+                // index is the OR of level 10 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                receivemessages_pololu_motors_self[0]->_lf__reaction_1.index = 0xffffffffffff000aLL;
+                receivemessages_pololu_motors_self[0]->_lf__reaction_2.chain_id = 1;
+                // index is the OR of level 11 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                receivemessages_pololu_motors_self[0]->_lf__reaction_2.index = 0xffffffffffff000bLL;
+            
+                // Set reaction priorities for ReactorInstance ReceiveMessages.pololu.motors.motors
+                {
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_0.chain_id = 1;
+                    // index is the OR of level 0 and 
+                    // deadline 9223372036854775807 shifted left 16 bits.
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_0.index = 0xffffffffffff0000LL;
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_1.chain_id = 1;
+                    // index is the OR of level 13 and 
+                    // deadline 9223372036854775807 shifted left 16 bits.
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_1.index = 0xffffffffffff000dLL;
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_2.chain_id = 1;
+                    // index is the OR of level 14 and 
+                    // deadline 9223372036854775807 shifted left 16 bits.
+                    receivemessages_pololu_motors_motors_self[0]->_lf__reaction_2.index = 0xffffffffffff000eLL;
+                }
+            
+            
+                // Set reaction priorities for ReactorInstance ReceiveMessages.pololu.motors.control_left
+                {
+                    _eivemessages_pololu_motors_control_left_self[0]->_lf__reaction_0.chain_id = 1;
+                    // index is the OR of level 12 and 
+                    // deadline 9223372036854775807 shifted left 16 bits.
+                    _eivemessages_pololu_motors_control_left_self[0]->_lf__reaction_0.index = 0xffffffffffff000cLL;
+                }
+            
+            
+                // Set reaction priorities for ReactorInstance ReceiveMessages.pololu.motors.control_right
+                {
+                    _ivemessages_pololu_motors_control_right_self[0]->_lf__reaction_0.chain_id = 1;
+                    // index is the OR of level 12 and 
+                    // deadline 9223372036854775807 shifted left 16 bits.
+                    _ivemessages_pololu_motors_control_right_self[0]->_lf__reaction_0.index = 0xffffffffffff000cLL;
+                }
+            
+            }
+        
         }
     
     }

@@ -1,0 +1,105 @@
+target C {
+  platform: {
+      name: "rp2040",
+      board: "pololu_3pi_2040_robot"
+  },
+  threading: false,
+}
+
+import MotorsWithFeedback from "lib/MotorsWithFeedback.lf"
+import Encoders from "lib/Encoders.lf"
+
+preamble {=
+  #include <stdio.h>
+  #include <pico/stdlib.h>
+  #include <hardware/gpio.h>
+=}
+
+reactor Robot {
+  input drive_mode:int; //0 = stopped, 1 = driving, 2 = turning
+  input direction:int; //0 = forwards or left, 1 = backwards or right
+  encoders = new Encoders()
+  motors = new MotorsWithFeedback()
+  encoders.left -> motors.left;
+  encoders.right -> motors.right;
+
+  state orientation: float = 0;
+  state left_speed: float = 0.15;
+  state right_speed: float = 0.15;
+
+  timer t(0, 10 ms);
+
+  initial mode STOPPED {
+    reaction(drive_mode) -> STOPPED, DRIVING, TURNING {=
+      switch (drive_mode->value) {
+        case 0: 
+          lf_set_mode(STOPPED);
+          break;
+        case 1:
+          lf_set_mode(DRIVING);
+          break;
+        case 2:
+          lf_set_mode(TURNING);
+      }
+    =}
+
+
+    reaction(t) -> motors.left_speed, motors.right_speed, encoders.trigger {=
+      lf_set(encoders.trigger, !encoders.trigger->value);
+      lf_set(motors.left_speed, 0);
+      lf_set(motors.right_speed, 0);
+    =}
+  }
+
+  mode DRIVING {
+    reaction(drive_mode) -> STOPPED, DRIVING, TURNING {=
+      switch (drive_mode->value) {
+        case 0: 
+          lf_set_mode(STOPPED);
+          break;
+        case 1:
+          lf_set_mode(DRIVING);
+          break;
+        case 2:
+          lf_set_mode(TURNING);
+      }
+    =}
+
+    reaction(t, direction) -> motors.left_speed, motors.right_speed, encoders.trigger {=
+      lf_set(encoders.trigger, !encoders.trigger->value);
+      if (direction->value) {
+        lf_set(motors.left_speed, -self->left_speed);
+        lf_set(motors.right_speed, -self->right_speed);
+      } else {
+        lf_set(motors.left_speed, self->left_speed);
+        lf_set(motors.right_speed, self->right_speed);
+      }
+    =}
+  }
+
+  mode TURNING {
+    reaction(drive_mode) -> STOPPED, DRIVING, TURNING {=
+      switch (drive_mode->value) {
+        case 0: 
+          lf_set_mode(STOPPED);
+          break;
+        case 1:
+          lf_set_mode(DRIVING);
+          break;
+        case 2:
+          lf_set_mode(TURNING);
+      }
+    =}
+
+    reaction(t, direction) -> motors.left_speed, motors.right_speed, encoders.trigger {=
+      lf_set(encoders.trigger, !encoders.trigger->value);
+      if (direction->value) {
+        lf_set(motors.left_speed, -self->left_speed);
+        lf_set(motors.right_speed, self->right_speed);
+      } else {
+        lf_set(motors.left_speed, self->left_speed);
+        lf_set(motors.right_speed, -self->right_speed);
+      }
+    =}
+  }
+}

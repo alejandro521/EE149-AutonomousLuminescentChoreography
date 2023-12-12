@@ -1,9 +1,23 @@
-#ifndef _gyroangle_H
-#define _gyroangle_H
-#ifndef TOP_LEVEL_PREAMBLE_557593923_H
-#define TOP_LEVEL_PREAMBLE_557593923_H
-/*Correspondence: Range: [(22, 2), (23, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf)*/#include <pico/stdlib.h>
-#include <imu.h>
+#ifndef _robot_H
+#define _robot_H
+#ifndef TOP_LEVEL_PREAMBLE_1004862656_H
+#define TOP_LEVEL_PREAMBLE_1004862656_H
+/*Correspondence: Range: [(12, 2), (14, 26)) -> Range: [(0, 0), (2, 26)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf)*/#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+/*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
+/*Correspondence: Range: [(19, 2), (27, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Encoders.lf)*/#include <math.h> 
+#include <hardware/pio.h>
+#include <quadrature_encoder.pio.h>
+
+// pin defines
+#define RIGHT_ENCODER_AB 8
+#define LEFT_ENCODER_AB 12
+#define RIGHT_SM 0
+#define LEFT_SM 1
 #endif
 #ifdef __cplusplus
 extern "C" {
@@ -13,66 +27,41 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-typedef struct gyroangle_self_t{
+typedef struct robot_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
+    float orientation;
+    float left_speed;
+    float right_speed;
     int end[0]; // placeholder; MSVC does not compile empty structs
-} gyroangle_self_t;
+} robot_self_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    bool value;
+    int value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} gyroangle_trigger_t;
+} robot_drive_mode_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    float value;
+    int value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} gyroangle_x_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    float value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} gyroangle_y_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    float value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} gyroangle_z_t;
+} robot_direction_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -81,7 +70,25 @@ typedef struct {
     lf_port_internal_t _base;
     bool value;
 
-} gyro_trigger_t;
+} encoders_trigger_t;
+typedef struct {
+    token_type_t type;
+    lf_token_t* token;
+    size_t length;
+    bool is_present;
+    lf_port_internal_t _base;
+    int32_t value;
+
+} encoders_right_t;
+typedef struct {
+    token_type_t type;
+    lf_token_t* token;
+    size_t length;
+    bool is_present;
+    lf_port_internal_t _base;
+    int32_t value;
+
+} encoders_left_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -90,7 +97,7 @@ typedef struct {
     lf_port_internal_t _base;
     float value;
 
-} gyro_x_t;
+} motorswithfeedback_left_speed_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -99,32 +106,23 @@ typedef struct {
     lf_port_internal_t _base;
     float value;
 
-} gyro_y_t;
+} motorswithfeedback_right_speed_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    float value;
+    int32_t value;
 
-} gyro_z_t;
+} motorswithfeedback_left_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    float value;
+    int32_t value;
 
-} trapezoidalintegrator_in_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    float value;
-
-} trapezoidalintegrator_out_t;
+} motorswithfeedback_right_t;
 #endif

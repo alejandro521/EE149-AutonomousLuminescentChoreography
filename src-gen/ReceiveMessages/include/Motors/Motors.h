@@ -1,8 +1,8 @@
-#ifndef _line_H
-#define _line_H
-#ifndef TOP_LEVEL_PREAMBLE_524606891_H
-#define TOP_LEVEL_PREAMBLE_524606891_H
-/*Correspondence: Range: [(33, 2), (33, 25)) -> Range: [(0, 0), (0, 23)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Line.lf)*/#include <ir_sensors.h>
+#ifndef _motors_H
+#define _motors_H
+#ifndef TOP_LEVEL_PREAMBLE_16556935_H
+#define TOP_LEVEL_PREAMBLE_16556935_H
+/*Correspondence: Range: [(18, 2), (18, 21)) -> Range: [(0, 0), (0, 19)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Motors.lf)*/#include <motors.h>
 #endif
 #ifdef __cplusplus
 extern "C" {
@@ -12,52 +12,36 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-typedef struct line_self_t{
+typedef struct motors_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
-    bool calibrating;
-    bool calibrated;
     int end[0]; // placeholder; MSVC does not compile empty structs
-} line_self_t;
+} motors_self_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    bool value;
+    float value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} line_calibrate_t;
+} motors_left_power_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    bool value;
+    float value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} line_trigger_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    uint16_t value[5];
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} line_reflect_t;
+} motors_right_power_t;
 #endif

@@ -2,10 +2,14 @@
 #define _RECEIVEMESSAGES_MAIN_H
 #include "include/core/reactor.h"
 #include "_display.h"
-#ifndef TOP_LEVEL_PREAMBLE_461155951_H
-#define TOP_LEVEL_PREAMBLE_461155951_H
+#include "_robot.h"
+#ifndef TOP_LEVEL_PREAMBLE_569959775_H
+#define TOP_LEVEL_PREAMBLE_569959775_H
 #include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
 #include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
@@ -19,6 +23,8 @@
 
 // COMMANDS TO POLOLU GO HERE
 static char SET_NAME_COMMAND[10] = "SET_NAME:";
+static char DRIVE_COMMAND[7] = "DRIVE:";
+static char TURN_COMMAND[6] = "TURN:";
 
 // Function to send a message. The message that was transmitted is written to transmitted_message
 static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
@@ -53,15 +59,15 @@ static void receiveMessage(uart_inst_t *uart, char *received_message) {
 typedef struct {
     struct self_base_t base;
     
-    #line 58 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
-    bool led_on;
-    #line 59 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
-    char* reply;
-    #line 60 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
-    char* transmitted_message;
-    #line 61 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
-    char* received_message;
     #line 62 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    bool led_on;
+    #line 63 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    char* reply;
+    #line 64 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    char* transmitted_message;
+    #line 65 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    char* received_message;
+    #line 66 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     char* name;
     struct {
         #line 25 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Display.lf"
@@ -72,17 +78,24 @@ typedef struct {
         _display_line2_t line2;
     } _lf_disp;
     int _lf_disp_width;
-    #line 65 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    struct {
+        #line 19 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+        _robot_drive_mode_t drive_mode;
+        #line 20 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/PololuControl.lf"
+        _robot_direction_t direction;
+    } _lf_pololu;
+    int _lf_pololu_width;
+    #line 71 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     reaction_t _lf__reaction_0;
-    #line 80 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 86 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     reaction_t _lf__reaction_1;
-    #line 101 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 107 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     reaction_t _lf__reaction_2;
-    #line 118 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 131 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     reaction_t _lf__reaction_3;
-    #line 57 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 61 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     trigger_t _lf__t;
-    #line 57 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
+    #line 61 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/ReceiveMessages.lf"
     reaction_t* _lf__t_reactions[3];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[1];

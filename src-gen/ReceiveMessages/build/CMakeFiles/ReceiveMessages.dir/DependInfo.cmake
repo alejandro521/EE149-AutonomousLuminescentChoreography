@@ -26,7 +26,7 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 set(CMAKE_TARGET_DEFINITIONS_ASM
   "LF_FILE_SEPARATOR=\"/\""
   "LF_PACKAGE_DIRECTORY=\"/home/foobar/EE149-AutonomousLuminescentChoreography\""
-  "LF_REACTION_GRAPH_BREADTH=2"
+  "LF_REACTION_GRAPH_BREADTH=4"
   "LF_SOURCE_DIRECTORY=\"/home/foobar/EE149-AutonomousLuminescentChoreography/src\""
   "LF_UNTHREADED=1"
   "LIB_PICO_BIT_OPS=1"
@@ -141,7 +141,12 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/ReceiveMessages.c" "CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj.d"
   "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_display.c" "CMakeFiles/ReceiveMessages.dir/_display.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/_display.c.obj.d"
+  "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_encoders.c" "CMakeFiles/ReceiveMessages.dir/_encoders.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/_encoders.c.obj.d"
+  "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motors.c" "CMakeFiles/ReceiveMessages.dir/_motors.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/_motors.c.obj.d"
+  "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motorswithfeedback.c" "CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj.d"
+  "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_picontrol.c" "CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj.d"
   "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_receivemessages_main.c" "CMakeFiles/ReceiveMessages.dir/_receivemessages_main.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/_receivemessages_main.c.obj.d"
+  "/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_robot.c" "CMakeFiles/ReceiveMessages.dir/_robot.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/_robot.c.obj.d"
   "/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c" "CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj.d"
   "/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c" "CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj.d"
   "/home/foobar/pico-sdk/src/common/pico_sync/mutex.c" "CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj" "gcc" "CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj.d"

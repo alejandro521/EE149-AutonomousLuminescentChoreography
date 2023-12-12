@@ -1,9 +1,16 @@
-#ifndef _gyro_H
-#define _gyro_H
-#ifndef TOP_LEVEL_PREAMBLE_557593923_H
-#define TOP_LEVEL_PREAMBLE_557593923_H
-/*Correspondence: Range: [(22, 2), (23, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/IMU.lf)*/#include <pico/stdlib.h>
-#include <imu.h>
+#ifndef _encoders_H
+#define _encoders_H
+#ifndef TOP_LEVEL_PREAMBLE_572370257_H
+#define TOP_LEVEL_PREAMBLE_572370257_H
+/*Correspondence: Range: [(19, 2), (27, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/home/foobar/EE149-AutonomousLuminescentChoreography/src/lib/Encoders.lf)*/#include <math.h> 
+#include <hardware/pio.h>
+#include <quadrature_encoder.pio.h>
+
+// pin defines
+#define RIGHT_ENCODER_AB 8
+#define LEFT_ENCODER_AB 12
+#define RIGHT_SM 0
+#define LEFT_SM 1
 #endif
 #ifdef __cplusplus
 extern "C" {
@@ -13,10 +20,10 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-typedef struct gyro_self_t{
+typedef struct encoders_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
     int end[0]; // placeholder; MSVC does not compile empty structs
-} gyro_self_t;
+} encoders_self_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -30,47 +37,33 @@ typedef struct {
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} gyro_trigger_t;
+} encoders_trigger_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    float value;
+    int32_t value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} gyro_x_t;
+} encoders_right_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    float value;
+    int32_t value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} gyro_y_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    float value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} gyro_z_t;
+} encoders_left_t;
 #endif

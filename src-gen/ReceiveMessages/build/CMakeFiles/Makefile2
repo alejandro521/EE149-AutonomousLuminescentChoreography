@@ -1531,12 +1531,12 @@ CMakeFiles/ReceiveMessages.dir/all: core/CMakeFiles/core.dir/all
 CMakeFiles/ReceiveMessages.dir/all: robot/CMakeFiles/robot.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34 "Built target ReceiveMessages"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36 "Built target ReceiveMessages"
 .PHONY : CMakeFiles/ReceiveMessages.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ReceiveMessages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 99
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 100
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ReceiveMessages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 0
 .PHONY : CMakeFiles/ReceiveMessages.dir/rule
@@ -1583,7 +1583,7 @@ CMakeFiles/ELF2UF2Build.dir/clean:
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/all:
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/depend
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=35 "Built target bs2_default"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=37 "Built target bs2_default"
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1609,12 +1609,12 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/clean:
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/all: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/all
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/depend
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=36 "Built target bs2_default_bin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num= "Built target bs2_default_bin"
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/all
 
 # Build rule for subdir invocation for target.
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 0
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/rule
@@ -1635,7 +1635,7 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/clean:
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/all
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/depend
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=37 "Built target bs2_default_padded_checksummed_asm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=38 "Built target bs2_default_padded_checksummed_asm"
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1661,12 +1661,12 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_as
 core/CMakeFiles/core.dir/all: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all
 	$(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/depend
 	$(MAKE) $(MAKESILENT) -f core/CMakeFiles/core.dir/build.make core/CMakeFiles/core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71 "Built target core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71 "Built target core"
 .PHONY : core/CMakeFiles/core.dir/all
 
 # Build rule for subdir invocation for target.
 core/CMakeFiles/core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core/CMakeFiles/core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles 0
 .PHONY : core/CMakeFiles/core.dir/rule

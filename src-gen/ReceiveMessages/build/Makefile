@@ -339,6 +339,102 @@ _display.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_display.c.s
 .PHONY : _display.c.s
 
+_encoders.obj: _encoders.c.obj
+.PHONY : _encoders.obj
+
+# target to build an object file
+_encoders.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_encoders.c.obj
+.PHONY : _encoders.c.obj
+
+_encoders.i: _encoders.c.i
+.PHONY : _encoders.i
+
+# target to preprocess a source file
+_encoders.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_encoders.c.i
+.PHONY : _encoders.c.i
+
+_encoders.s: _encoders.c.s
+.PHONY : _encoders.s
+
+# target to generate assembly for a file
+_encoders.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_encoders.c.s
+.PHONY : _encoders.c.s
+
+_motors.obj: _motors.c.obj
+.PHONY : _motors.obj
+
+# target to build an object file
+_motors.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_motors.c.obj
+.PHONY : _motors.c.obj
+
+_motors.i: _motors.c.i
+.PHONY : _motors.i
+
+# target to preprocess a source file
+_motors.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_motors.c.i
+.PHONY : _motors.c.i
+
+_motors.s: _motors.c.s
+.PHONY : _motors.s
+
+# target to generate assembly for a file
+_motors.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_motors.c.s
+.PHONY : _motors.c.s
+
+_motorswithfeedback.obj: _motorswithfeedback.c.obj
+.PHONY : _motorswithfeedback.obj
+
+# target to build an object file
+_motorswithfeedback.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj
+.PHONY : _motorswithfeedback.c.obj
+
+_motorswithfeedback.i: _motorswithfeedback.c.i
+.PHONY : _motorswithfeedback.i
+
+# target to preprocess a source file
+_motorswithfeedback.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.i
+.PHONY : _motorswithfeedback.c.i
+
+_motorswithfeedback.s: _motorswithfeedback.c.s
+.PHONY : _motorswithfeedback.s
+
+# target to generate assembly for a file
+_motorswithfeedback.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.s
+.PHONY : _motorswithfeedback.c.s
+
+_picontrol.obj: _picontrol.c.obj
+.PHONY : _picontrol.obj
+
+# target to build an object file
+_picontrol.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj
+.PHONY : _picontrol.c.obj
+
+_picontrol.i: _picontrol.c.i
+.PHONY : _picontrol.i
+
+# target to preprocess a source file
+_picontrol.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_picontrol.c.i
+.PHONY : _picontrol.c.i
+
+_picontrol.s: _picontrol.c.s
+.PHONY : _picontrol.s
+
+# target to generate assembly for a file
+_picontrol.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_picontrol.c.s
+.PHONY : _picontrol.c.s
+
 _receivemessages_main.obj: _receivemessages_main.c.obj
 .PHONY : _receivemessages_main.obj
 
@@ -362,6 +458,30 @@ _receivemessages_main.s: _receivemessages_main.c.s
 _receivemessages_main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_receivemessages_main.c.s
 .PHONY : _receivemessages_main.c.s
+
+_robot.obj: _robot.c.obj
+.PHONY : _robot.obj
+
+# target to build an object file
+_robot.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_robot.c.obj
+.PHONY : _robot.c.obj
+
+_robot.i: _robot.c.i
+.PHONY : _robot.i
+
+# target to preprocess a source file
+_robot.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_robot.c.i
+.PHONY : _robot.c.i
+
+_robot.s: _robot.c.s
+.PHONY : _robot.s
+
+# target to generate assembly for a file
+_robot.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReceiveMessages.dir/build.make CMakeFiles/ReceiveMessages.dir/_robot.c.s
+.PHONY : _robot.c.s
 
 home/foobar/pico-sdk/src/common/pico_sync/critical_section.obj: home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj
 .PHONY : home/foobar/pico-sdk/src/common/pico_sync/critical_section.obj
@@ -1439,9 +1559,24 @@ help:
 	@echo "... _display.obj"
 	@echo "... _display.i"
 	@echo "... _display.s"
+	@echo "... _encoders.obj"
+	@echo "... _encoders.i"
+	@echo "... _encoders.s"
+	@echo "... _motors.obj"
+	@echo "... _motors.i"
+	@echo "... _motors.s"
+	@echo "... _motorswithfeedback.obj"
+	@echo "... _motorswithfeedback.i"
+	@echo "... _motorswithfeedback.s"
+	@echo "... _picontrol.obj"
+	@echo "... _picontrol.i"
+	@echo "... _picontrol.s"
 	@echo "... _receivemessages_main.obj"
 	@echo "... _receivemessages_main.i"
 	@echo "... _receivemessages_main.s"
+	@echo "... _robot.obj"
+	@echo "... _robot.i"
+	@echo "... _robot.s"
 	@echo "... home/foobar/pico-sdk/src/common/pico_sync/critical_section.obj"
 	@echo "... home/foobar/pico-sdk/src/common/pico_sync/critical_section.i"
 	@echo "... home/foobar/pico-sdk/src/common/pico_sync/critical_section.s"

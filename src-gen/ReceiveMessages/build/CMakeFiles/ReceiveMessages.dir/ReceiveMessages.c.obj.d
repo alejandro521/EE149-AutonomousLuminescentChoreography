@@ -90,4 +90,19 @@ CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj: \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/include/core/environment.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_display.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/robot-lib/src/display.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_encoders.h \
+ /usr/include/newlib/math.h \
+ /home/foobar/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio.h \
+ /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pio.h \
+ /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pio.h \
+ /home/foobar/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/robot/quadrature_encoder.pio.h \
+ /home/foobar/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+ /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+ /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motors.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/robot-lib/src/motors.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_picontrol.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motorswithfeedback.h \
+ /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_robot.h \
  /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_receivemessages_main.h

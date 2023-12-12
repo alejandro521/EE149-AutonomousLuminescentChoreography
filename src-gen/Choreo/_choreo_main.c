@@ -310,10 +310,10 @@ void _choreo_mainreaction_function_4(void* instance_args) {
     lf_mode_change_type_t _lf_STOP_change_type = reset_transition;
     #line 227 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
     lf_set(d.line0, "DRIVE");
-    if (strcmp(self->next_mode, "Stop")) {
+    if (strcmp(self->next_mode, "Stop") == 0){
       self->next_mode = "";
       lf_set_mode(STOP);
-    } else if (strcmp(self->next_mode, "Rotate")) {
+    } else if (strcmp(self->next_mode, "Rotate") == 0) {
       self->next_mode = "";
       lf_set_mode(NEW_ROTATING);
     }
@@ -370,17 +370,17 @@ void _choreo_mainreaction_function_5(void* instance_args) {
     lf_mode_change_type_t _lf_STOP_change_type = reset_transition;
     #line 252 "/home/foobar/EE149-AutonomousLuminescentChoreography/src/Choreo.lf"
      lf_set(d.line0, "ROTATE");
-     if (strcmp(self->next_mode, "Stop")) {
+     if (strcmp(self->next_mode, "Stop") == 0) {
        self->next_mode = "";
        lf_set_mode(STOP);
-     } else if (strcmp(self->next_mode, "Drive")) {
+     } else if (strcmp(self->next_mode, "Drive") == 0) {
        self->next_mode = "";
        lf_set_mode(NEW_DRIVING);
      }
      static char buf[17];
      snprintf(buf, 17, "targetZ:%i", self->degrees);
     // lf_set(d.line3, buf);
-     if (abs(gyro.z->value - self->previousAngle) >= self->degrees) {
+     if (abs(gyro.z->value - self->previousAngle) >= abs(self->degrees)) {
        self->previousAngle = gyro.z->value;
        self->previousDistance = angleToDistanceR.distance->value;
        self->next_mode = "";
@@ -425,10 +425,10 @@ void _choreo_mainreaction_function_6(void* instance_args) {
     lf_set(m.left_power, 0.0f);
     lf_set(m.right_power, 0.0f);
     lf_set(d.line0, "STOP");
-    if (strcmp(self->next_mode, "Drive")) {
+    if (strcmp(self->next_mode, "Drive") == 0) {
       self->next_mode = "";
       lf_set_mode(NEW_DRIVING);
-    } else if (strcmp(self->next_mode, "Rotate")){
+    } else if (strcmp(self->next_mode, "Rotate") == 0){
       self->next_mode = "";
       lf_set_mode(NEW_ROTATING);
     }

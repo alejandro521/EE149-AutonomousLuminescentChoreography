@@ -111,10 +111,80 @@ CMakeFiles/ReceiveMessages.dir/_display.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ReceiveMessages.dir/_display.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_display.c -o CMakeFiles/ReceiveMessages.dir/_display.c.s
 
+CMakeFiles/ReceiveMessages.dir/_robot.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
+CMakeFiles/ReceiveMessages.dir/_robot.c.obj: ../_robot.c
+CMakeFiles/ReceiveMessages.dir/_robot.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ReceiveMessages.dir/_robot.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/_robot.c.obj -MF CMakeFiles/ReceiveMessages.dir/_robot.c.obj.d -o CMakeFiles/ReceiveMessages.dir/_robot.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_robot.c
+
+CMakeFiles/ReceiveMessages.dir/_robot.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ReceiveMessages.dir/_robot.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_robot.c > CMakeFiles/ReceiveMessages.dir/_robot.c.i
+
+CMakeFiles/ReceiveMessages.dir/_robot.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ReceiveMessages.dir/_robot.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_robot.c -o CMakeFiles/ReceiveMessages.dir/_robot.c.s
+
+CMakeFiles/ReceiveMessages.dir/_encoders.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
+CMakeFiles/ReceiveMessages.dir/_encoders.c.obj: ../_encoders.c
+CMakeFiles/ReceiveMessages.dir/_encoders.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ReceiveMessages.dir/_encoders.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/_encoders.c.obj -MF CMakeFiles/ReceiveMessages.dir/_encoders.c.obj.d -o CMakeFiles/ReceiveMessages.dir/_encoders.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_encoders.c
+
+CMakeFiles/ReceiveMessages.dir/_encoders.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ReceiveMessages.dir/_encoders.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_encoders.c > CMakeFiles/ReceiveMessages.dir/_encoders.c.i
+
+CMakeFiles/ReceiveMessages.dir/_encoders.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ReceiveMessages.dir/_encoders.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_encoders.c -o CMakeFiles/ReceiveMessages.dir/_encoders.c.s
+
+CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
+CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj: ../_motorswithfeedback.c
+CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj -MF CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj.d -o CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motorswithfeedback.c
+
+CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motorswithfeedback.c > CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.i
+
+CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motorswithfeedback.c -o CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.s
+
+CMakeFiles/ReceiveMessages.dir/_motors.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
+CMakeFiles/ReceiveMessages.dir/_motors.c.obj: ../_motors.c
+CMakeFiles/ReceiveMessages.dir/_motors.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/ReceiveMessages.dir/_motors.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/_motors.c.obj -MF CMakeFiles/ReceiveMessages.dir/_motors.c.obj.d -o CMakeFiles/ReceiveMessages.dir/_motors.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motors.c
+
+CMakeFiles/ReceiveMessages.dir/_motors.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ReceiveMessages.dir/_motors.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motors.c > CMakeFiles/ReceiveMessages.dir/_motors.c.i
+
+CMakeFiles/ReceiveMessages.dir/_motors.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ReceiveMessages.dir/_motors.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_motors.c -o CMakeFiles/ReceiveMessages.dir/_motors.c.s
+
+CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
+CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj: ../_picontrol.c
+CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj -MF CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj.d -o CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_picontrol.c
+
+CMakeFiles/ReceiveMessages.dir/_picontrol.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ReceiveMessages.dir/_picontrol.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_picontrol.c > CMakeFiles/ReceiveMessages.dir/_picontrol.c.i
+
+CMakeFiles/ReceiveMessages.dir/_picontrol.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ReceiveMessages.dir/_picontrol.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/_picontrol.c -o CMakeFiles/ReceiveMessages.dir/_picontrol.c.s
+
 CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj: ../ReceiveMessages.c
 CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj -MF CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj.d -o CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj -c /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/ReceiveMessages.c
 
 CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.i: cmake_force
@@ -128,7 +198,7 @@ CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.s: cmake_force
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i: cmake_force
@@ -142,7 +212,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/s
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i: cmake_force
@@ -156,7 +226,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform/platform.c.i: cmake_force
@@ -170,7 +240,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_platform
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_claim/claim.c.i: cmake_force
@@ -184,7 +254,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clai
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync/sync.c.i: cmake_force
@@ -198,7 +268,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_sync
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq.c.i: cmake_force
@@ -211,7 +281,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i: cmake_force
@@ -225,7 +295,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_irq/
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj: /home/foobar/pico-sdk/src/common/pico_sync/sem.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.obj -c /home/foobar/pico-sdk/src/common/pico_sync/sem.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.i: cmake_force
@@ -239,7 +309,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/sem.c.s
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj: /home/foobar/pico-sdk/src/common/pico_sync/lock_core.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.obj -c /home/foobar/pico-sdk/src/common/pico_sync/lock_core.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_core.c.i: cmake_force
@@ -253,7 +323,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/lock_co
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj: /home/foobar/pico-sdk/src/common/pico_sync/mutex.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.obj -c /home/foobar/pico-sdk/src/common/pico_sync/mutex.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c.i: cmake_force
@@ -267,7 +337,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/mutex.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj: /home/foobar/pico-sdk/src/common/pico_sync/critical_section.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.obj -c /home/foobar/pico-sdk/src/common/pico_sync/critical_section.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critical_section.c.i: cmake_force
@@ -281,7 +351,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_sync/critica
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj: /home/foobar/pico-sdk/src/common/pico_time/time.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.obj -c /home/foobar/pico-sdk/src/common/pico_time/time.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.i: cmake_force
@@ -295,7 +365,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/time.c.
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj: /home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.obj -c /home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
@@ -309,7 +379,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_time/timeout
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
@@ -323,7 +393,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_time
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj: /home/foobar/pico-sdk/src/common/pico_util/datetime.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.obj -c /home/foobar/pico-sdk/src/common/pico_util/datetime.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
@@ -337,7 +407,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/datetim
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj: /home/foobar/pico-sdk/src/common/pico_util/pheap.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.obj -c /home/foobar/pico-sdk/src/common/pico_util/pheap.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
@@ -351,7 +421,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/pheap.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj: /home/foobar/pico-sdk/src/common/pico_util/queue.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.obj -c /home/foobar/pico-sdk/src/common/pico_util/queue.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
@@ -365,7 +435,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/common/pico_util/queue.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart/uart.c.i: cmake_force
@@ -379,7 +449,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_uart
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
@@ -393,7 +463,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_cloc
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/pll.c.i: cmake_force
@@ -407,7 +477,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pll/
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
@@ -421,7 +491,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_vreg
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
@@ -435,7 +505,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_watc
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
@@ -448,7 +518,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_xosc
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divider/divider.S.i: cmake_force
@@ -462,7 +532,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_divi
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
@@ -476,7 +546,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_runtime/
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/printf.c.i: cmake_force
@@ -489,7 +559,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_printf/p
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i: cmake_force
@@ -503,7 +573,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bit_ops/
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i: cmake_force
@@ -516,7 +586,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_bootrom/
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/divider.S.i: cmake_force
@@ -529,7 +599,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_divider/
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i: cmake_force
@@ -543,7 +613,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/d
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i: cmake_force
@@ -557,7 +627,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/d
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_math.c.i: cmake_force
@@ -570,7 +640,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/d
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i: cmake_force
@@ -583,7 +653,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_double/d
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i: cmake_force
@@ -596,7 +666,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_int64_op
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i: cmake_force
@@ -610,7 +680,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/fl
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i: cmake_force
@@ -624,7 +694,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/fl
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_math.c.i: cmake_force
@@ -637,7 +707,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/fl
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i: cmake_force
@@ -651,7 +721,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_float/fl
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i: cmake_force
@@ -664,7 +734,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_malloc/p
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i: cmake_force
@@ -677,7 +747,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_mem_ops/
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building ASM object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj   -c /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i: cmake_force
@@ -691,7 +761,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
 	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i: cmake_force
@@ -705,7 +775,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i: cmake_force
@@ -719,7 +789,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_standard
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i: cmake_force
@@ -733,7 +803,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio/st
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i: cmake_force
@@ -747,7 +817,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdio_ua
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj: /home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj -c /home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicore/multicore.c.i: cmake_force
@@ -761,7 +831,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_multicor
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/adc.c.i: cmake_force
@@ -775,7 +845,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_adc/
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/pio.c.i: cmake_force
@@ -789,7 +859,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_pio/
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/spi.c.i: cmake_force
@@ -803,7 +873,7 @@ CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_spi/
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/ReceiveMessages.dir/flags.make
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/ReceiveMessages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj -MF CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj.d -o CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj -c /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
 
 CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i: cmake_force
@@ -819,6 +889,11 @@ ReceiveMessages_OBJECTS = \
 "CMakeFiles/ReceiveMessages.dir/lib/schedule.c.obj" \
 "CMakeFiles/ReceiveMessages.dir/_receivemessages_main.c.obj" \
 "CMakeFiles/ReceiveMessages.dir/_display.c.obj" \
+"CMakeFiles/ReceiveMessages.dir/_robot.c.obj" \
+"CMakeFiles/ReceiveMessages.dir/_encoders.c.obj" \
+"CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj" \
+"CMakeFiles/ReceiveMessages.dir/_motors.c.obj" \
+"CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj" \
 "CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj" \
 "CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
 "CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
@@ -877,6 +952,11 @@ ReceiveMessages_EXTERNAL_OBJECTS =
 ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/lib/schedule.c.obj
 ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/_receivemessages_main.c.obj
 ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/_display.c.obj
+ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/_robot.c.obj
+ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/_encoders.c.obj
+ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/_motorswithfeedback.c.obj
+ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/_motors.c.obj
+ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/_picontrol.c.obj
 ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/ReceiveMessages.c.obj
 ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/home/foobar/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
@@ -933,7 +1013,7 @@ ReceiveMessages.elf: core/libcore.a
 ReceiveMessages.elf: robot/librobot.a
 ReceiveMessages.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 ReceiveMessages.elf: CMakeFiles/ReceiveMessages.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Linking CXX executable ReceiveMessages.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Linking CXX executable ReceiveMessages.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ReceiveMessages.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/arm-none-eabi-objcopy -Oihex /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/ReceiveMessages.elf ReceiveMessages.hex
 	/usr/bin/arm-none-eabi-objcopy -Obinary /home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/ReceiveMessages/build/ReceiveMessages.elf ReceiveMessages.bin
