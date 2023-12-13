@@ -39,6 +39,9 @@ reactor Pololu {
   state right_speed: float = 0.15
 
   state step_counter: int = 0
+  state z_angle: float = 0.0
+  state start_angle: float = 0.0
+  state goal_angle: float = 0.0
   state gyro_actual_z: float = 0.0
   state gyro_start: float = 0.0
   state gyro_bias: float = 0.0
@@ -77,16 +80,19 @@ reactor Pololu {
   }
 
   mode STOPPED {
-    reaction(drive_mode) drive_direction, gyro.z -> TURNING, DRIVING, motors.left_speed, motors.right_speed, current_mode {=
+    reaction(drive_mode) drive_direction, drive_amount, gyro.z -> TURNING, DRIVING, motors.left_speed, motors.right_speed, current_mode {=
       if (drive_mode->value == 2) {
         if (drive_direction->value) {
           lf_set(motors.left_speed, self->left_speed);
           lf_set(motors.right_speed, -self->right_speed);
+          self->goal_angle = self->z_angle - drive_amount->value;
         } else {
           lf_set(motors.left_speed, -self->left_speed);
           lf_set(motors.right_speed, self->right_speed);
+          self->goal_angle = self->z_angle + drive_amount->value;
         }
         self->step_counter = 0;
+        self->start_angle = self->z_angle;
         self->gyro_start = gyro.z->value;
         lf_set(current_mode, "Turning");
         lf_set_mode(TURNING);
@@ -114,17 +120,25 @@ reactor Pololu {
   }
 
   mode TURNING {
-    reaction(t) gyro.z, drive_amount -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode, completion_notify {=
-      self->step_counter += 1;
-      self->gyro_actual_z = (91.5f / 90.0f)*(gyro.z->value - self->gyro_start) - (self->gyro_bias * self->step_counter);
-      if (abs(self->gyro_actual_z) > drive_amount->value) {
+    reaction(t) gyro.z, drive_direction -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode, completion_notify {=
+      if (drive_direction->value && self->z_angle > self->goal_angle) {
         lf_set(motors.left_speed, 0);
         lf_set(motors.right_speed, 0);
         lf_set(current_mode, "Stopped");
         lf_set(completion_notify, true);
         lf_set_mode(STOPPED);
+      } else if (self->z_angle < self->goal_angle) {
+        lf_set(motors.left_speed, 0);
+        lf_set(motors.right_speed, 0);
+        lf_set(current_mode, "Stopped");
+        lf_set(completion_notify, true);
+        lf_set_mode(STOPPED);
+      } else {
+        self->step_counter += 1;
+        self->gyro_actual_z = gyro.z->value - self->gyro_start - (self->gyro_bias * self->step_counter);
+        self->z_angle = self->start_angle + self_gyro_actual_z;
       }
-      lf_set(facing_angle, fmodf(self->gyro_actual_z, 360.0f));
+      lf_set(facing_angle, fmodf(self->z_angle, 360.0f));
     =}
   }
 
