@@ -3,8 +3,15 @@
 #include "include/core/reactor.h"
 #include "_encoders.h"
 #include "_motorswithfeedback.h"
-#ifndef TOP_LEVEL_PREAMBLE_1110875562_H
-#define TOP_LEVEL_PREAMBLE_1110875562_H
+#ifndef TOP_LEVEL_PREAMBLE_1177620698_H
+#define TOP_LEVEL_PREAMBLE_1177620698_H
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -14,13 +21,6 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-#include <math.h>
-#define WHEEL_DIAMETER 0.032 // meters
-#define COUNTS_PER_REV 360 //CPR
-#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #endif
 typedef struct {
     token_type_t type;

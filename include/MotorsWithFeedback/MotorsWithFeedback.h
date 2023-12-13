@@ -1,9 +1,12 @@
-#ifndef _gyroangle_H
-#define _gyroangle_H
-#ifndef TOP_LEVEL_PREAMBLE_2014316867_H
-#define TOP_LEVEL_PREAMBLE_2014316867_H
-/*Correspondence: Range: [(22, 2), (23, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/Users/alex/149project/src/lib/IMU.lf)*/#include <pico/stdlib.h>
-#include <imu.h>
+#ifndef _motorswithfeedback_H
+#define _motorswithfeedback_H
+#ifndef TOP_LEVEL_PREAMBLE_221524480_H
+#define TOP_LEVEL_PREAMBLE_221524480_H
+/*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/Users/alex/149project/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
+/*Correspondence: Range: [(18, 2), (18, 21)) -> Range: [(0, 0), (0, 19)) (verbatim=true; src=/Users/alex/149project/src/lib/Motors.lf)*/#include <motors.h>
 #endif
 #ifdef __cplusplus
 extern "C" {
@@ -13,24 +16,17 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-typedef struct gyroangle_self_t{
+typedef struct motorswithfeedback_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
+    float p_gain;
+    float i_gain;
+    interval_t prev_time;
+    int32_t prev_left;
+    int32_t prev_right;
+    float target_speed_left;
+    float target_speed_right;
     int end[0]; // placeholder; MSVC does not compile empty structs
-} gyroangle_self_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    bool value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} gyroangle_trigger_t;
+} motorswithfeedback_self_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -44,7 +40,7 @@ typedef struct {
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} gyroangle_x_t;
+} motorswithfeedback_left_speed_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -58,48 +54,35 @@ typedef struct {
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} gyroangle_y_t;
+} motorswithfeedback_right_speed_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    float value;
+    int32_t value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
     #endif
     interval_t physical_time_of_arrival;
     #endif
-} gyroangle_z_t;
+} motorswithfeedback_left_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    bool value;
-
-} gyro_trigger_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    float value;
-
-} gyro_x_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    float value;
-
-} gyro_y_t;
+    int32_t value;
+    #ifdef FEDERATED
+    #ifdef FEDERATED_DECENTRALIZED
+    tag_t intended_tag;
+    #endif
+    interval_t physical_time_of_arrival;
+    #endif
+} motorswithfeedback_right_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -108,7 +91,7 @@ typedef struct {
     lf_port_internal_t _base;
     float value;
 
-} gyro_z_t;
+} motors_left_power_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -117,7 +100,7 @@ typedef struct {
     lf_port_internal_t _base;
     float value;
 
-} trapezoidalintegrator_in_t;
+} motors_right_power_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -126,5 +109,14 @@ typedef struct {
     lf_port_internal_t _base;
     float value;
 
-} trapezoidalintegrator_out_t;
+} picontrol_err_t;
+typedef struct {
+    token_type_t type;
+    lf_token_t* token;
+    size_t length;
+    bool is_present;
+    lf_port_internal_t _base;
+    float value;
+
+} picontrol_ctrl_t;
 #endif
