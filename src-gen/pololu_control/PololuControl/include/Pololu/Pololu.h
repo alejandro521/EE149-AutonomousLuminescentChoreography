@@ -1,9 +1,20 @@
 #ifndef _pololu_H
 #define _pololu_H
-#ifndef TOP_LEVEL_PREAMBLE_1666704297_H
-#define TOP_LEVEL_PREAMBLE_1666704297_H
+#ifndef TOP_LEVEL_PREAMBLE_2140322192_H
+#define TOP_LEVEL_PREAMBLE_2140322192_H
+/*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/home/foobar/149project/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 /*Correspondence: Range: [(22, 2), (23, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/home/foobar/149project/src/lib/IMU.lf)*/#include <pico/stdlib.h>
 #include <imu.h>
+/*Correspondence: Range: [(13, 2), (19, 39)) -> Range: [(0, 0), (6, 39)) (verbatim=true; src=/home/foobar/149project/src/pololu_control/Pololu.lf)*/#include <stdlib.h>
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+#include <math.h>
+
+#define GYRO_CALIBRATION_TIMESTEPS 1600
 /*Correspondence: Range: [(19, 2), (27, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/home/foobar/149project/src/lib/Encoders.lf)*/#include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -13,17 +24,6 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-/*Correspondence: Range: [(13, 2), (19, 39)) -> Range: [(0, 0), (6, 39)) (verbatim=true; src=/home/foobar/149project/src/pololu_control/Pololu.lf)*/#include <stdlib.h>
-#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-#include <math.h>
-
-#define GYRO_CALIBRATION_TIMESTEPS 1600
-/*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/home/foobar/149project/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
-#define WHEEL_DIAMETER 0.032 // meters
-#define COUNTS_PER_REV 360 //CPR
-#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #endif
 #ifdef __cplusplus
 extern "C" {
@@ -38,6 +38,9 @@ typedef struct pololu_self_t{
     float left_speed;
     float right_speed;
     int step_counter;
+    float z_angle;
+    float start_angle;
+    float goal_angle;
     float gyro_actual_z;
     float gyro_start;
     float gyro_bias;

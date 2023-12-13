@@ -7,7 +7,7 @@
 void _pololureaction_function_0(void* instance_args) {
     _pololu_self_t* self = (_pololu_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     _pololu_facing_angle_t* facing_angle = &self->_lf_facing_angle;
-    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     lf_set(facing_angle, 0);
 }
 #include "include/api/set_undef.h"
@@ -25,7 +25,7 @@ void _pololureaction_function_1(void* instance_args) {
     gyro.trigger = &(self->_lf_gyro.trigger);
     encoders.trigger = &(self->_lf_encoders.trigger);
     _pololu_facing_angle_t* facing_angle = &self->_lf_facing_angle;
-    #line 53 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 56 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     lf_set(gyro.trigger, true);
     lf_set(encoders.trigger, true);
 }
@@ -46,7 +46,7 @@ void _pololureaction_function_2(void* instance_args) {
     motors.left_speed = &(self->_lf_motors.left_speed);
     motors.right_speed = &(self->_lf_motors.right_speed);
     _pololu_current_mode_t* current_mode = &self->_lf_current_mode;
-    #line 60 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 63 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     lf_set(motors.left_speed, 0);
     lf_set(motors.right_speed, 0);
     self->step_counter = 0;
@@ -72,7 +72,7 @@ void _pololureaction_function_3(void* instance_args) {
     motors.left_speed = &(self->_lf_motors.left_speed);
     motors.right_speed = &(self->_lf_motors.right_speed);
     _pololu_current_mode_t* current_mode = &self->_lf_current_mode;
-    #line 68 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 71 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->step_counter += 1;
     if (self->step_counter >= GYRO_CALIBRATION_TIMESTEPS) {
       self->gyro_bias = (gyro.z->value - self->gyro_start) / self->step_counter; //gyro.z accumulates bias over time, so we divide the total change by the timesteps passed
@@ -99,6 +99,8 @@ void _pololureaction_function_4(void* instance_args) {
     int drive_mode_width = self->_lf_drive_mode_width; SUPPRESS_UNUSED_WARNING(drive_mode_width);
     _pololu_drive_direction_t* drive_direction = self->_lf_drive_direction;
     int drive_direction_width = self->_lf_drive_direction_width; SUPPRESS_UNUSED_WARNING(drive_direction_width);
+    _pololu_drive_amount_t* drive_amount = self->_lf_drive_amount;
+    int drive_amount_width = self->_lf_drive_amount_width; SUPPRESS_UNUSED_WARNING(drive_amount_width);
     gyro.z = self->_lf_gyro.z;
     reactor_mode_t* TURNING = &self->_lf__modes[2];
     lf_mode_change_type_t _lf_TURNING_change_type = reset_transition;
@@ -107,16 +109,19 @@ void _pololureaction_function_4(void* instance_args) {
     motors.left_speed = &(self->_lf_motors.left_speed);
     motors.right_speed = &(self->_lf_motors.right_speed);
     _pololu_current_mode_t* current_mode = &self->_lf_current_mode;
-    #line 81 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 84 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     if (drive_mode->value == 2) {
       if (drive_direction->value) {
         lf_set(motors.left_speed, self->left_speed);
         lf_set(motors.right_speed, -self->right_speed);
+        self->goal_angle = self->goal_angle - drive_amount->value;
       } else {
         lf_set(motors.left_speed, -self->left_speed);
         lf_set(motors.right_speed, self->right_speed);
+        self->goal_angle = self->goal_angle + drive_amount->value;
       }
       self->step_counter = 0;
+      self->start_angle = self->z_angle;
       self->gyro_start = gyro.z->value;
       lf_set(current_mode, "Turning");
       lf_set_mode(TURNING);
@@ -142,7 +147,7 @@ void _pololureaction_function_5(void* instance_args) {
     _pololu_speed_t* speed = self->_lf_speed;
     int speed_width = self->_lf_speed_width; SUPPRESS_UNUSED_WARNING(speed_width);
     _pololu_completion_notify_t* completion_notify = &self->_lf_completion_notify;
-    #line 110 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 116 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->left_speed = speed->value;
     self->right_speed = speed->value;
     lf_set(completion_notify, true);
@@ -161,8 +166,8 @@ void _pololureaction_function_6(void* instance_args) {
     
     } motors;
     gyro.z = self->_lf_gyro.z;
-    _pololu_drive_amount_t* drive_amount = self->_lf_drive_amount;
-    int drive_amount_width = self->_lf_drive_amount_width; SUPPRESS_UNUSED_WARNING(drive_amount_width);
+    _pololu_drive_direction_t* drive_direction = self->_lf_drive_direction;
+    int drive_direction_width = self->_lf_drive_direction_width; SUPPRESS_UNUSED_WARNING(drive_direction_width);
     reactor_mode_t* STOPPED = &self->_lf__modes[1];
     lf_mode_change_type_t _lf_STOPPED_change_type = reset_transition;
     motors.left_speed = &(self->_lf_motors.left_speed);
@@ -170,17 +175,19 @@ void _pololureaction_function_6(void* instance_args) {
     _pololu_facing_angle_t* facing_angle = &self->_lf_facing_angle;
     _pololu_current_mode_t* current_mode = &self->_lf_current_mode;
     _pololu_completion_notify_t* completion_notify = &self->_lf_completion_notify;
-    #line 118 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    self->step_counter += 1;
-    self->gyro_actual_z = (91.5f / 90.0f)*(gyro.z->value - self->gyro_start) - (self->gyro_bias * self->step_counter);
-    if (abs(self->gyro_actual_z) > drive_amount->value) {
+    #line 124 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    if ((drive_direction->value && self->z_angle < self->goal_angle) || ((1-drive_direction->value) && self->z_angle > self->goal_angle)) {
       lf_set(motors.left_speed, 0);
       lf_set(motors.right_speed, 0);
       lf_set(current_mode, "Stopped");
       lf_set(completion_notify, true);
       lf_set_mode(STOPPED);
+    } else {
+      self->step_counter += 1;
+      self->gyro_actual_z = (3630.0f/3600.0f)*(gyro.z->value - self->gyro_start) - (self->gyro_bias * self->step_counter);
+      self->z_angle = self->start_angle + self->gyro_actual_z;
     }
-    lf_set(facing_angle, fmodf(self->gyro_actual_z, 360.0f));
+    lf_set(facing_angle, fmodf(self->z_angle, 360.0f));
 }
 #include "include/api/set_undef.h"
 #include "include/api/set.h"
@@ -200,7 +207,7 @@ void _pololureaction_function_7(void* instance_args) {
     _pololu_facing_angle_t* facing_angle = &self->_lf_facing_angle;
     _pololu_current_mode_t* current_mode = &self->_lf_current_mode;
     _pololu_completion_notify_t* completion_notify = &self->_lf_completion_notify;
-    #line 133 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 141 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->step_counter += 1;
     if (self->step_counter > drive_amount->value) {
       lf_set(motors.left_speed, 0);
@@ -270,147 +277,147 @@ _pololu_self_t* new__pololu() {
     // Set the _width variable for all cases. This will be -2
     // if the reactor is not a bank of reactors.
     self->_lf_motors_width = -2;
-    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 51 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_0.number = 0;
-    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 51 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_0.function = _pololureaction_function_0;
-    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 51 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_0.self = self;
-    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 51 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_0.deadline_violation_handler = NULL;
-    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 51 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_0.STP_handler = NULL;
-    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 51 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_0.name = "?";
-    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 51 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_0.mode = NULL;
-    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 55 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_1.number = 1;
-    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 55 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_1.function = _pololureaction_function_1;
-    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 55 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_1.self = self;
-    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 55 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_1.deadline_violation_handler = NULL;
-    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 55 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_1.STP_handler = NULL;
-    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 55 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_1.name = "?";
-    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 55 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_1.mode = NULL;
-    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 62 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_2.number = 2;
-    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 62 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_2.function = _pololureaction_function_2;
-    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 62 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_2.self = self;
-    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 62 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_2.deadline_violation_handler = NULL;
-    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 62 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_2.STP_handler = NULL;
-    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 62 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_2.name = "?";
-    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 62 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_2.mode = &self->_lf__modes[0];
-    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 70 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_3.number = 3;
-    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 70 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_3.function = _pololureaction_function_3;
-    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 70 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_3.self = self;
-    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 70 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_3.deadline_violation_handler = NULL;
-    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 70 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_3.STP_handler = NULL;
-    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 70 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_3.name = "?";
-    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 70 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_3.mode = &self->_lf__modes[0];
-    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 83 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_4.number = 4;
-    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 83 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_4.function = _pololureaction_function_4;
-    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 83 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_4.self = self;
-    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 83 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_4.deadline_violation_handler = NULL;
-    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 83 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_4.STP_handler = NULL;
-    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 83 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_4.name = "?";
-    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 83 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_4.mode = &self->_lf__modes[1];
-    #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 115 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_5.number = 5;
-    #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 115 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_5.function = _pololureaction_function_5;
-    #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 115 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_5.self = self;
-    #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 115 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_5.deadline_violation_handler = NULL;
-    #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 115 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_5.STP_handler = NULL;
-    #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 115 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_5.name = "?";
-    #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 115 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_5.mode = &self->_lf__modes[1];
-    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_6.number = 6;
-    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_6.function = _pololureaction_function_6;
-    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_6.self = self;
-    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_6.deadline_violation_handler = NULL;
-    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_6.STP_handler = NULL;
-    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_6.name = "?";
-    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_6.mode = &self->_lf__modes[2];
-    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 140 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_7.number = 7;
-    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 140 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_7.function = _pololureaction_function_7;
-    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 140 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_7.self = self;
-    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 140 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_7.deadline_violation_handler = NULL;
-    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 140 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_7.STP_handler = NULL;
-    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 140 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_7.name = "?";
-    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 140 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__reaction_7.mode = &self->_lf__modes[3];
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t.last = NULL;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     #ifdef FEDERATED_DECENTRALIZED
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t.intended_tag = (tag_t) { .time = NEVER, .microstep = 0u};
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     #endif // FEDERATED_DECENTRALIZED
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t_reactions[0] = &self->_lf__reaction_1;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t_reactions[1] = &self->_lf__reaction_3;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t_reactions[2] = &self->_lf__reaction_6;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t_reactions[3] = &self->_lf__reaction_7;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t.reactions = &self->_lf__t_reactions[0];
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t.number_of_reactions = 4;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     #ifdef FEDERATED
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__t.physical_time_of_arrival = NEVER;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     #endif // FEDERATED
     self->_lf__t.is_timer = true;
     #ifdef FEDERATED_DECENTRALIZED
@@ -489,37 +496,37 @@ _pololu_self_t* new__pololu() {
     self->_lf__speed.tmplt.type.element_size = sizeof(float);
     // Initialize modes
     self_base_t* _lf_self_base = (self_base_t*)self;
-    #line 58 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 61 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[0].state = &_lf_self_base->_lf__mode_state;
-    #line 58 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 61 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[0].name = "CALIBRATING_GYRO";
-    #line 58 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 61 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[0].deactivation_time = 0;
-    #line 58 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 61 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[0].flags = 0;
-    #line 79 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 82 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[1].state = &_lf_self_base->_lf__mode_state;
-    #line 79 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 82 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[1].name = "STOPPED";
-    #line 79 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 82 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[1].deactivation_time = 0;
-    #line 79 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 82 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[1].flags = 0;
-    #line 116 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 122 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[2].state = &_lf_self_base->_lf__mode_state;
-    #line 116 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 122 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[2].name = "TURNING";
-    #line 116 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 122 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[2].deactivation_time = 0;
-    #line 116 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 122 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[2].flags = 0;
-    #line 131 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 139 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[3].state = &_lf_self_base->_lf__mode_state;
-    #line 131 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 139 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[3].name = "DRIVING";
-    #line 131 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 139 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[3].deactivation_time = 0;
-    #line 131 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 139 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     self->_lf__modes[3].flags = 0;
     // Initialize mode state
     _lf_self_base->_lf__mode_state.parent_mode = NULL;

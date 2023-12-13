@@ -35,8 +35,8 @@ reactor Pololu {
   encoders.left -> motors.left;
   encoders.right -> motors.right;
 
-  state left_speed: float = 0.15
-  state right_speed: float = 0.15
+  state left_speed: float = 0.1
+  state right_speed: float = 0.1
 
   state step_counter: int = 0
   state z_angle: float = 0.0
@@ -85,11 +85,11 @@ reactor Pololu {
         if (drive_direction->value) {
           lf_set(motors.left_speed, self->left_speed);
           lf_set(motors.right_speed, -self->right_speed);
-          self->goal_angle = self->z_angle - drive_amount->value;
+          self->goal_angle = self->goal_angle - drive_amount->value;
         } else {
           lf_set(motors.left_speed, -self->left_speed);
           lf_set(motors.right_speed, self->right_speed);
-          self->goal_angle = self->z_angle + drive_amount->value;
+          self->goal_angle = self->goal_angle + drive_amount->value;
         }
         self->step_counter = 0;
         self->start_angle = self->z_angle;
@@ -121,7 +121,7 @@ reactor Pololu {
 
   mode TURNING {
     reaction(t) gyro.z, drive_direction -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode, completion_notify {=
-      if ((drive_direction->value && self->z_angle > self->goal_angle) || ((1-drive_direction->value) && self->z_angle < self->goal_angle)) {
+      if ((drive_direction->value && self->z_angle < self->goal_angle) || ((1-drive_direction->value) && self->z_angle > self->goal_angle)) {
         lf_set(motors.left_speed, 0);
         lf_set(motors.right_speed, 0);
         lf_set(current_mode, "Stopped");
@@ -129,8 +129,8 @@ reactor Pololu {
         lf_set_mode(STOPPED);
       } else {
         self->step_counter += 1;
-        self->gyro_actual_z = gyro.z->value - self->gyro_start - (self->gyro_bias * self->step_counter);
-        self->z_angle = self->start_angle + self_gyro_actual_z;
+        self->gyro_actual_z = (3630.0f/3600.0f)*(gyro.z->value - self->gyro_start) - (self->gyro_bias * self->step_counter);
+        self->z_angle = self->start_angle + self->gyro_actual_z;
       }
       lf_set(facing_angle, fmodf(self->z_angle, 360.0f));
     =}

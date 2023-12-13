@@ -67,8 +67,8 @@ CMakeFiles/PololuControl.dir/_pololucontrol_main.c.obj: \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
- /usr/include/newlib/math.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/robot-lib/src/display.h \
+ /usr/include/newlib/math.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/api/api.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/core/reactor.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/core/lf_types.h \

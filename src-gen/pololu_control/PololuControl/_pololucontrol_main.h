@@ -5,16 +5,8 @@
 #include "_pololu.h"
 #include "_display.h"
 #include "_lights.h"
-#ifndef TOP_LEVEL_PREAMBLE_817681834_H
-#define TOP_LEVEL_PREAMBLE_817681834_H
-#include <stdlib.h>
-#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-
-#define RED_LED_PIN 7
-#define YELLOW_LED_PIN 27
-#define GREEN_LED_PIN 24
+#ifndef TOP_LEVEL_PREAMBLE_1776589441_H
+#define TOP_LEVEL_PREAMBLE_1776589441_H
 #include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
@@ -22,6 +14,8 @@
 static bool matchesCommand(str, command) {
   return strncmp(command, str, strlen(command)) == 0;
 }
+#include <pico/stdlib.h>
+#include <display.h>        // Do not use "display.h". Doesn't work.
 #include <stdlib.h>
 #include <stdio.h>
 #include <pico/stdlib.h>
@@ -76,8 +70,14 @@ static bool receiveMessage(uart_inst_t *uart, char *incoming_message) {
 }
 
 #endif // BLUETOOTH_FUNCTIONS_H
+#include <stdlib.h>
+#include <stdio.h>
 #include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
+#include <hardware/gpio.h>
+
+#define RED_LED_PIN 7
+#define YELLOW_LED_PIN 27
+#define GREEN_LED_PIN 24
 #endif
 typedef struct {
     struct self_base_t base;

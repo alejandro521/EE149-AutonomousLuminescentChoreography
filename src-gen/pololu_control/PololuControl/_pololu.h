@@ -4,10 +4,21 @@
 #include "_encoders.h"
 #include "_gyroangle.h"
 #include "_motorswithfeedback.h"
-#ifndef TOP_LEVEL_PREAMBLE_1666704297_H
-#define TOP_LEVEL_PREAMBLE_1666704297_H
+#ifndef TOP_LEVEL_PREAMBLE_2140322192_H
+#define TOP_LEVEL_PREAMBLE_2140322192_H
+#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #include <pico/stdlib.h>
 #include <imu.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+#include <math.h>
+
+#define GYRO_CALIBRATION_TIMESTEPS 1600
 #include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -17,17 +28,6 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-#include <stdlib.h>
-#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-#include <math.h>
-
-#define GYRO_CALIBRATION_TIMESTEPS 1600
-#include <math.h>
-#define WHEEL_DIAMETER 0.032 // meters
-#define COUNTS_PER_REV 360 //CPR
-#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #endif
 typedef struct {
     token_type_t type;
@@ -137,10 +137,16 @@ typedef struct {
     #line 41 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     int step_counter;
     #line 42 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    float gyro_actual_z;
+    float z_angle;
     #line 43 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    float gyro_start;
+    float start_angle;
     #line 44 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    float goal_angle;
+    #line 45 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    float gyro_actual_z;
+    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    float gyro_start;
+    #line 47 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     float gyro_bias;
     #line 24 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     _pololu_drive_mode_t* _lf_drive_mode;
@@ -215,25 +221,25 @@ typedef struct {
         _motorswithfeedback_right_speed_t right_speed;
     } _lf_motors;
     int _lf_motors_width;
-    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 51 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_0;
-    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 55 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_1;
-    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 62 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_2;
-    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 70 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_3;
-    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 83 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_4;
-    #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 115 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_5;
-    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_6;
-    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 140 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_7;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     trigger_t _lf__t;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 49 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t* _lf__t_reactions[4];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[2];

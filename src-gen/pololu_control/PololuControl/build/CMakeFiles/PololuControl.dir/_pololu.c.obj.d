@@ -68,6 +68,10 @@ CMakeFiles/PololuControl.dir/_pololu.c.obj: \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
+ /home/foobar/149project/src-gen/pololu_control/PololuControl/robot-lib/src/imu.h \
+ /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
+ /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
+ /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
  /home/foobar/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pio.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pio.h \
@@ -76,10 +80,6 @@ CMakeFiles/PololuControl.dir/_pololu.c.obj: \
  /home/foobar/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/robot-lib/src/imu.h \
- /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
- /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
- /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/api/api.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/core/reactor.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/core/lf_types.h \
