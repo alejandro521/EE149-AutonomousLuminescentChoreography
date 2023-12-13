@@ -57,36 +57,33 @@ target C {
   =}
   
     reactor Bluetooth {
-      input message_send_trigger:bool;
-      input outgoing_message:char[100];
-      output message_received_trigger:bool;
-      output incoming_message:char[100];
+      input outgoing_message:string;
+      output incoming_message:string;
       
       timer t(0, 50 ms);
+      state received_message:char[100] = "";
       state transmitted_message:char[100] = ""; //shows message that got sent without errors. Meant for debugging
 
-    reaction(startup) -> message_received_trigger {=
+    reaction(startup) {=
       uart_init(uart0, BAUD_RATE);
       gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
       gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
 
       gpio_init(PICO_DEFAULT_LED_PIN);
       gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
-
-      lf_set(message_received_trigger, false);
       // Clear UART buffer
       while (uart_is_readable(uart0)) {
         uart_getc(uart0);
       }
     =} 
   
-    reaction(t) -> incoming_message, message_received_trigger {=
-      if (receiveMessage(uart0, incoming_message->value)) {
-        lf_set(message_received_trigger, !message_received_trigger);
+    reaction(t) -> incoming_message {=
+      if (receiveMessage(uart0, self->received_message)) {
+        lf_set(incoming_message, self->received_message);
       };
     =}
   
-    reaction(message_send_trigger) outgoing_message {=
-      transmitMessage(uart0, outgoing_message, self->transmitted_message);
+    reaction(outgoing_message) {=
+      transmitMessage(uart0, outgoing_message->value, self->transmitted_message);
     =}
   }

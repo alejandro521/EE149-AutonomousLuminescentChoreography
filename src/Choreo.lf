@@ -209,6 +209,9 @@ main reactor {
       } else if (strcmp(self->next_mode, "Rotate") == 0) {
         self->next_mode = "";
         lf_set_mode(NEW_ROTATING);
+      } else if (strcmp(self->next_mode, "Finale") == 0) {
+        self->next_mode = "";
+        lf_set_mode(FINALE);
       }
       static char buf[17];
       snprintf(buf, 17, "targetDist:%f", self->target_distance);
@@ -236,6 +239,9 @@ main reactor {
       } else if (strcmp(self->next_mode, "Drive") == 0) {
         self->next_mode = "";
         lf_set_mode(NEW_DRIVING);
+      } else if (strcmp(self->next_mode, "Finale") == 0) {
+        self->next_mode = "";
+        lf_set_mode(FINALE);
       }
       static char buf[17];
       snprintf(buf, 17, "targetZ:%i", self->degrees);
@@ -268,21 +274,24 @@ main reactor {
       } else if (strcmp(self->next_mode, "Rotate") == 0){
         self->next_mode = "";
         lf_set_mode(NEW_ROTATING);
+      } else if (strcmp(self->next_mode, "Finale") == 0) {
+        self->next_mode = "";
+        lf_set_mode(FINALE);
       }
     =}
   }
 
-  // mode THIS_IS_WHAT_YOU_CAME_FOR {
-  //   reaction(t) gyro.z, angleToDistanceR.distance -> m.left_power, m.right_power, d.line0, NEW_DRIVING {=
-  //     if (gyro.z->value - self->previousAngle <= -3570) {
-  //       lf_set(m.left_power, 0.0f);
-  //       self->previousAngle = gyro.z->value;
-  //       self->previousDistance = angleToDistanceR.distance->value;
-  //       lf_set_mode(NEW_DRIVING);
-  //     } else {
-  //       lf_set(d.line0, "FINALE");
-  //       lf_set(m.left_power, 0.9);
-  //     }
-  //   =}
-  // }
+  mode FINALE {
+    reaction(t) gyro.z, angleToDistanceR.distance -> m.left_power, m.right_power, d.line0, STOP {=
+      if (gyro.z->value - self->previousAngle <= -3570) {
+        lf_set(m.left_power, 0.0f);
+        self->previousAngle = gyro.z->value;
+        self->previousDistance = angleToDistanceR.distance->value;
+        lf_set_mode(NEW_DRIVING);
+      } else {
+        lf_set(d.line0, "FINALE");
+        lf_set(m.left_power, 0.9);
+      }
+    =}
+  }
 }

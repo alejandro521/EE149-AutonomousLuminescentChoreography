@@ -4,21 +4,20 @@
 #include "_bluetooth.h"
 #include "_pololu.h"
 #include "_display.h"
-#ifndef TOP_LEVEL_PREAMBLE_1708620071_H
-#define TOP_LEVEL_PREAMBLE_1708620071_H
+#ifndef TOP_LEVEL_PREAMBLE_1454136448_H
+#define TOP_LEVEL_PREAMBLE_1454136448_H
+#include <stdlib.h>
+#include <stdio.h>
 #include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
+#include <hardware/gpio.h>
+#include <math.h>
+
+#define GYRO_CALIBRATION_TIMESTEPS 1600
 #include <stdio.h>
 #include <pico/stdlib.h>
 #include <hardware/gpio.h>
 
-char TURN_LEFT_COMMAND[10] = "TURN_LEFT:";
-char TURN_RIGHT_COMMAND[11] = "TURN_RIGHT:";
-char MOVE_FORWARD_COMMAND[13] = "MOVE_FORWARD:";
-char MOVE_BACKWARD_COMMAND[14] = "MOVE_BACKWARD:";
-char STOP_COMMAND[5] = "STOP:";
-
-static bool matchesCommand(command, str) {
+static bool matchesCommand(str, command) {
   return strncmp(command, str, strlen(command)) == 0;
 }
 #ifndef BLUETOOTH_FUNCTIONS_H
@@ -68,55 +67,73 @@ static bool receiveMessage(uart_inst_t *uart, char *incoming_message) {
 }
 
 #endif // BLUETOOTH_FUNCTIONS_H
-#include <stdlib.h>
-#include <stdio.h>
 #include <pico/stdlib.h>
-#include <hardware/gpio.h>
-
-int GYRO_CALIBRATION_TIMESTEPs = 400;
+#include <display.h>        // Do not use "display.h". Doesn't work.
 #endif
 typedef struct {
     struct self_base_t base;
     
-    #line 35 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
-    char* reply;
-    #line 36 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
-    char* command;
+    #line 29 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    char* TURN_LEFT_COMMAND;
+    #line 30 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    char* TURN_RIGHT_COMMAND;
+    #line 31 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    char* MOVE_FORWARD_COMMAND;
+    #line 32 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    char* MOVE_BACKWARD_COMMAND;
+    #line 33 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    char* STOP_COMMAND;
     struct {
         #line 25 "/home/foobar/149project/src/lib/Display.lf"
         _display_line0_t line0;
         #line 26 "/home/foobar/149project/src/lib/Display.lf"
         _display_line1_t line1;
+        #line 27 "/home/foobar/149project/src/lib/Display.lf"
+        _display_line2_t line2;
+        #line 28 "/home/foobar/149project/src/lib/Display.lf"
+        _display_line3_t line3;
     } _lf_disp;
     int _lf_disp_width;
     struct {
+        #line 24 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+        _pololu_drive_mode_t drive_mode;
+        #line 25 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+        _pololu_drive_direction_t drive_direction;
         #line 26 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+        _pololu_drive_amount_t drive_amount;
+        #line 28 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+        _pololu_current_mode_t* current_mode;
+        #line 28 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+        trigger_t current_mode_trigger;
+        #line 28 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+        reaction_t* current_mode_reactions[1];
+        #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
         _pololu_facing_angle_t* facing_angle;
-        #line 26 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+        #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
         trigger_t facing_angle_trigger;
         #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-        _pololu_current_mode_t* current_mode;
-        #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-        trigger_t current_mode_trigger;
+        reaction_t* facing_angle_reactions[1];
     } _lf_pololu;
     int _lf_pololu_width;
     struct {
-        #line 62 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-        _bluetooth_message_received_trigger_t* message_received_trigger;
-        #line 62 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-        trigger_t message_received_trigger_trigger;
-        #line 62 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-        reaction_t* message_received_trigger_reactions[1];
+        #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+        _bluetooth_outgoing_message_t outgoing_message;
+        #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+        _bluetooth_incoming_message_t* incoming_message;
+        #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+        trigger_t incoming_message_trigger;
+        #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+        reaction_t* incoming_message_reactions[1];
     } _lf_bluetooth;
     int _lf_bluetooth_width;
-    #line 38 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    #line 45 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
     reaction_t _lf__reaction_0;
-    #line 48 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    #line 80 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
     reaction_t _lf__reaction_1;
-    #line 33 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    #line 86 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
+    reaction_t _lf__reaction_2;
+    #line 27 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
     trigger_t _lf__t;
-    #line 33 "/home/foobar/149project/src/pololu_control/PololuControl.lf"
-    reaction_t* _lf__t_reactions[1];
 } _pololucontrol_main_main_self_t;
 _pololucontrol_main_main_self_t* new__pololucontrol_main();
 #endif // _POLOLUCONTROL_MAIN_H

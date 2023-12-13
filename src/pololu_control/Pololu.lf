@@ -15,8 +15,9 @@ preamble {=
   #include <stdio.h>
   #include <pico/stdlib.h>
   #include <hardware/gpio.h>
+  #include <math.h>
 
-  int GYRO_CALIBRATION_TIMESTEPS = 400;
+  #define GYRO_CALIBRATION_TIMESTEPS 1600
 =}
 
 reactor Pololu {
@@ -24,7 +25,7 @@ reactor Pololu {
   input drive_direction:bool; //0 = forwards or left, 1 = backwards or right
   input drive_amount:float; // in angles for turning, in metric units for driving
   output facing_angle:float;
-  output current_mode:int;
+  output current_mode:string;
 
   gyro = new GyroAngle();
   encoders = new Encoders();
@@ -32,15 +33,15 @@ reactor Pololu {
   encoders.left -> motors.left;
   encoders.right -> motors.right;
 
-  state left_speed: float = 0.15;
-  state right_speed: float = 0.15;
+  state left_speed: float = 0.15
+  state right_speed: float = 0.15
 
-  state step_counter: int = 0;
-  state gyro_actual_z: float = 0;
-  state gyro_start: float = 0;
-  state gyro_bias: float = 0;
+  state step_counter: int = 0
+  state gyro_actual_z: float = 0.0
+  state gyro_start: float = 0.0
+  state gyro_bias: float = 0.0
 
-  timer t(0, 25 ms);
+  timer t(0, 10 ms);
   
   reaction(startup) -> facing_angle {=
     lf_set(facing_angle, 0);
@@ -51,59 +52,82 @@ reactor Pololu {
     lf_set(encoders.trigger, true);
   =}
 
+
   initial mode CALIBRATING_GYRO {
     reaction(startup) gyro.z -> motors.left_speed, motors.right_speed, current_mode {=
       lf_set(motors.left_speed, 0);
       lf_set(motors.right_speed, 0);
       self->step_counter = 0;
       self->gyro_start = gyro.z->value;
-      lf_set(current_mode, 1);
+      lf_set(current_mode, "Calibrating");
     =}
 
-    reaction(t) gyro.z -> STOPPED {=
+    reaction(t) gyro.z -> STOPPED, motors.left_speed, motors.right_speed, current_mode {=
       self->step_counter += 1;
       if (self->step_counter >= GYRO_CALIBRATION_TIMESTEPS) {
-        self->gyro_bias = (gyro.z->value - self->gyro_start) / GYRO_CALIBRATION_TIMESTEPS; //gyro.z accumulates bias over time, so we divide the total change by the timesteps passed
+        self->gyro_bias = (gyro.z->value - self->gyro_start) / self->step_counter; //gyro.z accumulates bias over time, so we divide the total change by the timesteps passed
+        lf_set(motors.left_speed, 0);
+        lf_set(motors.right_speed, 0);
+        lf_set(current_mode, "Stopped");
         lf_set_mode(STOPPED);
       }
     =}
   }
 
   mode STOPPED {
-    reaction(startup) -> motors.left_speed, motors.right_speed, current_mode {=
-      lf_set(motors.left_speed, 0);
-      lf_set(motors.right_speed, 0);
-      lf_set(current_mode, 2);
-    =}
-
-    reaction(drive_mode) -> TURNING {=
+    reaction(drive_mode) drive_direction, gyro.z -> TURNING, DRIVING, motors.left_speed, motors.right_speed, current_mode {=
       if (drive_mode->value == 2) {
+        if (drive_direction->value) {
+          lf_set(motors.left_speed, self->left_speed);
+          lf_set(motors.right_speed, -self->right_speed);
+        } else {
+          lf_set(motors.left_speed, -self->left_speed);
+          lf_set(motors.right_speed, self->right_speed);
+        }
+        self->step_counter = 0;
+        self->gyro_start = gyro.z->value;
+        lf_set(current_mode, "Turning");
         lf_set_mode(TURNING);
+      }
+
+      else if (drive_mode->value == 1) {
+        if (drive_direction->value) {
+          lf_set(motors.left_speed, -self->left_speed);
+          lf_set(motors.right_speed, -self->right_speed);
+        } else {
+          lf_set(motors.left_speed, self->left_speed);
+          lf_set(motors.right_speed, self->right_speed);
+        }
+        self->step_counter = 0;
+        lf_set(current_mode, "Driving");
+        lf_set_mode(DRIVING);
       }
     =}
   }
 
   mode TURNING {
-    reaction(startup) drive_direction -> motors.left_speed, motors.right_speed, current_mode {=
-      if (drive_direction->value) {
-        lf_set(motors.left_speed, self->left_speed);
-        lf_set(motors.right_speed, -self->right_speed);
-      } else {
-        lf_set(motors.left_speed, -self->left_speed);
-        lf_set(motors.right_speed, self->right_speed);
-      }
-      self->step_counter = 0;
-      self->gyro_start = gyro.z;
-      lf_set(current_mode, 3);
-    =}
-
-    reaction(t) gyro.z, drive_amount -> STOPPED, facing_angle {=
+    reaction(t) gyro.z, drive_amount -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode {=
       self->step_counter += 1;
-      self->gyro_actual_z = gyro.z - self->gyro_start - (self->gyro_bias * self->step_counter);
-      if (abs(self->gyro_actual_z) >= drive_amout->value) {
+      self->gyro_actual_z = (91.5f / 90.0f)*(gyro.z->value - self->gyro_start) - (self->gyro_bias * self->step_counter);
+      if (abs(self->gyro_actual_z) > drive_amount->value) {
+        lf_set(motors.left_speed, 0);
+        lf_set(motors.right_speed, 0);
+        lf_set(current_mode, "Stopped");
         lf_set_mode(STOPPED);
       }
-      lf_set(facing_angle, (facing_angle->value + gyro_actual_z) % 360);
+      lf_set(facing_angle, fmodf(self->gyro_actual_z, 360.0f));
+    =}
+  }
+
+  mode DRIVING {
+    reaction(t) drive_amount -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode {=
+      self->step_counter += 1;
+      if (self->step_counter > drive_amount->value) {
+        lf_set(motors.left_speed, 0);
+        lf_set(motors.right_speed, 0);
+        lf_set(current_mode, "Stopped");
+        lf_set_mode(STOPPED);
+      }
     =}
   }
 

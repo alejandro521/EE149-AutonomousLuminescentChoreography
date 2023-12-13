@@ -7,7 +7,7 @@ target C {
   }
   
   import Display from "lib/Display.lf"
-  import Robot from "PololuControl.lf"
+  //import Robot from "PololuControl.lf"
   import Accelerometer from "lib/IMU.lf"
   
   preamble {=
@@ -23,11 +23,11 @@ target C {
     #define MAX_MSG_LENGTH 100
     
     // COMMANDS TO POLOLU GO HERE
-    static char SET_NAME_COMMAND[10] = "SET_NAME:";
-    static char DRIVE_FORWARD_COMMAND[14] = "DRIVE_FORWARD";
-    static char DRIVE_BACKWARD_COMMAND[15] = "DRIVE_BACKWARD";
-    static char TURN_LEFT_COMMAND[10] = "TURN_LEFT";
-    static char TURN_RIGHT_COMMAND[11] = "TURN_RIGHT";
+    // static char SET_NAME_COMMAND[10] = "SET_NAME:";
+    // static char DRIVE_FORWARD_COMMAND[14] = "DRIVE_FORWARD";
+    // static char DRIVE_BACKWARD_COMMAND[15] = "DRIVE_BACKWARD";
+    // static char TURN_LEFT_COMMAND[10] = "TURN_LEFT";
+    // static char TURN_RIGHT_COMMAND[11] = "TURN_RIGHT";
   
     static bool matchesCommand(command, str) {
       return strncmp(command, str, strlen(command)) == 0;
@@ -45,7 +45,7 @@ target C {
     state x: float = 0.0 // Bias for x
     state y: float = 0.0 // Bias for y
     disp = new Display();
-    pololu = new Robot();
+    //pololu = new Robot();
     acc = new Accelerometer();
   
   

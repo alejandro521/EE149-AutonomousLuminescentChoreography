@@ -1,8 +1,8 @@
 #ifndef _BLUETOOTH_H
 #define _BLUETOOTH_H
 #include "include/core/reactor.h"
-#ifndef TOP_LEVEL_PREAMBLE_441397487_H
-#define TOP_LEVEL_PREAMBLE_441397487_H
+#ifndef TOP_LEVEL_PREAMBLE_967643830_H
+#define TOP_LEVEL_PREAMBLE_967643830_H
 #ifndef BLUETOOTH_FUNCTIONS_H
 #define BLUETOOTH_FUNCTIONS_H
 #include <stdio.h>
@@ -57,21 +57,7 @@ typedef struct {
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    bool value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} _bluetooth_message_send_trigger_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    char value[100];
+    string value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
@@ -85,21 +71,7 @@ typedef struct {
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    bool value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} _bluetooth_message_received_trigger_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    char value[100];
+    string value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
@@ -110,57 +82,40 @@ typedef struct {
 typedef struct {
     struct self_base_t base;
     
-    #line 66 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 64 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    char* received_message;
+    #line 65 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     char* transmitted_message;
     #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    _bluetooth_message_send_trigger_t* _lf_message_send_trigger;
-    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    // width of -2 indicates that it is not a multiport.
-    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    int _lf_message_send_trigger_width;
-    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    // Default input (in case it does not get connected)
-    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    _bluetooth_message_send_trigger_t _lf_default__message_send_trigger;
-    #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     _bluetooth_outgoing_message_t* _lf_outgoing_message;
-    #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     // width of -2 indicates that it is not a multiport.
-    #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     int _lf_outgoing_message_width;
-    #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     // Default input (in case it does not get connected)
-    #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     _bluetooth_outgoing_message_t _lf_default__outgoing_message;
-    #line 62 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    _bluetooth_message_received_trigger_t _lf_message_received_trigger;
-    #line 62 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    int _lf_message_received_trigger_width;
-    #line 63 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     _bluetooth_incoming_message_t _lf_incoming_message;
-    #line 63 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     int _lf_incoming_message_width;
-    #line 68 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 67 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     reaction_t _lf__reaction_0;
-    #line 83 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 80 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     reaction_t _lf__reaction_1;
-    #line 89 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 86 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     reaction_t _lf__reaction_2;
-    #line 65 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 63 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     trigger_t _lf__t;
-    #line 65 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    #line 63 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     reaction_t* _lf__t_reactions[1];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[1];
     #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    trigger_t _lf__message_send_trigger;
-    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
-    reaction_t* _lf__message_send_trigger_reactions[1];
-    #ifdef FEDERATED
-    
-    #endif // FEDERATED
-    #line 61 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
     trigger_t _lf__outgoing_message;
+    #line 60 "/home/foobar/149project/src/pololu_control/Bluetooth.lf"
+    reaction_t* _lf__outgoing_message_reactions[1];
     #ifdef FEDERATED
     
     #endif // FEDERATED

@@ -1,7 +1,7 @@
 #ifndef _bluetooth_H
 #define _bluetooth_H
-#ifndef TOP_LEVEL_PREAMBLE_441397487_H
-#define TOP_LEVEL_PREAMBLE_441397487_H
+#ifndef TOP_LEVEL_PREAMBLE_967643830_H
+#define TOP_LEVEL_PREAMBLE_967643830_H
 /*Correspondence: Range: [(9, 4), (55, 31)) -> Range: [(0, 0), (46, 31)) (verbatim=true; src=/home/foobar/149project/src/pololu_control/Bluetooth.lf)*/#ifndef BLUETOOTH_FUNCTIONS_H
 #define BLUETOOTH_FUNCTIONS_H
 #include <stdio.h>
@@ -60,6 +60,7 @@ extern "C" {
 #endif
 typedef struct bluetooth_self_t{
     self_base_t base; // This field is only to be used by the runtime, not the user.
+    char* received_message;
     char* transmitted_message;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } bluetooth_self_t;
@@ -69,21 +70,7 @@ typedef struct {
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    bool value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} bluetooth_message_send_trigger_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    char value[100];
+    string value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
@@ -97,21 +84,7 @@ typedef struct {
     size_t length;
     bool is_present;
     lf_port_internal_t _base;
-    bool value;
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} bluetooth_message_received_trigger_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_port_internal_t _base;
-    char value[100];
+    string value;
     #ifdef FEDERATED
     #ifdef FEDERATED_DECENTRALIZED
     tag_t intended_tag;
