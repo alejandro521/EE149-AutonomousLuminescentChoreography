@@ -26,7 +26,7 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 set(CMAKE_TARGET_DEFINITIONS_ASM
   "LF_FILE_SEPARATOR=\"/\""
   "LF_PACKAGE_DIRECTORY=\"/home/foobar/149project\""
-  "LF_REACTION_GRAPH_BREADTH=6"
+  "LF_REACTION_GRAPH_BREADTH=7"
   "LF_SOURCE_DIRECTORY=\"/home/foobar/149project/src/pololu_control\""
   "LF_UNTHREADED=1"
   "LIB_PICO_BIT_OPS=1"
@@ -145,6 +145,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/foobar/149project/src-gen/pololu_control/PololuControl/_encoders.c" "CMakeFiles/PololuControl.dir/_encoders.c.obj" "gcc" "CMakeFiles/PololuControl.dir/_encoders.c.obj.d"
   "/home/foobar/149project/src-gen/pololu_control/PololuControl/_gyro.c" "CMakeFiles/PololuControl.dir/_gyro.c.obj" "gcc" "CMakeFiles/PololuControl.dir/_gyro.c.obj.d"
   "/home/foobar/149project/src-gen/pololu_control/PololuControl/_gyroangle.c" "CMakeFiles/PololuControl.dir/_gyroangle.c.obj" "gcc" "CMakeFiles/PololuControl.dir/_gyroangle.c.obj.d"
+  "/home/foobar/149project/src-gen/pololu_control/PololuControl/_lights.c" "CMakeFiles/PololuControl.dir/_lights.c.obj" "gcc" "CMakeFiles/PololuControl.dir/_lights.c.obj.d"
   "/home/foobar/149project/src-gen/pololu_control/PololuControl/_motors.c" "CMakeFiles/PololuControl.dir/_motors.c.obj" "gcc" "CMakeFiles/PololuControl.dir/_motors.c.obj.d"
   "/home/foobar/149project/src-gen/pololu_control/PololuControl/_motorswithfeedback.c" "CMakeFiles/PololuControl.dir/_motorswithfeedback.c.obj" "gcc" "CMakeFiles/PololuControl.dir/_motorswithfeedback.c.obj.d"
   "/home/foobar/149project/src-gen/pololu_control/PololuControl/_picontrol.c" "CMakeFiles/PololuControl.dir/_picontrol.c.obj" "gcc" "CMakeFiles/PololuControl.dir/_picontrol.c.obj.d"

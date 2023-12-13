@@ -1,7 +1,22 @@
 #ifndef _pololucontrol_main_H
 #define _pololucontrol_main_H
-#ifndef TOP_LEVEL_PREAMBLE_1454136448_H
-#define TOP_LEVEL_PREAMBLE_1454136448_H
+#ifndef TOP_LEVEL_PREAMBLE_817681834_H
+#define TOP_LEVEL_PREAMBLE_817681834_H
+/*Correspondence: Range: [(9, 4), (16, 24)) -> Range: [(0, 0), (7, 24)) (verbatim=true; src=/home/foobar/149project/src/pololu_control/Lights.lf)*/#include <stdlib.h>
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+
+#define RED_LED_PIN 7
+#define YELLOW_LED_PIN 27
+#define GREEN_LED_PIN 24
+/*Correspondence: Range: [(14, 2), (20, 1)) -> Range: [(0, 0), (6, 1)) (verbatim=true; src=/home/foobar/149project/src/pololu_control/PololuControl.lf)*/#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+
+static bool matchesCommand(str, command) {
+  return strncmp(command, str, strlen(command)) == 0;
+}
 /*Correspondence: Range: [(13, 2), (19, 39)) -> Range: [(0, 0), (6, 39)) (verbatim=true; src=/home/foobar/149project/src/pololu_control/Pololu.lf)*/#include <stdlib.h>
 #include <stdio.h>
 #include <pico/stdlib.h>
@@ -9,13 +24,6 @@
 #include <math.h>
 
 #define GYRO_CALIBRATION_TIMESTEPS 1600
-/*Correspondence: Range: [(13, 2), (19, 1)) -> Range: [(0, 0), (6, 1)) (verbatim=true; src=/home/foobar/149project/src/pololu_control/PololuControl.lf)*/#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-
-static bool matchesCommand(str, command) {
-  return strncmp(command, str, strlen(command)) == 0;
-}
 /*Correspondence: Range: [(9, 4), (55, 31)) -> Range: [(0, 0), (46, 31)) (verbatim=true; src=/home/foobar/149project/src/pololu_control/Bluetooth.lf)*/#ifndef BLUETOOTH_FUNCTIONS_H
 #define BLUETOOTH_FUNCTIONS_H
 #include <stdio.h>
@@ -80,7 +88,8 @@ typedef struct pololucontrol_self_t{
     char* TURN_RIGHT_COMMAND;
     char* MOVE_FORWARD_COMMAND;
     char* MOVE_BACKWARD_COMMAND;
-    char* STOP_COMMAND;
+    char* SET_SPEED_COMMAND;
+    char* reply;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } pololucontrol_self_t;
 typedef struct {
@@ -118,6 +127,15 @@ typedef struct {
     lf_port_internal_t _base;
     float value;
 
+} pololu_speed_t;
+typedef struct {
+    token_type_t type;
+    lf_token_t* token;
+    size_t length;
+    bool is_present;
+    lf_port_internal_t _base;
+    float value;
+
 } pololu_facing_angle_t;
 typedef struct {
     token_type_t type;
@@ -128,6 +146,15 @@ typedef struct {
     string value;
 
 } pololu_current_mode_t;
+typedef struct {
+    token_type_t type;
+    lf_token_t* token;
+    size_t length;
+    bool is_present;
+    lf_port_internal_t _base;
+    bool value;
+
+} pololu_completion_notify_t;
 typedef struct {
     token_type_t type;
     lf_token_t* token;

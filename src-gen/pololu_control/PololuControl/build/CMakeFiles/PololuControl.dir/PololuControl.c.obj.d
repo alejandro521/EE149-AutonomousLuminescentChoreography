@@ -113,4 +113,5 @@ CMakeFiles/PololuControl.dir/PololuControl.c.obj: \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/_bluetooth.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/_display.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/robot-lib/src/display.h \
+ /home/foobar/149project/src-gen/pololu_control/PololuControl/_lights.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/_pololucontrol_main.h

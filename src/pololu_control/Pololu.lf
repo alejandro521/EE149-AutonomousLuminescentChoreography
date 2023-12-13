@@ -24,8 +24,10 @@ reactor Pololu {
   input drive_mode:int; //0 = stopped, 1 = driving, 2 = turning
   input drive_direction:bool; //0 = forwards or left, 1 = backwards or right
   input drive_amount:float; // in angles for turning, in metric units for driving
+  input speed:float;
   output facing_angle:float;
   output current_mode:string;
+  output completion_notify:bool;
 
   gyro = new GyroAngle();
   encoders = new Encoders();
@@ -103,16 +105,23 @@ reactor Pololu {
         lf_set_mode(DRIVING);
       }
     =}
+
+    reaction(speed) -> completion_notify {=
+      self->left_speed = speed->value;
+      self->right_speed = speed->value;
+      lf_set(completion_notify, true);
+    =}
   }
 
   mode TURNING {
-    reaction(t) gyro.z, drive_amount -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode {=
+    reaction(t) gyro.z, drive_amount -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode, completion_notify {=
       self->step_counter += 1;
       self->gyro_actual_z = (91.5f / 90.0f)*(gyro.z->value - self->gyro_start) - (self->gyro_bias * self->step_counter);
       if (abs(self->gyro_actual_z) > drive_amount->value) {
         lf_set(motors.left_speed, 0);
         lf_set(motors.right_speed, 0);
         lf_set(current_mode, "Stopped");
+        lf_set(completion_notify, true);
         lf_set_mode(STOPPED);
       }
       lf_set(facing_angle, fmodf(self->gyro_actual_z, 360.0f));
@@ -120,12 +129,13 @@ reactor Pololu {
   }
 
   mode DRIVING {
-    reaction(t) drive_amount -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode {=
+    reaction(t) drive_amount -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode, completion_notify {=
       self->step_counter += 1;
       if (self->step_counter > drive_amount->value) {
         lf_set(motors.left_speed, 0);
         lf_set(motors.right_speed, 0);
         lf_set(current_mode, "Stopped");
+        lf_set(completion_notify, true);
         lf_set_mode(STOPPED);
       }
     =}

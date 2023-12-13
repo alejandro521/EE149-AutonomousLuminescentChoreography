@@ -103,5 +103,6 @@ CMakeFiles/PololuControl.dir/_pololucontrol_main.c.obj: \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/_motors.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/robot-lib/src/motors.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/_display.h \
+ /home/foobar/149project/src-gen/pololu_control/PololuControl/_lights.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/api/set.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/api/set_undef.h

@@ -435,6 +435,30 @@ _gyroangle.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PololuControl.dir/build.make CMakeFiles/PololuControl.dir/_gyroangle.c.s
 .PHONY : _gyroangle.c.s
 
+_lights.obj: _lights.c.obj
+.PHONY : _lights.obj
+
+# target to build an object file
+_lights.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PololuControl.dir/build.make CMakeFiles/PololuControl.dir/_lights.c.obj
+.PHONY : _lights.c.obj
+
+_lights.i: _lights.c.i
+.PHONY : _lights.i
+
+# target to preprocess a source file
+_lights.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PololuControl.dir/build.make CMakeFiles/PololuControl.dir/_lights.c.i
+.PHONY : _lights.c.i
+
+_lights.s: _lights.c.s
+.PHONY : _lights.s
+
+# target to generate assembly for a file
+_lights.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PololuControl.dir/build.make CMakeFiles/PololuControl.dir/_lights.c.s
+.PHONY : _lights.c.s
+
 _motors.obj: _motors.c.obj
 .PHONY : _motors.obj
 
@@ -1667,6 +1691,9 @@ help:
 	@echo "... _gyroangle.obj"
 	@echo "... _gyroangle.i"
 	@echo "... _gyroangle.s"
+	@echo "... _lights.obj"
+	@echo "... _lights.i"
+	@echo "... _lights.s"
 	@echo "... _motors.obj"
 	@echo "... _motors.i"
 	@echo "... _motors.s"

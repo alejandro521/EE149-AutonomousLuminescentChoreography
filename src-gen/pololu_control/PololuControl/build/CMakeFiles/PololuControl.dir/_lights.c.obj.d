@@ -1,5 +1,5 @@
-CMakeFiles/PololuControl.dir/_pololu.c.obj: \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_pololu.c \
+CMakeFiles/PololuControl.dir/_lights.c.obj: \
+ /home/foobar/149project/src-gen/pololu_control/PololuControl/_lights.c \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/api/api.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h \
@@ -29,8 +29,7 @@ CMakeFiles/PololuControl.dir/_pololu.c.obj: \
  /usr/include/newlib/alloca.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/core/tag.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/core/utils/vector.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/include/Pololu/Pololu.h \
- /usr/include/newlib/math.h \
+ /home/foobar/149project/src-gen/pololu_control/PololuControl/include/Lights/Lights.h \
  /home/foobar/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico.h \
  /home/foobar/pico-sdk/src/common/pico_base/include/pico/types.h \
@@ -68,18 +67,6 @@ CMakeFiles/PololuControl.dir/_pololu.c.obj: \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
  /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
  /home/foobar/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
- /home/foobar/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio.h \
- /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pio.h \
- /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pio.h \
- /home/foobar/pico-sdk/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/build/robot/quadrature_encoder.pio.h \
- /home/foobar/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
- /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
- /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/robot-lib/src/imu.h \
- /home/foobar/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
- /home/foobar/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
- /home/foobar/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/api/api.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/core/reactor.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/core/lf_types.h \
@@ -89,15 +76,7 @@ CMakeFiles/PololuControl.dir/_pololu.c.obj: \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/core/tag.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/../include/core/trace.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/core/utils/util.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_pololu.h \
+ /home/foobar/149project/src-gen/pololu_control/PololuControl/_lights.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/core/reactor.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_encoders.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_gyroangle.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_trapezoidalintegrator.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_gyro.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_motorswithfeedback.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_picontrol.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/_motors.h \
- /home/foobar/149project/src-gen/pololu_control/PololuControl/robot-lib/src/motors.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/api/set.h \
  /home/foobar/149project/src-gen/pololu_control/PololuControl/include/api/set_undef.h

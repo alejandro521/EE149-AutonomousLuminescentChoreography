@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/PololuControl.dir/_gyro.c.obj.d"
   "CMakeFiles/PololuControl.dir/_gyroangle.c.obj"
   "CMakeFiles/PololuControl.dir/_gyroangle.c.obj.d"
+  "CMakeFiles/PololuControl.dir/_lights.c.obj"
+  "CMakeFiles/PololuControl.dir/_lights.c.obj.d"
   "CMakeFiles/PololuControl.dir/_motors.c.obj"
   "CMakeFiles/PololuControl.dir/_motors.c.obj.d"
   "CMakeFiles/PololuControl.dir/_motorswithfeedback.c.obj"

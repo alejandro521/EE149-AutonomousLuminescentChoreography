@@ -4,21 +4,10 @@
 #include "_encoders.h"
 #include "_gyroangle.h"
 #include "_motorswithfeedback.h"
-#ifndef TOP_LEVEL_PREAMBLE_952288009_H
-#define TOP_LEVEL_PREAMBLE_952288009_H
-#include <stdlib.h>
-#include <stdio.h>
-#include <pico/stdlib.h>
-#include <hardware/gpio.h>
-#include <math.h>
-
-#define GYRO_CALIBRATION_TIMESTEPS 1600
+#ifndef TOP_LEVEL_PREAMBLE_1666704297_H
+#define TOP_LEVEL_PREAMBLE_1666704297_H
 #include <pico/stdlib.h>
 #include <imu.h>
-#include <math.h>
-#define WHEEL_DIAMETER 0.032 // meters
-#define COUNTS_PER_REV 360 //CPR
-#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #include <math.h> 
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -28,6 +17,17 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
+#include <stdlib.h>
+#include <stdio.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+#include <math.h>
+
+#define GYRO_CALIBRATION_TIMESTEPS 1600
+#include <math.h>
+#define WHEEL_DIAMETER 0.032 // meters
+#define COUNTS_PER_REV 360 //CPR
+#define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
 #endif
 typedef struct {
     token_type_t type;
@@ -84,6 +84,20 @@ typedef struct {
     #endif
     interval_t physical_time_of_arrival;
     #endif
+} _pololu_speed_t;
+typedef struct {
+    token_type_t type;
+    lf_token_t* token;
+    size_t length;
+    bool is_present;
+    lf_port_internal_t _base;
+    float value;
+    #ifdef FEDERATED
+    #ifdef FEDERATED_DECENTRALIZED
+    tag_t intended_tag;
+    #endif
+    interval_t physical_time_of_arrival;
+    #endif
 } _pololu_facing_angle_t;
 typedef struct {
     token_type_t type;
@@ -100,19 +114,33 @@ typedef struct {
     #endif
 } _pololu_current_mode_t;
 typedef struct {
+    token_type_t type;
+    lf_token_t* token;
+    size_t length;
+    bool is_present;
+    lf_port_internal_t _base;
+    bool value;
+    #ifdef FEDERATED
+    #ifdef FEDERATED_DECENTRALIZED
+    tag_t intended_tag;
+    #endif
+    interval_t physical_time_of_arrival;
+    #endif
+} _pololu_completion_notify_t;
+typedef struct {
     struct self_base_t base;
     
-    #line 36 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 38 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     float left_speed;
-    #line 37 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    float right_speed;
     #line 39 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    int step_counter;
-    #line 40 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    float gyro_actual_z;
+    float right_speed;
     #line 41 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    float gyro_start;
+    int step_counter;
     #line 42 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    float gyro_actual_z;
+    #line 43 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    float gyro_start;
+    #line 44 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     float gyro_bias;
     #line 24 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     _pololu_drive_mode_t* _lf_drive_mode;
@@ -145,13 +173,27 @@ typedef struct {
     #line 26 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     _pololu_drive_amount_t _lf_default__drive_amount;
     #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
-    _pololu_facing_angle_t _lf_facing_angle;
+    _pololu_speed_t* _lf_speed;
     #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    // width of -2 indicates that it is not a multiport.
+    #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    int _lf_speed_width;
+    #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    // Default input (in case it does not get connected)
+    #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    _pololu_speed_t _lf_default__speed;
+    #line 28 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    _pololu_facing_angle_t _lf_facing_angle;
+    #line 28 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     int _lf_facing_angle_width;
-    #line 28 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 29 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     _pololu_current_mode_t _lf_current_mode;
-    #line 28 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 29 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     int _lf_current_mode_width;
+    #line 30 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    _pololu_completion_notify_t _lf_completion_notify;
+    #line 30 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    int _lf_completion_notify_width;
     struct {
         #line 121 "/home/foobar/149project/src/lib/IMU.lf"
         _gyroangle_trigger_t trigger;
@@ -173,23 +215,25 @@ typedef struct {
         _motorswithfeedback_right_speed_t right_speed;
     } _lf_motors;
     int _lf_motors_width;
-    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 48 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_0;
-    #line 50 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 52 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_1;
-    #line 57 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 59 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_2;
-    #line 65 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 67 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_3;
-    #line 78 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 80 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_4;
     #line 109 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_5;
-    #line 123 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 117 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t _lf__reaction_6;
-    #line 44 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 132 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    reaction_t _lf__reaction_7;
+    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     trigger_t _lf__t;
-    #line 44 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    #line 46 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     reaction_t* _lf__t_reactions[4];
     trigger_t _lf__startup;
     reaction_t* _lf__startup_reactions[2];
@@ -207,6 +251,13 @@ typedef struct {
     #endif // FEDERATED
     #line 26 "/home/foobar/149project/src/pololu_control/Pololu.lf"
     trigger_t _lf__drive_amount;
+    #ifdef FEDERATED
+    
+    #endif // FEDERATED
+    #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    trigger_t _lf__speed;
+    #line 27 "/home/foobar/149project/src/pololu_control/Pololu.lf"
+    reaction_t* _lf__speed_reactions[1];
     #ifdef FEDERATED
     
     #endif // FEDERATED

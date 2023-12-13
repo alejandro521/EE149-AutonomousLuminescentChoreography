@@ -26,6 +26,7 @@ void _lf_set_default_command_line_options() {}
 #include "_pololu.h"
 #include "_bluetooth.h"
 #include "_display.h"
+#include "_lights.h"
 #include "_pololucontrol_main.h"
 typedef enum {
     pololucontrol_main,
@@ -35,7 +36,7 @@ typedef enum {
 environment_t envs[_num_enclaves];
 // 'Create' and initialize the environments in the program
 void _lf_create_environments() {
-    environment_init(&envs[pololucontrol_main],pololucontrol_main,_lf_number_of_workers,3,7,0,0,27,1,0,NULL);
+    environment_init(&envs[pololucontrol_main],pololucontrol_main,_lf_number_of_workers,4,8,0,0,29,1,0,NULL);
 }
 // Update the pointer argument to point to the beginning of the environment array
 // and return the size of that array
@@ -86,6 +87,8 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(pololucontrol_bluetooth_self);
     _display_self_t* pololucontrol_disp_self[1];
     SUPPRESS_UNUSED_WARNING(pololucontrol_disp_self);
+    _lights_self_t* pololucontrol_lights_self[1];
+    SUPPRESS_UNUSED_WARNING(pololucontrol_lights_self);
     // ***** Start initializing PololuControl of class PololuControl
     pololucontrol_main_self[0] = new__pololucontrol_main();
     pololucontrol_main_self[0]->base.environment = &envs[pololucontrol_main];
@@ -108,8 +111,8 @@ void _lf_initialize_trigger_objects() {
         pololucontrol_main_self[0]->MOVE_BACKWARD_COMMAND = _initial;
     } // End scoping.
     { // For scoping
-        static char _initial[20] = "STOP:";
-        pololucontrol_main_self[0]->STOP_COMMAND = _initial;
+        static char _initial[20] = "SET_SPEED:";
+        pololucontrol_main_self[0]->SET_SPEED_COMMAND = _initial;
     } // End scoping.
     // Initiaizing timer PololuControl.t.
     pololucontrol_main_self[0]->_lf__t.offset = 0;
@@ -121,6 +124,7 @@ void _lf_initialize_trigger_objects() {
     pololucontrol_main_self[0]->_lf__reaction_0.deadline = NEVER;
     pololucontrol_main_self[0]->_lf__reaction_1.deadline = NEVER;
     pololucontrol_main_self[0]->_lf__reaction_2.deadline = NEVER;
+    pololucontrol_main_self[0]->_lf__reaction_3.deadline = NEVER;
     {
         // ***** Start initializing PololuControl.pololu of class Pololu
         pololucontrol_pololu_self[0] = new__pololu();
@@ -131,11 +135,15 @@ void _lf_initialize_trigger_objects() {
         // width of -2 indicates that it is not a multiport.
         pololucontrol_pololu_self[0]->_lf_current_mode_width = -2;
         // width of -2 indicates that it is not a multiport.
+        pololucontrol_pololu_self[0]->_lf_completion_notify_width = -2;
+        // width of -2 indicates that it is not a multiport.
         pololucontrol_pololu_self[0]->_lf_drive_mode_width = -2;
         // width of -2 indicates that it is not a multiport.
         pololucontrol_pololu_self[0]->_lf_drive_direction_width = -2;
         // width of -2 indicates that it is not a multiport.
         pololucontrol_pololu_self[0]->_lf_drive_amount_width = -2;
+        // width of -2 indicates that it is not a multiport.
+        pololucontrol_pololu_self[0]->_lf_speed_width = -2;
         envs[pololucontrol_main].startup_reactions[startup_reaction_count[pololucontrol_main]++] = &pololucontrol_pololu_self[0]->_lf__reaction_0;
         envs[pololucontrol_main].startup_reactions[startup_reaction_count[pololucontrol_main]++] = &pololucontrol_pololu_self[0]->_lf__reaction_2;
         SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
@@ -177,6 +185,7 @@ void _lf_initialize_trigger_objects() {
         pololucontrol_pololu_self[0]->_lf__reaction_4.deadline = NEVER;
         pololucontrol_pololu_self[0]->_lf__reaction_5.deadline = NEVER;
         pololucontrol_pololu_self[0]->_lf__reaction_6.deadline = NEVER;
+        pololucontrol_pololu_self[0]->_lf__reaction_7.deadline = NEVER;
         // Register for transition handling
         envs[pololucontrol_main].modes->modal_reactor_states[modal_reactor_count[pololucontrol_main]++] = &((self_base_t*)pololucontrol_pololu_self[0])->_lf__mode_state;
         {
@@ -461,6 +470,24 @@ void _lf_initialize_trigger_objects() {
         pololucontrol_disp_self[0]->_lf__reaction_1.deadline = NEVER;
         //***** End initializing PololuControl.disp
     }
+    {
+        // ***** Start initializing PololuControl.lights of class Lights
+        pololucontrol_lights_self[0] = new__lights();
+        pololucontrol_lights_self[0]->base.environment = &envs[pololucontrol_main];
+        bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+        envs[pololucontrol_main].startup_reactions[startup_reaction_count[pololucontrol_main]++] = &pololucontrol_lights_self[0]->_lf__reaction_0;
+        SUPPRESS_UNUSED_WARNING(_lf_watchdog_count);
+        // Initiaizing timer PololuControl.lights.t.
+        pololucontrol_lights_self[0]->_lf__t.offset = 0;
+        pololucontrol_lights_self[0]->_lf__t.period = MSEC(50);
+        // Associate timer with the environment of its parent
+        envs[pololucontrol_main].timer_triggers[timer_triggers_count[pololucontrol_main]++] = &pololucontrol_lights_self[0]->_lf__t;
+        pololucontrol_lights_self[0]->_lf__t.mode = NULL;
+    
+        pololucontrol_lights_self[0]->_lf__reaction_0.deadline = NEVER;
+        pololucontrol_lights_self[0]->_lf__reaction_1.deadline = NEVER;
+        //***** End initializing PololuControl.lights
+    }
     //***** End initializing PololuControl
     // **** Start deferred initialize for PololuControl
     {
@@ -491,6 +518,10 @@ void _lf_initialize_trigger_objects() {
             }
             // Reaction writes to an input of a contained reactor.
             {
+                pololucontrol_main_self[0]->_lf__reaction_0.output_produced[count++] = &pololucontrol_main_self[0]->_lf_pololu.speed.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
                 pololucontrol_main_self[0]->_lf__reaction_0.output_produced[count++] = &pololucontrol_main_self[0]->_lf_pololu.drive_mode.is_present;
             }
             // Reaction writes to an input of a contained reactor.
@@ -500,10 +531,6 @@ void _lf_initialize_trigger_objects() {
             // Reaction writes to an input of a contained reactor.
             {
                 pololucontrol_main_self[0]->_lf__reaction_0.output_produced[count++] = &pololucontrol_main_self[0]->_lf_pololu.drive_amount.is_present;
-            }
-            // Reaction writes to an input of a contained reactor.
-            {
-                pololucontrol_main_self[0]->_lf__reaction_0.output_produced[count++] = &pololucontrol_main_self[0]->_lf_bluetooth.outgoing_message.is_present;
             }
         }
         
@@ -554,6 +581,29 @@ void _lf_initialize_trigger_objects() {
         }
         
         // ** End initialization for reaction 2 of PololuControl
+        // Total number of outputs (single ports and multiport channels)
+        // produced by reaction_3 of PololuControl.
+        pololucontrol_main_self[0]->_lf__reaction_3.num_outputs = 1;
+        // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+        // struct for this reaction.
+        pololucontrol_main_self[0]->_lf__reaction_3.triggers = (trigger_t***)_lf_allocate(
+                1, sizeof(trigger_t**),
+                &pololucontrol_main_self[0]->base.allocations);
+        pololucontrol_main_self[0]->_lf__reaction_3.triggered_sizes = (int*)_lf_allocate(
+                1, sizeof(int),
+                &pololucontrol_main_self[0]->base.allocations);
+        pololucontrol_main_self[0]->_lf__reaction_3.output_produced = (bool**)_lf_allocate(
+                1, sizeof(bool*),
+                &pololucontrol_main_self[0]->base.allocations);
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            // Reaction writes to an input of a contained reactor.
+            {
+                pololucontrol_main_self[0]->_lf__reaction_3.output_produced[count++] = &pololucontrol_main_self[0]->_lf_bluetooth.outgoing_message.is_present;
+            }
+        }
+        
+        // ** End initialization for reaction 3 of PololuControl
     
         // **** Start deferred initialize for PololuControl.pololu
         {
@@ -702,50 +752,39 @@ void _lf_initialize_trigger_objects() {
             // ** End initialization for reaction 4 of PololuControl.pololu
             // Total number of outputs (single ports and multiport channels)
             // produced by reaction_5 of PololuControl.pololu.
-            pololucontrol_pololu_self[0]->_lf__reaction_5.num_outputs = 4;
+            pololucontrol_pololu_self[0]->_lf__reaction_5.num_outputs = 1;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
             pololucontrol_pololu_self[0]->_lf__reaction_5.triggers = (trigger_t***)_lf_allocate(
-                    4, sizeof(trigger_t**),
+                    1, sizeof(trigger_t**),
                     &pololucontrol_pololu_self[0]->base.allocations);
             pololucontrol_pololu_self[0]->_lf__reaction_5.triggered_sizes = (int*)_lf_allocate(
-                    4, sizeof(int),
+                    1, sizeof(int),
                     &pololucontrol_pololu_self[0]->base.allocations);
             pololucontrol_pololu_self[0]->_lf__reaction_5.output_produced = (bool**)_lf_allocate(
-                    4, sizeof(bool*),
+                    1, sizeof(bool*),
                     &pololucontrol_pololu_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                // Reaction writes to an input of a contained reactor.
                 {
-                    pololucontrol_pololu_self[0]->_lf__reaction_5.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_motors.left_speed.is_present;
-                }
-                // Reaction writes to an input of a contained reactor.
-                {
-                    pololucontrol_pololu_self[0]->_lf__reaction_5.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_motors.right_speed.is_present;
-                }
-                {
-                    pololucontrol_pololu_self[0]->_lf__reaction_5.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_facing_angle.is_present;
-                }
-                {
-                    pololucontrol_pololu_self[0]->_lf__reaction_5.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_current_mode.is_present;
+                    pololucontrol_pololu_self[0]->_lf__reaction_5.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_completion_notify.is_present;
                 }
             }
             
             // ** End initialization for reaction 5 of PololuControl.pololu
             // Total number of outputs (single ports and multiport channels)
             // produced by reaction_6 of PololuControl.pololu.
-            pololucontrol_pololu_self[0]->_lf__reaction_6.num_outputs = 4;
+            pololucontrol_pololu_self[0]->_lf__reaction_6.num_outputs = 5;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
             pololucontrol_pololu_self[0]->_lf__reaction_6.triggers = (trigger_t***)_lf_allocate(
-                    4, sizeof(trigger_t**),
+                    5, sizeof(trigger_t**),
                     &pololucontrol_pololu_self[0]->base.allocations);
             pololucontrol_pololu_self[0]->_lf__reaction_6.triggered_sizes = (int*)_lf_allocate(
-                    4, sizeof(int),
+                    5, sizeof(int),
                     &pololucontrol_pololu_self[0]->base.allocations);
             pololucontrol_pololu_self[0]->_lf__reaction_6.output_produced = (bool**)_lf_allocate(
-                    4, sizeof(bool*),
+                    5, sizeof(bool*),
                     &pololucontrol_pololu_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
@@ -763,9 +802,48 @@ void _lf_initialize_trigger_objects() {
                 {
                     pololucontrol_pololu_self[0]->_lf__reaction_6.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_current_mode.is_present;
                 }
+                {
+                    pololucontrol_pololu_self[0]->_lf__reaction_6.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_completion_notify.is_present;
+                }
             }
             
             // ** End initialization for reaction 6 of PololuControl.pololu
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_7 of PololuControl.pololu.
+            pololucontrol_pololu_self[0]->_lf__reaction_7.num_outputs = 5;
+            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+            // struct for this reaction.
+            pololucontrol_pololu_self[0]->_lf__reaction_7.triggers = (trigger_t***)_lf_allocate(
+                    5, sizeof(trigger_t**),
+                    &pololucontrol_pololu_self[0]->base.allocations);
+            pololucontrol_pololu_self[0]->_lf__reaction_7.triggered_sizes = (int*)_lf_allocate(
+                    5, sizeof(int),
+                    &pololucontrol_pololu_self[0]->base.allocations);
+            pololucontrol_pololu_self[0]->_lf__reaction_7.output_produced = (bool**)_lf_allocate(
+                    5, sizeof(bool*),
+                    &pololucontrol_pololu_self[0]->base.allocations);
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pololucontrol_pololu_self[0]->_lf__reaction_7.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_motors.left_speed.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pololucontrol_pololu_self[0]->_lf__reaction_7.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_motors.right_speed.is_present;
+                }
+                {
+                    pololucontrol_pololu_self[0]->_lf__reaction_7.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_facing_angle.is_present;
+                }
+                {
+                    pololucontrol_pololu_self[0]->_lf__reaction_7.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_current_mode.is_present;
+                }
+                {
+                    pololucontrol_pololu_self[0]->_lf__reaction_7.output_produced[count++] = &pololucontrol_pololu_self[0]->_lf_completion_notify.is_present;
+                }
+            }
+            
+            // ** End initialization for reaction 7 of PololuControl.pololu
         
             // **** Start deferred initialize for PololuControl.pololu.gyro
             {
@@ -1142,1798 +1220,2025 @@ void _lf_initialize_trigger_objects() {
         
         }
         // **** End of deferred initialize for PololuControl.disp
+        // **** Start deferred initialize for PololuControl.lights
+        {
+        
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_0 of PololuControl.lights.
+            pololucontrol_lights_self[0]->_lf__reaction_0.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 0 of PololuControl.lights
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_1 of PololuControl.lights.
+            pololucontrol_lights_self[0]->_lf__reaction_1.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 1 of PololuControl.lights
+        
+        }
+        // **** End of deferred initialize for PololuControl.lights
     }
     // **** End of deferred initialize for PololuControl
     // **** Start non-nested deferred initialize for PololuControl
-    // Set number of destination reactors for port disp.line0.
-    // Iterate over range PololuControl.disp.line0(0,1)->[PololuControl.disp.line0(0,1)].
     {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_main_self[src_runtime]->_lf_disp.line0._base.num_destinations = 1;
-        pololucontrol_main_self[src_runtime]->_lf_disp.line0._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port disp.line1.
-    // Iterate over range PololuControl.disp.line1(0,1)->[PololuControl.disp.line1(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_main_self[src_runtime]->_lf_disp.line1._base.num_destinations = 1;
-        pololucontrol_main_self[src_runtime]->_lf_disp.line1._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port pololu.drive_mode.
-    // Iterate over range PololuControl.pololu.drive_mode(0,1)->[PololuControl.pololu.drive_mode(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_main_self[src_runtime]->_lf_pololu.drive_mode._base.num_destinations = 1;
-        pololucontrol_main_self[src_runtime]->_lf_pololu.drive_mode._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port pololu.drive_direction.
-    // Iterate over range PololuControl.pololu.drive_direction(0,1)->[PololuControl.pololu.drive_direction(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_main_self[src_runtime]->_lf_pololu.drive_direction._base.num_destinations = 1;
-        pololucontrol_main_self[src_runtime]->_lf_pololu.drive_direction._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port pololu.drive_amount.
-    // Iterate over range PololuControl.pololu.drive_amount(0,1)->[PololuControl.pololu.drive_amount(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_main_self[src_runtime]->_lf_pololu.drive_amount._base.num_destinations = 1;
-        pololucontrol_main_self[src_runtime]->_lf_pololu.drive_amount._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port bluetooth.outgoing_message.
-    // Iterate over range PololuControl.bluetooth.outgoing_message(0,1)->[PololuControl.bluetooth.outgoing_message(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_main_self[src_runtime]->_lf_bluetooth.outgoing_message._base.num_destinations = 1;
-        pololucontrol_main_self[src_runtime]->_lf_bluetooth.outgoing_message._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port disp.line2.
-    // Iterate over range PololuControl.disp.line2(0,1)->[PololuControl.disp.line2(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_main_self[src_runtime]->_lf_disp.line2._base.num_destinations = 1;
-        pololucontrol_main_self[src_runtime]->_lf_disp.line2._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
-    }
-    // Set number of destination reactors for port disp.line3.
-    // Iterate over range PololuControl.disp.line3(0,1)->[PololuControl.disp.line3(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_main_self[src_runtime]->_lf_disp.line3._base.num_destinations = 1;
-        pololucontrol_main_self[src_runtime]->_lf_disp.line3._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Set number of destination reactors for port disp.line0.
         // Iterate over range PololuControl.disp.line0(0,1)->[PololuControl.disp.line0(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl triggers 1 downstream reactions
-            // through port PololuControl.disp.line0.
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.disp.line0
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_main_self[src_runtime]->base.allocations); 
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            pololucontrol_main_self[src_runtime]->_lf_disp.line0._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_disp.line0._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
         }
+        // Set number of destination reactors for port disp.line1.
         // Iterate over range PololuControl.disp.line1(0,1)->[PololuControl.disp.line1(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl triggers 1 downstream reactions
-            // through port PololuControl.disp.line1.
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.disp.line1
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_main_self[src_runtime]->base.allocations); 
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            pololucontrol_main_self[src_runtime]->_lf_disp.line1._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_disp.line1._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
         }
+        // Set number of destination reactors for port pololu.speed.
+        // Iterate over range PololuControl.pololu.speed(0,1)->[PololuControl.pololu.speed(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            pololucontrol_main_self[src_runtime]->_lf_pololu.speed._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_pololu.speed._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
+        }
+        // Set number of destination reactors for port pololu.drive_mode.
         // Iterate over range PololuControl.pololu.drive_mode(0,1)->[PololuControl.pololu.drive_mode(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl triggers 1 downstream reactions
-            // through port PololuControl.pololu.drive_mode.
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.drive_mode
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_main_self[src_runtime]->base.allocations); 
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            pololucontrol_main_self[src_runtime]->_lf_pololu.drive_mode._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_pololu.drive_mode._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
         }
+        // Set number of destination reactors for port pololu.drive_direction.
         // Iterate over range PololuControl.pololu.drive_direction(0,1)->[PololuControl.pololu.drive_direction(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl triggers 1 downstream reactions
-            // through port PololuControl.pololu.drive_direction.
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.drive_direction
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_main_self[src_runtime]->base.allocations); 
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            pololucontrol_main_self[src_runtime]->_lf_pololu.drive_direction._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_pololu.drive_direction._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
         }
+        // Set number of destination reactors for port pololu.drive_amount.
         // Iterate over range PololuControl.pololu.drive_amount(0,1)->[PololuControl.pololu.drive_amount(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl triggers 1 downstream reactions
-            // through port PololuControl.pololu.drive_amount.
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.drive_amount
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_main_self[src_runtime]->base.allocations); 
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            pololucontrol_main_self[src_runtime]->_lf_pololu.drive_amount._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_pololu.drive_amount._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
         }
-        // Iterate over range PololuControl.bluetooth.outgoing_message(0,1)->[PololuControl.bluetooth.outgoing_message(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl triggers 1 downstream reactions
-            // through port PololuControl.bluetooth.outgoing_message.
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.bluetooth.outgoing_message
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_main_self[src_runtime]->base.allocations); 
-            pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.disp.line0(0,1)->[PololuControl.disp.line0(0,1)] and PololuControl.disp.line0(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.disp.line0(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.disp.line0's trigger struct.
-                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_disp_self[dst_runtime]->_lf__line0;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.disp.line1(0,1)->[PololuControl.disp.line1(0,1)] and PololuControl.disp.line1(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.disp.line1(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.disp.line1's trigger struct.
-                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_disp_self[dst_runtime]->_lf__line1;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges PololuControl.pololu.drive_mode(0,1)->[PololuControl.pololu.drive_mode(0,1)] and PololuControl.pololu.drive_mode(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.drive_mode(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.drive_mode's trigger struct.
-                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf__drive_mode;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 3;
-        // Iterate over ranges PololuControl.pololu.drive_direction(0,1)->[PololuControl.pololu.drive_direction(0,1)] and PololuControl.pololu.drive_direction(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.drive_direction(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.drive_direction's trigger struct.
-                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf__drive_direction;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 4;
-        // Iterate over ranges PololuControl.pololu.drive_amount(0,1)->[PololuControl.pololu.drive_amount(0,1)] and PololuControl.pololu.drive_amount(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.drive_amount(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.drive_amount's trigger struct.
-                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf__drive_amount;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 5;
-        // Iterate over ranges PololuControl.bluetooth.outgoing_message(0,1)->[PololuControl.bluetooth.outgoing_message(0,1)] and PololuControl.bluetooth.outgoing_message(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.bluetooth.outgoing_message(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.bluetooth.outgoing_message's trigger struct.
-                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_bluetooth_self[dst_runtime]->_lf__outgoing_message;
-            }
-        }
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Set number of destination reactors for port disp.line2.
         // Iterate over range PololuControl.disp.line2(0,1)->[PololuControl.disp.line2(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl triggers 1 downstream reactions
-            // through port PololuControl.disp.line2.
-            pololucontrol_main_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.disp.line2
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_main_self[src_runtime]->base.allocations); 
-            pololucontrol_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+            pololucontrol_main_self[src_runtime]->_lf_disp.line2._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_disp.line2._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
         }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.disp.line2(0,1)->[PololuControl.disp.line2(0,1)] and PololuControl.disp.line2(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.disp.line2(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.disp.line2's trigger struct.
-                pololucontrol_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_disp_self[dst_runtime]->_lf__line2;
-            }
-        }
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+        // Set number of destination reactors for port disp.line3.
         // Iterate over range PololuControl.disp.line3(0,1)->[PololuControl.disp.line3(0,1)].
         {
             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 2 of PololuControl triggers 1 downstream reactions
-            // through port PololuControl.disp.line3.
-            pololucontrol_main_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 2 of PololuControl, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.disp.line3
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_main_self[src_runtime]->base.allocations); 
-            pololucontrol_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+            pololucontrol_main_self[src_runtime]->_lf_disp.line3._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_disp.line3._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
         }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.disp.line3(0,1)->[PololuControl.disp.line3(0,1)] and PololuControl.disp.line3(0,1).
+        // Set number of destination reactors for port bluetooth.outgoing_message.
+        // Iterate over range PololuControl.bluetooth.outgoing_message(0,1)->[PololuControl.bluetooth.outgoing_message(0,1)].
         {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.disp.line3(0,1).
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            pololucontrol_main_self[src_runtime]->_lf_bluetooth.outgoing_message._base.num_destinations = 1;
+            pololucontrol_main_self[src_runtime]->_lf_bluetooth.outgoing_message._base.source_reactor = (self_base_t*)pololucontrol_main_self[src_runtime];
+        }
+        {
+            int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+            // Iterate over range PololuControl.disp.line0(0,1)->[PololuControl.disp.line0(0,1)].
             {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.disp.line3's trigger struct.
-                pololucontrol_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_disp_self[dst_runtime]->_lf__line3;
+                // Reaction 0 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.disp.line0.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 0 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.disp.line0
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            // Iterate over range PololuControl.disp.line1(0,1)->[PololuControl.disp.line1(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 0 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.disp.line1.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 0 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.disp.line1
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            // Iterate over range PololuControl.pololu.speed(0,1)->[PololuControl.pololu.speed(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 0 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.pololu.speed.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 0 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.pololu.speed
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            // Iterate over range PololuControl.pololu.drive_mode(0,1)->[PololuControl.pololu.drive_mode(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 0 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.pololu.drive_mode.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 0 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.pololu.drive_mode
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            // Iterate over range PololuControl.pololu.drive_direction(0,1)->[PololuControl.pololu.drive_direction(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 0 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.pololu.drive_direction.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 0 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.pololu.drive_direction
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            // Iterate over range PololuControl.pololu.drive_amount(0,1)->[PololuControl.pololu.drive_amount(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 0 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.pololu.drive_amount.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 0 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.pololu.drive_amount
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+            // Iterate over ranges PololuControl.disp.line0(0,1)->[PololuControl.disp.line0(0,1)] and PololuControl.disp.line0(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.disp.line0(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.disp.line0's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_disp_self[dst_runtime]->_lf__line0;
+                }
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+            // Iterate over ranges PololuControl.disp.line1(0,1)->[PololuControl.disp.line1(0,1)] and PololuControl.disp.line1(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.disp.line1(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.disp.line1's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_disp_self[dst_runtime]->_lf__line1;
+                }
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+            // Iterate over ranges PololuControl.pololu.speed(0,1)->[PololuControl.pololu.speed(0,1)] and PololuControl.pololu.speed(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.pololu.speed(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.pololu.speed's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf__speed;
+                }
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 3;
+            // Iterate over ranges PololuControl.pololu.drive_mode(0,1)->[PololuControl.pololu.drive_mode(0,1)] and PololuControl.pololu.drive_mode(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.pololu.drive_mode(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.pololu.drive_mode's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf__drive_mode;
+                }
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 4;
+            // Iterate over ranges PololuControl.pololu.drive_direction(0,1)->[PololuControl.pololu.drive_direction(0,1)] and PololuControl.pololu.drive_direction(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.pololu.drive_direction(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.pololu.drive_direction's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf__drive_direction;
+                }
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 5;
+            // Iterate over ranges PololuControl.pololu.drive_amount(0,1)->[PololuControl.pololu.drive_amount(0,1)] and PololuControl.pololu.drive_amount(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.pololu.drive_amount(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.pololu.drive_amount's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf__drive_amount;
+                }
             }
         }
-    }
+        {
+            int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+            // Iterate over range PololuControl.disp.line2(0,1)->[PololuControl.disp.line2(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 1 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.disp.line2.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 1 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.disp.line2
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+            // Iterate over ranges PololuControl.disp.line2(0,1)->[PololuControl.disp.line2(0,1)] and PololuControl.disp.line2(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.disp.line2(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.disp.line2's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_disp_self[dst_runtime]->_lf__line2;
+                }
+            }
+        }
+        {
+            int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+            // Iterate over range PololuControl.disp.line3(0,1)->[PololuControl.disp.line3(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 2 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.disp.line3.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 2 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.disp.line3
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+            // Iterate over ranges PololuControl.disp.line3(0,1)->[PololuControl.disp.line3(0,1)] and PololuControl.disp.line3(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.disp.line3(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.disp.line3's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_disp_self[dst_runtime]->_lf__line3;
+                }
+            }
+        }
+        {
+            int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+            // Iterate over range PololuControl.bluetooth.outgoing_message(0,1)->[PololuControl.bluetooth.outgoing_message(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 3 of PololuControl triggers 1 downstream reactions
+                // through port PololuControl.bluetooth.outgoing_message.
+                pololucontrol_main_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 3 of PololuControl, allocate an
+                // array of trigger pointers for downstream reactions through port PololuControl.bluetooth.outgoing_message
+                trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &pololucontrol_main_self[src_runtime]->base.allocations); 
+                pololucontrol_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+            // Iterate over ranges PololuControl.bluetooth.outgoing_message(0,1)->[PololuControl.bluetooth.outgoing_message(0,1)] and PololuControl.bluetooth.outgoing_message(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range PololuControl.bluetooth.outgoing_message(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port PololuControl.bluetooth.outgoing_message's trigger struct.
+                    pololucontrol_main_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_bluetooth_self[dst_runtime]->_lf__outgoing_message;
+                }
+            }
+        }
     
-    // **** Start non-nested deferred initialize for PololuControl.pololu
-    // Set number of destination reactors for port gyro.trigger.
-    // Iterate over range PololuControl.pololu.gyro.trigger(0,1)->[PololuControl.pololu.gyro.g.trigger(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_self[src_runtime]->_lf_gyro.trigger._base.num_destinations = 1;
-        pololucontrol_pololu_self[src_runtime]->_lf_gyro.trigger._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
-    }
-    // Set number of destination reactors for port encoders.trigger.
-    // Iterate over range PololuControl.pololu.encoders.trigger(0,1)->[PololuControl.pololu.encoders.trigger(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_self[src_runtime]->_lf_encoders.trigger._base.num_destinations = 1;
-        pololucontrol_pololu_self[src_runtime]->_lf_encoders.trigger._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
-    }
-    // Set number of destination reactors for port motors.left_speed.
-    // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_self[src_runtime]->_lf_motors.left_speed._base.num_destinations = 1;
-        pololucontrol_pololu_self[src_runtime]->_lf_motors.left_speed._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
-    }
-    // Set number of destination reactors for port motors.right_speed.
-    // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_self[src_runtime]->_lf_motors.right_speed._base.num_destinations = 1;
-        pololucontrol_pololu_self[src_runtime]->_lf_motors.right_speed._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
-    }
-    // For reference counting, set num_destinations for port PololuControl.pololu.facing_angle.
-    // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_self[src_runtime]->_lf_facing_angle._base.num_destinations = 1;
-        pololucontrol_pololu_self[src_runtime]->_lf_facing_angle._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
-    }
-    // For reference counting, set num_destinations for port PololuControl.pololu.current_mode.
-    // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_self[src_runtime]->_lf_current_mode._base.num_destinations = 1;
-        pololucontrol_pololu_self[src_runtime]->_lf_current_mode._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
+        // **** Start non-nested deferred initialize for PololuControl.pololu
         {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.facing_angle.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.facing_angle
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.facing_angle(0,1).
+            // Set number of destination reactors for port gyro.trigger.
+            // Iterate over range PololuControl.pololu.gyro.trigger(0,1)->[PololuControl.pololu.gyro.g.trigger(0,1)].
             {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.facing_angle has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.facing_angle_trigger;
+                pololucontrol_pololu_self[src_runtime]->_lf_gyro.trigger._base.num_destinations = 1;
+                pololucontrol_pololu_self[src_runtime]->_lf_gyro.trigger._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
             }
+            // Set number of destination reactors for port encoders.trigger.
+            // Iterate over range PololuControl.pololu.encoders.trigger(0,1)->[PololuControl.pololu.encoders.trigger(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pololucontrol_pololu_self[src_runtime]->_lf_encoders.trigger._base.num_destinations = 1;
+                pololucontrol_pololu_self[src_runtime]->_lf_encoders.trigger._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
+            }
+            // Set number of destination reactors for port motors.left_speed.
+            // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pololucontrol_pololu_self[src_runtime]->_lf_motors.left_speed._base.num_destinations = 1;
+                pololucontrol_pololu_self[src_runtime]->_lf_motors.left_speed._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
+            }
+            // Set number of destination reactors for port motors.right_speed.
+            // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pololucontrol_pololu_self[src_runtime]->_lf_motors.right_speed._base.num_destinations = 1;
+                pololucontrol_pololu_self[src_runtime]->_lf_motors.right_speed._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
+            }
+            // For reference counting, set num_destinations for port PololuControl.pololu.facing_angle.
+            // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pololucontrol_pololu_self[src_runtime]->_lf_facing_angle._base.num_destinations = 1;
+                pololucontrol_pololu_self[src_runtime]->_lf_facing_angle._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
+            }
+            // For reference counting, set num_destinations for port PololuControl.pololu.current_mode.
+            // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pololucontrol_pololu_self[src_runtime]->_lf_current_mode._base.num_destinations = 1;
+                pololucontrol_pololu_self[src_runtime]->_lf_current_mode._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
+            }
+            // For reference counting, set num_destinations for port PololuControl.pololu.completion_notify.
+            // Iterate over range PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pololucontrol_pololu_self[src_runtime]->_lf_completion_notify._base.num_destinations = 1;
+                pololucontrol_pololu_self[src_runtime]->_lf_completion_notify._base.source_reactor = (self_base_t*)pololucontrol_pololu_self[src_runtime];
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 0 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.facing_angle.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 0 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.facing_angle
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.facing_angle(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.facing_angle has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.facing_angle_trigger;
+                    }
+                }
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.pololu.gyro.trigger(0,1)->[PololuControl.pololu.gyro.g.trigger(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 1 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.gyro.trigger.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 1 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.trigger
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.encoders.trigger(0,1)->[PololuControl.pololu.encoders.trigger(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 1 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.encoders.trigger.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 1 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.encoders.trigger
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 1 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.facing_angle.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 1 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.facing_angle
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.pololu.gyro.trigger(0,1)->[PololuControl.pololu.gyro.g.trigger(0,1)] and PololuControl.pololu.gyro.g.trigger(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.gyro.g.trigger(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.gyro.g.trigger's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_gyro_g_self[dst_runtime]->_lf__trigger;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                // Iterate over ranges PololuControl.pololu.encoders.trigger(0,1)->[PololuControl.pololu.encoders.trigger(0,1)] and PololuControl.pololu.encoders.trigger(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.encoders.trigger(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.encoders.trigger's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_encoders_self[dst_runtime]->_lf__trigger;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.facing_angle(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.facing_angle has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.facing_angle_trigger;
+                    }
+                }
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 2 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.left_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 2 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 2 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.right_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 2 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 2 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.current_mode.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 2 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.current_mode(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
+                    }
+                }
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 3 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.left_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 3 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.right_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 3 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.current_mode.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.current_mode(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
+                    }
+                }
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 4 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.left_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 4 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 4 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.right_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 4 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 4 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.current_mode.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 4 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.current_mode(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
+                    }
+                }
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 5 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.completion_notify.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 5 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.completion_notify
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)] and PololuControl.pololu.completion_notify(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.completion_notify(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.completion_notify has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.completion_notify_trigger;
+                    }
+                }
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.left_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 6 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.right_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 6 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.facing_angle.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 6 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.facing_angle
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.current_mode.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 6 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.completion_notify.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 6 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.completion_notify
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.facing_angle(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.facing_angle has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.facing_angle_trigger;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 3;
+                // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.current_mode(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 4;
+                // Iterate over ranges PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)] and PololuControl.pololu.completion_notify(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.completion_notify(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.completion_notify has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.completion_notify_trigger;
+                    }
+                }
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 7 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.left_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 7 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 7 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.motors.right_speed.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 7 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 7 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.facing_angle.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 7 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.facing_angle
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 7 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.current_mode.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 7 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 7 of PololuControl.pololu triggers 1 downstream reactions
+                    // through port PololuControl.pololu.completion_notify.
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 7 of PololuControl.pololu, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.pololu.completion_notify
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_pololu_self[src_runtime]->base.allocations); 
+                    pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.facing_angle(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.facing_angle has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.facing_angle_trigger;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 3;
+                // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.current_mode(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 4;
+                // Iterate over ranges PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)] and PololuControl.pololu.completion_notify(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.pololu.completion_notify(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.pololu.completion_notify has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_pololu_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.completion_notify_trigger;
+                    }
+                }
+            }
+        
+            // **** Start non-nested deferred initialize for PololuControl.pololu.gyro
+            {
+            
+                for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { pololucontrol_pololu_gyro_self[0]->_lf_x._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_self[0]; }
+                for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { pololucontrol_pololu_gyro_self[0]->_lf_y._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_self[0]; }
+                // For reference counting, set num_destinations for port PololuControl.pololu.gyro.z.
+                // Iterate over range PololuControl.pololu.gyro.z(0,1)->[PololuControl.pololu.gyro.z(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    pololucontrol_pololu_gyro_self[src_runtime]->_lf_z._base.num_destinations = 1;
+                    pololucontrol_pololu_gyro_self[src_runtime]->_lf_z._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_self[src_runtime];
+                }
+            
+            
+                // **** Start non-nested deferred initialize for PololuControl.pololu.gyro.g
+                {
+                
+                    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.g.x.
+                    // Iterate over range PololuControl.pololu.gyro.g.x(0,1)->[PololuControl.pololu.gyro.integrator1.in(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_x._base.num_destinations = 1;
+                        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_x._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_g_self[src_runtime];
+                    }
+                    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.g.y.
+                    // Iterate over range PololuControl.pololu.gyro.g.y(0,1)->[PololuControl.pololu.gyro.integrator2.in(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_y._base.num_destinations = 1;
+                        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_y._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_g_self[src_runtime];
+                    }
+                    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.g.z.
+                    // Iterate over range PololuControl.pololu.gyro.g.z(0,1)->[PololuControl.pololu.gyro.integrator3.in(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_z._base.num_destinations = 1;
+                        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_z._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_g_self[src_runtime];
+                    }
+                    {
+                        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                        // Iterate over range PololuControl.pololu.gyro.g.x(0,1)->[PololuControl.pololu.gyro.integrator1.in(0,1)].
+                        {
+                            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Reaction 1 of PololuControl.pololu.gyro.g triggers 1 downstream reactions
+                            // through port PololuControl.pololu.gyro.g.x.
+                            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 1 of PololuControl.pololu.gyro.g, allocate an
+                            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.g.x
+                            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                    1, sizeof(trigger_t*),
+                                    &pololucontrol_pololu_gyro_g_self[src_runtime]->base.allocations); 
+                            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                        }
+                        // Iterate over range PololuControl.pololu.gyro.g.y(0,1)->[PololuControl.pololu.gyro.integrator2.in(0,1)].
+                        {
+                            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Reaction 1 of PololuControl.pololu.gyro.g triggers 1 downstream reactions
+                            // through port PololuControl.pololu.gyro.g.y.
+                            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 1 of PololuControl.pololu.gyro.g, allocate an
+                            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.g.y
+                            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                    1, sizeof(trigger_t*),
+                                    &pololucontrol_pololu_gyro_g_self[src_runtime]->base.allocations); 
+                            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                        }
+                        // Iterate over range PololuControl.pololu.gyro.g.z(0,1)->[PololuControl.pololu.gyro.integrator3.in(0,1)].
+                        {
+                            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Reaction 1 of PololuControl.pololu.gyro.g triggers 1 downstream reactions
+                            // through port PololuControl.pololu.gyro.g.z.
+                            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 1 of PololuControl.pololu.gyro.g, allocate an
+                            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.g.z
+                            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                    1, sizeof(trigger_t*),
+                                    &pololucontrol_pololu_gyro_g_self[src_runtime]->base.allocations); 
+                            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                        }
+                        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                        // Iterate over ranges PololuControl.pololu.gyro.g.x(0,1)->[PololuControl.pololu.gyro.integrator1.in(0,1)] and PololuControl.pololu.gyro.integrator1.in(0,1).
+                        {
+                            int src_runtime = 0; // Runtime index.
+                            SUPPRESS_UNUSED_WARNING(src_runtime);
+                            int src_channel = 0; // Channel index.
+                            SUPPRESS_UNUSED_WARNING(src_channel);
+                            int src_bank = 0; // Bank index.
+                            SUPPRESS_UNUSED_WARNING(src_bank);
+                            // Iterate over range PololuControl.pololu.gyro.integrator1.in(0,1).
+                            {
+                                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                                // Point to destination port PololuControl.pololu.gyro.integrator1.in's trigger struct.
+                                pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_gyro_integrator1_self[dst_runtime]->_lf__in;
+                            }
+                        }
+                        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                        // Iterate over ranges PololuControl.pololu.gyro.g.y(0,1)->[PololuControl.pololu.gyro.integrator2.in(0,1)] and PololuControl.pololu.gyro.integrator2.in(0,1).
+                        {
+                            int src_runtime = 0; // Runtime index.
+                            SUPPRESS_UNUSED_WARNING(src_runtime);
+                            int src_channel = 0; // Channel index.
+                            SUPPRESS_UNUSED_WARNING(src_channel);
+                            int src_bank = 0; // Bank index.
+                            SUPPRESS_UNUSED_WARNING(src_bank);
+                            // Iterate over range PololuControl.pololu.gyro.integrator2.in(0,1).
+                            {
+                                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                                // Point to destination port PololuControl.pololu.gyro.integrator2.in's trigger struct.
+                                pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_gyro_integrator2_self[dst_runtime]->_lf__in;
+                            }
+                        }
+                        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                        // Iterate over ranges PololuControl.pololu.gyro.g.z(0,1)->[PololuControl.pololu.gyro.integrator3.in(0,1)] and PololuControl.pololu.gyro.integrator3.in(0,1).
+                        {
+                            int src_runtime = 0; // Runtime index.
+                            SUPPRESS_UNUSED_WARNING(src_runtime);
+                            int src_channel = 0; // Channel index.
+                            SUPPRESS_UNUSED_WARNING(src_channel);
+                            int src_bank = 0; // Bank index.
+                            SUPPRESS_UNUSED_WARNING(src_bank);
+                            // Iterate over range PololuControl.pololu.gyro.integrator3.in(0,1).
+                            {
+                                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                                // Point to destination port PololuControl.pololu.gyro.integrator3.in's trigger struct.
+                                pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_gyro_integrator3_self[dst_runtime]->_lf__in;
+                            }
+                        }
+                    }
+                
+                }
+                // **** End of non-nested deferred initialize for PololuControl.pololu.gyro.g
+                // **** Start non-nested deferred initialize for PololuControl.pololu.gyro.integrator1
+                {
+                
+                    for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { pololucontrol_pololu_gyro_integrator1_self[0]->_lf_out._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_integrator1_self[0]; }
+                    {
+                        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                    }
+                
+                }
+                // **** End of non-nested deferred initialize for PololuControl.pololu.gyro.integrator1
+                // **** Start non-nested deferred initialize for PololuControl.pololu.gyro.integrator2
+                {
+                
+                    for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { pololucontrol_pololu_gyro_integrator2_self[0]->_lf_out._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_integrator2_self[0]; }
+                    {
+                        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                    }
+                
+                }
+                // **** End of non-nested deferred initialize for PololuControl.pololu.gyro.integrator2
+                // **** Start non-nested deferred initialize for PololuControl.pololu.gyro.integrator3
+                {
+                
+                    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.integrator3.out.
+                    // Iterate over range PololuControl.pololu.gyro.integrator3.out(0,1)->[PololuControl.pololu.gyro.z(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf_out._base.num_destinations = 1;
+                        pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf_out._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_integrator3_self[src_runtime];
+                    }
+                    {
+                        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                        // Iterate over range PololuControl.pololu.gyro.integrator3.out(0,1)->[PololuControl.pololu.gyro.z(0,1)].
+                        {
+                            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Reaction 0 of PololuControl.pololu.gyro.integrator3 triggers 1 downstream reactions
+                            // through port PololuControl.pololu.gyro.integrator3.out.
+                            pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 0 of PololuControl.pololu.gyro.integrator3, allocate an
+                            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.integrator3.out
+                            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                    1, sizeof(trigger_t*),
+                                    &pololucontrol_pololu_gyro_integrator3_self[src_runtime]->base.allocations); 
+                            pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                        }
+                        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                        // Iterate over ranges PololuControl.pololu.gyro.integrator3.out(0,1)->[PololuControl.pololu.gyro.z(0,1)] and PololuControl.pololu.gyro.z(0,1).
+                        {
+                            int src_runtime = 0; // Runtime index.
+                            SUPPRESS_UNUSED_WARNING(src_runtime);
+                            int src_channel = 0; // Channel index.
+                            SUPPRESS_UNUSED_WARNING(src_channel);
+                            int src_bank = 0; // Bank index.
+                            SUPPRESS_UNUSED_WARNING(src_bank);
+                            // Iterate over range PololuControl.pololu.gyro.z(0,1).
+                            {
+                                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                                // Port PololuControl.pololu.gyro.integrator3.out has reactions in its parent's parent.
+                                // Point to the trigger struct for those reactions.
+                                pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf_gyro.z_trigger;
+                            }
+                        }
+                    }
+                
+                }
+                // **** End of non-nested deferred initialize for PololuControl.pololu.gyro.integrator3
+            }
+            // **** End of non-nested deferred initialize for PololuControl.pololu.gyro
+            // **** Start non-nested deferred initialize for PololuControl.pololu.encoders
+            {
+            
+                // For reference counting, set num_destinations for port PololuControl.pololu.encoders.right.
+                // Iterate over range PololuControl.pololu.encoders.right(0,1)->[PololuControl.pololu.motors.right(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    pololucontrol_pololu_encoders_self[src_runtime]->_lf_right._base.num_destinations = 1;
+                    pololucontrol_pololu_encoders_self[src_runtime]->_lf_right._base.source_reactor = (self_base_t*)pololucontrol_pololu_encoders_self[src_runtime];
+                }
+                // For reference counting, set num_destinations for port PololuControl.pololu.encoders.left.
+                // Iterate over range PololuControl.pololu.encoders.left(0,1)->[PololuControl.pololu.motors.left(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    pololucontrol_pololu_encoders_self[src_runtime]->_lf_left._base.num_destinations = 1;
+                    pololucontrol_pololu_encoders_self[src_runtime]->_lf_left._base.source_reactor = (self_base_t*)pololucontrol_pololu_encoders_self[src_runtime];
+                }
+                {
+                    int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                    // Iterate over range PololuControl.pololu.encoders.left(0,1)->[PololuControl.pololu.motors.left(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Reaction 1 of PololuControl.pololu.encoders triggers 1 downstream reactions
+                        // through port PololuControl.pololu.encoders.left.
+                        pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 1 of PololuControl.pololu.encoders, allocate an
+                        // array of trigger pointers for downstream reactions through port PololuControl.pololu.encoders.left
+                        trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                1, sizeof(trigger_t*),
+                                &pololucontrol_pololu_encoders_self[src_runtime]->base.allocations); 
+                        pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    }
+                    // Iterate over range PololuControl.pololu.encoders.right(0,1)->[PololuControl.pololu.motors.right(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Reaction 1 of PololuControl.pololu.encoders triggers 1 downstream reactions
+                        // through port PololuControl.pololu.encoders.right.
+                        pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 1 of PololuControl.pololu.encoders, allocate an
+                        // array of trigger pointers for downstream reactions through port PololuControl.pololu.encoders.right
+                        trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                1, sizeof(trigger_t*),
+                                &pololucontrol_pololu_encoders_self[src_runtime]->base.allocations); 
+                        pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    }
+                    for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                    // Iterate over ranges PololuControl.pololu.encoders.left(0,1)->[PololuControl.pololu.motors.left(0,1)] and PololuControl.pololu.motors.left(0,1).
+                    {
+                        int src_runtime = 0; // Runtime index.
+                        SUPPRESS_UNUSED_WARNING(src_runtime);
+                        int src_channel = 0; // Channel index.
+                        SUPPRESS_UNUSED_WARNING(src_channel);
+                        int src_bank = 0; // Bank index.
+                        SUPPRESS_UNUSED_WARNING(src_bank);
+                        // Iterate over range PololuControl.pololu.motors.left(0,1).
+                        {
+                            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Point to destination port PololuControl.pololu.motors.left's trigger struct.
+                            pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left;
+                        }
+                    }
+                    for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                    // Iterate over ranges PololuControl.pololu.encoders.right(0,1)->[PololuControl.pololu.motors.right(0,1)] and PololuControl.pololu.motors.right(0,1).
+                    {
+                        int src_runtime = 0; // Runtime index.
+                        SUPPRESS_UNUSED_WARNING(src_runtime);
+                        int src_channel = 0; // Channel index.
+                        SUPPRESS_UNUSED_WARNING(src_channel);
+                        int src_bank = 0; // Bank index.
+                        SUPPRESS_UNUSED_WARNING(src_bank);
+                        // Iterate over range PololuControl.pololu.motors.right(0,1).
+                        {
+                            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Point to destination port PololuControl.pololu.motors.right's trigger struct.
+                            pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right;
+                        }
+                    }
+                }
+            
+            }
+            // **** End of non-nested deferred initialize for PololuControl.pololu.encoders
+            // **** Start non-nested deferred initialize for PololuControl.pololu.motors
+            {
+                // Set number of destination reactors for port control_left.err.
+                // Iterate over range PololuControl.pololu.motors.control_left.err(0,1)->[PololuControl.pololu.motors.control_left.err(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    pololucontrol_pololu_motors_self[src_runtime]->_lf_control_left.err._base.num_destinations = 1;
+                    pololucontrol_pololu_motors_self[src_runtime]->_lf_control_left.err._base.source_reactor = (self_base_t*)pololucontrol_pololu_motors_self[src_runtime];
+                }
+                // Set number of destination reactors for port control_right.err.
+                // Iterate over range PololuControl.pololu.motors.control_right.err(0,1)->[PololuControl.pololu.motors.control_right.err(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    pololucontrol_pololu_motors_self[src_runtime]->_lf_control_right.err._base.num_destinations = 1;
+                    pololucontrol_pololu_motors_self[src_runtime]->_lf_control_right.err._base.source_reactor = (self_base_t*)pololucontrol_pololu_motors_self[src_runtime];
+                }
+            
+                {
+                    int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                    // Iterate over range PololuControl.pololu.motors.control_left.err(0,1)->[PololuControl.pololu.motors.control_left.err(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Reaction 2 of PololuControl.pololu.motors triggers 1 downstream reactions
+                        // through port PololuControl.pololu.motors.control_left.err.
+                        pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 2 of PololuControl.pololu.motors, allocate an
+                        // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.control_left.err
+                        trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                1, sizeof(trigger_t*),
+                                &pololucontrol_pololu_motors_self[src_runtime]->base.allocations); 
+                        pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    }
+                    // Iterate over range PololuControl.pololu.motors.control_right.err(0,1)->[PololuControl.pololu.motors.control_right.err(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Reaction 2 of PololuControl.pololu.motors triggers 1 downstream reactions
+                        // through port PololuControl.pololu.motors.control_right.err.
+                        pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 2 of PololuControl.pololu.motors, allocate an
+                        // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.control_right.err
+                        trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                1, sizeof(trigger_t*),
+                                &pololucontrol_pololu_motors_self[src_runtime]->base.allocations); 
+                        pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    }
+                    for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                    // Iterate over ranges PololuControl.pololu.motors.control_left.err(0,1)->[PololuControl.pololu.motors.control_left.err(0,1)] and PololuControl.pololu.motors.control_left.err(0,1).
+                    {
+                        int src_runtime = 0; // Runtime index.
+                        SUPPRESS_UNUSED_WARNING(src_runtime);
+                        int src_channel = 0; // Channel index.
+                        SUPPRESS_UNUSED_WARNING(src_channel);
+                        int src_bank = 0; // Bank index.
+                        SUPPRESS_UNUSED_WARNING(src_bank);
+                        // Iterate over range PololuControl.pololu.motors.control_left.err(0,1).
+                        {
+                            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Point to destination port PololuControl.pololu.motors.control_left.err's trigger struct.
+                            pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_control_left_self[dst_runtime]->_lf__err;
+                        }
+                    }
+                    for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                    // Iterate over ranges PololuControl.pololu.motors.control_right.err(0,1)->[PololuControl.pololu.motors.control_right.err(0,1)] and PololuControl.pololu.motors.control_right.err(0,1).
+                    {
+                        int src_runtime = 0; // Runtime index.
+                        SUPPRESS_UNUSED_WARNING(src_runtime);
+                        int src_channel = 0; // Channel index.
+                        SUPPRESS_UNUSED_WARNING(src_channel);
+                        int src_bank = 0; // Bank index.
+                        SUPPRESS_UNUSED_WARNING(src_bank);
+                        // Iterate over range PololuControl.pololu.motors.control_right.err(0,1).
+                        {
+                            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Point to destination port PololuControl.pololu.motors.control_right.err's trigger struct.
+                            pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &_lolucontrol_pololu_motors_control_right_self[dst_runtime]->_lf__err;
+                        }
+                    }
+                }
+            
+                // **** Start non-nested deferred initialize for PololuControl.pololu.motors.motors
+                {
+                
+                
+                
+                
+                }
+                // **** End of non-nested deferred initialize for PololuControl.pololu.motors.motors
+                // **** Start non-nested deferred initialize for PololuControl.pololu.motors.control_left
+                {
+                
+                    // For reference counting, set num_destinations for port PololuControl.pololu.motors.control_left.ctrl.
+                    // Iterate over range PololuControl.pololu.motors.control_left.ctrl(0,1)->[PololuControl.pololu.motors.motors.left_power(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
+                        pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)pololucontrol_pololu_motors_control_left_self[src_runtime];
+                    }
+                    {
+                        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                        // Iterate over range PololuControl.pololu.motors.control_left.ctrl(0,1)->[PololuControl.pololu.motors.motors.left_power(0,1)].
+                        {
+                            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Reaction 0 of PololuControl.pololu.motors.control_left triggers 1 downstream reactions
+                            // through port PololuControl.pololu.motors.control_left.ctrl.
+                            pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 0 of PololuControl.pololu.motors.control_left, allocate an
+                            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.control_left.ctrl
+                            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                    1, sizeof(trigger_t*),
+                                    &pololucontrol_pololu_motors_control_left_self[src_runtime]->base.allocations); 
+                            pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                        }
+                        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                        // Iterate over ranges PololuControl.pololu.motors.control_left.ctrl(0,1)->[PololuControl.pololu.motors.motors.left_power(0,1)] and PololuControl.pololu.motors.motors.left_power(0,1).
+                        {
+                            int src_runtime = 0; // Runtime index.
+                            SUPPRESS_UNUSED_WARNING(src_runtime);
+                            int src_channel = 0; // Channel index.
+                            SUPPRESS_UNUSED_WARNING(src_channel);
+                            int src_bank = 0; // Bank index.
+                            SUPPRESS_UNUSED_WARNING(src_bank);
+                            // Iterate over range PololuControl.pololu.motors.motors.left_power(0,1).
+                            {
+                                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                                // Point to destination port PololuControl.pololu.motors.motors.left_power's trigger struct.
+                                pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_motors_self[dst_runtime]->_lf__left_power;
+                            }
+                        }
+                    }
+                
+                }
+                // **** End of non-nested deferred initialize for PololuControl.pololu.motors.control_left
+                // **** Start non-nested deferred initialize for PololuControl.pololu.motors.control_right
+                {
+                
+                    // For reference counting, set num_destinations for port PololuControl.pololu.motors.control_right.ctrl.
+                    // Iterate over range PololuControl.pololu.motors.control_right.ctrl(0,1)->[PololuControl.pololu.motors.motors.right_power(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
+                        _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)_lolucontrol_pololu_motors_control_right_self[src_runtime];
+                    }
+                    {
+                        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                        // Iterate over range PololuControl.pololu.motors.control_right.ctrl(0,1)->[PololuControl.pololu.motors.motors.right_power(0,1)].
+                        {
+                            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Reaction 0 of PololuControl.pololu.motors.control_right triggers 1 downstream reactions
+                            // through port PololuControl.pololu.motors.control_right.ctrl.
+                            _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 0 of PololuControl.pololu.motors.control_right, allocate an
+                            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.control_right.ctrl
+                            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                                    1, sizeof(trigger_t*),
+                                    &_lolucontrol_pololu_motors_control_right_self[src_runtime]->base.allocations); 
+                            _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                        }
+                        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                        // Iterate over ranges PololuControl.pololu.motors.control_right.ctrl(0,1)->[PololuControl.pololu.motors.motors.right_power(0,1)] and PololuControl.pololu.motors.motors.right_power(0,1).
+                        {
+                            int src_runtime = 0; // Runtime index.
+                            SUPPRESS_UNUSED_WARNING(src_runtime);
+                            int src_channel = 0; // Channel index.
+                            SUPPRESS_UNUSED_WARNING(src_channel);
+                            int src_bank = 0; // Bank index.
+                            SUPPRESS_UNUSED_WARNING(src_bank);
+                            // Iterate over range PololuControl.pololu.motors.motors.right_power(0,1).
+                            {
+                                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                                // Point to destination port PololuControl.pololu.motors.motors.right_power's trigger struct.
+                                _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_motors_self[dst_runtime]->_lf__right_power;
+                            }
+                        }
+                    }
+                
+                }
+                // **** End of non-nested deferred initialize for PololuControl.pololu.motors.control_right
+            }
+            // **** End of non-nested deferred initialize for PololuControl.pololu.motors
         }
+        // **** End of non-nested deferred initialize for PololuControl.pololu
+        // **** Start non-nested deferred initialize for PololuControl.bluetooth
+        {
+        
+            // For reference counting, set num_destinations for port PololuControl.bluetooth.incoming_message.
+            // Iterate over range PololuControl.bluetooth.incoming_message(0,1)->[PololuControl.bluetooth.incoming_message(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pololucontrol_bluetooth_self[src_runtime]->_lf_incoming_message._base.num_destinations = 1;
+                pololucontrol_bluetooth_self[src_runtime]->_lf_incoming_message._base.source_reactor = (self_base_t*)pololucontrol_bluetooth_self[src_runtime];
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PololuControl.bluetooth.incoming_message(0,1)->[PololuControl.bluetooth.incoming_message(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 1 of PololuControl.bluetooth triggers 1 downstream reactions
+                    // through port PololuControl.bluetooth.incoming_message.
+                    pololucontrol_bluetooth_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 1 of PololuControl.bluetooth, allocate an
+                    // array of trigger pointers for downstream reactions through port PololuControl.bluetooth.incoming_message
+                    trigger_t** trigger_array = (trigger_t**)_lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pololucontrol_bluetooth_self[src_runtime]->base.allocations); 
+                    pololucontrol_bluetooth_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PololuControl.bluetooth.incoming_message(0,1)->[PololuControl.bluetooth.incoming_message(0,1)] and PololuControl.bluetooth.incoming_message(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PololuControl.bluetooth.incoming_message(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Port PololuControl.bluetooth.incoming_message has reactions in its parent's parent.
+                        // Point to the trigger struct for those reactions.
+                        pololucontrol_bluetooth_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_bluetooth.incoming_message_trigger;
+                    }
+                }
+            }
+        
+        }
+        // **** End of non-nested deferred initialize for PololuControl.bluetooth
+        // **** Start non-nested deferred initialize for PololuControl.disp
+        {
+        
+        
+        
+        
+        }
+        // **** End of non-nested deferred initialize for PololuControl.disp
+        // **** Start non-nested deferred initialize for PololuControl.lights
+        {
+        
+        
+        
+        
+        }
+        // **** End of non-nested deferred initialize for PololuControl.lights
     }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.gyro.trigger(0,1)->[PololuControl.pololu.gyro.g.trigger(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.gyro.trigger.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.trigger
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.encoders.trigger(0,1)->[PololuControl.pololu.encoders.trigger(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.encoders.trigger.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.encoders.trigger
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.facing_angle.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.facing_angle
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.gyro.trigger(0,1)->[PololuControl.pololu.gyro.g.trigger(0,1)] and PololuControl.pololu.gyro.g.trigger(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.gyro.g.trigger(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.gyro.g.trigger's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_gyro_g_self[dst_runtime]->_lf__trigger;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.encoders.trigger(0,1)->[PololuControl.pololu.encoders.trigger(0,1)] and PololuControl.pololu.encoders.trigger(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.encoders.trigger(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.encoders.trigger's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_encoders_self[dst_runtime]->_lf__trigger;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.facing_angle(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.facing_angle has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.facing_angle_trigger;
-            }
-        }
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 2 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.left_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 2 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 2 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.right_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 2 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 2 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.current_mode.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 2 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.current_mode(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
-            }
-        }
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 3 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.left_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 3 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 3 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.right_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 3 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 3 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.current_mode.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 3 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.current_mode(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
-            }
-        }
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 4 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.left_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 4 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 4 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.right_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 4 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 4 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.current_mode.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 4 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.current_mode(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
-            }
-        }
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 5 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.left_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 5 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 5 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.right_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 5 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 5 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.facing_angle.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 5 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.facing_angle
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 5 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.current_mode.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 5 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.facing_angle(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.facing_angle has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.facing_angle_trigger;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 3;
-        // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.current_mode(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
-            }
-        }
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.left_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 6 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.left_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.right_speed.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 6 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.right_speed
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.facing_angle.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 6 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.facing_angle
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 6 of PololuControl.pololu triggers 1 downstream reactions
-            // through port PololuControl.pololu.current_mode.
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 6 of PololuControl.pololu, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.current_mode
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.motors.left_speed(0,1)->[PololuControl.pololu.motors.left_speed(0,1)] and PololuControl.pololu.motors.left_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.left_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.left_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.motors.right_speed(0,1)->[PololuControl.pololu.motors.right_speed(0,1)] and PololuControl.pololu.motors.right_speed(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.right_speed(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.right_speed's trigger struct.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right_speed;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.facing_angle(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.facing_angle has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.facing_angle_trigger;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 3;
-        // Iterate over ranges PololuControl.pololu.current_mode(0,1)->[PololuControl.pololu.current_mode(0,1)] and PololuControl.pololu.current_mode(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.current_mode(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.current_mode has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode_trigger;
-            }
-        }
-    }
-    
-    // **** Start non-nested deferred initialize for PololuControl.pololu.gyro
-    
-    pololucontrol_pololu_gyro_self[0]->_lf_x._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_self[0];
-    pololucontrol_pololu_gyro_self[0]->_lf_y._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_self[0];
-    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.z.
-    // Iterate over range PololuControl.pololu.gyro.z(0,1)->[PololuControl.pololu.gyro.z(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_gyro_self[src_runtime]->_lf_z._base.num_destinations = 1;
-        pololucontrol_pololu_gyro_self[src_runtime]->_lf_z._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_self[src_runtime];
-    }
-    
-    
-    // **** Start non-nested deferred initialize for PololuControl.pololu.gyro.g
-    
-    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.g.x.
-    // Iterate over range PololuControl.pololu.gyro.g.x(0,1)->[PololuControl.pololu.gyro.integrator1.in(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_x._base.num_destinations = 1;
-        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_x._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_g_self[src_runtime];
-    }
-    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.g.y.
-    // Iterate over range PololuControl.pololu.gyro.g.y(0,1)->[PololuControl.pololu.gyro.integrator2.in(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_y._base.num_destinations = 1;
-        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_y._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_g_self[src_runtime];
-    }
-    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.g.z.
-    // Iterate over range PololuControl.pololu.gyro.g.z(0,1)->[PololuControl.pololu.gyro.integrator3.in(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_z._base.num_destinations = 1;
-        pololucontrol_pololu_gyro_g_self[src_runtime]->_lf_z._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_g_self[src_runtime];
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.gyro.g.x(0,1)->[PololuControl.pololu.gyro.integrator1.in(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.pololu.gyro.g triggers 1 downstream reactions
-            // through port PololuControl.pololu.gyro.g.x.
-            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.pololu.gyro.g, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.g.x
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_gyro_g_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.gyro.g.y(0,1)->[PololuControl.pololu.gyro.integrator2.in(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.pololu.gyro.g triggers 1 downstream reactions
-            // through port PololuControl.pololu.gyro.g.y.
-            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.pololu.gyro.g, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.g.y
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_gyro_g_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.gyro.g.z(0,1)->[PololuControl.pololu.gyro.integrator3.in(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.pololu.gyro.g triggers 1 downstream reactions
-            // through port PololuControl.pololu.gyro.g.z.
-            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.pololu.gyro.g, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.g.z
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_gyro_g_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.gyro.g.x(0,1)->[PololuControl.pololu.gyro.integrator1.in(0,1)] and PololuControl.pololu.gyro.integrator1.in(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.gyro.integrator1.in(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.gyro.integrator1.in's trigger struct.
-                pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_gyro_integrator1_self[dst_runtime]->_lf__in;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.gyro.g.y(0,1)->[PololuControl.pololu.gyro.integrator2.in(0,1)] and PololuControl.pololu.gyro.integrator2.in(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.gyro.integrator2.in(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.gyro.integrator2.in's trigger struct.
-                pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_gyro_integrator2_self[dst_runtime]->_lf__in;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-        // Iterate over ranges PololuControl.pololu.gyro.g.z(0,1)->[PololuControl.pololu.gyro.integrator3.in(0,1)] and PololuControl.pololu.gyro.integrator3.in(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.gyro.integrator3.in(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.gyro.integrator3.in's trigger struct.
-                pololucontrol_pololu_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_gyro_integrator3_self[dst_runtime]->_lf__in;
-            }
-        }
-    }
-    
-    // **** End of non-nested deferred initialize for PololuControl.pololu.gyro.g
-    // **** Start non-nested deferred initialize for PololuControl.pololu.gyro.integrator1
-    
-    pololucontrol_pololu_gyro_integrator1_self[0]->_lf_out._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_integrator1_self[0];
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-    }
-    
-    // **** End of non-nested deferred initialize for PololuControl.pololu.gyro.integrator1
-    // **** Start non-nested deferred initialize for PololuControl.pololu.gyro.integrator2
-    
-    pololucontrol_pololu_gyro_integrator2_self[0]->_lf_out._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_integrator2_self[0];
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-    }
-    
-    // **** End of non-nested deferred initialize for PololuControl.pololu.gyro.integrator2
-    // **** Start non-nested deferred initialize for PololuControl.pololu.gyro.integrator3
-    
-    // For reference counting, set num_destinations for port PololuControl.pololu.gyro.integrator3.out.
-    // Iterate over range PololuControl.pololu.gyro.integrator3.out(0,1)->[PololuControl.pololu.gyro.z(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf_out._base.num_destinations = 1;
-        pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf_out._base.source_reactor = (self_base_t*)pololucontrol_pololu_gyro_integrator3_self[src_runtime];
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.gyro.integrator3.out(0,1)->[PololuControl.pololu.gyro.z(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl.pololu.gyro.integrator3 triggers 1 downstream reactions
-            // through port PololuControl.pololu.gyro.integrator3.out.
-            pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl.pololu.gyro.integrator3, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.gyro.integrator3.out
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_gyro_integrator3_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.gyro.integrator3.out(0,1)->[PololuControl.pololu.gyro.z(0,1)] and PololuControl.pololu.gyro.z(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.gyro.z(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.pololu.gyro.integrator3.out has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_pololu_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_self[dst_runtime]->_lf_gyro.z_trigger;
-            }
-        }
-    }
-    
-    // **** End of non-nested deferred initialize for PololuControl.pololu.gyro.integrator3
-    // **** End of non-nested deferred initialize for PololuControl.pololu.gyro
-    // **** Start non-nested deferred initialize for PololuControl.pololu.encoders
-    
-    // For reference counting, set num_destinations for port PololuControl.pololu.encoders.right.
-    // Iterate over range PololuControl.pololu.encoders.right(0,1)->[PololuControl.pololu.motors.right(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_encoders_self[src_runtime]->_lf_right._base.num_destinations = 1;
-        pololucontrol_pololu_encoders_self[src_runtime]->_lf_right._base.source_reactor = (self_base_t*)pololucontrol_pololu_encoders_self[src_runtime];
-    }
-    // For reference counting, set num_destinations for port PololuControl.pololu.encoders.left.
-    // Iterate over range PololuControl.pololu.encoders.left(0,1)->[PololuControl.pololu.motors.left(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_encoders_self[src_runtime]->_lf_left._base.num_destinations = 1;
-        pololucontrol_pololu_encoders_self[src_runtime]->_lf_left._base.source_reactor = (self_base_t*)pololucontrol_pololu_encoders_self[src_runtime];
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.encoders.left(0,1)->[PololuControl.pololu.motors.left(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.pololu.encoders triggers 1 downstream reactions
-            // through port PololuControl.pololu.encoders.left.
-            pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.pololu.encoders, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.encoders.left
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_encoders_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.encoders.right(0,1)->[PololuControl.pololu.motors.right(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.pololu.encoders triggers 1 downstream reactions
-            // through port PololuControl.pololu.encoders.right.
-            pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.pololu.encoders, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.encoders.right
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_encoders_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.encoders.left(0,1)->[PololuControl.pololu.motors.left(0,1)] and PololuControl.pololu.motors.left(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.left(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.left's trigger struct.
-                pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__left;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.encoders.right(0,1)->[PololuControl.pololu.motors.right(0,1)] and PololuControl.pololu.motors.right(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.right(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.right's trigger struct.
-                pololucontrol_pololu_encoders_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_self[dst_runtime]->_lf__right;
-            }
-        }
-    }
-    
-    // **** End of non-nested deferred initialize for PololuControl.pololu.encoders
-    // **** Start non-nested deferred initialize for PololuControl.pololu.motors
-    // Set number of destination reactors for port control_left.err.
-    // Iterate over range PololuControl.pololu.motors.control_left.err(0,1)->[PololuControl.pololu.motors.control_left.err(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_motors_self[src_runtime]->_lf_control_left.err._base.num_destinations = 1;
-        pololucontrol_pololu_motors_self[src_runtime]->_lf_control_left.err._base.source_reactor = (self_base_t*)pololucontrol_pololu_motors_self[src_runtime];
-    }
-    // Set number of destination reactors for port control_right.err.
-    // Iterate over range PololuControl.pololu.motors.control_right.err(0,1)->[PololuControl.pololu.motors.control_right.err(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_motors_self[src_runtime]->_lf_control_right.err._base.num_destinations = 1;
-        pololucontrol_pololu_motors_self[src_runtime]->_lf_control_right.err._base.source_reactor = (self_base_t*)pololucontrol_pololu_motors_self[src_runtime];
-    }
-    
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.motors.control_left.err(0,1)->[PololuControl.pololu.motors.control_left.err(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 2 of PololuControl.pololu.motors triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.control_left.err.
-            pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 2 of PololuControl.pololu.motors, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.control_left.err
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_motors_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        // Iterate over range PololuControl.pololu.motors.control_right.err(0,1)->[PololuControl.pololu.motors.control_right.err(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 2 of PololuControl.pololu.motors triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.control_right.err.
-            pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 2 of PololuControl.pololu.motors, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.control_right.err
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_motors_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.motors.control_left.err(0,1)->[PololuControl.pololu.motors.control_left.err(0,1)] and PololuControl.pololu.motors.control_left.err(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.control_left.err(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.control_left.err's trigger struct.
-                pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_control_left_self[dst_runtime]->_lf__err;
-            }
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-        // Iterate over ranges PololuControl.pololu.motors.control_right.err(0,1)->[PololuControl.pololu.motors.control_right.err(0,1)] and PololuControl.pololu.motors.control_right.err(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.control_right.err(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.control_right.err's trigger struct.
-                pololucontrol_pololu_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &_lolucontrol_pololu_motors_control_right_self[dst_runtime]->_lf__err;
-            }
-        }
-    }
-    
-    // **** Start non-nested deferred initialize for PololuControl.pololu.motors.motors
-    
-    
-    
-    
-    // **** End of non-nested deferred initialize for PololuControl.pololu.motors.motors
-    // **** Start non-nested deferred initialize for PololuControl.pololu.motors.control_left
-    
-    // For reference counting, set num_destinations for port PololuControl.pololu.motors.control_left.ctrl.
-    // Iterate over range PololuControl.pololu.motors.control_left.ctrl(0,1)->[PololuControl.pololu.motors.motors.left_power(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
-        pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)pololucontrol_pololu_motors_control_left_self[src_runtime];
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.motors.control_left.ctrl(0,1)->[PololuControl.pololu.motors.motors.left_power(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl.pololu.motors.control_left triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.control_left.ctrl.
-            pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl.pololu.motors.control_left, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.control_left.ctrl
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_pololu_motors_control_left_self[src_runtime]->base.allocations); 
-            pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.motors.control_left.ctrl(0,1)->[PololuControl.pololu.motors.motors.left_power(0,1)] and PololuControl.pololu.motors.motors.left_power(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.motors.left_power(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.motors.left_power's trigger struct.
-                pololucontrol_pololu_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_motors_self[dst_runtime]->_lf__left_power;
-            }
-        }
-    }
-    
-    // **** End of non-nested deferred initialize for PololuControl.pololu.motors.control_left
-    // **** Start non-nested deferred initialize for PololuControl.pololu.motors.control_right
-    
-    // For reference counting, set num_destinations for port PololuControl.pololu.motors.control_right.ctrl.
-    // Iterate over range PololuControl.pololu.motors.control_right.ctrl(0,1)->[PololuControl.pololu.motors.motors.right_power(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
-        _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)_lolucontrol_pololu_motors_control_right_self[src_runtime];
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.pololu.motors.control_right.ctrl(0,1)->[PololuControl.pololu.motors.motors.right_power(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 0 of PololuControl.pololu.motors.control_right triggers 1 downstream reactions
-            // through port PololuControl.pololu.motors.control_right.ctrl.
-            _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 0 of PololuControl.pololu.motors.control_right, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.pololu.motors.control_right.ctrl
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &_lolucontrol_pololu_motors_control_right_self[src_runtime]->base.allocations); 
-            _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.pololu.motors.control_right.ctrl(0,1)->[PololuControl.pololu.motors.motors.right_power(0,1)] and PololuControl.pololu.motors.motors.right_power(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.pololu.motors.motors.right_power(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Point to destination port PololuControl.pololu.motors.motors.right_power's trigger struct.
-                _lolucontrol_pololu_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_pololu_motors_motors_self[dst_runtime]->_lf__right_power;
-            }
-        }
-    }
-    
-    // **** End of non-nested deferred initialize for PololuControl.pololu.motors.control_right
-    // **** End of non-nested deferred initialize for PololuControl.pololu.motors
-    // **** End of non-nested deferred initialize for PololuControl.pololu
-    // **** Start non-nested deferred initialize for PololuControl.bluetooth
-    
-    // For reference counting, set num_destinations for port PololuControl.bluetooth.incoming_message.
-    // Iterate over range PololuControl.bluetooth.incoming_message(0,1)->[PololuControl.bluetooth.incoming_message(0,1)].
-    {
-        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-        pololucontrol_bluetooth_self[src_runtime]->_lf_incoming_message._base.num_destinations = 1;
-        pololucontrol_bluetooth_self[src_runtime]->_lf_incoming_message._base.source_reactor = (self_base_t*)pololucontrol_bluetooth_self[src_runtime];
-    }
-    {
-        int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-        // Iterate over range PololuControl.bluetooth.incoming_message(0,1)->[PololuControl.bluetooth.incoming_message(0,1)].
-        {
-            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            // Reaction 1 of PololuControl.bluetooth triggers 1 downstream reactions
-            // through port PololuControl.bluetooth.incoming_message.
-            pololucontrol_bluetooth_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-            // For reaction 1 of PololuControl.bluetooth, allocate an
-            // array of trigger pointers for downstream reactions through port PololuControl.bluetooth.incoming_message
-            trigger_t** trigger_array = (trigger_t**)_lf_allocate(
-                    1, sizeof(trigger_t*),
-                    &pololucontrol_bluetooth_self[src_runtime]->base.allocations); 
-            pololucontrol_bluetooth_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-        }
-        for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-        // Iterate over ranges PololuControl.bluetooth.incoming_message(0,1)->[PololuControl.bluetooth.incoming_message(0,1)] and PololuControl.bluetooth.incoming_message(0,1).
-        {
-            int src_runtime = 0; // Runtime index.
-            SUPPRESS_UNUSED_WARNING(src_runtime);
-            int src_channel = 0; // Channel index.
-            SUPPRESS_UNUSED_WARNING(src_channel);
-            int src_bank = 0; // Bank index.
-            SUPPRESS_UNUSED_WARNING(src_bank);
-            // Iterate over range PololuControl.bluetooth.incoming_message(0,1).
-            {
-                int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                // Port PololuControl.bluetooth.incoming_message has reactions in its parent's parent.
-                // Point to the trigger struct for those reactions.
-                pololucontrol_bluetooth_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pololucontrol_main_self[dst_runtime]->_lf_bluetooth.incoming_message_trigger;
-            }
-        }
-    }
-    
-    // **** End of non-nested deferred initialize for PololuControl.bluetooth
-    // **** Start non-nested deferred initialize for PololuControl.disp
-    
-    
-    
-    
-    // **** End of non-nested deferred initialize for PololuControl.disp
     // **** End of non-nested deferred initialize for PololuControl
     // Connect inputs and outputs for reactor PololuControl.
     // Connect inputs and outputs for reactor PololuControl.pololu.
@@ -2991,6 +3296,24 @@ void _lf_initialize_trigger_objects() {
             pololucontrol_pololu_self[dst_runtime]->_lf_drive_amount = (_pololu_drive_amount_t*)&pololucontrol_main_self[src_runtime]->_lf_pololu.drive_amount;
         }
     }
+    // Connect PololuControl.pololu.speed(0,1)->[PololuControl.pololu.speed(0,1)] to port PololuControl.pololu.speed(0,1)
+    // Iterate over ranges PololuControl.pololu.speed(0,1)->[PololuControl.pololu.speed(0,1)] and PololuControl.pololu.speed(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range PololuControl.pololu.speed(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            pololucontrol_pololu_self[dst_runtime]->_lf_speed = (_pololu_speed_t*)&pololucontrol_main_self[src_runtime]->_lf_pololu.speed;
+        }
+    }
     // Connect PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] to port PololuControl.pololu.facing_angle(0,1)
     // Iterate over ranges PololuControl.pololu.facing_angle(0,1)->[PololuControl.pololu.facing_angle(0,1)] and PololuControl.pololu.facing_angle(0,1).
     {
@@ -3025,6 +3348,24 @@ void _lf_initialize_trigger_objects() {
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
             pololucontrol_main_self[dst_runtime]->_lf_pololu.current_mode = (_pololu_current_mode_t*)&pololucontrol_pololu_self[src_runtime]->_lf_current_mode;
+        }
+    }
+    // Connect PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)] to port PololuControl.pololu.completion_notify(0,1)
+    // Iterate over ranges PololuControl.pololu.completion_notify(0,1)->[PololuControl.pololu.completion_notify(0,1)] and PololuControl.pololu.completion_notify(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range PololuControl.pololu.completion_notify(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            pololucontrol_main_self[dst_runtime]->_lf_pololu.completion_notify = (_pololu_completion_notify_t*)&pololucontrol_pololu_self[src_runtime]->_lf_completion_notify;
         }
     }
     // Connect inputs and outputs for reactor PololuControl.pololu.gyro.
@@ -3401,6 +3742,7 @@ void _lf_initialize_trigger_objects() {
             pololucontrol_disp_self[dst_runtime]->_lf_line3 = (_display_line3_t*)&pololucontrol_main_self[src_runtime]->_lf_disp.line3;
         }
     }
+    // Connect inputs and outputs for reactor PololuControl.lights.
     {
         {
             {
@@ -3615,6 +3957,8 @@ void _lf_initialize_trigger_objects() {
     }
     {
     }
+    {
+    }
     // Add port PololuControl.disp.line0 to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
@@ -3641,14 +3985,27 @@ void _lf_initialize_trigger_objects() {
             }
         }
     }
+    // Add port PololuControl.pololu.speed to array of is_present fields.
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            {
+                envs[pololucontrol_main].is_present_fields[18 + count] = &pololucontrol_main_self[0]->_lf_pololu.speed.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                envs[pololucontrol_main]._lf_intended_tag_fields[18 + count] = &pololucontrol_main_self[0]->_lf_pololu.speed.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
+    }
     // Add port PololuControl.pololu.drive_mode to array of is_present fields.
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[pololucontrol_main].is_present_fields[18 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_mode.is_present;
+                envs[pololucontrol_main].is_present_fields[19 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_mode.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[pololucontrol_main]._lf_intended_tag_fields[18 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_mode.intended_tag;
+                envs[pololucontrol_main]._lf_intended_tag_fields[19 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_mode.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -3659,9 +4016,9 @@ void _lf_initialize_trigger_objects() {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[pololucontrol_main].is_present_fields[19 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_direction.is_present;
+                envs[pololucontrol_main].is_present_fields[20 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_direction.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[pololucontrol_main]._lf_intended_tag_fields[19 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_direction.intended_tag;
+                envs[pololucontrol_main]._lf_intended_tag_fields[20 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_direction.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -3672,22 +4029,9 @@ void _lf_initialize_trigger_objects() {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             {
-                envs[pololucontrol_main].is_present_fields[20 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_amount.is_present;
+                envs[pololucontrol_main].is_present_fields[21 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_amount.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                envs[pololucontrol_main]._lf_intended_tag_fields[20 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_amount.intended_tag;
-                #endif // FEDERATED_DECENTRALIZED
-                count++;
-            }
-        }
-    }
-    // Add port PololuControl.bluetooth.outgoing_message to array of is_present fields.
-    {
-        int count = 0; SUPPRESS_UNUSED_WARNING(count);
-        {
-            {
-                envs[pololucontrol_main].is_present_fields[21 + count] = &pololucontrol_main_self[0]->_lf_bluetooth.outgoing_message.is_present;
-                #ifdef FEDERATED_DECENTRALIZED
-                envs[pololucontrol_main]._lf_intended_tag_fields[21 + count] = &pololucontrol_main_self[0]->_lf_bluetooth.outgoing_message.intended_tag;
+                envs[pololucontrol_main]._lf_intended_tag_fields[21 + count] = &pololucontrol_main_self[0]->_lf_pololu.drive_amount.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -3719,21 +4063,41 @@ void _lf_initialize_trigger_objects() {
             }
         }
     }
+    // Add port PololuControl.bluetooth.outgoing_message to array of is_present fields.
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            {
+                envs[pololucontrol_main].is_present_fields[24 + count] = &pololucontrol_main_self[0]->_lf_bluetooth.outgoing_message.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                envs[pololucontrol_main]._lf_intended_tag_fields[24 + count] = &pololucontrol_main_self[0]->_lf_bluetooth.outgoing_message.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
+    }
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             // Add port PololuControl.pololu.facing_angle to array of is_present fields.
-            envs[pololucontrol_main].is_present_fields[24 + count] = &pololucontrol_pololu_self[0]->_lf_facing_angle.is_present;
+            envs[pololucontrol_main].is_present_fields[25 + count] = &pololucontrol_pololu_self[0]->_lf_facing_angle.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add port PololuControl.pololu.facing_angle to array of intended_tag fields.
-            envs[pololucontrol_main]._lf_intended_tag_fields[24 + count] = &pololucontrol_pololu_self[0]->_lf_facing_angle.intended_tag;
+            envs[pololucontrol_main]._lf_intended_tag_fields[25 + count] = &pololucontrol_pololu_self[0]->_lf_facing_angle.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
             // Add port PololuControl.pololu.current_mode to array of is_present fields.
-            envs[pololucontrol_main].is_present_fields[24 + count] = &pololucontrol_pololu_self[0]->_lf_current_mode.is_present;
+            envs[pololucontrol_main].is_present_fields[25 + count] = &pololucontrol_pololu_self[0]->_lf_current_mode.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add port PololuControl.pololu.current_mode to array of intended_tag fields.
-            envs[pololucontrol_main]._lf_intended_tag_fields[24 + count] = &pololucontrol_pololu_self[0]->_lf_current_mode.intended_tag;
+            envs[pololucontrol_main]._lf_intended_tag_fields[25 + count] = &pololucontrol_pololu_self[0]->_lf_current_mode.intended_tag;
+            #endif // FEDERATED_DECENTRALIZED
+            count++;
+            // Add port PololuControl.pololu.completion_notify to array of is_present fields.
+            envs[pololucontrol_main].is_present_fields[25 + count] = &pololucontrol_pololu_self[0]->_lf_completion_notify.is_present;
+            #ifdef FEDERATED_DECENTRALIZED
+            // Add port PololuControl.pololu.completion_notify to array of intended_tag fields.
+            envs[pololucontrol_main]._lf_intended_tag_fields[25 + count] = &pololucontrol_pololu_self[0]->_lf_completion_notify.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
         }
@@ -3742,10 +4106,10 @@ void _lf_initialize_trigger_objects() {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             // Add port PololuControl.bluetooth.incoming_message to array of is_present fields.
-            envs[pololucontrol_main].is_present_fields[26 + count] = &pololucontrol_bluetooth_self[0]->_lf_incoming_message.is_present;
+            envs[pololucontrol_main].is_present_fields[28 + count] = &pololucontrol_bluetooth_self[0]->_lf_incoming_message.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add port PololuControl.bluetooth.incoming_message to array of intended_tag fields.
-            envs[pololucontrol_main]._lf_intended_tag_fields[26 + count] = &pololucontrol_bluetooth_self[0]->_lf_incoming_message.intended_tag;
+            envs[pololucontrol_main]._lf_intended_tag_fields[28 + count] = &pololucontrol_bluetooth_self[0]->_lf_incoming_message.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
         }
@@ -3758,13 +4122,17 @@ void _lf_initialize_trigger_objects() {
         // deadline 9223372036854775807 shifted left 16 bits.
         pololucontrol_main_self[0]->_lf__reaction_0.index = 0xffffffffffff0002LL;
         pololucontrol_main_self[0]->_lf__reaction_1.chain_id = 1;
-        // index is the OR of level 9 and 
-        // deadline 9223372036854775807 shifted left 16 bits.
-        pololucontrol_main_self[0]->_lf__reaction_1.index = 0xffffffffffff0009LL;
-        pololucontrol_main_self[0]->_lf__reaction_2.chain_id = 1;
         // index is the OR of level 10 and 
         // deadline 9223372036854775807 shifted left 16 bits.
-        pololucontrol_main_self[0]->_lf__reaction_2.index = 0xffffffffffff000aLL;
+        pololucontrol_main_self[0]->_lf__reaction_1.index = 0xffffffffffff000aLL;
+        pololucontrol_main_self[0]->_lf__reaction_2.chain_id = 1;
+        // index is the OR of level 11 and 
+        // deadline 9223372036854775807 shifted left 16 bits.
+        pololucontrol_main_self[0]->_lf__reaction_2.index = 0xffffffffffff000bLL;
+        pololucontrol_main_self[0]->_lf__reaction_3.chain_id = 1;
+        // index is the OR of level 12 and 
+        // deadline 9223372036854775807 shifted left 16 bits.
+        pololucontrol_main_self[0]->_lf__reaction_3.index = 0xffffffffffff000cLL;
     
         // Set reaction priorities for ReactorInstance PololuControl.pololu
         {
@@ -3796,6 +4164,10 @@ void _lf_initialize_trigger_objects() {
             // index is the OR of level 8 and 
             // deadline 9223372036854775807 shifted left 16 bits.
             pololucontrol_pololu_self[0]->_lf__reaction_6.index = 0xffffffffffff0008LL;
+            pololucontrol_pololu_self[0]->_lf__reaction_7.chain_id = 1;
+            // index is the OR of level 9 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            pololucontrol_pololu_self[0]->_lf__reaction_7.index = 0xffffffffffff0009LL;
         
             // Set reaction priorities for ReactorInstance PololuControl.pololu.gyro
             {
@@ -3858,17 +4230,17 @@ void _lf_initialize_trigger_objects() {
             // Set reaction priorities for ReactorInstance PololuControl.pololu.motors
             {
                 pololucontrol_pololu_motors_self[0]->_lf__reaction_0.chain_id = 1;
-                // index is the OR of level 9 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                pololucontrol_pololu_motors_self[0]->_lf__reaction_0.index = 0xffffffffffff0009LL;
-                pololucontrol_pololu_motors_self[0]->_lf__reaction_1.chain_id = 1;
                 // index is the OR of level 10 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                pololucontrol_pololu_motors_self[0]->_lf__reaction_1.index = 0xffffffffffff000aLL;
-                pololucontrol_pololu_motors_self[0]->_lf__reaction_2.chain_id = 1;
+                pololucontrol_pololu_motors_self[0]->_lf__reaction_0.index = 0xffffffffffff000aLL;
+                pololucontrol_pololu_motors_self[0]->_lf__reaction_1.chain_id = 1;
                 // index is the OR of level 11 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                pololucontrol_pololu_motors_self[0]->_lf__reaction_2.index = 0xffffffffffff000bLL;
+                pololucontrol_pololu_motors_self[0]->_lf__reaction_1.index = 0xffffffffffff000bLL;
+                pololucontrol_pololu_motors_self[0]->_lf__reaction_2.chain_id = 1;
+                // index is the OR of level 12 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                pololucontrol_pololu_motors_self[0]->_lf__reaction_2.index = 0xffffffffffff000cLL;
             
                 // Set reaction priorities for ReactorInstance PololuControl.pololu.motors.motors
                 {
@@ -3877,31 +4249,31 @@ void _lf_initialize_trigger_objects() {
                     // deadline 9223372036854775807 shifted left 16 bits.
                     pololucontrol_pololu_motors_motors_self[0]->_lf__reaction_0.index = 0xffffffffffff0000LL;
                     pololucontrol_pololu_motors_motors_self[0]->_lf__reaction_1.chain_id = 1;
-                    // index is the OR of level 13 and 
-                    // deadline 9223372036854775807 shifted left 16 bits.
-                    pololucontrol_pololu_motors_motors_self[0]->_lf__reaction_1.index = 0xffffffffffff000dLL;
-                    pololucontrol_pololu_motors_motors_self[0]->_lf__reaction_2.chain_id = 1;
                     // index is the OR of level 14 and 
                     // deadline 9223372036854775807 shifted left 16 bits.
-                    pololucontrol_pololu_motors_motors_self[0]->_lf__reaction_2.index = 0xffffffffffff000eLL;
+                    pololucontrol_pololu_motors_motors_self[0]->_lf__reaction_1.index = 0xffffffffffff000eLL;
+                    pololucontrol_pololu_motors_motors_self[0]->_lf__reaction_2.chain_id = 1;
+                    // index is the OR of level 15 and 
+                    // deadline 9223372036854775807 shifted left 16 bits.
+                    pololucontrol_pololu_motors_motors_self[0]->_lf__reaction_2.index = 0xffffffffffff000fLL;
                 }
             
             
                 // Set reaction priorities for ReactorInstance PololuControl.pololu.motors.control_left
                 {
                     pololucontrol_pololu_motors_control_left_self[0]->_lf__reaction_0.chain_id = 1;
-                    // index is the OR of level 12 and 
+                    // index is the OR of level 13 and 
                     // deadline 9223372036854775807 shifted left 16 bits.
-                    pololucontrol_pololu_motors_control_left_self[0]->_lf__reaction_0.index = 0xffffffffffff000cLL;
+                    pololucontrol_pololu_motors_control_left_self[0]->_lf__reaction_0.index = 0xffffffffffff000dLL;
                 }
             
             
                 // Set reaction priorities for ReactorInstance PololuControl.pololu.motors.control_right
                 {
                     _lolucontrol_pololu_motors_control_right_self[0]->_lf__reaction_0.chain_id = 1;
-                    // index is the OR of level 12 and 
+                    // index is the OR of level 13 and 
                     // deadline 9223372036854775807 shifted left 16 bits.
-                    _lolucontrol_pololu_motors_control_right_self[0]->_lf__reaction_0.index = 0xffffffffffff000cLL;
+                    _lolucontrol_pololu_motors_control_right_self[0]->_lf__reaction_0.index = 0xffffffffffff000dLL;
                 }
             
             }
@@ -3920,9 +4292,9 @@ void _lf_initialize_trigger_objects() {
             // deadline 9223372036854775807 shifted left 16 bits.
             pololucontrol_bluetooth_self[0]->_lf__reaction_1.index = 0xffffffffffff0001LL;
             pololucontrol_bluetooth_self[0]->_lf__reaction_2.chain_id = 1;
-            // index is the OR of level 3 and 
+            // index is the OR of level 13 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            pololucontrol_bluetooth_self[0]->_lf__reaction_2.index = 0xffffffffffff0003LL;
+            pololucontrol_bluetooth_self[0]->_lf__reaction_2.index = 0xffffffffffff000dLL;
         }
     
     
@@ -3933,9 +4305,22 @@ void _lf_initialize_trigger_objects() {
             // deadline 9223372036854775807 shifted left 16 bits.
             pololucontrol_disp_self[0]->_lf__reaction_0.index = 0xffffffffffff0000LL;
             pololucontrol_disp_self[0]->_lf__reaction_1.chain_id = 1;
-            // index is the OR of level 11 and 
+            // index is the OR of level 12 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            pololucontrol_disp_self[0]->_lf__reaction_1.index = 0xffffffffffff000bLL;
+            pololucontrol_disp_self[0]->_lf__reaction_1.index = 0xffffffffffff000cLL;
+        }
+    
+    
+        // Set reaction priorities for ReactorInstance PololuControl.lights
+        {
+            pololucontrol_lights_self[0]->_lf__reaction_0.chain_id = 1;
+            // index is the OR of level 0 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            pololucontrol_lights_self[0]->_lf__reaction_0.index = 0xffffffffffff0000LL;
+            pololucontrol_lights_self[0]->_lf__reaction_1.chain_id = 1;
+            // index is the OR of level 1 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            pololucontrol_lights_self[0]->_lf__reaction_1.index = 0xffffffffffff0001LL;
         }
     
     }

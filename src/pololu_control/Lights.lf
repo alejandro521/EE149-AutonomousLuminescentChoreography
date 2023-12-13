@@ -1,0 +1,38 @@
+target C {
+    platform: {
+      name: "rp2040",
+      board: "pololu_3pi_2040_robot"
+    },
+    threading: false,
+  }
+  
+  preamble {=
+    #include <stdlib.h>
+    #include <stdio.h>
+    #include <pico/stdlib.h>
+    #include <hardware/gpio.h>
+  
+    #define RED_LED_PIN 7
+    #define YELLOW_LED_PIN 27
+    #define GREEN_LED_PIN 24
+  =}
+
+  reactor Lights {
+    timer t(0, 50 ms);
+
+    reaction(startup) {=
+        gpio_init(RED_LED_PIN);
+        gpio_init(YELLOW_LED_PIN);
+        gpio_init(GREEN_LED_PIN);
+  
+        gpio_set_dir(RED_LED_PIN, GPIO_OUT);
+        gpio_set_dir(YELLOW_LED_PIN, GPIO_OUT);
+        gpio_set_dir(GREEN_LED_PIN, GPIO_OUT);
+    =}
+
+    reaction(t) {=
+        gpio_put(RED_LED_PIN, !gpio_get(RED_LED_PIN));
+        gpio_put(GREEN_LED_PIN, !gpio_get(GREEN_LED_PIN));
+        gpio_put(YELLOW_LED_PIN, !gpio_get(YELLOW_LED_PIN));
+    =}
+  }

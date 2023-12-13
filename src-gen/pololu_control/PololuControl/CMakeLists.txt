@@ -61,6 +61,7 @@ add_executable(
     _picontrol.c
     _bluetooth.c
     _display.c
+    _lights.c
     PololuControl.c
 )
 
