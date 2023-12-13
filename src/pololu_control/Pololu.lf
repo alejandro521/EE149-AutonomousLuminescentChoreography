@@ -121,13 +121,7 @@ reactor Pololu {
 
   mode TURNING {
     reaction(t) gyro.z, drive_direction -> STOPPED, motors.left_speed, motors.right_speed, facing_angle, current_mode, completion_notify {=
-      if (drive_direction->value && self->z_angle > self->goal_angle) {
-        lf_set(motors.left_speed, 0);
-        lf_set(motors.right_speed, 0);
-        lf_set(current_mode, "Stopped");
-        lf_set(completion_notify, true);
-        lf_set_mode(STOPPED);
-      } else if (self->z_angle < self->goal_angle) {
+      if ((drive_direction->value && self->z_angle > self->goal_angle) || ((1-drive_direction->value) && self->z_angle < self->goal_angle)) {
         lf_set(motors.left_speed, 0);
         lf_set(motors.right_speed, 0);
         lf_set(current_mode, "Stopped");
