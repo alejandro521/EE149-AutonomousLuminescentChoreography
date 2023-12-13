@@ -29,36 +29,6 @@ target C {
     static char TURN_LEFT_COMMAND[10] = "TURN_LEFT";
     static char TURN_RIGHT_COMMAND[11] = "TURN_RIGHT";
   
-    // Function to send a message. The message that was transmitted is written to transmitted_message
-    static void transmitMessage(uart_inst_t *uart, char *message, char *transmitted_message) {
-      int index = 0;
-      while (*message && index < MAX_MSG_LENGTH) {
-        uart_putc(uart, *message);
-        transmitted_message[index] = *message;
-        index++;
-        message++;
-      }
-      uart_putc(uart, '\r'); // Carriage return
-      transmitted_message[index] = '\0';
-    }
-  
-    // Function to write response from UART to received_message
-    static void receiveMessage(uart_inst_t *uart, char *received_message) {
-      int index = 0;
-      char received_char = 'a'; //'a' is just to initialize received_char to a character that is not \r
-      char end_char = '\r';
-      if (uart_is_readable(uart)) {
-        while (received_char != end_char) { 
-          received_char = uart_getc(uart);
-          if (index < MAX_MSG_LENGTH - 1 && received_char != end_char) {
-            received_message[index] = received_char;
-            index += 1;
-          }
-        }
-      }
-      received_message[index] = '\0'; // Null terminate the string
-    }
-  
     static bool matchesCommand(command, str) {
       return strncmp(command, str, strlen(command)) == 0;
     }

@@ -1,3 +1,0 @@
-/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/pioasm/CMakeFiles/pioasm.dir
-/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/pioasm/CMakeFiles/edit_cache.dir
-/home/foobar/EE149-AutonomousLuminescentChoreography/src-gen/Choreo/build/pioasm/CMakeFiles/rebuild_cache.dir

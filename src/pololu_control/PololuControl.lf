@@ -1,0 +1,79 @@
+target C {
+  platform: {
+      name: "rp2040",
+      board: "pololu_3pi_2040_robot"
+  },
+  threading: false,
+}
+
+import Pololu from "Pololu.lf"
+import Bluetooth from "Bluetooth.lf"
+import Display from "../lib/Display.lf"
+
+preamble {=
+  #include <stdio.h>
+  #include <pico/stdlib.h>
+  #include <hardware/gpio.h>
+  
+  char TURN_LEFT_COMMAND[10] = "TURN_LEFT:";
+  char TURN_RIGHT_COMMAND[11] = "TURN_RIGHT:";
+  char MOVE_FORWARD_COMMAND[13] = "MOVE_FORWARD:";
+  char MOVE_BACKWARD_COMMAND[14] = "MOVE_BACKWARD:";
+  char STOP_COMMAND[5] = "STOP:";
+  
+  static bool matchesCommand(command, str) {
+    return strncmp(command, str, strlen(command)) == 0;
+  }
+=}
+
+main reactor {
+  pololu = new Pololu();
+  bluetooth = new Bluetooth();
+  disp = new Display();
+  timer t(0, 25 ms);
+
+  state reply:char[100];
+  state command:char[100];
+
+  reaction(t) pololu.facing_angle, pololu.current_mode -> disp.line0, disp.line1 {=
+    static char mode_buf[17];
+    snprintf(mode_buf, 17, "Mode: %d", pololu.current_mode->value);
+    lf_set(disp.line0, mode_buf);
+
+    static char angle_buf[17];
+    snprintf(angle_buf, 17, "Angle: %.2f", pololu.facing_angle->value);
+    lf_set(disp.line1, angle_buf);
+  =}
+
+  reaction(bluetooth.message_received_trigger) {=
+    strcpy(self->command, bluetooth.incoming_message);
+    float amt = 0.0f;
+    char amt_str[4];
+    strncpy(amt_str, &self->command[strlen(self->command)-3], 3);
+    amt_str[3] = '\0'; // Null-terminate the string
+    amt = atof(amt_str);
+    lf_set(pololu.drive_amount, amt);
+    if (matchesCommand(TURN_LEFT_COMMAND)) {
+      lf_set(pololu.drive_mode, 2);
+      lf_set(pololu.drive_direction, 0);
+      strcpy(self->reply, "Turned left");
+    } else if (matchesCommand(TURN_RIGHT_COMMAND)) {
+      lf_set(pololu.drive_mode, 2);
+      lf_set(pololu.drive_direction, 1);
+      strcpy(self->reply, "Turned right");
+    } else if (matchesCommand(MOVE_FORWARD_COMMAND)) {
+      lf_set(pololu.drive_mode, 1);
+      lf_set(pololu.drive_direction, 0);
+      strcpy(self->reply, "Moved forward");
+    } else if (matchesCommand(MOVE_BACKWARD_COMMAND)) {
+      lf_set(pololu.drive_mode, 1);
+      lf_set(pololu.drive_direction, 1);
+      strcpy(self->reply, "Moved backward");
+    } else if (matchesCommand(STOP_COMMAND)) {
+      lf_set(pololu.drive_mode, 0);
+      strcpy(self->reply, "Stopped");
+    } else {
+      strcpy(self->reply, "Unknown command");
+    }
+  =}
+}

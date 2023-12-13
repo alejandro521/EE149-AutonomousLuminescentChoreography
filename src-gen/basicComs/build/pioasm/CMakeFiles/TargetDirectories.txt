@@ -1,3 +1,0 @@
-/home/foobar/finalproject/src-gen/basicComs/build/pioasm/CMakeFiles/pioasm.dir
-/home/foobar/finalproject/src-gen/basicComs/build/pioasm/CMakeFiles/edit_cache.dir
-/home/foobar/finalproject/src-gen/basicComs/build/pioasm/CMakeFiles/rebuild_cache.dir

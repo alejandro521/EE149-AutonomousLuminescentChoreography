@@ -1,7 +1,7 @@
 import pololu_connection as pololu
 import time
 
-pololu_names = ["alex"]
+pololu_names = ["ashley"]
 pololu_prefix = "pololu_"
 
 # for name in pololu_names:
