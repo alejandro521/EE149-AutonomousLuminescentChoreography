@@ -18,8 +18,6 @@ def read_message(robot_name):
             message = file.read()
     except FileNotFoundError:
         message = ""
-
-    clear_file(robot_name + receive_filename_suffix)
     return message
     
 
